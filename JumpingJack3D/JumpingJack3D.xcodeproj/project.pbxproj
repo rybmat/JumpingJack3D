@@ -15,6 +15,7 @@
 		61D82386178DE0B700ABF4E4 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61D82384178DE0B700ABF4E4 /* MainMenu.xib */; };
 		61D8238E178DE3FC00ABF4E4 /* JJGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 61D8238D178DE3FB00ABF4E4 /* JJGLView.mm */; };
 		61D82390178DE6DE00ABF4E4 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61D8238F178DE6DE00ABF4E4 /* OpenGL.framework */; };
+		61D82393178DE84700ABF4E4 /* JJShaderProgram.mm in Sources */ = {isa = PBXBuildFile; fileRef = 61D82392178DE84700ABF4E4 /* JJShaderProgram.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,8 @@
 		61D8238C178DE3FB00ABF4E4 /* JJGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJGLView.h; sourceTree = "<group>"; };
 		61D8238D178DE3FB00ABF4E4 /* JJGLView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = JJGLView.mm; sourceTree = "<group>"; };
 		61D8238F178DE6DE00ABF4E4 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		61D82391178DE84700ABF4E4 /* JJShaderProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJShaderProgram.h; sourceTree = "<group>"; };
+		61D82392178DE84700ABF4E4 /* JJShaderProgram.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = JJShaderProgram.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +94,8 @@
 			children = (
 				61D82381178DE0B700ABF4E4 /* AppDelegate.h */,
 				61D8238C178DE3FB00ABF4E4 /* JJGLView.h */,
+				61D82391178DE84700ABF4E4 /* JJShaderProgram.h */,
+				61D82392178DE84700ABF4E4 /* JJShaderProgram.mm */,
 				61D8238D178DE3FB00ABF4E4 /* JJGLView.mm */,
 				61D82382178DE0B700ABF4E4 /* AppDelegate.mm */,
 				61D82384178DE0B700ABF4E4 /* MainMenu.xib */,
@@ -178,6 +183,7 @@
 				61D8237C178DE0B700ABF4E4 /* main.mm in Sources */,
 				61D82383178DE0B700ABF4E4 /* AppDelegate.mm in Sources */,
 				61D8238E178DE3FC00ABF4E4 /* JJGLView.mm in Sources */,
+				61D82393178DE84700ABF4E4 /* JJShaderProgram.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
