@@ -37,7 +37,7 @@ NSTimer *renderTimer;
 }
 
 - (void) dealloc{
-    
+ 
 }
 
 - (void) awakeFromNib{

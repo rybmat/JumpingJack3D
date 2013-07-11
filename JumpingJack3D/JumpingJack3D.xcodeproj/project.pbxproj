@@ -16,6 +16,15 @@
 		61D8238E178DE3FC00ABF4E4 /* JJGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 61D8238D178DE3FB00ABF4E4 /* JJGLView.mm */; };
 		61D82390178DE6DE00ABF4E4 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61D8238F178DE6DE00ABF4E4 /* OpenGL.framework */; };
 		61D82393178DE84700ABF4E4 /* JJShaderProgram.mm in Sources */ = {isa = PBXBuildFile; fileRef = 61D82392178DE84700ABF4E4 /* JJShaderProgram.mm */; };
+		61D82396178DF9A700ABF4E4 /* JJUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 61D82395178DF9A700ABF4E4 /* JJUtilities.m */; };
+		61D8239B178DFFFC00ABF4E4 /* JJRenderedObject.mm in Sources */ = {isa = PBXBuildFile; fileRef = 61D8239A178DFFFC00ABF4E4 /* JJRenderedObject.mm */; };
+		61D8239E178E11E800ABF4E4 /* JJStaticObject.mm in Sources */ = {isa = PBXBuildFile; fileRef = 61D8239D178E11E800ABF4E4 /* JJStaticObject.mm */; };
+		61D823A1178E135600ABF4E4 /* JJStaticPlatform.mm in Sources */ = {isa = PBXBuildFile; fileRef = 61D823A0178E135600ABF4E4 /* JJStaticPlatform.mm */; };
+		61D823A4178E137C00ABF4E4 /* JJStaticEnemy.mm in Sources */ = {isa = PBXBuildFile; fileRef = 61D823A3178E137B00ABF4E4 /* JJStaticEnemy.mm */; };
+		61D823A7178E13BE00ABF4E4 /* JJDynamicObject.mm in Sources */ = {isa = PBXBuildFile; fileRef = 61D823A6178E13BE00ABF4E4 /* JJDynamicObject.mm */; };
+		61D823AA178E13ED00ABF4E4 /* JJDynamicPlatform.mm in Sources */ = {isa = PBXBuildFile; fileRef = 61D823A9178E13ED00ABF4E4 /* JJDynamicPlatform.mm */; };
+		61D823AD178E143300ABF4E4 /* JJDynamicEnemy.mm in Sources */ = {isa = PBXBuildFile; fileRef = 61D823AC178E143300ABF4E4 /* JJDynamicEnemy.mm */; };
+		61D823B0178E149400ABF4E4 /* JJCharacter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 61D823AF178E149400ABF4E4 /* JJCharacter.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +46,24 @@
 		61D8238F178DE6DE00ABF4E4 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		61D82391178DE84700ABF4E4 /* JJShaderProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJShaderProgram.h; sourceTree = "<group>"; };
 		61D82392178DE84700ABF4E4 /* JJShaderProgram.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = JJShaderProgram.mm; sourceTree = "<group>"; };
+		61D82395178DF9A700ABF4E4 /* JJUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJUtilities.m; sourceTree = "<group>"; };
+		61D82398178DFF9E00ABF4E4 /* JJUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJUtilities.h; sourceTree = "<group>"; };
+		61D82399178DFFFC00ABF4E4 /* JJRenderedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJRenderedObject.h; sourceTree = "<group>"; };
+		61D8239A178DFFFC00ABF4E4 /* JJRenderedObject.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = JJRenderedObject.mm; sourceTree = "<group>"; };
+		61D8239C178E11E800ABF4E4 /* JJStaticObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJStaticObject.h; sourceTree = "<group>"; };
+		61D8239D178E11E800ABF4E4 /* JJStaticObject.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = JJStaticObject.mm; sourceTree = "<group>"; };
+		61D8239F178E135600ABF4E4 /* JJStaticPlatform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJStaticPlatform.h; sourceTree = "<group>"; };
+		61D823A0178E135600ABF4E4 /* JJStaticPlatform.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = JJStaticPlatform.mm; sourceTree = "<group>"; };
+		61D823A2178E137B00ABF4E4 /* JJStaticEnemy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJStaticEnemy.h; sourceTree = "<group>"; };
+		61D823A3178E137B00ABF4E4 /* JJStaticEnemy.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = JJStaticEnemy.mm; sourceTree = "<group>"; };
+		61D823A5178E13BE00ABF4E4 /* JJDynamicObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJDynamicObject.h; sourceTree = "<group>"; };
+		61D823A6178E13BE00ABF4E4 /* JJDynamicObject.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = JJDynamicObject.mm; sourceTree = "<group>"; };
+		61D823A8178E13ED00ABF4E4 /* JJDynamicPlatform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJDynamicPlatform.h; sourceTree = "<group>"; };
+		61D823A9178E13ED00ABF4E4 /* JJDynamicPlatform.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = JJDynamicPlatform.mm; sourceTree = "<group>"; };
+		61D823AB178E143300ABF4E4 /* JJDynamicEnemy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJDynamicEnemy.h; sourceTree = "<group>"; };
+		61D823AC178E143300ABF4E4 /* JJDynamicEnemy.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = JJDynamicEnemy.mm; sourceTree = "<group>"; };
+		61D823AE178E149400ABF4E4 /* JJCharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJCharacter.h; sourceTree = "<group>"; };
+		61D823AF178E149400ABF4E4 /* JJCharacter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = JJCharacter.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,13 +119,31 @@
 		61D82375178DE0B700ABF4E4 /* JumpingJack3D */ = {
 			isa = PBXGroup;
 			children = (
-				61D82381178DE0B700ABF4E4 /* AppDelegate.h */,
 				61D8238C178DE3FB00ABF4E4 /* JJGLView.h */,
+				61D8238D178DE3FB00ABF4E4 /* JJGLView.mm */,
 				61D82391178DE84700ABF4E4 /* JJShaderProgram.h */,
 				61D82392178DE84700ABF4E4 /* JJShaderProgram.mm */,
-				61D8238D178DE3FB00ABF4E4 /* JJGLView.mm */,
+				61D82399178DFFFC00ABF4E4 /* JJRenderedObject.h */,
+				61D8239A178DFFFC00ABF4E4 /* JJRenderedObject.mm */,
+				61D8239C178E11E800ABF4E4 /* JJStaticObject.h */,
+				61D8239D178E11E800ABF4E4 /* JJStaticObject.mm */,
+				61D8239F178E135600ABF4E4 /* JJStaticPlatform.h */,
+				61D823A0178E135600ABF4E4 /* JJStaticPlatform.mm */,
+				61D823A2178E137B00ABF4E4 /* JJStaticEnemy.h */,
+				61D823A3178E137B00ABF4E4 /* JJStaticEnemy.mm */,
+				61D823A5178E13BE00ABF4E4 /* JJDynamicObject.h */,
+				61D823A6178E13BE00ABF4E4 /* JJDynamicObject.mm */,
+				61D823A8178E13ED00ABF4E4 /* JJDynamicPlatform.h */,
+				61D823A9178E13ED00ABF4E4 /* JJDynamicPlatform.mm */,
+				61D823AB178E143300ABF4E4 /* JJDynamicEnemy.h */,
+				61D823AC178E143300ABF4E4 /* JJDynamicEnemy.mm */,
+				61D823AE178E149400ABF4E4 /* JJCharacter.h */,
+				61D823AF178E149400ABF4E4 /* JJCharacter.mm */,
+				61D82381178DE0B700ABF4E4 /* AppDelegate.h */,
 				61D82382178DE0B700ABF4E4 /* AppDelegate.mm */,
 				61D82384178DE0B700ABF4E4 /* MainMenu.xib */,
+				61D82395178DF9A700ABF4E4 /* JJUtilities.m */,
+				61D82398178DFF9E00ABF4E4 /* JJUtilities.h */,
 				61D82376178DE0B700ABF4E4 /* Supporting Files */,
 			);
 			path = JumpingJack3D;
@@ -184,6 +229,15 @@
 				61D82383178DE0B700ABF4E4 /* AppDelegate.mm in Sources */,
 				61D8238E178DE3FC00ABF4E4 /* JJGLView.mm in Sources */,
 				61D82393178DE84700ABF4E4 /* JJShaderProgram.mm in Sources */,
+				61D82396178DF9A700ABF4E4 /* JJUtilities.m in Sources */,
+				61D8239B178DFFFC00ABF4E4 /* JJRenderedObject.mm in Sources */,
+				61D8239E178E11E800ABF4E4 /* JJStaticObject.mm in Sources */,
+				61D823A1178E135600ABF4E4 /* JJStaticPlatform.mm in Sources */,
+				61D823A4178E137C00ABF4E4 /* JJStaticEnemy.mm in Sources */,
+				61D823A7178E13BE00ABF4E4 /* JJDynamicObject.mm in Sources */,
+				61D823AA178E13ED00ABF4E4 /* JJDynamicPlatform.mm in Sources */,
+				61D823AD178E143300ABF4E4 /* JJDynamicEnemy.mm in Sources */,
+				61D823B0178E149400ABF4E4 /* JJCharacter.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
