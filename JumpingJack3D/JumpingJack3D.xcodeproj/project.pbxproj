@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6130D165178EED0B004F2FA5 /* Platform_VertexShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 6130D164178EED0B004F2FA5 /* Platform_VertexShader.glsl */; };
+		6130D167178EEF2F004F2FA5 /* Platform_FragmentShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 6130D166178EEF2F004F2FA5 /* Platform_FragmentShader.glsl */; };
 		61D82370178DE0B700ABF4E4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61D8236F178DE0B700ABF4E4 /* Cocoa.framework */; };
 		61D8237A178DE0B700ABF4E4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 61D82378178DE0B700ABF4E4 /* InfoPlist.strings */; };
 		61D8237C178DE0B700ABF4E4 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 61D8237B178DE0B700ABF4E4 /* main.mm */; };
@@ -28,6 +30,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6130D164178EED0B004F2FA5 /* Platform_VertexShader.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Platform_VertexShader.glsl; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.glsl; };
+		6130D166178EEF2F004F2FA5 /* Platform_FragmentShader.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Platform_FragmentShader.glsl; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.glsl; };
 		61D8236C178DE0B700ABF4E4 /* JumpingJack3D.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JumpingJack3D.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61D8236F178DE0B700ABF4E4 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		61D82372178DE0B700ABF4E4 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -79,6 +83,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6130D168178EF36F004F2FA5 /* shaders */ = {
+			isa = PBXGroup;
+			children = (
+				6130D164178EED0B004F2FA5 /* Platform_VertexShader.glsl */,
+				6130D166178EEF2F004F2FA5 /* Platform_FragmentShader.glsl */,
+			);
+			name = shaders;
+			sourceTree = "<group>";
+		};
 		61D82363178DE0B700ABF4E4 = {
 			isa = PBXGroup;
 			children = (
@@ -119,6 +132,7 @@
 		61D82375178DE0B700ABF4E4 /* JumpingJack3D */ = {
 			isa = PBXGroup;
 			children = (
+				6130D168178EF36F004F2FA5 /* shaders */,
 				61D8238C178DE3FB00ABF4E4 /* JJGLView.h */,
 				61D8238D178DE3FB00ABF4E4 /* JJGLView.mm */,
 				61D82391178DE84700ABF4E4 /* JJShaderProgram.h */,
@@ -215,6 +229,8 @@
 				61D8237A178DE0B700ABF4E4 /* InfoPlist.strings in Resources */,
 				61D82380178DE0B700ABF4E4 /* Credits.rtf in Resources */,
 				61D82386178DE0B700ABF4E4 /* MainMenu.xib in Resources */,
+				6130D165178EED0B004F2FA5 /* Platform_VertexShader.glsl in Resources */,
+				6130D167178EEF2F004F2FA5 /* Platform_FragmentShader.glsl in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -373,6 +389,7 @@
 				61D8238B178DE0B700ABF4E4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

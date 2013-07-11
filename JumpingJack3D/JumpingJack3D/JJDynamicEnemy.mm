@@ -91,6 +91,7 @@ GLuint dynamicEnemyBufTexCoords;
 	glUniformMatrix4fv([[self shaderProgram] getUniformLocation:"M"],1, false, glm::value_ptr([self matM]));
 	glUniform1i([[self shaderProgram] getUniformLocation:"textureMap0"], 0);
     
+    //światła !!!!!!
     
     glBindVertexArray(dynamicEnemyVao);
     

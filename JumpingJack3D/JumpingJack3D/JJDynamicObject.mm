@@ -52,46 +52,58 @@ glm::vec4 dynamicObjectActualPosition;
         
         if(dynamicObjectActualPosition.x < [self pathPointB].x){
             step.x = DYNAMIC_OBJECT_STEP_SIZE;
+            dynamicObjectActualPosition.x += DYNAMIC_OBJECT_STEP_SIZE;
         }
         if(dynamicObjectActualPosition.x > [self pathPointB].x){
             step.x = -DYNAMIC_OBJECT_STEP_SIZE;
+            dynamicObjectActualPosition.x -= DYNAMIC_OBJECT_STEP_SIZE;
         }
         
         if(dynamicObjectActualPosition.y < [self pathPointB].y){
             step.y = DYNAMIC_OBJECT_STEP_SIZE;
+            dynamicObjectActualPosition.y += DYNAMIC_OBJECT_STEP_SIZE;
         }
         if(dynamicObjectActualPosition.y > [self pathPointB].y){
             step.y = -DYNAMIC_OBJECT_STEP_SIZE;
+            dynamicObjectActualPosition.y -= DYNAMIC_OBJECT_STEP_SIZE;
         }
         
         if(dynamicObjectActualPosition.z < [self pathPointB].z){
             step.z = DYNAMIC_OBJECT_STEP_SIZE;
+            dynamicObjectActualPosition.z += DYNAMIC_OBJECT_STEP_SIZE;
         }
         if(dynamicObjectActualPosition.z > [self pathPointB].z){
             step.z = -DYNAMIC_OBJECT_STEP_SIZE;
+            dynamicObjectActualPosition.z -= DYNAMIC_OBJECT_STEP_SIZE;
         }
         
     }else{
         
         if(dynamicObjectActualPosition.x < [self pathPointA].x){
             step.x = DYNAMIC_OBJECT_STEP_SIZE;
+            dynamicObjectActualPosition.x += DYNAMIC_OBJECT_STEP_SIZE;
         }
         if(dynamicObjectActualPosition.x > [self pathPointA].x){
             step.x = -DYNAMIC_OBJECT_STEP_SIZE;
+            dynamicObjectActualPosition.x -= DYNAMIC_OBJECT_STEP_SIZE;
         }
         
         if(dynamicObjectActualPosition.y < [self pathPointA].y){
             step.y = DYNAMIC_OBJECT_STEP_SIZE;
+            dynamicObjectActualPosition.y += DYNAMIC_OBJECT_STEP_SIZE;
         }
         if(dynamicObjectActualPosition.y > [self pathPointA].y){
             step.y = -DYNAMIC_OBJECT_STEP_SIZE;
+            dynamicObjectActualPosition.y -= DYNAMIC_OBJECT_STEP_SIZE;
         }
         
         if(dynamicObjectActualPosition.z < [self pathPointA].z){
             step.z = DYNAMIC_OBJECT_STEP_SIZE;
+            dynamicObjectActualPosition.z += DYNAMIC_OBJECT_STEP_SIZE;
         }
         if(dynamicObjectActualPosition.z > [self pathPointA].z){
             step.z = -DYNAMIC_OBJECT_STEP_SIZE;
+            dynamicObjectActualPosition.z -= DYNAMIC_OBJECT_STEP_SIZE;
         }
         
     }
