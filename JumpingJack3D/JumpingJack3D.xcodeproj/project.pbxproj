@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		10FE0170179379D3005A218E /* JJAssetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 10FE016F179379D3005A218E /* JJAssetManager.m */; };
+		10FE017417937A0B005A218E /* JJCamera.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10FE017317937A0B005A218E /* JJCamera.mm */; };
+		10FE017D17937AAA005A218E /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10FE017C17937AAA005A218E /* SenTestingKit.framework */; };
+		10FE017E17937AAA005A218E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61D8236F178DE0B700ABF4E4 /* Cocoa.framework */; };
+		10FE018417937AAA005A218E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 10FE018217937AAA005A218E /* InfoPlist.strings */; };
+		10FE018717937AAA005A218E /* JJUnitTesting.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10FE018617937AAA005A218E /* JJUnitTesting.mm */; };
 		6130D165178EED0B004F2FA5 /* Platform_VertexShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 6130D164178EED0B004F2FA5 /* Platform_VertexShader.glsl */; };
 		6130D167178EEF2F004F2FA5 /* Platform_FragmentShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 6130D166178EEF2F004F2FA5 /* Platform_FragmentShader.glsl */; };
 		61D82370178DE0B700ABF4E4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61D8236F178DE0B700ABF4E4 /* Cocoa.framework */; };
@@ -30,6 +36,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		10FE016E179379D3005A218E /* JJAssetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJAssetManager.h; sourceTree = "<group>"; };
+		10FE016F179379D3005A218E /* JJAssetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJAssetManager.m; sourceTree = "<group>"; };
+		10FE017217937A0B005A218E /* JJCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJCamera.h; sourceTree = "<group>"; };
+		10FE017317937A0B005A218E /* JJCamera.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = JJCamera.mm; sourceTree = "<group>"; };
+		10FE017517937A1B005A218E /* JJCameraPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJCameraPrivate.h; sourceTree = "<group>"; };
+		10FE017B17937AAA005A218E /* JJUnitTesting.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JJUnitTesting.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		10FE017C17937AAA005A218E /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		10FE018117937AAA005A218E /* JJUnitTesting-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "JJUnitTesting-Info.plist"; sourceTree = "<group>"; };
+		10FE018317937AAA005A218E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		10FE018517937AAA005A218E /* JJUnitTesting.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJUnitTesting.h; sourceTree = "<group>"; };
+		10FE018617937AAA005A218E /* JJUnitTesting.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = JJUnitTesting.mm; sourceTree = "<group>"; };
+		10FE018817937AAA005A218E /* JJUnitTesting-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JJUnitTesting-Prefix.pch"; sourceTree = "<group>"; };
 		6130D164178EED0B004F2FA5 /* Platform_VertexShader.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Platform_VertexShader.glsl; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.glsl; };
 		6130D166178EEF2F004F2FA5 /* Platform_FragmentShader.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Platform_FragmentShader.glsl; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.glsl; };
 		61D8236C178DE0B700ABF4E4 /* JumpingJack3D.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JumpingJack3D.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,6 +89,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		10FE017717937AAA005A218E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				10FE017D17937AAA005A218E /* SenTestingKit.framework in Frameworks */,
+				10FE017E17937AAA005A218E /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		61D82369178DE0B700ABF4E4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -83,6 +110,47 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		10FE016D179379AC005A218E /* AssetManager */ = {
+			isa = PBXGroup;
+			children = (
+				10FE016E179379D3005A218E /* JJAssetManager.h */,
+				10FE016F179379D3005A218E /* JJAssetManager.m */,
+				61D82391178DE84700ABF4E4 /* JJShaderProgram.h */,
+				61D82392178DE84700ABF4E4 /* JJShaderProgram.mm */,
+			);
+			name = AssetManager;
+			sourceTree = "<group>";
+		};
+		10FE0171179379F4005A218E /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				10FE017217937A0B005A218E /* JJCamera.h */,
+				10FE017317937A0B005A218E /* JJCamera.mm */,
+				10FE017517937A1B005A218E /* JJCameraPrivate.h */,
+			);
+			name = Camera;
+			sourceTree = "<group>";
+		};
+		10FE017F17937AAA005A218E /* JJUnitTesting */ = {
+			isa = PBXGroup;
+			children = (
+				10FE018517937AAA005A218E /* JJUnitTesting.h */,
+				10FE018617937AAA005A218E /* JJUnitTesting.mm */,
+				10FE018017937AAA005A218E /* Supporting Files */,
+			);
+			path = JJUnitTesting;
+			sourceTree = "<group>";
+		};
+		10FE018017937AAA005A218E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				10FE018117937AAA005A218E /* JJUnitTesting-Info.plist */,
+				10FE018217937AAA005A218E /* InfoPlist.strings */,
+				10FE018817937AAA005A218E /* JJUnitTesting-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		6130D168178EF36F004F2FA5 /* shaders */ = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +165,7 @@
 			children = (
 				61D8238F178DE6DE00ABF4E4 /* OpenGL.framework */,
 				61D82375178DE0B700ABF4E4 /* JumpingJack3D */,
+				10FE017F17937AAA005A218E /* JJUnitTesting */,
 				61D8236E178DE0B700ABF4E4 /* Frameworks */,
 				61D8236D178DE0B700ABF4E4 /* Products */,
 			);
@@ -106,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				61D8236C178DE0B700ABF4E4 /* JumpingJack3D.app */,
+				10FE017B17937AAA005A218E /* JJUnitTesting.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -114,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				61D8236F178DE0B700ABF4E4 /* Cocoa.framework */,
+				10FE017C17937AAA005A218E /* SenTestingKit.framework */,
 				61D82371178DE0B700ABF4E4 /* Other Frameworks */,
 			);
 			name = Frameworks;
@@ -132,11 +203,11 @@
 		61D82375178DE0B700ABF4E4 /* JumpingJack3D */ = {
 			isa = PBXGroup;
 			children = (
+				10FE0171179379F4005A218E /* Camera */,
+				10FE016D179379AC005A218E /* AssetManager */,
 				6130D168178EF36F004F2FA5 /* shaders */,
 				61D8238C178DE3FB00ABF4E4 /* JJGLView.h */,
 				61D8238D178DE3FB00ABF4E4 /* JJGLView.mm */,
-				61D82391178DE84700ABF4E4 /* JJShaderProgram.h */,
-				61D82392178DE84700ABF4E4 /* JJShaderProgram.mm */,
 				61D82399178DFFFC00ABF4E4 /* JJRenderedObject.h */,
 				61D8239A178DFFFC00ABF4E4 /* JJRenderedObject.mm */,
 				61D8239C178E11E800ABF4E4 /* JJStaticObject.h */,
@@ -178,6 +249,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		10FE017A17937AAA005A218E /* JJUnitTesting */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 10FE018917937AAA005A218E /* Build configuration list for PBXNativeTarget "JJUnitTesting" */;
+			buildPhases = (
+				10FE017617937AAA005A218E /* Sources */,
+				10FE017717937AAA005A218E /* Frameworks */,
+				10FE017817937AAA005A218E /* Resources */,
+				10FE017917937AAA005A218E /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JJUnitTesting;
+			productName = JJUnitTesting;
+			productReference = 10FE017B17937AAA005A218E /* JJUnitTesting.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
 		61D8236B178DE0B700ABF4E4 /* JumpingJack3D */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 61D82389178DE0B700ABF4E4 /* Build configuration list for PBXNativeTarget "JumpingJack3D" */;
@@ -217,11 +306,20 @@
 			projectRoot = "";
 			targets = (
 				61D8236B178DE0B700ABF4E4 /* JumpingJack3D */,
+				10FE017A17937AAA005A218E /* JJUnitTesting */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		10FE017817937AAA005A218E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				10FE018417937AAA005A218E /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		61D8236A178DE0B700ABF4E4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -236,7 +334,31 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		10FE017917937AAA005A218E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		10FE017617937AAA005A218E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				10FE018717937AAA005A218E /* JJUnitTesting.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		61D82368178DE0B700ABF4E4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -254,12 +376,22 @@
 				61D823AA178E13ED00ABF4E4 /* JJDynamicPlatform.mm in Sources */,
 				61D823AD178E143300ABF4E4 /* JJDynamicEnemy.mm in Sources */,
 				61D823B0178E149400ABF4E4 /* JJCharacter.mm in Sources */,
+				10FE0170179379D3005A218E /* JJAssetManager.m in Sources */,
+				10FE017417937A0B005A218E /* JJCamera.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		10FE018217937AAA005A218E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				10FE018317937AAA005A218E /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		61D82378178DE0B700ABF4E4 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -287,6 +419,36 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		10FE018A17937AAA005A218E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/JumpingJack3D.app/Contents/MacOS/JumpingJack3D";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "JJUnitTesting/JJUnitTesting-Prefix.pch";
+				INFOPLIST_FILE = "JJUnitTesting/JJUnitTesting-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		10FE018B17937AAA005A218E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/JumpingJack3D.app/Contents/MacOS/JumpingJack3D";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "JJUnitTesting/JJUnitTesting-Prefix.pch";
+				INFOPLIST_FILE = "JJUnitTesting/JJUnitTesting-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
 		61D82387178DE0B700ABF4E4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -373,6 +535,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		10FE018917937AAA005A218E /* Build configuration list for PBXNativeTarget "JJUnitTesting" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				10FE018A17937AAA005A218E /* Debug */,
+				10FE018B17937AAA005A218E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		61D82367178DE0B700ABF4E4 /* Build configuration list for PBXProject "JumpingJack3D" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
