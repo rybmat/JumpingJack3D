@@ -13,8 +13,8 @@
 		10FE017E17937AAA005A218E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61D8236F178DE0B700ABF4E4 /* Cocoa.framework */; };
 		10FE018417937AAA005A218E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 10FE018217937AAA005A218E /* InfoPlist.strings */; };
 		10FE018717937AAA005A218E /* JJUnitTesting.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10FE018617937AAA005A218E /* JJUnitTesting.mm */; };
-		6130D165178EED0B004F2FA5 /* Platform_VertexShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 6130D164178EED0B004F2FA5 /* Platform_VertexShader.glsl */; };
-		6130D167178EEF2F004F2FA5 /* Platform_FragmentShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 6130D166178EEF2F004F2FA5 /* Platform_FragmentShader.glsl */; };
+		6130D165178EED0B004F2FA5 /* platform_vertex.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 6130D164178EED0B004F2FA5 /* platform_vertex.glsl */; };
+		6130D167178EEF2F004F2FA5 /* platform_fragment.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 6130D166178EEF2F004F2FA5 /* platform_fragment.glsl */; };
 		61D82370178DE0B700ABF4E4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61D8236F178DE0B700ABF4E4 /* Cocoa.framework */; };
 		61D8237A178DE0B700ABF4E4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 61D82378178DE0B700ABF4E4 /* InfoPlist.strings */; };
 		61D8237C178DE0B700ABF4E4 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 61D8237B178DE0B700ABF4E4 /* main.mm */; };
@@ -48,8 +48,8 @@
 		10FE018517937AAA005A218E /* JJUnitTesting.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJUnitTesting.h; sourceTree = "<group>"; };
 		10FE018617937AAA005A218E /* JJUnitTesting.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = JJUnitTesting.mm; sourceTree = "<group>"; };
 		10FE018817937AAA005A218E /* JJUnitTesting-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JJUnitTesting-Prefix.pch"; sourceTree = "<group>"; };
-		6130D164178EED0B004F2FA5 /* Platform_VertexShader.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Platform_VertexShader.glsl; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.glsl; };
-		6130D166178EEF2F004F2FA5 /* Platform_FragmentShader.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Platform_FragmentShader.glsl; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.glsl; };
+		6130D164178EED0B004F2FA5 /* platform_vertex.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = platform_vertex.glsl; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.glsl; };
+		6130D166178EEF2F004F2FA5 /* platform_fragment.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = platform_fragment.glsl; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.glsl; };
 		61D8236C178DE0B700ABF4E4 /* JumpingJack3D.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JumpingJack3D.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61D8236F178DE0B700ABF4E4 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		61D82372178DE0B700ABF4E4 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -179,8 +179,8 @@
 		6130D168178EF36F004F2FA5 /* shaders */ = {
 			isa = PBXGroup;
 			children = (
-				6130D164178EED0B004F2FA5 /* Platform_VertexShader.glsl */,
-				6130D166178EEF2F004F2FA5 /* Platform_FragmentShader.glsl */,
+				6130D164178EED0B004F2FA5 /* platform_vertex.glsl */,
+				6130D166178EEF2F004F2FA5 /* platform_fragment.glsl */,
 			);
 			path = shaders;
 			sourceTree = "<group>";
@@ -352,8 +352,8 @@
 				61D8237A178DE0B700ABF4E4 /* InfoPlist.strings in Resources */,
 				61D82380178DE0B700ABF4E4 /* Credits.rtf in Resources */,
 				61D82386178DE0B700ABF4E4 /* MainMenu.xib in Resources */,
-				6130D165178EED0B004F2FA5 /* Platform_VertexShader.glsl in Resources */,
-				6130D167178EEF2F004F2FA5 /* Platform_FragmentShader.glsl in Resources */,
+				6130D165178EED0B004F2FA5 /* platform_vertex.glsl in Resources */,
+				6130D167178EEF2F004F2FA5 /* platform_fragment.glsl in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
