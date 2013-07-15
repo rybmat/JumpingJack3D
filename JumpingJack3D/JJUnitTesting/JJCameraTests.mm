@@ -1,17 +1,17 @@
 //
-//  JJUnitTesting.m
-//  JJUnitTesting
+//  JJCameraTests.mm
+//  JJCameraTests
 //
 //  Created by Maciej Żurad on 7/14/13.
 //  Copyright (c) 2013 Mateusz Rybarski. All rights reserved.
 //
 
 #import <SenTestingKit/SenTestingKit.h>
-#import "JJUnitTesting.h"
+#import "JJCameraTests.h"
 #import "JJCamera.h"
 #import "JJCameraPrivate.h"
 
-@implementation JJUnitTesting
+@implementation JJCameraTests
 
 - (NSString*)vec3toNSString:(glm::vec3)aVector
 {
@@ -224,4 +224,5 @@ bool operator==(const glm::vec3 &vecA, const glm::vec3 &vecB)
     
     STAssertTrue(backToCartesian == cartesian, @"but instead after conversion we have %@ and is %@", backToCartesianString, cartesianString);
 }
+
 @end

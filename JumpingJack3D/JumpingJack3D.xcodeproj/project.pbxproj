@@ -12,9 +12,16 @@
 		10FE017D17937AAA005A218E /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10FE017C17937AAA005A218E /* SenTestingKit.framework */; };
 		10FE017E17937AAA005A218E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61D8236F178DE0B700ABF4E4 /* Cocoa.framework */; };
 		10FE018417937AAA005A218E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 10FE018217937AAA005A218E /* InfoPlist.strings */; };
-		10FE018717937AAA005A218E /* JJUnitTesting.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10FE018617937AAA005A218E /* JJUnitTesting.mm */; };
-		6130D165178EED0B004F2FA5 /* platform_vertex.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 6130D164178EED0B004F2FA5 /* platform_vertex.glsl */; };
-		6130D167178EEF2F004F2FA5 /* platform_fragment.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 6130D166178EEF2F004F2FA5 /* platform_fragment.glsl */; };
+		10FE018717937AAA005A218E /* JJCameraTests.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10FE018617937AAA005A218E /* JJCameraTests.mm */; };
+		10FE019517938A39005A218E /* JJAssetManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 10FE019417938A39005A218E /* JJAssetManagerTests.m */; };
+		10FE0198179439A8005A218E /* ball.vsh in Sources */ = {isa = PBXBuildFile; fileRef = 10FE0197179439A8005A218E /* ball.vsh */; };
+		10FE019A179439B1005A218E /* ball.fsh in Sources */ = {isa = PBXBuildFile; fileRef = 10FE0199179439B1005A218E /* ball.fsh */; };
+		10FE019B17943E2D005A218E /* ball.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 10FE0197179439A8005A218E /* ball.vsh */; };
+		10FE019C17943E2D005A218E /* ball.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 10FE0199179439B1005A218E /* ball.fsh */; };
+		10FE019E17945ACB005A218E /* platform.png in Resources */ = {isa = PBXBuildFile; fileRef = 10FE019D17945ACB005A218E /* platform.png */; };
+		10FE01A117945C28005A218E /* JJMesh.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10FE01A017945C28005A218E /* JJMesh.mm */; };
+		6130D165178EED0B004F2FA5 /* platform.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 6130D164178EED0B004F2FA5 /* platform.vsh */; };
+		6130D167178EEF2F004F2FA5 /* platform.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 6130D166178EEF2F004F2FA5 /* platform.fsh */; };
 		61D82370178DE0B700ABF4E4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61D8236F178DE0B700ABF4E4 /* Cocoa.framework */; };
 		61D8237A178DE0B700ABF4E4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 61D82378178DE0B700ABF4E4 /* InfoPlist.strings */; };
 		61D8237C178DE0B700ABF4E4 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 61D8237B178DE0B700ABF4E4 /* main.mm */; };
@@ -45,11 +52,19 @@
 		10FE017C17937AAA005A218E /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		10FE018117937AAA005A218E /* JJUnitTesting-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "JJUnitTesting-Info.plist"; sourceTree = "<group>"; };
 		10FE018317937AAA005A218E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		10FE018517937AAA005A218E /* JJUnitTesting.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJUnitTesting.h; sourceTree = "<group>"; };
-		10FE018617937AAA005A218E /* JJUnitTesting.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = JJUnitTesting.mm; sourceTree = "<group>"; };
+		10FE018517937AAA005A218E /* JJCameraTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJCameraTests.h; sourceTree = "<group>"; };
+		10FE018617937AAA005A218E /* JJCameraTests.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = JJCameraTests.mm; sourceTree = "<group>"; };
 		10FE018817937AAA005A218E /* JJUnitTesting-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JJUnitTesting-Prefix.pch"; sourceTree = "<group>"; };
-		6130D164178EED0B004F2FA5 /* platform_vertex.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = platform_vertex.glsl; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.glsl; };
-		6130D166178EEF2F004F2FA5 /* platform_fragment.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = platform_fragment.glsl; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.glsl; };
+		10FE019317938A38005A218E /* JJAssetManagerTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJAssetManagerTests.h; sourceTree = "<group>"; };
+		10FE019417938A39005A218E /* JJAssetManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJAssetManagerTests.m; sourceTree = "<group>"; };
+		10FE01961793906A005A218E /* JJAssetManagerPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJAssetManagerPrivate.h; sourceTree = "<group>"; };
+		10FE0197179439A8005A218E /* ball.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = ball.vsh; sourceTree = "<group>"; };
+		10FE0199179439B1005A218E /* ball.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = ball.fsh; sourceTree = "<group>"; };
+		10FE019D17945ACB005A218E /* platform.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = platform.png; sourceTree = "<group>"; };
+		10FE019F17945C28005A218E /* JJMesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJMesh.h; sourceTree = "<group>"; };
+		10FE01A017945C28005A218E /* JJMesh.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = JJMesh.mm; sourceTree = "<group>"; };
+		6130D164178EED0B004F2FA5 /* platform.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = platform.vsh; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.glsl; };
+		6130D166178EEF2F004F2FA5 /* platform.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = platform.fsh; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.glsl; };
 		61D8236C178DE0B700ABF4E4 /* JumpingJack3D.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JumpingJack3D.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61D8236F178DE0B700ABF4E4 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		61D82372178DE0B700ABF4E4 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -115,8 +130,11 @@
 			children = (
 				10FE016E179379D3005A218E /* JJAssetManager.h */,
 				10FE016F179379D3005A218E /* JJAssetManager.m */,
+				10FE01961793906A005A218E /* JJAssetManagerPrivate.h */,
 				61D82391178DE84700ABF4E4 /* JJShaderProgram.h */,
 				61D82392178DE84700ABF4E4 /* JJShaderProgram.mm */,
+				10FE019F17945C28005A218E /* JJMesh.h */,
+				10FE01A017945C28005A218E /* JJMesh.mm */,
 			);
 			name = AssetManager;
 			sourceTree = "<group>";
@@ -134,8 +152,10 @@
 		10FE017F17937AAA005A218E /* JJUnitTesting */ = {
 			isa = PBXGroup;
 			children = (
-				10FE018517937AAA005A218E /* JJUnitTesting.h */,
-				10FE018617937AAA005A218E /* JJUnitTesting.mm */,
+				10FE018517937AAA005A218E /* JJCameraTests.h */,
+				10FE018617937AAA005A218E /* JJCameraTests.mm */,
+				10FE019317938A38005A218E /* JJAssetManagerTests.h */,
+				10FE019417938A39005A218E /* JJAssetManagerTests.m */,
 				10FE018017937AAA005A218E /* Supporting Files */,
 			);
 			path = JJUnitTesting;
@@ -172,6 +192,7 @@
 		10FE018E17937D83005A218E /* textures */ = {
 			isa = PBXGroup;
 			children = (
+				10FE019D17945ACB005A218E /* platform.png */,
 			);
 			path = textures;
 			sourceTree = "<group>";
@@ -179,8 +200,10 @@
 		6130D168178EF36F004F2FA5 /* shaders */ = {
 			isa = PBXGroup;
 			children = (
-				6130D164178EED0B004F2FA5 /* platform_vertex.glsl */,
-				6130D166178EEF2F004F2FA5 /* platform_fragment.glsl */,
+				6130D164178EED0B004F2FA5 /* platform.vsh */,
+				6130D166178EEF2F004F2FA5 /* platform.fsh */,
+				10FE0197179439A8005A218E /* ball.vsh */,
+				10FE0199179439B1005A218E /* ball.fsh */,
 			);
 			path = shaders;
 			sourceTree = "<group>";
@@ -251,7 +274,6 @@
 				61D823AF178E149400ABF4E4 /* JJCharacter.mm */,
 				61D82381178DE0B700ABF4E4 /* AppDelegate.h */,
 				61D82382178DE0B700ABF4E4 /* AppDelegate.mm */,
-				61D82384178DE0B700ABF4E4 /* MainMenu.xib */,
 				61D82395178DF9A700ABF4E4 /* JJUtilities.m */,
 				61D82398178DFF9E00ABF4E4 /* JJUtilities.h */,
 				61D82376178DE0B700ABF4E4 /* Supporting Files */,
@@ -262,6 +284,7 @@
 		61D82376178DE0B700ABF4E4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				61D82384178DE0B700ABF4E4 /* MainMenu.xib */,
 				61D82377178DE0B700ABF4E4 /* JumpingJack3D-Info.plist */,
 				61D82378178DE0B700ABF4E4 /* InfoPlist.strings */,
 				61D8237B178DE0B700ABF4E4 /* main.mm */,
@@ -349,11 +372,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10FE019B17943E2D005A218E /* ball.vsh in Resources */,
+				10FE019C17943E2D005A218E /* ball.fsh in Resources */,
 				61D8237A178DE0B700ABF4E4 /* InfoPlist.strings in Resources */,
 				61D82380178DE0B700ABF4E4 /* Credits.rtf in Resources */,
 				61D82386178DE0B700ABF4E4 /* MainMenu.xib in Resources */,
-				6130D165178EED0B004F2FA5 /* platform_vertex.glsl in Resources */,
-				6130D167178EEF2F004F2FA5 /* platform_fragment.glsl in Resources */,
+				6130D165178EED0B004F2FA5 /* platform.vsh in Resources */,
+				6130D167178EEF2F004F2FA5 /* platform.fsh in Resources */,
+				10FE019E17945ACB005A218E /* platform.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -380,7 +406,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				10FE018717937AAA005A218E /* JJUnitTesting.mm in Sources */,
+				10FE018717937AAA005A218E /* JJCameraTests.mm in Sources */,
+				10FE019517938A39005A218E /* JJAssetManagerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,6 +430,9 @@
 				61D823B0178E149400ABF4E4 /* JJCharacter.mm in Sources */,
 				10FE0170179379D3005A218E /* JJAssetManager.m in Sources */,
 				10FE017417937A0B005A218E /* JJCamera.mm in Sources */,
+				10FE0198179439A8005A218E /* ball.vsh in Sources */,
+				10FE019A179439B1005A218E /* ball.fsh in Sources */,
+				10FE01A117945C28005A218E /* JJMesh.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
