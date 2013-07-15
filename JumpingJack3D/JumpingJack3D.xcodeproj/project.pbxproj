@@ -151,13 +151,38 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		10FE018C17937D2A005A218E /* assets */ = {
+			isa = PBXGroup;
+			children = (
+				10FE018E17937D83005A218E /* textures */,
+				10FE018D17937D72005A218E /* models */,
+				6130D168178EF36F004F2FA5 /* shaders */,
+			);
+			name = assets;
+			path = JumpingJack3D/assets;
+			sourceTree = "<group>";
+		};
+		10FE018D17937D72005A218E /* models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
+		10FE018E17937D83005A218E /* textures */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = textures;
+			sourceTree = "<group>";
+		};
 		6130D168178EF36F004F2FA5 /* shaders */ = {
 			isa = PBXGroup;
 			children = (
 				6130D164178EED0B004F2FA5 /* Platform_VertexShader.glsl */,
 				6130D166178EEF2F004F2FA5 /* Platform_FragmentShader.glsl */,
 			);
-			name = shaders;
+			path = shaders;
 			sourceTree = "<group>";
 		};
 		61D82363178DE0B700ABF4E4 = {
@@ -168,6 +193,7 @@
 				10FE017F17937AAA005A218E /* JJUnitTesting */,
 				61D8236E178DE0B700ABF4E4 /* Frameworks */,
 				61D8236D178DE0B700ABF4E4 /* Products */,
+				10FE018C17937D2A005A218E /* assets */,
 			);
 			sourceTree = "<group>";
 		};
@@ -205,7 +231,6 @@
 			children = (
 				10FE0171179379F4005A218E /* Camera */,
 				10FE016D179379AC005A218E /* AssetManager */,
-				6130D168178EF36F004F2FA5 /* shaders */,
 				61D8238C178DE3FB00ABF4E4 /* JJGLView.h */,
 				61D8238D178DE3FB00ABF4E4 /* JJGLView.mm */,
 				61D82399178DFFFC00ABF4E4 /* JJRenderedObject.h */,
