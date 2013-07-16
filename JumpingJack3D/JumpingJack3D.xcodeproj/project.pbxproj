@@ -7,19 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		10FE0170179379D3005A218E /* JJAssetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 10FE016F179379D3005A218E /* JJAssetManager.m */; };
+		10FE0170179379D3005A218E /* JJAssetManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10FE016F179379D3005A218E /* JJAssetManager.mm */; };
 		10FE017417937A0B005A218E /* JJCamera.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10FE017317937A0B005A218E /* JJCamera.mm */; };
 		10FE017D17937AAA005A218E /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10FE017C17937AAA005A218E /* SenTestingKit.framework */; };
 		10FE017E17937AAA005A218E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61D8236F178DE0B700ABF4E4 /* Cocoa.framework */; };
 		10FE018417937AAA005A218E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 10FE018217937AAA005A218E /* InfoPlist.strings */; };
 		10FE018717937AAA005A218E /* JJCameraTests.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10FE018617937AAA005A218E /* JJCameraTests.mm */; };
-		10FE019517938A39005A218E /* JJAssetManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 10FE019417938A39005A218E /* JJAssetManagerTests.m */; };
+		10FE019517938A39005A218E /* JJAssetManagerTests.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10FE019417938A39005A218E /* JJAssetManagerTests.mm */; };
 		10FE0198179439A8005A218E /* ball.vsh in Sources */ = {isa = PBXBuildFile; fileRef = 10FE0197179439A8005A218E /* ball.vsh */; };
 		10FE019A179439B1005A218E /* ball.fsh in Sources */ = {isa = PBXBuildFile; fileRef = 10FE0199179439B1005A218E /* ball.fsh */; };
 		10FE019B17943E2D005A218E /* ball.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 10FE0197179439A8005A218E /* ball.vsh */; };
 		10FE019C17943E2D005A218E /* ball.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 10FE0199179439B1005A218E /* ball.fsh */; };
 		10FE019E17945ACB005A218E /* platform.png in Resources */ = {isa = PBXBuildFile; fileRef = 10FE019D17945ACB005A218E /* platform.png */; };
 		10FE01A117945C28005A218E /* JJMesh.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10FE01A017945C28005A218E /* JJMesh.mm */; };
+		10FE01A31794BA88005A218E /* cube.obj in Resources */ = {isa = PBXBuildFile; fileRef = 10FE01A21794BA88005A218E /* cube.obj */; };
+		10FE01A61794BAF5005A218E /* JJMeshTests.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10FE01A51794BAF5005A218E /* JJMeshTests.mm */; };
 		6130D165178EED0B004F2FA5 /* platform.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 6130D164178EED0B004F2FA5 /* platform.vsh */; };
 		6130D167178EEF2F004F2FA5 /* platform.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 6130D166178EEF2F004F2FA5 /* platform.fsh */; };
 		61D82370178DE0B700ABF4E4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61D8236F178DE0B700ABF4E4 /* Cocoa.framework */; };
@@ -44,7 +46,7 @@
 
 /* Begin PBXFileReference section */
 		10FE016E179379D3005A218E /* JJAssetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJAssetManager.h; sourceTree = "<group>"; };
-		10FE016F179379D3005A218E /* JJAssetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJAssetManager.m; sourceTree = "<group>"; };
+		10FE016F179379D3005A218E /* JJAssetManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = JJAssetManager.mm; sourceTree = "<group>"; };
 		10FE017217937A0B005A218E /* JJCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJCamera.h; sourceTree = "<group>"; };
 		10FE017317937A0B005A218E /* JJCamera.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = JJCamera.mm; sourceTree = "<group>"; };
 		10FE017517937A1B005A218E /* JJCameraPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJCameraPrivate.h; sourceTree = "<group>"; };
@@ -56,13 +58,16 @@
 		10FE018617937AAA005A218E /* JJCameraTests.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = JJCameraTests.mm; sourceTree = "<group>"; };
 		10FE018817937AAA005A218E /* JJUnitTesting-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JJUnitTesting-Prefix.pch"; sourceTree = "<group>"; };
 		10FE019317938A38005A218E /* JJAssetManagerTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJAssetManagerTests.h; sourceTree = "<group>"; };
-		10FE019417938A39005A218E /* JJAssetManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJAssetManagerTests.m; sourceTree = "<group>"; };
+		10FE019417938A39005A218E /* JJAssetManagerTests.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = JJAssetManagerTests.mm; sourceTree = "<group>"; };
 		10FE01961793906A005A218E /* JJAssetManagerPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJAssetManagerPrivate.h; sourceTree = "<group>"; };
 		10FE0197179439A8005A218E /* ball.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = ball.vsh; sourceTree = "<group>"; };
 		10FE0199179439B1005A218E /* ball.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = ball.fsh; sourceTree = "<group>"; };
 		10FE019D17945ACB005A218E /* platform.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = platform.png; sourceTree = "<group>"; };
 		10FE019F17945C28005A218E /* JJMesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJMesh.h; sourceTree = "<group>"; };
 		10FE01A017945C28005A218E /* JJMesh.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = JJMesh.mm; sourceTree = "<group>"; };
+		10FE01A21794BA88005A218E /* cube.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cube.obj; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.xcconfig; };
+		10FE01A41794BAF5005A218E /* JJMeshTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJMeshTests.h; sourceTree = "<group>"; };
+		10FE01A51794BAF5005A218E /* JJMeshTests.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = JJMeshTests.mm; sourceTree = "<group>"; };
 		6130D164178EED0B004F2FA5 /* platform.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = platform.vsh; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.glsl; };
 		6130D166178EEF2F004F2FA5 /* platform.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = platform.fsh; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.glsl; };
 		61D8236C178DE0B700ABF4E4 /* JumpingJack3D.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JumpingJack3D.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -129,7 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				10FE016E179379D3005A218E /* JJAssetManager.h */,
-				10FE016F179379D3005A218E /* JJAssetManager.m */,
+				10FE016F179379D3005A218E /* JJAssetManager.mm */,
 				10FE01961793906A005A218E /* JJAssetManagerPrivate.h */,
 				61D82391178DE84700ABF4E4 /* JJShaderProgram.h */,
 				61D82392178DE84700ABF4E4 /* JJShaderProgram.mm */,
@@ -155,7 +160,9 @@
 				10FE018517937AAA005A218E /* JJCameraTests.h */,
 				10FE018617937AAA005A218E /* JJCameraTests.mm */,
 				10FE019317938A38005A218E /* JJAssetManagerTests.h */,
-				10FE019417938A39005A218E /* JJAssetManagerTests.m */,
+				10FE019417938A39005A218E /* JJAssetManagerTests.mm */,
+				10FE01A41794BAF5005A218E /* JJMeshTests.h */,
+				10FE01A51794BAF5005A218E /* JJMeshTests.mm */,
 				10FE018017937AAA005A218E /* Supporting Files */,
 			);
 			path = JJUnitTesting;
@@ -185,6 +192,7 @@
 		10FE018D17937D72005A218E /* models */ = {
 			isa = PBXGroup;
 			children = (
+				10FE01A21794BA88005A218E /* cube.obj */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -380,6 +388,7 @@
 				6130D165178EED0B004F2FA5 /* platform.vsh in Resources */,
 				6130D167178EEF2F004F2FA5 /* platform.fsh in Resources */,
 				10FE019E17945ACB005A218E /* platform.png in Resources */,
+				10FE01A31794BA88005A218E /* cube.obj in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,7 +416,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				10FE018717937AAA005A218E /* JJCameraTests.mm in Sources */,
-				10FE019517938A39005A218E /* JJAssetManagerTests.m in Sources */,
+				10FE019517938A39005A218E /* JJAssetManagerTests.mm in Sources */,
+				10FE01A61794BAF5005A218E /* JJMeshTests.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,7 +438,7 @@
 				61D823AA178E13ED00ABF4E4 /* JJDynamicPlatform.mm in Sources */,
 				61D823AD178E143300ABF4E4 /* JJDynamicEnemy.mm in Sources */,
 				61D823B0178E149400ABF4E4 /* JJCharacter.mm in Sources */,
-				10FE0170179379D3005A218E /* JJAssetManager.m in Sources */,
+				10FE0170179379D3005A218E /* JJAssetManager.mm in Sources */,
 				10FE017417937A0B005A218E /* JJCamera.mm in Sources */,
 				10FE0198179439A8005A218E /* ball.vsh in Sources */,
 				10FE019A179439B1005A218E /* ball.fsh in Sources */,

@@ -23,9 +23,9 @@ const NSString* wavefrontObjectExtension = @"obj";
 {
     self = [super init];
     if (self) {
-        self.textures   = [[NSDictionary alloc] init];
-        self.meshes     = [[NSDictionary alloc] init];
-        self.shaders    = [[NSDictionary alloc] init];
+        _textures   = [[NSDictionary alloc] init];
+        _meshes     = [[NSDictionary alloc] init];
+        _shaders    = [[NSDictionary alloc] init];
         self.mainBundle = [NSBundle mainBundle];
         self.extensions = [[NSArray alloc] initWithObjects:vertexShaderExtension, geometryShaderExtension, fragmentShaderExtension,
                                                            TGAtextureExtension, PNGtextureExtension, wavefrontObjectExtension, nil];
@@ -37,7 +37,9 @@ const NSString* wavefrontObjectExtension = @"obj";
 {
     [self loadShaders];
     [self loadTextures];
+    [self loadMeshes];
 }
+
 
 - (void) loadShaders
 {
@@ -53,7 +55,7 @@ const NSString* wavefrontObjectExtension = @"obj";
                                                             FragmentShaderFile:fragmentShaderFiles[key]];
         [shaderPrograms setObject:program forKey:key];
     }
-    self.shaders = shaderPrograms;
+    _shaders = shaderPrograms;
 }
 
 - (void) loadMeshes
@@ -73,7 +75,7 @@ const NSString* wavefrontObjectExtension = @"obj";
         }
     }
     
-    self.meshes = dict;
+    _meshes = dict;
 }
 
 - (void) loadTextures
@@ -90,6 +92,7 @@ const NSString* wavefrontObjectExtension = @"obj";
         if ([self loadTexture:filePath withColorMode:GL_RGB texHandler:&textureHandler] == NO) {
             NSLog(@"AssetManager: texture %@ not loaded", [filePath lastPathComponent]);
         } else {
+            
             [dict setObject:[NSNumber numberWithUnsignedInt:textureHandler] forKey:filename];
         }
     }
@@ -103,7 +106,7 @@ const NSString* wavefrontObjectExtension = @"obj";
             [dict setObject:[NSNumber numberWithUnsignedInt:textureHandler] forKey:filename];
         }
     }
-    self.textures = dict;
+    _textures = dict;
 }
 
 - (BOOL) loadTexture: (NSString*)fileName withColorMode: (GLuint)cmode texHandler: (GLuint*)tex
