@@ -22,6 +22,7 @@
 		10FE01A117945C28005A218E /* JJMesh.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10FE01A017945C28005A218E /* JJMesh.mm */; };
 		10FE01A31794BA88005A218E /* cube.obj in Resources */ = {isa = PBXBuildFile; fileRef = 10FE01A21794BA88005A218E /* cube.obj */; };
 		10FE01A61794BAF5005A218E /* JJMeshTests.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10FE01A51794BAF5005A218E /* JJMeshTests.mm */; };
+		10FE01A91794DFC1005A218E /* JJLight.m in Sources */ = {isa = PBXBuildFile; fileRef = 10FE01A81794DFC1005A218E /* JJLight.m */; };
 		6130D165178EED0B004F2FA5 /* platform.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 6130D164178EED0B004F2FA5 /* platform.vsh */; };
 		6130D167178EEF2F004F2FA5 /* platform.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 6130D166178EEF2F004F2FA5 /* platform.fsh */; };
 		61D82370178DE0B700ABF4E4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61D8236F178DE0B700ABF4E4 /* Cocoa.framework */; };
@@ -68,6 +69,8 @@
 		10FE01A21794BA88005A218E /* cube.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cube.obj; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.xcconfig; };
 		10FE01A41794BAF5005A218E /* JJMeshTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJMeshTests.h; sourceTree = "<group>"; };
 		10FE01A51794BAF5005A218E /* JJMeshTests.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = JJMeshTests.mm; sourceTree = "<group>"; };
+		10FE01A71794DFC0005A218E /* JJLight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJLight.h; sourceTree = "<group>"; };
+		10FE01A81794DFC1005A218E /* JJLight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJLight.m; sourceTree = "<group>"; };
 		6130D164178EED0B004F2FA5 /* platform.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = platform.vsh; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.glsl; };
 		6130D166178EEF2F004F2FA5 /* platform.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = platform.fsh; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.glsl; };
 		61D8236C178DE0B700ABF4E4 /* JumpingJack3D.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JumpingJack3D.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -272,6 +275,8 @@
 				61D823A0178E135600ABF4E4 /* JJStaticPlatform.mm */,
 				61D823A2178E137B00ABF4E4 /* JJStaticEnemy.h */,
 				61D823A3178E137B00ABF4E4 /* JJStaticEnemy.mm */,
+				10FE01A71794DFC0005A218E /* JJLight.h */,
+				10FE01A81794DFC1005A218E /* JJLight.m */,
 				61D823A5178E13BE00ABF4E4 /* JJDynamicObject.h */,
 				61D823A6178E13BE00ABF4E4 /* JJDynamicObject.mm */,
 				61D823A8178E13ED00ABF4E4 /* JJDynamicPlatform.h */,
@@ -443,6 +448,7 @@
 				10FE0198179439A8005A218E /* ball.vsh in Sources */,
 				10FE019A179439B1005A218E /* ball.fsh in Sources */,
 				10FE01A117945C28005A218E /* JJMesh.mm in Sources */,
+				10FE01A91794DFC1005A218E /* JJLight.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
