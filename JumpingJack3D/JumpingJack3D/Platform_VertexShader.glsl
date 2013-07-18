@@ -1,6 +1,5 @@
 #version 150
 
-//Zmienne jednorodne
 uniform mat4 P;
 uniform mat4 V;
 uniform mat4 M;
@@ -8,7 +7,6 @@ uniform vec4 lp0;
 uniform vec4 lp1;
 
 
-//Atrybuty
 in vec4 vertex;
 in vec4 normal;
 in vec4 texCoords0;
