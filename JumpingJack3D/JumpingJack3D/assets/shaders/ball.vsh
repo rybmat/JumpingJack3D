@@ -9,14 +9,14 @@ uniform vec4 lp1;
 
 in vec4 vertex;
 in vec4 normal;
-in vec4 texCoords0;
+in vec2 texCoords0;
 
 
 out vec4 iVectorV;
 out vec4 iVectorN;
 out vec4 iVectorL0;
 out vec4 iVectorL1;
-out vec4 iTexCoords0;
+out vec2 iTexCoords0;
 
 void main(void) {
 	gl_Position=P*V*M*vertex;

@@ -8,7 +8,7 @@ in vec4 iVectorV;
 in vec4 iVectorN;
 in vec4 iVectorL0;
 in vec4 iVectorL1;
-in vec4 iTexCoords0;
+in vec2 iTexCoords0;
 
 float shininess=50;
 

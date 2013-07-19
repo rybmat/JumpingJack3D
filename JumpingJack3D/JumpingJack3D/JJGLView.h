@@ -15,6 +15,8 @@
 #import "glm/gtc/matrix_transform.hpp"
 #import "glm/gtc/type_ptr.hpp"
 
+#import "JJAssetManager.h"
+#import "JJStaticPlatform.h"
 
 
 @interface JJGLView : NSOpenGLView

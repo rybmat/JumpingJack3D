@@ -72,22 +72,22 @@ GLuint fShader;
 -(id) initWithVertexFile: (NSString*) vShaderFile GeometryShaderFile: (NSString*) gShaderFile FragmentShaderFile: (NSString*) fShaderFile {
     
     self = [super init];
-    NSLog(@"Loading vertex shader...");
+    NSLog(@"Loading vertex shader %@...", vShaderFile);
 	vShader= [self loadShaderWithType:GL_VERTEX_SHADER andFileName:vShaderFile];
     
     if (gShaderFile!=NULL) {
-		NSLog(@"Loading geometry shader...");
+		NSLog(@"Loading geometry shader %@...", gShaderFile);
 		gShader = [self loadShaderWithType:GL_GEOMETRY_SHADER andFileName: gShaderFile];
 	} else {
 		gShader=0;
 	}
     
-    NSLog(@"Loading fragment shader...");
+    NSLog(@"Loading fragment shader %@...", fShaderFile);
 	fShader= [self loadShaderWithType: GL_FRAGMENT_SHADER andFileName: fShaderFile];
     
 	shaderProgram=glCreateProgram();
     
-    NSLog(@"prog %u vs %u, fs %u",shaderProgram, vShader, fShader);
+    //NSLog(@"prog %u vs %u, fs %u",shaderProgram, vShader, fShader);
     
     glAttachShader(shaderProgram,vShader);
 	glAttachShader(shaderProgram,fShader);

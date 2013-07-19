@@ -11,6 +11,11 @@
 @implementation JJGLView
 
 NSTimer *renderTimer;
+JJAssetManager *assetManager;
+
+
+//to delete
+JJStaticPlatform *platform;
 
 - (id)initWithFrame:(NSRect)frame
 {
@@ -29,11 +34,12 @@ NSTimer *renderTimer;
 
 -(void) initOpenGL {
 	
-    
-    
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
 	glEnable(GL_DEPTH_TEST);
+    
+    assetManager = [[JJAssetManager alloc] init];
+    [assetManager load];
 }
 
 - (void) dealloc{

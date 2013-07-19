@@ -62,8 +62,8 @@
 		10FE019317938A38005A218E /* JJAssetManagerTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJAssetManagerTests.h; sourceTree = "<group>"; };
 		10FE019417938A39005A218E /* JJAssetManagerTests.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = JJAssetManagerTests.mm; sourceTree = "<group>"; };
 		10FE01961793906A005A218E /* JJAssetManagerPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJAssetManagerPrivate.h; sourceTree = "<group>"; };
-		10FE0197179439A8005A218E /* ball.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = ball.vsh; sourceTree = "<group>"; };
-		10FE0199179439B1005A218E /* ball.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = ball.fsh; sourceTree = "<group>"; };
+		10FE0197179439A8005A218E /* ball.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = ball.vsh; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.glsl; };
+		10FE0199179439B1005A218E /* ball.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = ball.fsh; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.glsl; };
 		10FE019D17945ACB005A218E /* platform.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = platform.png; sourceTree = "<group>"; };
 		10FE019F17945C28005A218E /* JJMesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJMesh.h; sourceTree = "<group>"; };
 		10FE01A017945C28005A218E /* JJMesh.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = JJMesh.mm; sourceTree = "<group>"; };
@@ -190,8 +190,7 @@
 				10FE018D17937D72005A218E /* models */,
 				6130D168178EF36F004F2FA5 /* shaders */,
 			);
-			name = assets;
-			path = JumpingJack3D/assets;
+			path = assets;
 			sourceTree = "<group>";
 		};
 		10FE018D17937D72005A218E /* models */ = {
@@ -221,6 +220,38 @@
 			path = shaders;
 			sourceTree = "<group>";
 		};
+		615F64E31797E29D00A44195 /* Light */ = {
+			isa = PBXGroup;
+			children = (
+				10FE01A71794DFC0005A218E /* JJLight.h */,
+				10FE01A81794DFC1005A218E /* JJLight.m */,
+			);
+			name = Light;
+			sourceTree = "<group>";
+		};
+		615F64E41797E2DF00A44195 /* RenderedObjects */ = {
+			isa = PBXGroup;
+			children = (
+				61D82399178DFFFC00ABF4E4 /* JJRenderedObject.h */,
+				61D8239A178DFFFC00ABF4E4 /* JJRenderedObject.mm */,
+				61D8239C178E11E800ABF4E4 /* JJStaticObject.h */,
+				61D8239D178E11E800ABF4E4 /* JJStaticObject.mm */,
+				61D8239F178E135600ABF4E4 /* JJStaticPlatform.h */,
+				61D823A0178E135600ABF4E4 /* JJStaticPlatform.mm */,
+				61D823A2178E137B00ABF4E4 /* JJStaticEnemy.h */,
+				61D823A3178E137B00ABF4E4 /* JJStaticEnemy.mm */,
+				61D823A5178E13BE00ABF4E4 /* JJDynamicObject.h */,
+				61D823A6178E13BE00ABF4E4 /* JJDynamicObject.mm */,
+				61D823A8178E13ED00ABF4E4 /* JJDynamicPlatform.h */,
+				61D823A9178E13ED00ABF4E4 /* JJDynamicPlatform.mm */,
+				61D823AB178E143300ABF4E4 /* JJDynamicEnemy.h */,
+				61D823AC178E143300ABF4E4 /* JJDynamicEnemy.mm */,
+				61D823AE178E149400ABF4E4 /* JJCharacter.h */,
+				61D823AF178E149400ABF4E4 /* JJCharacter.mm */,
+			);
+			name = RenderedObjects;
+			sourceTree = "<group>";
+		};
 		61D82363178DE0B700ABF4E4 = {
 			isa = PBXGroup;
 			children = (
@@ -230,7 +261,6 @@
 				10FE017F17937AAA005A218E /* JJUnitTesting */,
 				61D8236E178DE0B700ABF4E4 /* Frameworks */,
 				61D8236D178DE0B700ABF4E4 /* Products */,
-				10FE018C17937D2A005A218E /* assets */,
 			);
 			sourceTree = "<group>";
 		};
@@ -266,33 +296,18 @@
 		61D82375178DE0B700ABF4E4 /* JumpingJack3D */ = {
 			isa = PBXGroup;
 			children = (
+				615F64E41797E2DF00A44195 /* RenderedObjects */,
 				10FE0171179379F4005A218E /* Camera */,
 				10FE016D179379AC005A218E /* AssetManager */,
+				615F64E31797E29D00A44195 /* Light */,
 				61D8238C178DE3FB00ABF4E4 /* JJGLView.h */,
 				61D8238D178DE3FB00ABF4E4 /* JJGLView.mm */,
-				61D82399178DFFFC00ABF4E4 /* JJRenderedObject.h */,
-				61D8239A178DFFFC00ABF4E4 /* JJRenderedObject.mm */,
-				61D8239C178E11E800ABF4E4 /* JJStaticObject.h */,
-				61D8239D178E11E800ABF4E4 /* JJStaticObject.mm */,
-				61D8239F178E135600ABF4E4 /* JJStaticPlatform.h */,
-				61D823A0178E135600ABF4E4 /* JJStaticPlatform.mm */,
-				61D823A2178E137B00ABF4E4 /* JJStaticEnemy.h */,
-				61D823A3178E137B00ABF4E4 /* JJStaticEnemy.mm */,
-				10FE01A71794DFC0005A218E /* JJLight.h */,
-				10FE01A81794DFC1005A218E /* JJLight.m */,
-				61D823A5178E13BE00ABF4E4 /* JJDynamicObject.h */,
-				61D823A6178E13BE00ABF4E4 /* JJDynamicObject.mm */,
-				61D823A8178E13ED00ABF4E4 /* JJDynamicPlatform.h */,
-				61D823A9178E13ED00ABF4E4 /* JJDynamicPlatform.mm */,
-				61D823AB178E143300ABF4E4 /* JJDynamicEnemy.h */,
-				61D823AC178E143300ABF4E4 /* JJDynamicEnemy.mm */,
-				61D823AE178E149400ABF4E4 /* JJCharacter.h */,
-				61D823AF178E149400ABF4E4 /* JJCharacter.mm */,
 				61D82381178DE0B700ABF4E4 /* AppDelegate.h */,
 				61D82382178DE0B700ABF4E4 /* AppDelegate.mm */,
 				61D82395178DF9A700ABF4E4 /* JJUtilities.m */,
 				61D82398178DFF9E00ABF4E4 /* JJUtilities.h */,
 				61D82376178DE0B700ABF4E4 /* Supporting Files */,
+				10FE018C17937D2A005A218E /* assets */,
 			);
 			path = JumpingJack3D;
 			sourceTree = "<group>";
@@ -617,6 +632,7 @@
 				10FE018B17937AAA005A218E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		61D82367178DE0B700ABF4E4 /* Build configuration list for PBXProject "JumpingJack3D" */ = {
 			isa = XCConfigurationList;

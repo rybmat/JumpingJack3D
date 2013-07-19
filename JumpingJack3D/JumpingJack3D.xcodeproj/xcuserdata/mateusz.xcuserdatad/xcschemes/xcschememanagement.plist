@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>JJUnitTesting.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>JumpingJack3D.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -12,6 +17,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>10FE017A17937AAA005A218E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>61D8236B178DE0B700ABF4E4</key>
 		<dict>
 			<key>primary</key>

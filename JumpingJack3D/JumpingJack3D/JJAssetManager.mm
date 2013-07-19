@@ -36,8 +36,11 @@ const NSString* wavefrontObjectExtension = @"obj";
 - (void) load
 {
     [self loadShaders];
+    NSLog(@"AssetManager: shaders loaded");
     [self loadTextures];
+    NSLog(@"AssetManager: textures loaded");
     [self loadMeshes];
+    NSLog(@"AssetManager: Meshes loaded");
 }
 
 
@@ -96,10 +99,11 @@ const NSString* wavefrontObjectExtension = @"obj";
             [dict setObject:[NSNumber numberWithUnsignedInt:textureHandler] forKey:filename];
         }
     }
+
     for (NSString* filePath in filePathsPNG) {
         GLuint textureHandler;
         NSString* filename = [[filePath lastPathComponent] stringByDeletingPathExtension];
-
+        
         if ([self loadTexture:filePath withColorMode:GL_RGB texHandler:&textureHandler] == NO) {
             NSLog(@"AssetManager: texture %@ not loaded", [filePath lastPathComponent]);
         } else {
@@ -111,6 +115,7 @@ const NSString* wavefrontObjectExtension = @"obj";
 
 - (BOOL) loadTexture: (NSString*)fileName withColorMode: (GLuint)cmode texHandler: (GLuint*)tex
 {
+    
     NSImage * img =  [[NSImage alloc] initWithContentsOfFile: fileName];
     if(img == nil){
         NSLog(@"AssetManager: loadTexture: file not found");
@@ -137,6 +142,7 @@ const NSString* wavefrontObjectExtension = @"obj";
     glTexImage2D( GL_TEXTURE_2D, 0, cmode, rep.size.width,
                  rep.size.height, 0, cmode,
                  GL_UNSIGNED_BYTE, rep.bitmapData);
+    
     return TRUE;
 }
 
