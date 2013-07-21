@@ -18,6 +18,7 @@ const NSString* TGAtextureExtension= @"tga";
 const NSString* PNGtextureExtension = @"png";
 const NSString* wavefrontObjectExtension = @"obj";
 
+GLuint tex;
 
 - (id) init
 {
@@ -157,5 +158,24 @@ const NSString* wavefrontObjectExtension = @"obj";
     return dict;
 }
 
+- (float*) getVertices: (NSString*) dictionaryKey{
+    return [[self meshes][dictionaryKey] vertices];
+}
 
+- (float*) getNormals: (NSString*) dictionaryKey{
+    return [[self meshes][dictionaryKey] normals];
+}
+
+- (float*) getUvs: (NSString*) dictionaryKey{
+    return [[self meshes][dictionaryKey] uvs];
+}
+
+- (int) getVertexCount: (NSString*) dictionaryKey{
+    return [[self meshes][dictionaryKey] vertexCount];
+}
+
+- (GLuint*) getTexture: (NSString*) dictionaryKey{
+    tex = [[self textures][dictionaryKey] unsignedIntValue];
+    return &tex;
+}
 @end

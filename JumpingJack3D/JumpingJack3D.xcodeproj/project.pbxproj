@@ -22,7 +22,7 @@
 		10FE01A117945C28005A218E /* JJMesh.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10FE01A017945C28005A218E /* JJMesh.mm */; };
 		10FE01A31794BA88005A218E /* cube.obj in Resources */ = {isa = PBXBuildFile; fileRef = 10FE01A21794BA88005A218E /* cube.obj */; };
 		10FE01A61794BAF5005A218E /* JJMeshTests.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10FE01A51794BAF5005A218E /* JJMeshTests.mm */; };
-		10FE01A91794DFC1005A218E /* JJLight.m in Sources */ = {isa = PBXBuildFile; fileRef = 10FE01A81794DFC1005A218E /* JJLight.m */; };
+		10FE01A91794DFC1005A218E /* JJLight.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10FE01A81794DFC1005A218E /* JJLight.mm */; };
 		10FE01AB1794E01A005A218E /* TODO.txt in Resources */ = {isa = PBXBuildFile; fileRef = 10FE01AA1794E01A005A218E /* TODO.txt */; };
 		6130D165178EED0B004F2FA5 /* platform.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 6130D164178EED0B004F2FA5 /* platform.vsh */; };
 		6130D167178EEF2F004F2FA5 /* platform.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 6130D166178EEF2F004F2FA5 /* platform.fsh */; };
@@ -71,7 +71,7 @@
 		10FE01A41794BAF5005A218E /* JJMeshTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJMeshTests.h; sourceTree = "<group>"; };
 		10FE01A51794BAF5005A218E /* JJMeshTests.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = JJMeshTests.mm; sourceTree = "<group>"; };
 		10FE01A71794DFC0005A218E /* JJLight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJLight.h; sourceTree = "<group>"; };
-		10FE01A81794DFC1005A218E /* JJLight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJLight.m; sourceTree = "<group>"; };
+		10FE01A81794DFC1005A218E /* JJLight.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = JJLight.mm; sourceTree = "<group>"; };
 		10FE01AA1794E01A005A218E /* TODO.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO.txt; sourceTree = "<group>"; };
 		6130D164178EED0B004F2FA5 /* platform.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = platform.vsh; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.glsl; };
 		6130D166178EEF2F004F2FA5 /* platform.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = platform.fsh; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.glsl; };
@@ -224,7 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				10FE01A71794DFC0005A218E /* JJLight.h */,
-				10FE01A81794DFC1005A218E /* JJLight.m */,
+				10FE01A81794DFC1005A218E /* JJLight.mm */,
 			);
 			name = Light;
 			sourceTree = "<group>";
@@ -467,7 +467,7 @@
 				10FE0198179439A8005A218E /* ball.vsh in Sources */,
 				10FE019A179439B1005A218E /* ball.fsh in Sources */,
 				10FE01A117945C28005A218E /* JJMesh.mm in Sources */,
-				10FE01A91794DFC1005A218E /* JJLight.m in Sources */,
+				10FE01A91794DFC1005A218E /* JJLight.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

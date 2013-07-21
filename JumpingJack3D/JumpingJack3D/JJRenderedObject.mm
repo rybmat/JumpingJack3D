@@ -15,12 +15,14 @@
 @synthesize vertices;
 @synthesize normals;
 @synthesize vertexCount;
+@synthesize camera;
 
-- (id) initWithShaderProgram: (JJShaderProgram*) shProg Vertices: (float*) verts Normals: (float*) norms VertexCount: (int) vCount PositionX: (float) x Y: (float) y Z: (float) z{
+- (id) initWithShaderProgram: (JJShaderProgram*) shProg Camera: (JJCamera*) cam Vertices: (float*) verts Normals: (float*) norms VertexCount: (int) vCount PositionX: (float) x Y: (float) y Z: (float) z{
     
     self = [super init];
     if(self){
         [self setShaderProgram:shProg];
+        [self setCamera: cam];
         [self setVertices:verts];
         [self setNormals:norms];
         [self setVertexCount:vCount];

@@ -32,8 +32,8 @@ void main(void) {
 	vec4 texColor0=texture(textureMap0, iTexCoords0);
 
     
-	vec4 La = vec4(0,0,0,1);        //światło otoczenia
-	vec4 Ma = vec4(0,0,0,1);        //materiał dla światła otoczenia
+	vec4 La = vec4(0.2,0.2,0.2,1);        //światło otoczenia
+	vec4 Ma = vec4(1,1,1,1);        //materiał dla światła otoczenia
 	vec4 Ld = vec4(1,1,1,1);        //światło rozpraszane
 	vec4 Md = texColor0;            //materiał dla światła rozpraszanego
 	vec4 Ls = vec4(1,1,1,0);        //światło odbijane

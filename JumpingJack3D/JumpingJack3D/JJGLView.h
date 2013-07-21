@@ -17,6 +17,8 @@
 
 #import "JJAssetManager.h"
 #import "JJStaticPlatform.h"
+#import "JJCamera.h"
+#import "JJLight.h"
 
 
 @interface JJGLView : NSOpenGLView

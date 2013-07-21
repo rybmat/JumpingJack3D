@@ -14,6 +14,9 @@
 #import "glm/gtc/matrix_transform.hpp"
 #import "glm/gtc/type_ptr.hpp"
 
+#import "JJCamera.h"
+#import "JJLight.h"
+
 @interface JJRenderedObject : NSObject
 
 @property glm::mat4 matM;
@@ -21,8 +24,9 @@
 @property float* vertices;
 @property float* normals;
 @property int vertexCount;
+@property JJCamera* camera;
 
-- (id) initWithShaderProgram: (JJShaderProgram*) shProg Vertices: (float*) verts Normals: (float*) norms VertexCount: (int) vCount PositionX: (float) x Y: (float) y Z: (float) z;
+- (id) initWithShaderProgram: (JJShaderProgram*) shProg Camera: (JJCamera*) cam Vertices: (float*) verts Normals: (float*) norms VertexCount: (int) vCount PositionX: (float) x Y: (float) y Z: (float) z;
 
 - (void) moveX: (float) x Y: (float) y Z: (float) z;
 - (void) moveX: (float) direction;
