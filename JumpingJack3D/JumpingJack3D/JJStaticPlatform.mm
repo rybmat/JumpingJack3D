@@ -31,13 +31,17 @@ GLuint staticPlatformBufTexCoords;
     
     staticPlatformTex0 = tex;
     staticPlatformTexCoords0 = tCoords;
+    
+    [self setupVBO];
+    [self setupVAO];
+    
     return self;
 }
 
 - (void) setupVBO{
     staticPlatformBufVertices = [self makeBuffer: [self vertices] vCount: [self vertexCount] vSize: sizeof(float)*4];
 	staticPlatformBufNormals = [self makeBuffer: [self normals] vCount: [self vertexCount] vSize: sizeof(float)*4];
-    staticPlatformBufTexCoords = [self makeBuffer: staticPlatformTexCoords0 vCount: [self vertexCount] vSize:sizeof(float) *2];    
+    staticPlatformBufTexCoords = [self makeBuffer: staticPlatformTexCoords0 vCount: [self vertexCount] vSize:sizeof(float) *2];
 }
 
 - (GLuint) makeBuffer: (void*) data vCount: (int) vertexCount vSize: (int) vertexSize {
@@ -91,8 +95,8 @@ GLuint staticPlatformBufTexCoords;
 	glUniformMatrix4fv([[self shaderProgram] getUniformLocation:"V" ],1, false, glm::value_ptr([[self camera] viewMatrix]));
 	glUniformMatrix4fv([[self shaderProgram] getUniformLocation:"M"],1, false, glm::value_ptr([self matM]));
 	glUniform1i([[self shaderProgram] getUniformLocation:"textureMap0"], 0);
-    glUniform1fv([[self shaderProgram] getUniformLocation:"lp0"], 1, glm::value_ptr([JJLight getFirstLight]));
-    glUniform1fv([[self shaderProgram] getUniformLocation:"lp1"], 1, glm::value_ptr([JJLight getSecondLight]));
+    glUniform4fv([[self shaderProgram] getUniformLocation:"lp0"], 1, [JJLight getFirstLight]);
+    glUniform4fv([[self shaderProgram] getUniformLocation:"lp1"], 1, [JJLight getSecondLight]);
     
     glBindVertexArray(staticPlatformVao);
     

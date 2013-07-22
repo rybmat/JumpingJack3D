@@ -18,7 +18,7 @@ GLuint *dynamicPlatformTex0;
 GLuint dynamicPlatformBufTexCoords;
 
 
-- (id) initWithShaderProgram: (JJShaderProgram*) shProg Camera: (JJCamera*) cam Vertices: (float*) verts Normals: (float*) norms VertexCount: (int) vCount PositionX: (float) x Y: (float) y Z: (float) z Texture: (GLuint*) tex TexCoords: (float*) tCoords {
+- (id) initWithShaderProgram: (JJShaderProgram*) shProg Camera: (JJCamera*) cam Vertices: (float*) verts Normals: (float*) norms VertexCount: (int) vCount PositionX: (float) x Y: (float) y Z: (float) z PathPointB: (glm::vec4) pointB TimeIntervalBetweenMoves: (float) tInterval Texture: (GLuint*) tex TextureCoords: (float*) tCoords{
     
     self = [super initWithShaderProgram:shProg
                                  Camera:cam
@@ -27,10 +27,16 @@ GLuint dynamicPlatformBufTexCoords;
                             VertexCount:vCount
                               PositionX:x
                                       Y:y
-                                      Z:z];
+                                      Z:z
+                             PathPointB:pointB
+               TimeIntervalBetweenMoves:tInterval];
     
     dynamicPlatformTex0 = tex;
     dynamicPlatformTexCoords0 = tCoords;
+    
+    [self setupVBO];
+    [self setupVAO];
+    
     return self;
 }
 
@@ -87,12 +93,12 @@ GLuint dynamicPlatformBufTexCoords;
     
     [[self shaderProgram] use];
     
-    //glUniformMatrix4fv([[self shaderProgram] getUniformLocation:"P"],1, false, glm::value_ptr([JJSceneObject matP]));
-	//glUniformMatrix4fv([[self shaderProgram] getUniformLocation:"V" ],1, false, glm::value_ptr([JJSceneObject matV]));
+    glUniformMatrix4fv([[self shaderProgram] getUniformLocation:"P"],1, false, glm::value_ptr([[self camera] projectionMatrix]));
+	glUniformMatrix4fv([[self shaderProgram] getUniformLocation:"V" ],1, false, glm::value_ptr([[self camera] viewMatrix]));
 	glUniformMatrix4fv([[self shaderProgram] getUniformLocation:"M"],1, false, glm::value_ptr([self matM]));
 	glUniform1i([[self shaderProgram] getUniformLocation:"textureMap0"], 0);
-    //światła !!!!!!
-    
+    glUniform4fv([[self shaderProgram] getUniformLocation:"lp0"], 1, [JJLight getFirstLight]);
+    glUniform4fv([[self shaderProgram] getUniformLocation:"lp1"], 1, [JJLight getSecondLight]);
     
     glBindVertexArray(dynamicPlatformVao);
     

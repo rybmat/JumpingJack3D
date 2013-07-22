@@ -45,7 +45,7 @@ static const float maxZoomOut = 50.0f;
         
         self.characterPosition = glm::vec3(1.0f, 0.0f, 0.0f);
         
-        self.cameraPosition = glm::vec3(0.0f, 0.0f, -25.0f);
+        self.cameraPosition = glm::vec3(0.0f, 0.0f, -10.0f);
         self.target = glm::vec3(1.0f, 0.0f, 0.0f);
         self.up = glm::vec3(0.0f, 1.0f, 0.0f);
         

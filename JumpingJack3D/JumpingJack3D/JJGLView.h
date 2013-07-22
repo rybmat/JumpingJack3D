@@ -17,6 +17,7 @@
 
 #import "JJAssetManager.h"
 #import "JJStaticPlatform.h"
+#import "JJDynamicPlatform.h"
 #import "JJCamera.h"
 #import "JJLight.h"
 

@@ -10,7 +10,7 @@
 
 @interface JJDynamicPlatform : JJDynamicObject
 
-- (id) initWithShaderProgram: (JJShaderProgram*) shProg Camera: (JJCamera*) cam Vertices: (float*) verts Normals: (float*) norms VertexCount: (int) vCount PositionX: (float) x Y: (float) y Z: (float) z Texture: (GLuint*) tex TexCoords: (float*) tCoords;
+- (id) initWithShaderProgram: (JJShaderProgram*) shProg Camera: (JJCamera*) cam Vertices: (float*) verts Normals: (float*) norms VertexCount: (int) vCount PositionX: (float) x Y: (float) y Z: (float) z PathPointB: (glm::vec4) pointB TimeIntervalBetweenMoves: (float) tInterval Texture: (GLuint*) tex TextureCoords: (float*) tCoords;
 
 
 - (void) render;

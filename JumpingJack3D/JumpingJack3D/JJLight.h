@@ -14,10 +14,14 @@
 
 @interface JJLight : NSObject
 
-+ (glm::vec4) getFirstLight;
-+ (void) setFirstLight: (glm::vec4) fl;
-+ (glm::vec4) getSecondLight;
-+ (void) setSecondLight: (glm::vec4) sl;
++ (float*) getFirstLight;
+
++ (void) setFirstLightX: (float)x Y: (float)y Z: (float)z;
+
++ (float*) getSecondLight;
+
++ (void) setSecondLightX: (float)x Y: (float)y Z: (float)z;
+
 
 
 @end

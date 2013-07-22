@@ -13,7 +13,7 @@
 
 
 bool moveDirectionAtoB;
-glm::vec4 dynamicObjectActualPosition;
+float dynamicObjectActualPosition[3];
 
 @synthesize pathPointA;
 @synthesize pathPointB;
@@ -34,13 +34,21 @@ glm::vec4 dynamicObjectActualPosition;
     [self setPathPointA:glm::vec4(x, y, z, 1)];
     [self setPathPointB:pointB];
     moveDirectionAtoB = TRUE;
-    dynamicObjectActualPosition = [self pathPointA];
+    dynamicObjectActualPosition[0] = [self pathPointA].x;
+    dynamicObjectActualPosition[1] = [self pathPointA].y;
+    dynamicObjectActualPosition[2] = [self pathPointA].z;
     
     [self setMoveTimer:[NSTimer timerWithTimeInterval:tInterval
                                           target:self
                                         selector:@selector(moveThroughPath:)
                                         userInfo:nil
                                          repeats:YES]];
+    [[NSRunLoop currentRunLoop] addTimer:moveTimer
+                                 forMode:NSDefaultRunLoopMode];
+    
+    [[NSRunLoop currentRunLoop]
+     addTimer:moveTimer
+     forMode:NSEventTrackingRunLoopMode];
     
     
     return self;
@@ -51,63 +59,65 @@ glm::vec4 dynamicObjectActualPosition;
     glm::vec3 step = glm::vec3(0.0f,0.0f,0.0f);
     if(moveDirectionAtoB){
         
-        if(dynamicObjectActualPosition.x < [self pathPointB].x){
-            step.x = DYNAMIC_OBJECT_STEP_SIZE;
-            dynamicObjectActualPosition.x += DYNAMIC_OBJECT_STEP_SIZE;
+        if(dynamicObjectActualPosition[0] < [self pathPointB].x){
+            step.x += DYNAMIC_OBJECT_STEP_SIZE;
+            dynamicObjectActualPosition[0] += DYNAMIC_OBJECT_STEP_SIZE;
         }
-        if(dynamicObjectActualPosition.x > [self pathPointB].x){
-            step.x = -DYNAMIC_OBJECT_STEP_SIZE;
-            dynamicObjectActualPosition.x -= DYNAMIC_OBJECT_STEP_SIZE;
-        }
-        
-        if(dynamicObjectActualPosition.y < [self pathPointB].y){
-            step.y = DYNAMIC_OBJECT_STEP_SIZE;
-            dynamicObjectActualPosition.y += DYNAMIC_OBJECT_STEP_SIZE;
-        }
-        if(dynamicObjectActualPosition.y > [self pathPointB].y){
-            step.y = -DYNAMIC_OBJECT_STEP_SIZE;
-            dynamicObjectActualPosition.y -= DYNAMIC_OBJECT_STEP_SIZE;
+        if(dynamicObjectActualPosition[0] > [self pathPointB].x){
+            step.x -= DYNAMIC_OBJECT_STEP_SIZE;
+            dynamicObjectActualPosition[0] -= DYNAMIC_OBJECT_STEP_SIZE;
         }
         
-        if(dynamicObjectActualPosition.z < [self pathPointB].z){
-            step.z = DYNAMIC_OBJECT_STEP_SIZE;
-            dynamicObjectActualPosition.z += DYNAMIC_OBJECT_STEP_SIZE;
+        if(dynamicObjectActualPosition[1] < [self pathPointB].y){
+            step.y += DYNAMIC_OBJECT_STEP_SIZE;
+            dynamicObjectActualPosition[1] += DYNAMIC_OBJECT_STEP_SIZE;
         }
-        if(dynamicObjectActualPosition.z > [self pathPointB].z){
-            step.z = -DYNAMIC_OBJECT_STEP_SIZE;
-            dynamicObjectActualPosition.z -= DYNAMIC_OBJECT_STEP_SIZE;
+        if(dynamicObjectActualPosition[1] > [self pathPointB].y){
+            step.y -= DYNAMIC_OBJECT_STEP_SIZE;
+            dynamicObjectActualPosition[1] -= DYNAMIC_OBJECT_STEP_SIZE;
+        }
+        
+        if(dynamicObjectActualPosition[2] < [self pathPointB].z){
+            step.z += DYNAMIC_OBJECT_STEP_SIZE;
+            dynamicObjectActualPosition[2] += DYNAMIC_OBJECT_STEP_SIZE;
+        }
+        if(dynamicObjectActualPosition[2] > [self pathPointB].z){
+            step.z -= DYNAMIC_OBJECT_STEP_SIZE;
+            dynamicObjectActualPosition[2] -= DYNAMIC_OBJECT_STEP_SIZE;
         }
         
     }else{
         
-        if(dynamicObjectActualPosition.x < [self pathPointA].x){
-            step.x = DYNAMIC_OBJECT_STEP_SIZE;
-            dynamicObjectActualPosition.x += DYNAMIC_OBJECT_STEP_SIZE;
+        if(dynamicObjectActualPosition[0] < [self pathPointA].x){
+            step.x += DYNAMIC_OBJECT_STEP_SIZE;
+            dynamicObjectActualPosition[0] += DYNAMIC_OBJECT_STEP_SIZE;
         }
-        if(dynamicObjectActualPosition.x > [self pathPointA].x){
-            step.x = -DYNAMIC_OBJECT_STEP_SIZE;
-            dynamicObjectActualPosition.x -= DYNAMIC_OBJECT_STEP_SIZE;
-        }
-        
-        if(dynamicObjectActualPosition.y < [self pathPointA].y){
-            step.y = DYNAMIC_OBJECT_STEP_SIZE;
-            dynamicObjectActualPosition.y += DYNAMIC_OBJECT_STEP_SIZE;
-        }
-        if(dynamicObjectActualPosition.y > [self pathPointA].y){
-            step.y = -DYNAMIC_OBJECT_STEP_SIZE;
-            dynamicObjectActualPosition.y -= DYNAMIC_OBJECT_STEP_SIZE;
+        if(dynamicObjectActualPosition[0] > [self pathPointA].x){
+            step.x -= DYNAMIC_OBJECT_STEP_SIZE;
+            dynamicObjectActualPosition[0] -= DYNAMIC_OBJECT_STEP_SIZE;
         }
         
-        if(dynamicObjectActualPosition.z < [self pathPointA].z){
-            step.z = DYNAMIC_OBJECT_STEP_SIZE;
-            dynamicObjectActualPosition.z += DYNAMIC_OBJECT_STEP_SIZE;
+        if(dynamicObjectActualPosition[1] < [self pathPointA].y){
+            step.y += DYNAMIC_OBJECT_STEP_SIZE;
+            dynamicObjectActualPosition[1] += DYNAMIC_OBJECT_STEP_SIZE;
         }
-        if(dynamicObjectActualPosition.z > [self pathPointA].z){
-            step.z = -DYNAMIC_OBJECT_STEP_SIZE;
-            dynamicObjectActualPosition.z -= DYNAMIC_OBJECT_STEP_SIZE;
+        if(dynamicObjectActualPosition[1] > [self pathPointA].y){
+            step.y -= DYNAMIC_OBJECT_STEP_SIZE;
+            dynamicObjectActualPosition[1] -= DYNAMIC_OBJECT_STEP_SIZE;
+        }
+        
+        if(dynamicObjectActualPosition[2] < [self pathPointA].z){
+            step.z += DYNAMIC_OBJECT_STEP_SIZE;
+            dynamicObjectActualPosition[2] += DYNAMIC_OBJECT_STEP_SIZE;
+        }
+        if(dynamicObjectActualPosition[2] > [self pathPointA].z){
+            step.z -= DYNAMIC_OBJECT_STEP_SIZE;
+            dynamicObjectActualPosition[2] -= DYNAMIC_OBJECT_STEP_SIZE;
         }
         
     }
+    
+    //NSLog(@"x: %f y: %f z: %f",dynamicObjectActualPosition[0], dynamicObjectActualPosition[1], dynamicObjectActualPosition[2]);
     
     if((step.x == 0.0f) && (step.y == 0.0f) && (step.z == 0.0f)){
         moveDirectionAtoB = !moveDirectionAtoB;

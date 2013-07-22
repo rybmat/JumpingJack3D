@@ -7,6 +7,7 @@
 //
 
 #import "JJGLView.h"
+#import "cube.h"
 
 @implementation JJGLView
 
@@ -18,6 +19,7 @@ JJCamera *camera;
 
 //to delete////
 JJStaticPlatform *platform;
+JJDynamicPlatform *dynPlatform;
 
 //////////////////////////
 
@@ -42,8 +44,8 @@ JJStaticPlatform *platform;
     glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
 	glEnable(GL_DEPTH_TEST);
     
-    [JJLight setFirstLight: glm::vec4(0.0f, 10.0f, -30.0f, 1.0f)];
-    [JJLight setSecondLight: glm::vec4(0.0f, -10.0f, -30.0f, 1.0f)];
+    [JJLight setFirstLightX: 5.0f Y: 0.0f Z: 0.0f];
+    [JJLight setSecondLightX: -5.0f Y: 0.0f Z: 0.0f];
     
     assetManager = [[JJAssetManager alloc] init];
     [assetManager load];
@@ -52,13 +54,26 @@ JJStaticPlatform *platform;
     
     platform = [[JJStaticPlatform alloc] initWithShaderProgram: [assetManager shaders][@"platform"]
                                                         Camera: camera
-                                                      Vertices: [assetManager getVertices:@"platform"]
-                                                       Normals: [assetManager getNormals:@"platform"]
-                                                   VertexCount: [assetManager getVertexCount:@"platform"]
-                                                     PositionX: 0.0f Y: 0.0f Z: 0.0f
+                                                      Vertices: cubeVertices//[assetManager getVertices:@"platform"]
+                                                       Normals: cubeNormals//[assetManager getNormals:@"platform"]
+                                                   VertexCount: cubeVertexCount//[assetManager getVertexCount:@"platform"]
+                                                     PositionX: 1.0f Y: 0.0f Z: 0.0f
                                                        Texture: [assetManager getTexture: @"platform"]
-                                                     TexCoords: [assetManager getUvs:@"platform"]];
+                                                     TexCoords: cubeTexCoords];//[assetManager getUvs:@"platform"]];
     
+    [platform rotateX:1.0f Y:3.0f Z:0.0f ByAngle:45.0f];
+    
+    
+    dynPlatform = [[JJDynamicPlatform alloc] initWithShaderProgram: [assetManager shaders][@"platform"]
+                                                            Camera: camera
+                                                          Vertices: cubeVertices
+                                                           Normals: cubeNormals
+                                                       VertexCount: cubeVertexCount
+                                                         PositionX: 1.0f Y: 0.0f Z: 0.0f
+                                                        PathPointB: glm::vec4(2.0f,3.0f,4.0f,1.0f)
+                                          TimeIntervalBetweenMoves: 0.1f
+                                                           Texture: [assetManager getTexture:@"platform"]
+                                                     TextureCoords: cubeTexCoords];
 }
 
 - (void) dealloc{
@@ -126,6 +141,7 @@ JJStaticPlatform *platform;
     
     // Drawing code here.
     [platform render];
+    [dynPlatform render];
     
     glFlush();
 }

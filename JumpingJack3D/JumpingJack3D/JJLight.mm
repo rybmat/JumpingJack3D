@@ -8,25 +8,31 @@
 
 #import "JJLight.h"
 
-static glm::vec4 firstLight;
-static glm::vec4 secondLight;
+static float firstLight[4];
+static float secondLight[4];
 
 @implementation JJLight
 
-+ (glm::vec4) getFirstLight{
++ (float*) getFirstLight{
     return firstLight;
 }
 
-+ (void) setFirstLight: (glm::vec4) fl{
-    firstLight = fl;
++ (void) setFirstLightX: (float)x Y: (float)y Z: (float)z{
+    firstLight[0] = x;
+    firstLight[1] = y;
+    firstLight[2] = z;
+    firstLight[3] = 1.0f;
 }
 
-+ (glm::vec4) getSecondLight{
++ (float*) getSecondLight{
     return secondLight;
 }
 
-+ (void) setSecondLight: (glm::vec4) sl{
-    secondLight = sl;
++ (void) setSecondLightX: (float)x Y: (float)y Z: (float)z{
+    secondLight[0] = x;
+    secondLight[1] = y;
+    secondLight[2] = z;
+    secondLight[3] = 1.0f;
 }
 
 @end

@@ -91,8 +91,8 @@ GLuint staticEnemyBufTexCoords0;
 	glUniformMatrix4fv([[self shaderProgram] getUniformLocation:"V" ],1, false, glm::value_ptr([[self camera] viewMatrix]));
 	glUniformMatrix4fv([[self shaderProgram] getUniformLocation:"M"],1, false, glm::value_ptr([self matM]));
 	glUniform1i([[self shaderProgram] getUniformLocation:"textureMap0"], 0);
-    glUniform1fv([[self shaderProgram] getUniformLocation:"lp0"], 1, glm::value_ptr([JJLight getFirstLight]));
-    glUniform1fv([[self shaderProgram] getUniformLocation:"lp1"], 1, glm::value_ptr([JJLight getSecondLight]));
+    glUniform4fv([[self shaderProgram] getUniformLocation:"lp0"], 1, [JJLight getFirstLight]);
+    glUniform4fv([[self shaderProgram] getUniformLocation:"lp1"], 1, [JJLight getSecondLight]);
     
     glBindVertexArray(staticEnemyVao);
     
