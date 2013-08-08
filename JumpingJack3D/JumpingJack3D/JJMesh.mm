@@ -14,10 +14,11 @@
 {
     self = [super init];
     if (self) {
-        _vertexCount  = 0;
-        _normalsCount = 0;
-        _uvCount      = 0;
-        _faceCount    = 0;
+        _vertexCount             = 0;
+        _normalsCount            = 0;
+        _uvCount                 = 0;
+        _faceCount               = 0;
+        _uncompressedVertexCount = 0;
         
         _vertices  = NULL;
         _uvs       = NULL;
@@ -172,6 +173,7 @@
             _faceCount++;
         }
     }
+    _uncompressedVertexCount = _vertexCount*3;
 }
 
 - (void) allocateBuffers

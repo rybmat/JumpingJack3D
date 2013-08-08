@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		10989BE317B2FDD4005B5599 /* Football.obj in Resources */ = {isa = PBXBuildFile; fileRef = 10989BE217B2FDD4005B5599 /* Football.obj */; };
 		10FE0170179379D3005A218E /* JJAssetManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10FE016F179379D3005A218E /* JJAssetManager.mm */; };
 		10FE017417937A0B005A218E /* JJCamera.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10FE017317937A0B005A218E /* JJCamera.mm */; };
 		10FE017D17937AAA005A218E /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10FE017C17937AAA005A218E /* SenTestingKit.framework */; };
@@ -43,6 +44,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		10989BE217B2FDD4005B5599 /* Football.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Football.obj; sourceTree = "<group>"; };
 		10FE016E179379D3005A218E /* JJAssetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJAssetManager.h; sourceTree = "<group>"; };
 		10FE016F179379D3005A218E /* JJAssetManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = JJAssetManager.mm; sourceTree = "<group>"; };
 		10FE017217937A0B005A218E /* JJCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJCamera.h; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 		10FE018D17937D72005A218E /* models */ = {
 			isa = PBXGroup;
 			children = (
+				10989BE217B2FDD4005B5599 /* Football.obj */,
 				10FE01A21794BA88005A218E /* platform.obj */,
 			);
 			path = models;
@@ -403,6 +406,7 @@
 				10FE019E17945ACB005A218E /* platform.png in Resources */,
 				10FE01A31794BA88005A218E /* platform.obj in Resources */,
 				10FE01AB1794E01A005A218E /* TODO.txt in Resources */,
+				10989BE317B2FDD4005B5599 /* Football.obj in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

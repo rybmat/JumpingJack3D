@@ -13,6 +13,7 @@
 
 }
 
+@property (readonly) int uncompressedVertexCount;
 @property (readonly) int vertexCount;
 @property (readonly) int normalsCount;
 @property (readonly) int uvCount;

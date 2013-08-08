@@ -39,8 +39,8 @@ GLuint staticPlatformBufTexCoords;
 }
 
 - (void) setupVBO{
-    staticPlatformBufVertices = [self makeBuffer: [self vertices] vCount: [self vertexCount] vSize: sizeof(float)*4];
-	staticPlatformBufNormals = [self makeBuffer: [self normals] vCount: [self vertexCount] vSize: sizeof(float)*4];
+    staticPlatformBufVertices = [self makeBuffer: [self vertices] vCount: [self vertexCount] vSize: sizeof(float)*3];
+	staticPlatformBufNormals = [self makeBuffer: [self normals] vCount: [self vertexCount] vSize: sizeof(float)*3];
     staticPlatformBufTexCoords = [self makeBuffer: staticPlatformTexCoords0 vCount: [self vertexCount] vSize:sizeof(float) *2];
 }
 
@@ -58,8 +58,8 @@ GLuint staticPlatformBufTexCoords;
     glGenVertexArrays(1,&staticPlatformVao);
 	glBindVertexArray(staticPlatformVao);
     
-	[self assignVBOtoAttribute:"vertex" BufVBO: staticPlatformBufVertices varSize:4];
-	[self assignVBOtoAttribute:"normal" BufVBO: staticPlatformBufNormals varSize:4];
+	[self assignVBOtoAttribute:"vertex" BufVBO: staticPlatformBufVertices varSize:3];
+	[self assignVBOtoAttribute:"normal" BufVBO: staticPlatformBufNormals varSize:3];
     [self assignVBOtoAttribute:"texCoords0" BufVBO: staticPlatformBufTexCoords varSize:2];
 	
 	glBindVertexArray(0);

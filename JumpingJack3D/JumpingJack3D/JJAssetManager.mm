@@ -37,9 +37,9 @@ GLuint tex;
 - (void) load
 {
     [self loadShaders];
-    NSLog(@"AssetManager: shaders loaded");
+    NSLog(@"AssetManager: Shaders loaded");
     [self loadTextures];
-    NSLog(@"AssetManager: textures loaded");
+    NSLog(@"AssetManager: Textures loaded");
     [self loadMeshes];
     NSLog(@"AssetManager: Meshes loaded");
 }
@@ -89,7 +89,7 @@ GLuint tex;
     
     NSMutableDictionary* dict = [[NSMutableDictionary alloc] init];
     
-    for (NSString* filePath in filePathsTGA) {
+for (NSString* filePath in filePathsTGA) {
         GLuint textureHandler;
         NSString* filename = [[filePath lastPathComponent] stringByDeletingPathExtension];
         
@@ -158,6 +158,11 @@ GLuint tex;
     return dict;
 }
 
+- (JJShaderProgram*) getShaderProgram: (NSString*) dictionaryKey
+{
+    return [self shaders][dictionaryKey];
+}
+
 - (float*) getVertices: (NSString*) dictionaryKey{
     return [[self meshes][dictionaryKey] vertices];
 }
@@ -171,7 +176,7 @@ GLuint tex;
 }
 
 - (int) getVertexCount: (NSString*) dictionaryKey{
-    return [[self meshes][dictionaryKey] vertexCount];
+    return [[self meshes][dictionaryKey] uncompressedVertexCount];
 }
 
 - (GLuint*) getTexture: (NSString*) dictionaryKey{

@@ -22,6 +22,10 @@ typedef enum _extensionType {
 @property NSBundle* mainBundle;
 @property NSArray* extensions;
 
+@property (readonly, strong) NSDictionary* textures;
+@property (readonly, strong) NSDictionary* meshes;
+@property (readonly, strong) NSDictionary* shaders;
+
 - (BOOL) loadTexture: (NSString*)fileName withColorMode: (GLuint)cmode texHandler: (GLuint*)tex;
 - (NSDictionary*) createShaderDirsDictionary:(extensionType)aType;
 - (void) loadShaders;

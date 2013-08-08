@@ -20,6 +20,7 @@ JJCamera *camera;
 //to delete////
 JJStaticPlatform *platform;
 JJDynamicPlatform *dynPlatform;
+JJStaticPlatform *ball;
 
 //////////////////////////
 
@@ -52,26 +53,26 @@ JJDynamicPlatform *dynPlatform;
     camera = [[JJCamera alloc] init];
     
     
-    platform = [[JJStaticPlatform alloc] initWithShaderProgram: [assetManager shaders][@"platform"]
+    platform = [[JJStaticPlatform alloc] initWithShaderProgram: [assetManager getShaderProgram:@"platform"]
                                                         Camera: camera
-                                                      Vertices: cubeVertices//[assetManager getVertices:@"platform"]
-                                                       Normals: cubeNormals//[assetManager getNormals:@"platform"]
-                                                   VertexCount: cubeVertexCount//[assetManager getVertexCount:@"platform"]
+                                                      Vertices: [assetManager getVertices:@"platform"]
+                                                       Normals: [assetManager getNormals:@"platform"]
+                                                   VertexCount: [assetManager getVertexCount:@"platform"]
                                                      PositionX: 1.0f Y: 0.0f Z: 0.0f
                                                        Texture: [assetManager getTexture: @"platform"]
-                                                     TexCoords: cubeTexCoords];//[assetManager getUvs:@"platform"]];
+                                                     TexCoords:  cubeTexCoords];
     
-    [platform rotateX:1.0f Y:3.0f Z:0.0f ByAngle:45.0f];
+    [platform rotateX:1.0f Y:3.0f Z:0.0f ByAngle: -40.0f];
     
     
-    dynPlatform = [[JJDynamicPlatform alloc] initWithShaderProgram: [assetManager shaders][@"platform"]
+    dynPlatform = [[JJDynamicPlatform alloc] initWithShaderProgram: [assetManager getShaderProgram:@"platform"]
                                                             Camera: camera
                                                           Vertices: cubeVertices
                                                            Normals: cubeNormals
                                                        VertexCount: cubeVertexCount
                                                          PositionX: 1.0f Y: 0.0f Z: 0.0f
                                                         PathPointB: glm::vec4(2.0f,3.0f,4.0f,1.0f)
-                                          TimeIntervalBetweenMoves: 0.1f
+                                          TimeIntervalBetweenMoves: 0.03f
                                                            Texture: [assetManager getTexture:@"platform"]
                                                      TextureCoords: cubeTexCoords];
 }
@@ -107,7 +108,7 @@ JJDynamicPlatform *dynPlatform;
     [self setOpenGLContext:context];
     
     
-    renderTimer = [NSTimer timerWithTimeInterval:0.001
+    renderTimer = [NSTimer timerWithTimeInterval:1/60.0
                                           target:self
                                         selector:@selector(timerFired:)
                                         userInfo:nil

@@ -12,13 +12,10 @@
 
 @interface JJAssetManager : NSObject
 
-@property (readonly, strong) NSDictionary* textures;
-@property (readonly, strong) NSDictionary* meshes;
-@property (readonly, strong) NSDictionary* shaders;
-
 - (id) init;
 - (void) load;
 
+- (JJShaderProgram*) getShaderProgram: (NSString*) dictionaryKey;
 - (float*) getVertices: (NSString*) dictionaryKey;
 - (float*) getNormals: (NSString*) dictionaryKey;
 - (float*) getUvs: (NSString*) dictionaryKey;
