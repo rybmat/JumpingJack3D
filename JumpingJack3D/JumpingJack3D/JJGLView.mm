@@ -60,9 +60,12 @@ JJStaticPlatform *ball;
                                                    VertexCount: [assetManager getVertexCount:@"platform"]
                                                      PositionX: 1.0f Y: 0.0f Z: 0.0f
                                                        Texture: [assetManager getTexture: @"platform"]
-                                                     TexCoords:  cubeTexCoords];
+                                                     TexCoords:  [assetManager getUvs:@"platform"]];//cubeTexCoords];
     
     [platform rotateX:1.0f Y:3.0f Z:0.0f ByAngle: -40.0f];
+    
+    glm::vec4 pos = [platform getModelPosition];
+    NSLog(@"platform position: x: %f, y: %f, z: %f, w: %f", pos.x, pos.y, pos.z, pos.w);
     
     
     dynPlatform = [[JJDynamicPlatform alloc] initWithShaderProgram: [assetManager getShaderProgram:@"platform"]

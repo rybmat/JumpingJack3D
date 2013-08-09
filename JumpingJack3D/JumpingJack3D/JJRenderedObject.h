@@ -43,4 +43,6 @@
 - (void) scaleY: (float) scale;
 - (void) scaleZ: (float) scale;
 
+
+- (glm::vec4) getModelPosition; //x,y,z,w
 @end

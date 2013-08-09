@@ -85,4 +85,15 @@
         [self setMatM:glm::scale([self matM], glm::vec3(1.0f, 1.0f, scale))];
 }
 
+
+-(glm::vec4) getModelPosition{
+    glm::vec4 position;
+    
+    position.x = [self matM][3][0];
+    position.y = [self matM][3][1];
+    position.z = [self matM][3][2];
+    position.w = 1;
+    
+    return position;
+}
 @end
