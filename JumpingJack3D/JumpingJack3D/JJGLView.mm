@@ -8,7 +8,7 @@
 
 #import "JJGLView.h"
 #import "cube.h"
-
+#import "teapot.h"
 @implementation JJGLView
 
 NSTimer *renderTimer;
@@ -20,7 +20,7 @@ JJCamera *camera;
 //to delete////
 JJStaticPlatform *platform;
 JJDynamicPlatform *dynPlatform, *dynPlatform2;
-JJStaticPlatform *ball;
+JJStaticPlatform *cube;
 
 JJCharacter *character;
 
@@ -54,72 +54,42 @@ JJCharacter *character;
     [assetManager load];
     camera = [[JJCamera alloc] init];
     
-    GLfloat g_uv_buffer_data[] = {
-        0.000059f, 1.0f-0.000004f,
-        0.000103f, 1.0f-0.336048f,
-        0.335973f, 1.0f-0.335903f,
-        1.000023f, 1.0f-0.000013f,
-        0.667979f, 1.0f-0.335851f,
-        0.999958f, 1.0f-0.336064f,
-        0.667979f, 1.0f-0.335851f,
-        0.336024f, 1.0f-0.671877f,
-        0.667969f, 1.0f-0.671889f,
-        1.000023f, 1.0f-0.000013f,
-        0.668104f, 1.0f-0.000013f,
-        0.667979f, 1.0f-0.335851f,
-        0.000059f, 1.0f-0.000004f,
-        0.335973f, 1.0f-0.335903f,
-        0.336098f, 1.0f-0.000071f,
-        0.667979f, 1.0f-0.335851f,
-        0.335973f, 1.0f-0.335903f,
-        0.336024f, 1.0f-0.671877f,
-        1.000004f, 1.0f-0.671847f,
-        0.999958f, 1.0f-0.336064f,
-        0.667979f, 1.0f-0.335851f,
-        0.668104f, 1.0f-0.000013f,
-        0.335973f, 1.0f-0.335903f,
-        0.667979f, 1.0f-0.335851f,
-        0.335973f, 1.0f-0.335903f,
-        0.668104f, 1.0f-0.000013f,
-        0.336098f, 1.0f-0.000071f,
-        0.000103f, 1.0f-0.336048f,
-        0.000004f, 1.0f-0.671870f,
-        0.336024f, 1.0f-0.671877f,
-        0.000103f, 1.0f-0.336048f,
-        0.336024f, 1.0f-0.671877f,
-        0.335973f, 1.0f-0.335903f,
-        0.667969f, 1.0f-0.671889f,
-        1.000004f, 1.0f-0.671847f,
-        0.667979f, 1.0f-0.335851f
-    };
-    
+    cube = [[JJStaticPlatform alloc] initWithShaderProgram: [assetManager getShaderProgram:@"platform"]
+                                                        Camera: camera
+                                                      Vertices: [assetManager getVertices:@"cube"]
+                                                       Normals: [assetManager getNormals:@"cube"]
+                                                   VertexCount: [assetManager getVertexCount:@"cube"]
+                                                     PositionX: 1.0f Y: 0.0f Z: 0.0f
+                                                       Texture: [assetManager getTexture: @"cube"]
+                                                     TexCoords: [assetManager getUvs:@"cube"]];//cubeTexCoords];
+    /*
     platform = [[JJStaticPlatform alloc] initWithShaderProgram: [assetManager getShaderProgram:@"platform"]
                                                         Camera: camera
-                                                      Vertices: [assetManager getVertices:@"platform"]
-                                                       Normals: [assetManager getNormals:@"platform"]
-                                                   VertexCount: [assetManager getVertexCount:@"platform"]
+                                                      Vertices: teapotVertices
+                                                       Normals: teapotNormals
+                                                   VertexCount: teapotVertexCount
                                                      PositionX: 1.0f Y: 0.0f Z: 0.0f
-                                                       Texture: [assetManager getTexture: @"platform"]
-                                                     TexCoords: g_uv_buffer_data];//[assetManager getUvs:@"platform"]];//cubeTexCoords];
+                                                       Texture: [assetManager getTexture: @"metal"]
+                                                     TexCoords: teapotTexCoords];//cubeTexCoords];
     
     [platform rotateX:1.0f Y:3.0f Z:0.0f ByAngle: -40.0f];
     
     glm::vec4 pos = [platform getModelPosition];
     NSLog(@"platform position: x: %f, y: %f, z: %f, w: %f", pos.x, pos.y, pos.z, pos.w);
-    
+    */
     
     dynPlatform = [[JJDynamicPlatform alloc] initWithShaderProgram: [assetManager getShaderProgram:@"platform"]
                                                             Camera: camera
-                                                          Vertices: cubeVertices
-                                                           Normals: cubeNormals
-                                                       VertexCount: cubeVertexCount
+                                                          Vertices: [assetManager getVertices:@"cube"]
+                                                           Normals: [assetManager getNormals:@"cube"]
+                                                       VertexCount: [assetManager getVertexCount:@"cube"]
                                                          PositionX: 1.0f Y: 0.0f Z: 0.0f
                                                         PathPointB: glm::vec4(2.0f,3.0f,4.0f,1.0f)
                                           TimeIntervalBetweenMoves: 0.03f
-                                                           Texture: [assetManager getTexture:@"platform"]
-                                                     TextureCoords: cubeTexCoords];
-    
-    /*dynPlatform2 = [[JJDynamicPlatform alloc] initWithShaderProgram: [assetManager getShaderProgram:@"platform"]
+                                                           Texture: [assetManager getTexture:@"cube"]
+                                                     TextureCoords: [assetManager getUvs:@"cube"]];
+    /*
+    dynPlatform2 = [[JJDynamicPlatform alloc] initWithShaderProgram: [assetManager getShaderProgram:@"platform"]
                                                             Camera: camera
                                                           Vertices: cubeVertices
                                                            Normals: cubeNormals
@@ -128,16 +98,16 @@ JJCharacter *character;
                                                         PathPointB: glm::vec4(-2.0f,-3.0f,-4.0f,1.0f)
                                           TimeIntervalBetweenMoves: 0.03f
                                                            Texture: [assetManager getTexture:@"platform"]
-                                                     TextureCoords: cubeTexCoords];*/
-    
+                                                     TextureCoords: cubeTexCoords];
+    */
     character = [[JJCharacter alloc] initWithShaderProgram: [assetManager getShaderProgram:@"platform"]
                                                     Camera: camera
-                                                  Vertices: cubeVertices
-                                                   Normals: cubeNormals
-                                               VertexCount: cubeVertexCount
+                                                  Vertices: [assetManager getVertices:@"cube"]
+                                                   Normals: [assetManager getNormals:@"cube"]
+                                               VertexCount: [assetManager getVertexCount:@"cube"]
                                                  PositionX: 1.0f Y:0.0f Z:0.0f
-                                                   Texture: [assetManager getTexture:@"platform"]
-                                                 TexCoords: cubeTexCoords];
+                                                   Texture: [assetManager getTexture:@"cube"]
+                                                 TexCoords: [assetManager getUvs:@"cube"]];
     
 }
 

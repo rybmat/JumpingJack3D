@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		109709F317B6657700B51086 /* platform.dds in Resources */ = {isa = PBXBuildFile; fileRef = 109709F217B6657700B51086 /* platform.dds */; };
-		109709F417B6657700B51086 /* platform.dds in Resources */ = {isa = PBXBuildFile; fileRef = 109709F217B6657700B51086 /* platform.dds */; };
+		109709F717B6774600B51086 /* metal.tga in Resources */ = {isa = PBXBuildFile; fileRef = 109709F617B6774600B51086 /* metal.tga */; };
+		109709F817B6774600B51086 /* metal.tga in Resources */ = {isa = PBXBuildFile; fileRef = 109709F617B6774600B51086 /* metal.tga */; };
+		10970A0017B6A9E300B51086 /* cube.obj in Resources */ = {isa = PBXBuildFile; fileRef = 109709FF17B6A9E300B51086 /* cube.obj */; };
+		10970A0117B6A9E300B51086 /* cube.obj in Resources */ = {isa = PBXBuildFile; fileRef = 109709FF17B6A9E300B51086 /* cube.obj */; };
+		10970A0317B6A9EF00B51086 /* cube.png in Resources */ = {isa = PBXBuildFile; fileRef = 10970A0217B6A9EF00B51086 /* cube.png */; };
+		10970A0417B6A9EF00B51086 /* cube.png in Resources */ = {isa = PBXBuildFile; fileRef = 10970A0217B6A9EF00B51086 /* cube.png */; };
 		10989BE317B2FDD4005B5599 /* Football.obj in Resources */ = {isa = PBXBuildFile; fileRef = 10989BE217B2FDD4005B5599 /* Football.obj */; };
 		10FE0170179379D3005A218E /* JJAssetManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10FE016F179379D3005A218E /* JJAssetManager.mm */; };
 		10FE017417937A0B005A218E /* JJCamera.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10FE017317937A0B005A218E /* JJCamera.mm */; };
@@ -46,7 +50,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		109709F217B6657700B51086 /* platform.dds */ = {isa = PBXFileReference; lastKnownFileType = file; path = platform.dds; sourceTree = "<group>"; };
+		109709F517B6773200B51086 /* teapot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = teapot.h; sourceTree = "<group>"; };
+		109709F617B6774600B51086 /* metal.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = metal.tga; sourceTree = "<group>"; };
+		109709FF17B6A9E300B51086 /* cube.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cube.obj; sourceTree = "<group>"; };
+		10970A0217B6A9EF00B51086 /* cube.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cube.png; sourceTree = "<group>"; };
 		10989BE217B2FDD4005B5599 /* Football.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Football.obj; sourceTree = "<group>"; };
 		10FE016E179379D3005A218E /* JJAssetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJAssetManager.h; sourceTree = "<group>"; };
 		10FE016F179379D3005A218E /* JJAssetManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = JJAssetManager.mm; sourceTree = "<group>"; };
@@ -185,6 +192,7 @@
 		10FE018C17937D2A005A218E /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				109709F517B6773200B51086 /* teapot.h */,
 				10FE018E17937D83005A218E /* textures */,
 				10FE018D17937D72005A218E /* models */,
 				6130D168178EF36F004F2FA5 /* shaders */,
@@ -196,6 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				10989BE217B2FDD4005B5599 /* Football.obj */,
+				109709FF17B6A9E300B51086 /* cube.obj */,
 				10FE01A21794BA88005A218E /* platform.obj */,
 			);
 			path = models;
@@ -204,7 +213,8 @@
 		10FE018E17937D83005A218E /* textures */ = {
 			isa = PBXGroup;
 			children = (
-				109709F217B6657700B51086 /* platform.dds */,
+				109709F617B6774600B51086 /* metal.tga */,
+				10970A0217B6A9EF00B51086 /* cube.png */,
 				10FE019D17945ACB005A218E /* platform.png */,
 			);
 			path = textures;
@@ -395,7 +405,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				10FE018417937AAA005A218E /* InfoPlist.strings in Resources */,
-				109709F417B6657700B51086 /* platform.dds in Resources */,
+				109709F817B6774600B51086 /* metal.tga in Resources */,
+				10970A0117B6A9E300B51086 /* cube.obj in Resources */,
+				10970A0417B6A9EF00B51086 /* cube.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,7 +424,9 @@
 				10FE01A31794BA88005A218E /* platform.obj in Resources */,
 				10FE01AB1794E01A005A218E /* TODO.txt in Resources */,
 				10989BE317B2FDD4005B5599 /* Football.obj in Resources */,
-				109709F317B6657700B51086 /* platform.dds in Resources */,
+				109709F717B6774600B51086 /* metal.tga in Resources */,
+				10970A0017B6A9E300B51086 /* cube.obj in Resources */,
+				10970A0317B6A9EF00B51086 /* cube.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
