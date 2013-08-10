@@ -19,8 +19,10 @@ JJCamera *camera;
 
 //to delete////
 JJStaticPlatform *platform;
-JJDynamicPlatform *dynPlatform;
+JJDynamicPlatform *dynPlatform, *dynPlatform2;
 JJStaticPlatform *ball;
+
+JJCharacter *character;
 
 //////////////////////////
 
@@ -45,8 +47,8 @@ JJStaticPlatform *ball;
     glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
 	glEnable(GL_DEPTH_TEST);
     
-    [JJLight setFirstLightX: 5.0f Y: 0.0f Z: 0.0f];
-    [JJLight setSecondLightX: -5.0f Y: 0.0f Z: 0.0f];
+    [JJLight setFirstLightX: 5.0f Y: 0.0f Z: -100.0f];
+    [JJLight setSecondLightX: -5.0f Y: 0.0f Z: -100.0f];
     
     assetManager = [[JJAssetManager alloc] init];
     [assetManager load];
@@ -60,7 +62,7 @@ JJStaticPlatform *ball;
                                                    VertexCount: [assetManager getVertexCount:@"platform"]
                                                      PositionX: 1.0f Y: 0.0f Z: 0.0f
                                                        Texture: [assetManager getTexture: @"platform"]
-                                                     TexCoords:  [assetManager getUvs:@"platform"]];//cubeTexCoords];
+                                                     TexCoords: [assetManager getUvs:@"platform"]];//cubeTexCoords];
     
     [platform rotateX:1.0f Y:3.0f Z:0.0f ByAngle: -40.0f];
     
@@ -78,6 +80,27 @@ JJStaticPlatform *ball;
                                           TimeIntervalBetweenMoves: 0.03f
                                                            Texture: [assetManager getTexture:@"platform"]
                                                      TextureCoords: cubeTexCoords];
+    
+    /*dynPlatform2 = [[JJDynamicPlatform alloc] initWithShaderProgram: [assetManager getShaderProgram:@"platform"]
+                                                            Camera: camera
+                                                          Vertices: cubeVertices
+                                                           Normals: cubeNormals
+                                                       VertexCount: cubeVertexCount
+                                                         PositionX: -1.0f Y: 0.0f Z: 0.0f
+                                                        PathPointB: glm::vec4(-2.0f,-3.0f,-4.0f,1.0f)
+                                          TimeIntervalBetweenMoves: 0.03f
+                                                           Texture: [assetManager getTexture:@"platform"]
+                                                     TextureCoords: cubeTexCoords];*/
+    
+    character = [[JJCharacter alloc] initWithShaderProgram: [assetManager getShaderProgram:@"platform"]
+                                                    Camera: camera
+                                                  Vertices: cubeVertices
+                                                   Normals: cubeNormals
+                                               VertexCount: cubeVertexCount
+                                                 PositionX: 1.0f Y:0.0f Z:0.0f
+                                                   Texture: [assetManager getTexture:@"platform"]
+                                                 TexCoords: cubeTexCoords];
+    
 }
 
 - (void) dealloc{
@@ -146,7 +169,8 @@ JJStaticPlatform *ball;
     // Drawing code here.
     [platform render];
     [dynPlatform render];
-    
+    [dynPlatform2 render];
+    [character render];
     glFlush();
 }
 
@@ -166,19 +190,19 @@ JJStaticPlatform *ball;
     if ( [theArrow length] == 1 ) {
         keyChar = [theArrow characterAtIndex:0];
         if ( keyChar == NSLeftArrowFunctionKey ) {
-            
+            [character rotateY:1.0f byAngle:5];
             return;
         }
         if ( keyChar == NSRightArrowFunctionKey ) {
-         
+            [character rotateY:-1.0f byAngle:5];
             return;
         }
         if ( keyChar == NSUpArrowFunctionKey ) {
-           
+           [character moveZ:0.1f];
             return;
         }
         if ( keyChar == NSDownArrowFunctionKey ) {
-            
+            [character moveZ:-0.1f];
             return;
         }
         if ( keyChar == ' '){
