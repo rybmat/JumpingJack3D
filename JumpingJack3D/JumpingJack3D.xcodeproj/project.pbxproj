@@ -9,10 +9,10 @@
 /* Begin PBXBuildFile section */
 		109709F717B6774600B51086 /* metal.tga in Resources */ = {isa = PBXBuildFile; fileRef = 109709F617B6774600B51086 /* metal.tga */; };
 		109709F817B6774600B51086 /* metal.tga in Resources */ = {isa = PBXBuildFile; fileRef = 109709F617B6774600B51086 /* metal.tga */; };
-		10970A0017B6A9E300B51086 /* cube.obj in Resources */ = {isa = PBXBuildFile; fileRef = 109709FF17B6A9E300B51086 /* cube.obj */; };
-		10970A0117B6A9E300B51086 /* cube.obj in Resources */ = {isa = PBXBuildFile; fileRef = 109709FF17B6A9E300B51086 /* cube.obj */; };
 		10970A0317B6A9EF00B51086 /* cube.png in Resources */ = {isa = PBXBuildFile; fileRef = 10970A0217B6A9EF00B51086 /* cube.png */; };
 		10970A0417B6A9EF00B51086 /* cube.png in Resources */ = {isa = PBXBuildFile; fileRef = 10970A0217B6A9EF00B51086 /* cube.png */; };
+		10970A0617B6E58A00B51086 /* cube.obj in Resources */ = {isa = PBXBuildFile; fileRef = 10970A0517B6E58A00B51086 /* cube.obj */; };
+		10970A0717B6E58A00B51086 /* cube.obj in Resources */ = {isa = PBXBuildFile; fileRef = 10970A0517B6E58A00B51086 /* cube.obj */; };
 		10989BE317B2FDD4005B5599 /* Football.obj in Resources */ = {isa = PBXBuildFile; fileRef = 10989BE217B2FDD4005B5599 /* Football.obj */; };
 		10FE0170179379D3005A218E /* JJAssetManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10FE016F179379D3005A218E /* JJAssetManager.mm */; };
 		10FE017417937A0B005A218E /* JJCamera.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10FE017317937A0B005A218E /* JJCamera.mm */; };
@@ -52,8 +52,8 @@
 /* Begin PBXFileReference section */
 		109709F517B6773200B51086 /* teapot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = teapot.h; sourceTree = "<group>"; };
 		109709F617B6774600B51086 /* metal.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = metal.tga; sourceTree = "<group>"; };
-		109709FF17B6A9E300B51086 /* cube.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cube.obj; sourceTree = "<group>"; };
 		10970A0217B6A9EF00B51086 /* cube.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cube.png; sourceTree = "<group>"; };
+		10970A0517B6E58A00B51086 /* cube.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cube.obj; sourceTree = "<group>"; };
 		10989BE217B2FDD4005B5599 /* Football.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Football.obj; sourceTree = "<group>"; };
 		10FE016E179379D3005A218E /* JJAssetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJAssetManager.h; sourceTree = "<group>"; };
 		10FE016F179379D3005A218E /* JJAssetManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = JJAssetManager.mm; sourceTree = "<group>"; };
@@ -204,7 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				10989BE217B2FDD4005B5599 /* Football.obj */,
-				109709FF17B6A9E300B51086 /* cube.obj */,
+				10970A0517B6E58A00B51086 /* cube.obj */,
 				10FE01A21794BA88005A218E /* platform.obj */,
 			);
 			path = models;
@@ -406,8 +406,8 @@
 			files = (
 				10FE018417937AAA005A218E /* InfoPlist.strings in Resources */,
 				109709F817B6774600B51086 /* metal.tga in Resources */,
-				10970A0117B6A9E300B51086 /* cube.obj in Resources */,
 				10970A0417B6A9EF00B51086 /* cube.png in Resources */,
+				10970A0717B6E58A00B51086 /* cube.obj in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,8 +425,8 @@
 				10FE01AB1794E01A005A218E /* TODO.txt in Resources */,
 				10989BE317B2FDD4005B5599 /* Football.obj in Resources */,
 				109709F717B6774600B51086 /* metal.tga in Resources */,
-				10970A0017B6A9E300B51086 /* cube.obj in Resources */,
 				10970A0317B6A9EF00B51086 /* cube.png in Resources */,
+				10970A0617B6E58A00B51086 /* cube.obj in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
