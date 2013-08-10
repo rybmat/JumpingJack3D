@@ -138,13 +138,13 @@
         _vertices[4*i  ] = vertex[0];
         _vertices[4*i+1] = vertex[1];
         _vertices[4*i+2] = vertex[2];
-        _vertices[4*i+3] = 1;
+        _vertices[4*i+3] = 1.0;
         
         //Place normal in new buffer
         _normals[4*i  ] = normal[0];
         _normals[4*i+1] = normal[1];
         _normals[4*i+2] = normal[2];
-        _normals[4*i+3] = 0;
+        _normals[4*i+3] = 0.0;
         
         //Place uv in new buffer
         _uvs[2*i  ] = uv[0];
