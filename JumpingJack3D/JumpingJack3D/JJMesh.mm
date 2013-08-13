@@ -110,6 +110,7 @@
         }
     }
     
+    
     for (GLuint i=0; i<self.faceCount*3; ++i) {
         
         //Get indicies of its attributes
@@ -144,7 +145,7 @@
         _normals[4*i  ] = normal[0];
         _normals[4*i+1] = normal[1];
         _normals[4*i+2] = normal[2];
-        _normals[4*i+3] = 0.0;
+        _normals[4*i+3] = 0.0f;
         
         //Place uv in new buffer
         _uvs[2*i  ] = uv[0];
@@ -175,7 +176,7 @@
             _faceCount++;
         }
     }
-    _uncompressedVertexCount = _vertexCount*3;
+    _uncompressedVertexCount = _faceCount*3;
 }
 
 - (void) allocateBuffers

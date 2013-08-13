@@ -54,16 +54,16 @@ JJCharacter *character;
     [assetManager load];
     camera = [[JJCamera alloc] init];
     
-    cube = [[JJStaticPlatform alloc] initWithShaderProgram: [assetManager getShaderProgram:@"platform"]
+    /*cube = [[JJStaticPlatform alloc] initWithShaderProgram: [assetManager getShaderProgram:@"platform"]
                                                         Camera: camera
                                                       Vertices: [assetManager getVertices:@"cube"]
                                                        Normals: [assetManager getNormals:@"cube"]
                                                    VertexCount: [assetManager getVertexCount:@"cube"]
                                                      PositionX: 1.0f Y: 0.0f Z: 0.0f
                                                        Texture: [assetManager getTexture: @"cube"]
-                                                     TexCoords: [assetManager getUvs:@"cube"]];//cubeTexCoords];
-    /*
-    platform = [[JJStaticPlatform alloc] initWithShaderProgram: [assetManager getShaderProgram:@"platform"]
+                                                     TexCoords: [assetManager getUvs:@"cube"]];//cubeTexCoords];*/
+    
+    /*platform = [[JJStaticPlatform alloc] initWithShaderProgram: [assetManager getShaderProgram:@"platform"]
                                                         Camera: camera
                                                       Vertices: teapotVertices
                                                        Normals: teapotNormals
@@ -105,9 +105,14 @@ JJCharacter *character;
                                                   Vertices: [assetManager getVertices:@"cube"]
                                                    Normals: [assetManager getNormals:@"cube"]
                                                VertexCount: [assetManager getVertexCount:@"cube"]
-                                                 PositionX: 1.0f Y:0.0f Z:0.0f
+                                                 PositionX: 1.0f Y:-2.0f Z:0.0f
                                                    Texture: [assetManager getTexture:@"cube"]
                                                  TexCoords: [assetManager getUvs:@"cube"]];
+    
+    
+    
+    NSLog(@"%d", [character vertexCount]);
+
     
 }
 
