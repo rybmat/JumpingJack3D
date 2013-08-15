@@ -47,8 +47,8 @@ JJCharacter *character;
     glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
 	glEnable(GL_DEPTH_TEST);
     
-    [JJLight setFirstLightX: 5.0f Y: 0.0f Z: -100.0f];
-    [JJLight setSecondLightX: -5.0f Y: 0.0f Z: -100.0f];
+    [JJLight setFirstLightX: 100.0f Y: 100.0f Z: -100.0f];
+    [JJLight setSecondLightX: -100.0f Y: -100.0f Z: -100.0f];
     
     assetManager = [[JJAssetManager alloc] init];
     [assetManager load];
@@ -63,7 +63,7 @@ JJCharacter *character;
                                                        Texture: [assetManager getTexture: @"cube"]
                                                      TexCoords: [assetManager getUvs:@"cube"]];//cubeTexCoords];*/
     
-    /*platform = [[JJStaticPlatform alloc] initWithShaderProgram: [assetManager getShaderProgram:@"platform"]
+    platform = [[JJStaticPlatform alloc] initWithShaderProgram: [assetManager getShaderProgram:@"platform"]
                                                         Camera: camera
                                                       Vertices: teapotVertices
                                                        Normals: teapotNormals
@@ -74,9 +74,9 @@ JJCharacter *character;
     
     [platform rotateX:1.0f Y:3.0f Z:0.0f ByAngle: -40.0f];
     
-    glm::vec4 pos = [platform getModelPosition];
-    NSLog(@"platform position: x: %f, y: %f, z: %f, w: %f", pos.x, pos.y, pos.z, pos.w);
-    */
+   // glm::vec4 pos = [platform getModelPosition];
+   // NSLog(@"platform position: x: %f, y: %f, z: %f, w: %f", pos.x, pos.y, pos.z, pos.w);
+    
     
     dynPlatform = [[JJDynamicPlatform alloc] initWithShaderProgram: [assetManager getShaderProgram:@"platform"]
                                                             Camera: camera
@@ -102,17 +102,33 @@ JJCharacter *character;
     */
     character = [[JJCharacter alloc] initWithShaderProgram: [assetManager getShaderProgram:@"platform"]
                                                     Camera: camera
-                                                  Vertices: [assetManager getVertices:@"cube"]
-                                                   Normals: [assetManager getNormals:@"cube"]
-                                               VertexCount: [assetManager getVertexCount:@"cube"]
-                                                 PositionX: 1.0f Y:-2.0f Z:0.0f
-                                                   Texture: [assetManager getTexture:@"cube"]
-                                                 TexCoords: [assetManager getUvs:@"cube"]];
+                                                  Vertices: [assetManager getVertices:@"platform"]
+                                                   Normals: [assetManager getNormals:@"platform"]
+                                               VertexCount: [assetManager getVertexCount:@"platform"]
+                                                 PositionX: 1.0f Y:0.0f Z:0.0f
+                                                   Texture: [assetManager getTexture:@"platform"]
+                                                 TexCoords: [assetManager getUvs:@"platform"]];
     
     
     
     NSLog(@"%d", [character vertexCount]);
+  //wypisanie normalnych/wierzcholkow
+   /* for( int i = 0; i < 12 * 3 * 4; i++){
+        printf("%f, ",[character normals][i]);
+        if(i % 4 == 3){
+            printf("\n");
+        }
+    }
+*/
+    //wypisanie UV-ek
+    for(int j = 0; j < 36 * 2; j++){
+        printf("%f, ", [assetManager getUvs:@"cube"][j]);
+        if(j % 2 == 1){
+            printf("\n");
+        }
+    }
 
+    
     
 }
 

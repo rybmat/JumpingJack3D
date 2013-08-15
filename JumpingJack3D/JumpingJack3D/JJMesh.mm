@@ -78,8 +78,10 @@
         {
             NSString* lineTrunc = [line substringFromIndex:2];
             NSArray* lineUVs = [lineTrunc componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-            tempUVs[uvPos  ] = [[lineUVs objectAtIndex:0] floatValue];
-            tempUVs[uvPos+1] = [[lineUVs objectAtIndex:1] floatValue];
+            tempUVs[uvPos  ] = [[lineUVs objectAtIndex:1] floatValue];
+            tempUVs[uvPos+1] = [[lineUVs objectAtIndex:2] floatValue];
+
+            
             uvPos += 2;
         }
         // Parsing faces
@@ -150,6 +152,7 @@
         //Place uv in new buffer
         _uvs[2*i  ] = uv[0];
         _uvs[2*i+1] = uv[1];
+        
     }
     
     free(tempVertices);
