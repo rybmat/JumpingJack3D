@@ -68,9 +68,9 @@
         {
             NSString* lineTrunc = [line substringFromIndex:2];
             NSArray* lineNormals = [lineTrunc componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-            tempNormals[normalsPos  ] = [[lineNormals objectAtIndex:0] floatValue];
-            tempNormals[normalsPos+1] = [[lineNormals objectAtIndex:1] floatValue];
-            tempNormals[normalsPos+2] = [[lineNormals objectAtIndex:2] floatValue];
+            tempNormals[normalsPos  ] = [[lineNormals objectAtIndex:1] floatValue];
+            tempNormals[normalsPos+1] = [[lineNormals objectAtIndex:2] floatValue];
+            tempNormals[normalsPos+2] = [[lineNormals objectAtIndex:3] floatValue];
             normalsPos += 3;
         }
         // Parsing texture coordinates
@@ -80,7 +80,6 @@
             NSArray* lineUVs = [lineTrunc componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
             tempUVs[uvPos  ] = [[lineUVs objectAtIndex:1] floatValue];
             tempUVs[uvPos+1] = [[lineUVs objectAtIndex:2] floatValue];
-
             
             uvPos += 2;
         }
