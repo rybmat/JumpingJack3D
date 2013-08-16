@@ -18,7 +18,7 @@ const NSString* TGAtextureExtension= @"tga";
 const NSString* PNGtextureExtension = @"png";
 const NSString* wavefrontObjectExtension = @"obj";
 const NSString* DDStextureExtension = @"dds";
-
+const NSString* JPGtextureExtension = @"jpg";
 
 GLuint tex;
 
@@ -31,7 +31,8 @@ GLuint tex;
         _shaders    = [[NSDictionary alloc] init];
         self.mainBundle = [NSBundle mainBundle];
         self.extensions = [[NSArray alloc] initWithObjects:vertexShaderExtension, geometryShaderExtension, fragmentShaderExtension,
-                                                           TGAtextureExtension, PNGtextureExtension, wavefrontObjectExtension, DDStextureExtension,nil];
+                                                           TGAtextureExtension, PNGtextureExtension, wavefrontObjectExtension,
+                                                           DDStextureExtension, JPGtextureExtension, nil];
     }
     return self;
 }
@@ -86,7 +87,7 @@ GLuint tex;
 
 - (void) loadTextures
 {
-    NSArray* filePathsTGA = [self.mainBundle pathsForResourcesOfType:self.extensions[TGA] inDirectory:@""];
+    NSArray* filePathsTGA = [self.mainBundle pathsForResourcesOfType:self.extensions[JPG] inDirectory:@""];
     NSArray* filePathsPNG = [self.mainBundle pathsForResourcesOfType:self.extensions[PNG] inDirectory:@""];
     
     NSMutableDictionary* dict = [[NSMutableDictionary alloc] init];

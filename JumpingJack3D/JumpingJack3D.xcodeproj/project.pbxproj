@@ -9,11 +9,11 @@
 /* Begin PBXBuildFile section */
 		109709F717B6774600B51086 /* metal.tga in Resources */ = {isa = PBXBuildFile; fileRef = 109709F617B6774600B51086 /* metal.tga */; };
 		109709F817B6774600B51086 /* metal.tga in Resources */ = {isa = PBXBuildFile; fileRef = 109709F617B6774600B51086 /* metal.tga */; };
-		10970A0317B6A9EF00B51086 /* cube.png in Resources */ = {isa = PBXBuildFile; fileRef = 10970A0217B6A9EF00B51086 /* cube.png */; };
-		10970A0417B6A9EF00B51086 /* cube.png in Resources */ = {isa = PBXBuildFile; fileRef = 10970A0217B6A9EF00B51086 /* cube.png */; };
 		10970A0617B6E58A00B51086 /* cube.obj in Resources */ = {isa = PBXBuildFile; fileRef = 10970A0517B6E58A00B51086 /* cube.obj */; };
 		10970A0717B6E58A00B51086 /* cube.obj in Resources */ = {isa = PBXBuildFile; fileRef = 10970A0517B6E58A00B51086 /* cube.obj */; };
 		10989BE317B2FDD4005B5599 /* Football.obj in Resources */ = {isa = PBXBuildFile; fileRef = 10989BE217B2FDD4005B5599 /* Football.obj */; };
+		10BE5C2E17BE868E00F5A07B /* cube.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 10BE5C2D17BE868E00F5A07B /* cube.jpg */; };
+		10BE5C3417BE879200F5A07B /* JJObjectManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 10BE5C3317BE879200F5A07B /* JJObjectManager.m */; };
 		10FE0170179379D3005A218E /* JJAssetManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10FE016F179379D3005A218E /* JJAssetManager.mm */; };
 		10FE017417937A0B005A218E /* JJCamera.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10FE017317937A0B005A218E /* JJCamera.mm */; };
 		10FE017D17937AAA005A218E /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10FE017C17937AAA005A218E /* SenTestingKit.framework */; };
@@ -52,9 +52,11 @@
 /* Begin PBXFileReference section */
 		109709F517B6773200B51086 /* teapot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = teapot.h; sourceTree = "<group>"; };
 		109709F617B6774600B51086 /* metal.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = metal.tga; sourceTree = "<group>"; };
-		10970A0217B6A9EF00B51086 /* cube.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cube.png; sourceTree = "<group>"; };
 		10970A0517B6E58A00B51086 /* cube.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cube.obj; sourceTree = "<group>"; };
 		10989BE217B2FDD4005B5599 /* Football.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Football.obj; sourceTree = "<group>"; };
+		10BE5C2D17BE868E00F5A07B /* cube.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cube.jpg; sourceTree = "<group>"; };
+		10BE5C3217BE879200F5A07B /* JJObjectManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJObjectManager.h; sourceTree = "<group>"; };
+		10BE5C3317BE879200F5A07B /* JJObjectManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJObjectManager.m; sourceTree = "<group>"; };
 		10FE016E179379D3005A218E /* JJAssetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJAssetManager.h; sourceTree = "<group>"; };
 		10FE016F179379D3005A218E /* JJAssetManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = JJAssetManager.mm; sourceTree = "<group>"; };
 		10FE017217937A0B005A218E /* JJCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJCamera.h; sourceTree = "<group>"; };
@@ -141,6 +143,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		10BE5C2F17BE874000F5A07B /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				10BE5C3217BE879200F5A07B /* JJObjectManager.h */,
+				10BE5C3317BE879200F5A07B /* JJObjectManager.m */,
+				61D8238C178DE3FB00ABF4E4 /* JJGLView.h */,
+				61D8238D178DE3FB00ABF4E4 /* JJGLView.mm */,
+				61D82381178DE0B700ABF4E4 /* AppDelegate.h */,
+				61D82382178DE0B700ABF4E4 /* AppDelegate.mm */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		10BE5C3117BE876100F5A07B /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				61D82395178DF9A700ABF4E4 /* JJUtilities.m */,
+				61D82398178DFF9E00ABF4E4 /* JJUtilities.h */,
+			);
+			name = Utility;
+			sourceTree = "<group>";
+		};
 		10FE016D179379AC005A218E /* AssetManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -214,7 +238,7 @@
 			isa = PBXGroup;
 			children = (
 				109709F617B6774600B51086 /* metal.tga */,
-				10970A0217B6A9EF00B51086 /* cube.png */,
+				10BE5C2D17BE868E00F5A07B /* cube.jpg */,
 				10FE019D17945ACB005A218E /* platform.png */,
 			);
 			path = textures;
@@ -238,7 +262,7 @@
 			name = Light;
 			sourceTree = "<group>";
 		};
-		615F64E41797E2DF00A44195 /* RenderedObjects */ = {
+		615F64E41797E2DF00A44195 /* RenderableObjects */ = {
 			isa = PBXGroup;
 			children = (
 				61D82399178DFFFC00ABF4E4 /* JJRenderedObject.h */,
@@ -258,7 +282,7 @@
 				61D823AE178E149400ABF4E4 /* JJCharacter.h */,
 				61D823AF178E149400ABF4E4 /* JJCharacter.mm */,
 			);
-			name = RenderedObjects;
+			name = RenderableObjects;
 			sourceTree = "<group>";
 		};
 		61D82363178DE0B700ABF4E4 = {
@@ -305,16 +329,12 @@
 		61D82375178DE0B700ABF4E4 /* JumpingJack3D */ = {
 			isa = PBXGroup;
 			children = (
-				615F64E41797E2DF00A44195 /* RenderedObjects */,
+				10BE5C2F17BE874000F5A07B /* Core */,
+				615F64E41797E2DF00A44195 /* RenderableObjects */,
 				10FE0171179379F4005A218E /* Camera */,
 				10FE016D179379AC005A218E /* AssetManager */,
 				615F64E31797E29D00A44195 /* Light */,
-				61D8238C178DE3FB00ABF4E4 /* JJGLView.h */,
-				61D8238D178DE3FB00ABF4E4 /* JJGLView.mm */,
-				61D82381178DE0B700ABF4E4 /* AppDelegate.h */,
-				61D82382178DE0B700ABF4E4 /* AppDelegate.mm */,
-				61D82395178DF9A700ABF4E4 /* JJUtilities.m */,
-				61D82398178DFF9E00ABF4E4 /* JJUtilities.h */,
+				10BE5C3117BE876100F5A07B /* Utility */,
 				61D82376178DE0B700ABF4E4 /* Supporting Files */,
 				10FE018C17937D2A005A218E /* assets */,
 			);
@@ -406,7 +426,6 @@
 			files = (
 				10FE018417937AAA005A218E /* InfoPlist.strings in Resources */,
 				109709F817B6774600B51086 /* metal.tga in Resources */,
-				10970A0417B6A9EF00B51086 /* cube.png in Resources */,
 				10970A0717B6E58A00B51086 /* cube.obj in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -425,8 +444,8 @@
 				10FE01AB1794E01A005A218E /* TODO.txt in Resources */,
 				10989BE317B2FDD4005B5599 /* Football.obj in Resources */,
 				109709F717B6774600B51086 /* metal.tga in Resources */,
-				10970A0317B6A9EF00B51086 /* cube.png in Resources */,
 				10970A0617B6E58A00B51086 /* cube.obj in Resources */,
+				10BE5C2E17BE868E00F5A07B /* cube.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -480,6 +499,7 @@
 				10FE017417937A0B005A218E /* JJCamera.mm in Sources */,
 				10FE01A117945C28005A218E /* JJMesh.mm in Sources */,
 				10FE01A91794DFC1005A218E /* JJLight.mm in Sources */,
+				10BE5C3417BE879200F5A07B /* JJObjectManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

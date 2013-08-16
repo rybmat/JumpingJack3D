@@ -21,7 +21,8 @@ typedef enum _extensionType {
     TGA = 3,
     PNG = 4,
     OBJ = 5,
-    DDS = 6
+    DDS = 6,
+    JPG = 7
 } extensionType;
 
 @property NSBundle* mainBundle;

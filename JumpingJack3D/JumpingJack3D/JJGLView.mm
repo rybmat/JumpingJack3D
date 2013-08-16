@@ -86,7 +86,7 @@ JJCharacter *character;
                                                          PositionX: 1.0f Y: 0.0f Z: 0.0f
                                                         PathPointB: glm::vec4(2.0f,3.0f,4.0f,1.0f)
                                                           StepSize: 0.05f
-                                                           Texture: [assetManager getTexture:@"platform"]
+                                                           Texture: [assetManager getTexture:@"cube"]
                                                      TextureCoords: [assetManager getUvs:@"cube"]];
     
     dynPlatform2 = [[JJDynamicPlatform alloc] initWithShaderProgram: [assetManager getShaderProgram:@"platform"]
