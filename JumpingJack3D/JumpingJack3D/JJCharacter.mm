@@ -14,11 +14,11 @@ float* characterTexCoords0;
 GLuint characterVao;
 GLuint characterBufVertices;
 GLuint characterBufNormals;
-GLuint *characterTex0;
+GLuint characterTex0;
 GLuint characterBufTexCoords;
 
 
-- (id) initWithShaderProgram: (JJShaderProgram*) shProg Camera: (JJCamera*) cam Vertices: (float*) verts Normals: (float*) norms VertexCount: (int) vCount PositionX: (float) x Y: (float) y Z: (float) z Texture: (GLuint*) tex TexCoords: (float*) tCoords {
+- (id) initWithShaderProgram: (JJShaderProgram*) shProg Camera: (JJCamera*) cam Vertices: (float*) verts Normals: (float*) norms VertexCount: (int) vCount PositionX: (float) x Y: (float) y Z: (float) z Texture: (GLuint) tex TexCoords: (float*) tCoords {
     
     self = [super initWithShaderProgram:shProg
                                  Camera:cam
@@ -80,14 +80,14 @@ GLuint characterBufTexCoords;
 	glDeleteBuffers(1,&characterBufNormals);
     glDeleteBuffers(1, &characterBufTexCoords);
     
-    glDeleteTextures(1, characterTex0);
+    glDeleteTextures(1, &characterTex0);
     
 }
 
 - (void) render{
     
     glActiveTexture(GL_TEXTURE0);
-    glBindTexture(GL_TEXTURE_2D, *characterTex0);
+    glBindTexture(GL_TEXTURE_2D, characterTex0);
     
     [[self shaderProgram] use];
     

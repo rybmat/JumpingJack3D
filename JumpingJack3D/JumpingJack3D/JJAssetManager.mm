@@ -276,8 +276,8 @@ GLuint tex;
     return [[self meshes][dictionaryKey] uncompressedVertexCount];
 }
 
-- (GLuint*) getTexture: (NSString*) dictionaryKey{
+- (GLuint) getTexture: (NSString*) dictionaryKey{
     tex = [[self textures][dictionaryKey] unsignedIntValue];
-    return &tex;
+    return tex;
 }
 @end

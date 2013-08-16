@@ -20,7 +20,7 @@
 - (float*) getNormals: (NSString*) dictionaryKey;
 - (float*) getUvs: (NSString*) dictionaryKey;
 - (int) getVertexCount: (NSString*) dictionaryKey;
-- (GLuint*) getTexture: (NSString*) dictionaryKey;
+- (GLuint) getTexture: (NSString*) dictionaryKey;
 
 
 @end

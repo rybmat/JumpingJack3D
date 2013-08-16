@@ -14,11 +14,11 @@ float* staticEnemyTexCoords0;
 GLuint staticEnemyVao;
 GLuint staticEnemyBufVertices;
 GLuint staticEnemyBufNormals;
-GLuint *staticEnemyTex0;
+GLuint staticEnemyTex0;
 GLuint staticEnemyBufTexCoords0;
 
 
-- (id) initWithShaderProgram: (JJShaderProgram*) shProg Camera: (JJCamera*) cam Vertices: (float*) verts Normals: (float*) norms VertexCount: (int) vCount PositionX: (float) x Y: (float) y Z: (float) z Texture: (GLuint*) tex TexCoords: (float*) tCoords {
+- (id) initWithShaderProgram: (JJShaderProgram*) shProg Camera: (JJCamera*) cam Vertices: (float*) verts Normals: (float*) norms VertexCount: (int) vCount PositionX: (float) x Y: (float) y Z: (float) z Texture: (GLuint) tex TexCoords: (float*) tCoords {
     
     self = [super initWithShaderProgram:shProg
                                  Camera:cam
@@ -76,14 +76,14 @@ GLuint staticEnemyBufTexCoords0;
 	glDeleteBuffers(1,&staticEnemyBufNormals);
     glDeleteBuffers(1, &staticEnemyBufTexCoords0);
     
-    glDeleteTextures(1, staticEnemyTex0);
+    glDeleteTextures(1, &staticEnemyTex0);
     
 }
 
 - (void) render{
     
     glActiveTexture(GL_TEXTURE0);
-    glBindTexture(GL_TEXTURE_2D, *staticEnemyTex0);
+    glBindTexture(GL_TEXTURE_2D, staticEnemyTex0);
     
     [[self shaderProgram] use];
     

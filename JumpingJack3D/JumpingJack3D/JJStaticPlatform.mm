@@ -14,11 +14,11 @@ float* staticPlatformTexCoords0;
 GLuint staticPlatformVao;
 GLuint staticPlatformBufVertices;
 GLuint staticPlatformBufNormals;
-GLuint *staticPlatformTex0;
+GLuint staticPlatformTex0;
 GLuint staticPlatformBufTexCoords;
 
 
-- (id) initWithShaderProgram: (JJShaderProgram*) shProg Camera: (JJCamera*) cam Vertices: (float*) verts Normals: (float*) norms VertexCount: (int) vCount PositionX: (float) x Y: (float) y Z: (float) z Texture: (GLuint*) tex TexCoords: (float*) tCoords {
+- (id) initWithShaderProgram: (JJShaderProgram*) shProg Camera: (JJCamera*) cam Vertices: (float*) verts Normals: (float*) norms VertexCount: (int) vCount PositionX: (float) x Y: (float) y Z: (float) z Texture: (GLuint) tex TexCoords: (float*) tCoords {
     
     self = [super initWithShaderProgram:shProg
                                  Camera:cam
@@ -80,14 +80,14 @@ GLuint staticPlatformBufTexCoords;
 	glDeleteBuffers(1,&staticPlatformBufNormals);
     glDeleteBuffers(1, &staticPlatformBufTexCoords);
     
-    glDeleteTextures(1, staticPlatformTex0);
+    glDeleteTextures(1, &staticPlatformTex0);
     
 }
 
 - (void) render{
     
     glActiveTexture(GL_TEXTURE0);
-    glBindTexture(GL_TEXTURE_2D, *staticPlatformTex0);
+    glBindTexture(GL_TEXTURE_2D, staticPlatformTex0);
     
     [[self shaderProgram] use];
     

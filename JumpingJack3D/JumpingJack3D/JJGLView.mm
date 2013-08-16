@@ -63,6 +63,7 @@ JJCharacter *character;
                                                        Texture: [assetManager getTexture: @"cube"]
                                                      TexCoords: [assetManager getUvs:@"cube"]];//cubeTexCoords];*/
     
+
     platform = [[JJStaticPlatform alloc] initWithShaderProgram: [assetManager getShaderProgram:@"platform"]
                                                         Camera: camera
                                                       Vertices: teapotVertices
@@ -71,7 +72,6 @@ JJCharacter *character;
                                                      PositionX: 1.0f Y: 0.0f Z: 0.0f
                                                        Texture: [assetManager getTexture: @"metal"]
                                                      TexCoords: teapotTexCoords];//cubeTexCoords];
-    
     [platform rotateX:1.0f Y:3.0f Z:0.0f ByAngle: -40.0f];
     
    // glm::vec4 pos = [platform getModelPosition];
@@ -94,9 +94,9 @@ JJCharacter *character;
                                                           Vertices: cubeVertices
                                                            Normals: cubeNormals
                                                        VertexCount: cubeVertexCount
-                                                         PositionX: -1.0f Y: 0.0f Z: 0.0f
+                                                         PositionX: -3.0f Y: 0.0f Z: 0.0f
                                                         PathPointB: glm::vec4(-2.0f,-3.0f,-4.0f,1.0f)
-                                          TimeIntervalBetweenMoves: 0.03f
+                                          TimeIntervalBetweenMoves: 0.05f
                                                            Texture: [assetManager getTexture:@"platform"]
                                                      TextureCoords: cubeTexCoords];
     */
@@ -108,10 +108,11 @@ JJCharacter *character;
                                                  PositionX: 1.0f Y:0.0f Z:0.0f
                                                    Texture: [assetManager getTexture:@"platform"]
                                                  TexCoords: [assetManager getUvs:@"platform"]];
+
     
     
     
-    NSLog(@"%d", [character vertexCount]);
+   // NSLog(@"%d", [character vertexCount]);
   //wypisanie normalnych/wierzcholkow
    /* for( int i = 0; i < 12 * 3 * 4; i++){
         printf("%f, ",[character normals][i]);
@@ -121,14 +122,12 @@ JJCharacter *character;
     }
 */
     //wypisanie UV-ek
-    for(int j = 0; j < 36 * 2; j++){
+    /*for(int j = 0; j < 36 * 2; j++){
         printf("%f, ", [assetManager getUvs:@"cube"][j]);
         if(j % 2 == 1){
             printf("\n");
         }
-    }
-
-    
+    }*/
     
 }
 

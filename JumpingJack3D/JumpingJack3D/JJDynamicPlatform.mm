@@ -14,11 +14,11 @@ float* dynamicPlatformTexCoords0;
 GLuint dynamicPlatformVao;
 GLuint dynamicPlatformBufVertices;
 GLuint dynamicPlatformBufNormals;
-GLuint *dynamicPlatformTex0;
+GLuint dynamicPlatformTex0;
 GLuint dynamicPlatformBufTexCoords;
 
 
-- (id) initWithShaderProgram: (JJShaderProgram*) shProg Camera: (JJCamera*) cam Vertices: (float*) verts Normals: (float*) norms VertexCount: (int) vCount PositionX: (float) x Y: (float) y Z: (float) z PathPointB: (glm::vec4) pointB TimeIntervalBetweenMoves: (float) tInterval Texture: (GLuint*) tex TextureCoords: (float*) tCoords{
+- (id) initWithShaderProgram: (JJShaderProgram*) shProg Camera: (JJCamera*) cam Vertices: (float*) verts Normals: (float*) norms VertexCount: (int) vCount PositionX: (float) x Y: (float) y Z: (float) z PathPointB: (glm::vec4) pointB TimeIntervalBetweenMoves: (float) tInterval Texture: (GLuint) tex TextureCoords: (float*) tCoords{
     
     self = [super initWithShaderProgram:shProg
                                  Camera:cam
@@ -82,14 +82,14 @@ GLuint dynamicPlatformBufTexCoords;
 	glDeleteBuffers(1,&dynamicPlatformBufNormals);
     glDeleteBuffers(1, &dynamicPlatformBufTexCoords);
     
-    glDeleteTextures(1, dynamicPlatformTex0);
+    glDeleteTextures(1, &dynamicPlatformTex0);
     
 }
 
 - (void) render{
     
     glActiveTexture(GL_TEXTURE0);
-    glBindTexture(GL_TEXTURE_2D, *dynamicPlatformTex0);
+    glBindTexture(GL_TEXTURE_2D, dynamicPlatformTex0);
     
     [[self shaderProgram] use];
     
