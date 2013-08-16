@@ -10,15 +10,10 @@
 
 @implementation JJDynamicPlatform
 
-float* dynamicPlatformTexCoords0;
-GLuint dynamicPlatformVao;
-GLuint dynamicPlatformBufVertices;
-GLuint dynamicPlatformBufNormals;
-GLuint dynamicPlatformTex0;
-GLuint dynamicPlatformBufTexCoords;
 
 
-- (id) initWithShaderProgram: (JJShaderProgram*) shProg Camera: (JJCamera*) cam Vertices: (float*) verts Normals: (float*) norms VertexCount: (int) vCount PositionX: (float) x Y: (float) y Z: (float) z PathPointB: (glm::vec4) pointB TimeIntervalBetweenMoves: (float) tInterval Texture: (GLuint) tex TextureCoords: (float*) tCoords{
+
+- (id) initWithShaderProgram: (JJShaderProgram*) shProg Camera: (JJCamera*) cam Vertices: (float*) verts Normals: (float*) norms VertexCount: (int) vCount PositionX: (float) x Y: (float) y Z: (float) z PathPointB: (glm::vec4) pointB StepSize: (float) stp Texture: (GLuint) tex TextureCoords: (float*) tCoords{
     
     self = [super initWithShaderProgram:shProg
                                  Camera:cam
@@ -29,10 +24,10 @@ GLuint dynamicPlatformBufTexCoords;
                                       Y:y
                                       Z:z
                              PathPointB:pointB
-               TimeIntervalBetweenMoves:tInterval];
+                                   Step: stp];
     
-    dynamicPlatformTex0 = tex;
-    dynamicPlatformTexCoords0 = tCoords;
+    _tex0 = tex;
+    _texCoords0 = tCoords;
     
     [self setupVBO];
     [self setupVAO];
@@ -41,9 +36,9 @@ GLuint dynamicPlatformBufTexCoords;
 }
 
 - (void) setupVBO{
-    dynamicPlatformBufVertices = [self makeBuffer: [self vertices] vCount: [self vertexCount] vSize: sizeof(float)*4];
-	dynamicPlatformBufNormals = [self makeBuffer: [self normals] vCount: [self vertexCount] vSize: sizeof(float)*4];
-    dynamicPlatformBufTexCoords = [self makeBuffer: dynamicPlatformTexCoords0 vCount: [self vertexCount] vSize:sizeof(float) *2];
+    _bufVertices = [self makeBuffer: [self vertices] vCount: [self vertexCount] vSize: sizeof(float)*4];
+	_bufNormals = [self makeBuffer: [self normals] vCount: [self vertexCount] vSize: sizeof(float)*4];
+    _bufTexCoords = [self makeBuffer: _texCoords0 vCount: [self vertexCount] vSize:sizeof(float) *2];
 }
 
 - (GLuint) makeBuffer: (void*) data vCount: (int) vertexCount vSize: (int) vertexSize {
@@ -57,12 +52,12 @@ GLuint dynamicPlatformBufTexCoords;
 }
 
 - (void) setupVAO{
-    glGenVertexArrays(1,&dynamicPlatformVao);
-	glBindVertexArray(dynamicPlatformVao);
+    glGenVertexArrays(1,&_vao);
+	glBindVertexArray(_vao);
     
-	[self assignVBOtoAttribute:"vertex" BufVBO: dynamicPlatformBufVertices varSize:4];
-	[self assignVBOtoAttribute:"normal" BufVBO: dynamicPlatformBufNormals varSize:4];
-    [self assignVBOtoAttribute:"texCoords0" BufVBO: dynamicPlatformBufTexCoords varSize:2];
+	[self assignVBOtoAttribute:"vertex" BufVBO: _bufVertices varSize:4];
+	[self assignVBOtoAttribute:"normal" BufVBO: _bufNormals varSize:4];
+    [self assignVBOtoAttribute:"texCoords0" BufVBO: _bufTexCoords varSize:2];
 	
 	glBindVertexArray(0);
     
@@ -76,20 +71,20 @@ GLuint dynamicPlatformBufTexCoords;
 }
 
 - (void) dealloc{
-    glDeleteVertexArrays(1,&dynamicPlatformVao);
+    glDeleteVertexArrays(1,&_vao);
     
-    glDeleteBuffers(1,&dynamicPlatformBufVertices);
-	glDeleteBuffers(1,&dynamicPlatformBufNormals);
-    glDeleteBuffers(1, &dynamicPlatformBufTexCoords);
+    glDeleteBuffers(1,&_bufVertices);
+	glDeleteBuffers(1,&_bufNormals);
+    glDeleteBuffers(1, &_bufTexCoords);
     
-    glDeleteTextures(1, &dynamicPlatformTex0);
+    glDeleteTextures(1, &_tex0);
     
 }
 
 - (void) render{
     
     glActiveTexture(GL_TEXTURE0);
-    glBindTexture(GL_TEXTURE_2D, dynamicPlatformTex0);
+    glBindTexture(GL_TEXTURE_2D, _tex0);
     
     [[self shaderProgram] use];
     
@@ -100,7 +95,7 @@ GLuint dynamicPlatformBufTexCoords;
     glUniform4fv([[self shaderProgram] getUniformLocation:"lp0"], 1, [JJLight getFirstLight]);
     glUniform4fv([[self shaderProgram] getUniformLocation:"lp1"], 1, [JJLight getSecondLight]);
     
-    glBindVertexArray(dynamicPlatformVao);
+    glBindVertexArray(_vao);
     
 	//Narysowanie obiektu
     glDrawArrays(GL_TRIANGLES,0,[self vertexCount]);

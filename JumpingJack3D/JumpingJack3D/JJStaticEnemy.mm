@@ -10,12 +10,6 @@
 
 @implementation JJStaticEnemy
 
-float* staticEnemyTexCoords0;
-GLuint staticEnemyVao;
-GLuint staticEnemyBufVertices;
-GLuint staticEnemyBufNormals;
-GLuint staticEnemyTex0;
-GLuint staticEnemyBufTexCoords0;
 
 
 - (id) initWithShaderProgram: (JJShaderProgram*) shProg Camera: (JJCamera*) cam Vertices: (float*) verts Normals: (float*) norms VertexCount: (int) vCount PositionX: (float) x Y: (float) y Z: (float) z Texture: (GLuint) tex TexCoords: (float*) tCoords {
@@ -29,15 +23,15 @@ GLuint staticEnemyBufTexCoords0;
                                       Y:y
                                       Z:z];
     
-    staticEnemyTex0 = tex;
-    staticEnemyTexCoords0 = tCoords;
+    _tex0 = tex;
+    _texCoords0 = tCoords;
     return self;
 }
 
 - (void) setupVBO{
-    staticEnemyBufVertices = [self makeBuffer: [self vertices] vCount: [self vertexCount] vSize: sizeof(float)*4];
-	staticEnemyBufNormals = [self makeBuffer: [self normals] vCount: [self vertexCount] vSize: sizeof(float)*4];
-    staticEnemyBufTexCoords0 = [self makeBuffer: staticEnemyTexCoords0 vCount: [self vertexCount] vSize:sizeof(float) *2];
+    _bufVertices = [self makeBuffer: [self vertices] vCount: [self vertexCount] vSize: sizeof(float)*4];
+	_bufNormals = [self makeBuffer: [self normals] vCount: [self vertexCount] vSize: sizeof(float)*4];
+    _bufTexCoords0 = [self makeBuffer: _texCoords0 vCount: [self vertexCount] vSize:sizeof(float) *2];
 }
 
 - (GLuint) makeBuffer: (void*) data vCount: (int) vertexCount vSize: (int) vertexSize {
@@ -51,12 +45,12 @@ GLuint staticEnemyBufTexCoords0;
 }
 
 - (void) setupVAO{
-    glGenVertexArrays(1,&staticEnemyVao);
-	glBindVertexArray(staticEnemyVao);
+    glGenVertexArrays(1,&_vao);
+	glBindVertexArray(_vao);
     
-	[self assignVBOtoAttribute:"vertex" BufVBO: staticEnemyBufVertices varSize:4];
-	[self assignVBOtoAttribute:"normal" BufVBO: staticEnemyBufNormals varSize:4];
-    [self assignVBOtoAttribute:"texCoords0" BufVBO: staticEnemyBufTexCoords0 varSize:2];
+	[self assignVBOtoAttribute:"vertex" BufVBO: _bufVertices varSize:4];
+	[self assignVBOtoAttribute:"normal" BufVBO: _bufNormals varSize:4];
+    [self assignVBOtoAttribute:"texCoords0" BufVBO: _bufTexCoords0 varSize:2];
 	
 	glBindVertexArray(0);
     
@@ -70,20 +64,20 @@ GLuint staticEnemyBufTexCoords0;
 }
 
 - (void) dealloc{
-    glDeleteVertexArrays(1,&staticEnemyVao);
+    glDeleteVertexArrays(1,&_vao);
     
-    glDeleteBuffers(1,&staticEnemyBufVertices);
-	glDeleteBuffers(1,&staticEnemyBufNormals);
-    glDeleteBuffers(1, &staticEnemyBufTexCoords0);
+    glDeleteBuffers(1,&_bufVertices);
+	glDeleteBuffers(1,&_bufNormals);
+    glDeleteBuffers(1, &_bufTexCoords0);
     
-    glDeleteTextures(1, &staticEnemyTex0);
+    glDeleteTextures(1, &_tex0);
     
 }
 
 - (void) render{
     
     glActiveTexture(GL_TEXTURE0);
-    glBindTexture(GL_TEXTURE_2D, staticEnemyTex0);
+    glBindTexture(GL_TEXTURE_2D, _tex0);
     
     [[self shaderProgram] use];
     
@@ -94,7 +88,7 @@ GLuint staticEnemyBufTexCoords0;
     glUniform4fv([[self shaderProgram] getUniformLocation:"lp0"], 1, [JJLight getFirstLight]);
     glUniform4fv([[self shaderProgram] getUniformLocation:"lp1"], 1, [JJLight getSecondLight]);
     
-    glBindVertexArray(staticEnemyVao);
+    glBindVertexArray(_vao);
     
 	//Narysowanie obiektu
     glDrawArrays(GL_TRIANGLES,0,[self vertexCount]);

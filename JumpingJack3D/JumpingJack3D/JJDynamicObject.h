@@ -8,16 +8,16 @@
 
 #import "JJRenderedObject.h"
 
-#define DYNAMIC_OBJECT_STEP_SIZE 0.1f
-
 @interface JJDynamicObject : JJRenderedObject
 
 @property glm::vec4 pathPointA, pathPointB;
-@property NSTimer* moveTimer;
+@property bool moveDirectionAtoB;
+@property float* dynamicObjectActualPosition;
+@property float stepSize;
 
 
-- (id) initWithShaderProgram: (JJShaderProgram*) shProg Camera: (JJCamera*) cam Vertices: (float*) verts Normals: (float*) norms VertexCount: (int) vCount PositionX: (float) x Y: (float) y Z: (float) z PathPointB: (glm::vec4) pointB TimeIntervalBetweenMoves: (float) tInterval;
+- (id) initWithShaderProgram: (JJShaderProgram*) shProg Camera: (JJCamera*) cam Vertices: (float*) verts Normals: (float*) norms VertexCount: (int) vCount PositionX: (float) x Y: (float) y Z: (float) z PathPointB: (glm::vec4) pointB Step: (float) stp;
     
--(void) moveThroughPath: (id) sender;
+-(void) moveThroughPath;//: (id) sender;
 
 @end

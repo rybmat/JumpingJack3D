@@ -11,16 +11,12 @@
 @implementation JJDynamicObject
 
 
-
-bool moveDirectionAtoB;
-float dynamicObjectActualPosition[3];
-
 @synthesize pathPointA;
 @synthesize pathPointB;
-@synthesize moveTimer;
+@synthesize stepSize;
 
 
-- (id) initWithShaderProgram: (JJShaderProgram*) shProg Camera: (JJCamera*) cam Vertices: (float*) verts Normals: (float*) norms VertexCount: (int) vCount PositionX: (float) x Y: (float) y Z: (float) z PathPointB: (glm::vec4) pointB TimeIntervalBetweenMoves: (float) tInterval{
+- (id) initWithShaderProgram: (JJShaderProgram*) shProg Camera: (JJCamera*) cam Vertices: (float*) verts Normals: (float*) norms VertexCount: (int) vCount PositionX: (float) x Y: (float) y Z: (float) z PathPointB: (glm::vec4) pointB Step: (float) stp{
     
     self = [super initWithShaderProgram:shProg
                                  Camera:cam
@@ -33,86 +29,78 @@ float dynamicObjectActualPosition[3];
     
     [self setPathPointA:glm::vec4(x, y, z, 1)];
     [self setPathPointB:pointB];
-    moveDirectionAtoB = TRUE;
-    dynamicObjectActualPosition[0] = [self pathPointA].x;
-    dynamicObjectActualPosition[1] = [self pathPointA].y;
-    dynamicObjectActualPosition[2] = [self pathPointA].z;
+    [self setStepSize:stp];
     
-    [self setMoveTimer:[NSTimer timerWithTimeInterval:tInterval
-                                          target:self
-                                        selector:@selector(moveThroughPath:)
-                                        userInfo:nil
-                                         repeats:YES]];
-    [[NSRunLoop currentRunLoop] addTimer:moveTimer
-                                 forMode:NSDefaultRunLoopMode];
+    _moveDirectionAtoB = TRUE;
     
-    [[NSRunLoop currentRunLoop]
-     addTimer:moveTimer
-     forMode:NSEventTrackingRunLoopMode];
+    _dynamicObjectActualPosition = (float*)malloc(3*sizeof(float));
+    _dynamicObjectActualPosition[0] = [self pathPointA].x;
+    _dynamicObjectActualPosition[1] = [self pathPointA].y;
+    _dynamicObjectActualPosition[2] = [self pathPointA].z;
     
     
     return self;
 }
 
--(void) moveThroughPath: (id) sender {
+-(void) moveThroughPath{//: (id) sender {
     
     glm::vec3 step = glm::vec3(0.0f,0.0f,0.0f);
-    if(moveDirectionAtoB){
+    if(_moveDirectionAtoB){
         
-        if(dynamicObjectActualPosition[0] < [self pathPointB].x){
-            step.x += DYNAMIC_OBJECT_STEP_SIZE;
-            dynamicObjectActualPosition[0] += DYNAMIC_OBJECT_STEP_SIZE;
+        if(_dynamicObjectActualPosition[0] < [self pathPointB].x){
+            step.x += [self stepSize];
+            _dynamicObjectActualPosition[0] += [self stepSize];
         }
-        if(dynamicObjectActualPosition[0] > [self pathPointB].x){
-            step.x -= DYNAMIC_OBJECT_STEP_SIZE;
-            dynamicObjectActualPosition[0] -= DYNAMIC_OBJECT_STEP_SIZE;
-        }
-        
-        if(dynamicObjectActualPosition[1] < [self pathPointB].y){
-            step.y += DYNAMIC_OBJECT_STEP_SIZE;
-            dynamicObjectActualPosition[1] += DYNAMIC_OBJECT_STEP_SIZE;
-        }
-        if(dynamicObjectActualPosition[1] > [self pathPointB].y){
-            step.y -= DYNAMIC_OBJECT_STEP_SIZE;
-            dynamicObjectActualPosition[1] -= DYNAMIC_OBJECT_STEP_SIZE;
+        if(_dynamicObjectActualPosition[0] > [self pathPointB].x){
+            step.x -= [self stepSize];
+            _dynamicObjectActualPosition[0] -= [self stepSize];
         }
         
-        if(dynamicObjectActualPosition[2] < [self pathPointB].z){
-            step.z += DYNAMIC_OBJECT_STEP_SIZE;
-            dynamicObjectActualPosition[2] += DYNAMIC_OBJECT_STEP_SIZE;
+        if(_dynamicObjectActualPosition[1] < [self pathPointB].y){
+            step.y += [self stepSize];
+            _dynamicObjectActualPosition[1] += [self stepSize];
         }
-        if(dynamicObjectActualPosition[2] > [self pathPointB].z){
-            step.z -= DYNAMIC_OBJECT_STEP_SIZE;
-            dynamicObjectActualPosition[2] -= DYNAMIC_OBJECT_STEP_SIZE;
+        if(_dynamicObjectActualPosition[1] > [self pathPointB].y){
+            step.y -= [self stepSize];
+            _dynamicObjectActualPosition[1] -= [self stepSize];
+        }
+        
+        if(_dynamicObjectActualPosition[2] < [self pathPointB].z){
+            step.z += [self stepSize];
+            _dynamicObjectActualPosition[2] += [self stepSize];
+        }
+        if(_dynamicObjectActualPosition[2] > [self pathPointB].z){
+            step.z -= [self stepSize];
+            _dynamicObjectActualPosition[2] -= [self stepSize];
         }
         
     }else{
         
-        if(dynamicObjectActualPosition[0] < [self pathPointA].x){
-            step.x += DYNAMIC_OBJECT_STEP_SIZE;
-            dynamicObjectActualPosition[0] += DYNAMIC_OBJECT_STEP_SIZE;
+        if(_dynamicObjectActualPosition[0] < [self pathPointA].x){
+            step.x += [self stepSize];
+            _dynamicObjectActualPosition[0] += [self stepSize];
         }
-        if(dynamicObjectActualPosition[0] > [self pathPointA].x){
-            step.x -= DYNAMIC_OBJECT_STEP_SIZE;
-            dynamicObjectActualPosition[0] -= DYNAMIC_OBJECT_STEP_SIZE;
-        }
-        
-        if(dynamicObjectActualPosition[1] < [self pathPointA].y){
-            step.y += DYNAMIC_OBJECT_STEP_SIZE;
-            dynamicObjectActualPosition[1] += DYNAMIC_OBJECT_STEP_SIZE;
-        }
-        if(dynamicObjectActualPosition[1] > [self pathPointA].y){
-            step.y -= DYNAMIC_OBJECT_STEP_SIZE;
-            dynamicObjectActualPosition[1] -= DYNAMIC_OBJECT_STEP_SIZE;
+        if(_dynamicObjectActualPosition[0] > [self pathPointA].x){
+            step.x -= [self stepSize];
+            _dynamicObjectActualPosition[0] -= [self stepSize];
         }
         
-        if(dynamicObjectActualPosition[2] < [self pathPointA].z){
-            step.z += DYNAMIC_OBJECT_STEP_SIZE;
-            dynamicObjectActualPosition[2] += DYNAMIC_OBJECT_STEP_SIZE;
+        if(_dynamicObjectActualPosition[1] < [self pathPointA].y){
+            step.y += [self stepSize];
+            _dynamicObjectActualPosition[1] += [self stepSize];
         }
-        if(dynamicObjectActualPosition[2] > [self pathPointA].z){
-            step.z -= DYNAMIC_OBJECT_STEP_SIZE;
-            dynamicObjectActualPosition[2] -= DYNAMIC_OBJECT_STEP_SIZE;
+        if(_dynamicObjectActualPosition[1] > [self pathPointA].y){
+            step.y -= [self stepSize];
+            _dynamicObjectActualPosition[1] -= [self stepSize];
+        }
+        
+        if(_dynamicObjectActualPosition[2] < [self pathPointA].z){
+            step.z += [self stepSize];
+            _dynamicObjectActualPosition[2] += [self stepSize];
+        }
+        if(_dynamicObjectActualPosition[2] > [self pathPointA].z){
+            step.z -= [self stepSize];
+            _dynamicObjectActualPosition[2] -= [self stepSize];
         }
         
     }
@@ -120,7 +108,7 @@ float dynamicObjectActualPosition[3];
     //NSLog(@"x: %f y: %f z: %f",dynamicObjectActualPosition[0], dynamicObjectActualPosition[1], dynamicObjectActualPosition[2]);
     
     if((step.x == 0.0f) && (step.y == 0.0f) && (step.z == 0.0f)){
-        moveDirectionAtoB = !moveDirectionAtoB;
+        _moveDirectionAtoB = !_moveDirectionAtoB;
     }else{
         [self setMatM:glm::translate([self matM], step)];
     }

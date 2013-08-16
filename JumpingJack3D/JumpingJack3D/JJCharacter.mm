@@ -10,13 +10,6 @@
 
 @implementation JJCharacter
 
-float* characterTexCoords0;
-GLuint characterVao;
-GLuint characterBufVertices;
-GLuint characterBufNormals;
-GLuint characterTex0;
-GLuint characterBufTexCoords;
-
 
 - (id) initWithShaderProgram: (JJShaderProgram*) shProg Camera: (JJCamera*) cam Vertices: (float*) verts Normals: (float*) norms VertexCount: (int) vCount PositionX: (float) x Y: (float) y Z: (float) z Texture: (GLuint) tex TexCoords: (float*) tCoords {
     
@@ -29,8 +22,8 @@ GLuint characterBufTexCoords;
                                       Y:y
                                       Z:z];
     
-    characterTex0 = tex;
-    characterTexCoords0 = tCoords;
+    _tex0 = tex;
+    _texCoords0 = tCoords;
     
     [self setupVBO];
     [self setupVAO];
@@ -39,9 +32,9 @@ GLuint characterBufTexCoords;
 }
 
 - (void) setupVBO{
-    characterBufVertices = [self makeBuffer: [self vertices] vCount: [self vertexCount] vSize: sizeof(float)*4];
-	characterBufNormals = [self makeBuffer: [self normals] vCount: [self vertexCount] vSize: sizeof(float)*4];
-    characterBufTexCoords = [self makeBuffer: characterTexCoords0 vCount: [self vertexCount] vSize:sizeof(float) *2];
+    _bufVertices = [self makeBuffer: [self vertices] vCount: [self vertexCount] vSize: sizeof(float)*4];
+	_bufNormals = [self makeBuffer: [self normals] vCount: [self vertexCount] vSize: sizeof(float)*4];
+    _bufTexCoords = [self makeBuffer: _texCoords0 vCount: [self vertexCount] vSize:sizeof(float) *2];
 }
 
 - (GLuint) makeBuffer: (void*) data vCount: (int) vertexCount vSize: (int) vertexSize {
@@ -55,12 +48,12 @@ GLuint characterBufTexCoords;
 }
 
 - (void) setupVAO{
-    glGenVertexArrays(1,&characterVao);
-	glBindVertexArray(characterVao);
+    glGenVertexArrays(1,&_vao);
+	glBindVertexArray(_vao);
     
-	[self assignVBOtoAttribute:"vertex" BufVBO: characterBufVertices varSize:4];
-	[self assignVBOtoAttribute:"normal" BufVBO: characterBufNormals varSize:4];
-    [self assignVBOtoAttribute:"texCoords0" BufVBO: characterBufTexCoords varSize:2];
+	[self assignVBOtoAttribute:"vertex" BufVBO: _bufVertices varSize:4];
+	[self assignVBOtoAttribute:"normal" BufVBO: _bufNormals varSize:4];
+    [self assignVBOtoAttribute:"texCoords0" BufVBO: _bufTexCoords varSize:2];
 	
 	glBindVertexArray(0);
     
@@ -74,20 +67,20 @@ GLuint characterBufTexCoords;
 }
 
 - (void) dealloc{
-    glDeleteVertexArrays(1,&characterVao);
+    glDeleteVertexArrays(1,&_vao);
     
-    glDeleteBuffers(1,&characterBufVertices);
-	glDeleteBuffers(1,&characterBufNormals);
-    glDeleteBuffers(1, &characterBufTexCoords);
+    glDeleteBuffers(1,&_bufVertices);
+	glDeleteBuffers(1,&_bufNormals);
+    glDeleteBuffers(1, &_bufTexCoords);
     
-    glDeleteTextures(1, &characterTex0);
+    glDeleteTextures(1, &_tex0);
     
 }
 
 - (void) render{
     
     glActiveTexture(GL_TEXTURE0);
-    glBindTexture(GL_TEXTURE_2D, characterTex0);
+    glBindTexture(GL_TEXTURE_2D, _tex0);
     
     [[self shaderProgram] use];
     
@@ -98,7 +91,7 @@ GLuint characterBufTexCoords;
     glUniform4fv([[self shaderProgram] getUniformLocation:"lp0"], 1, [JJLight getFirstLight]);
     glUniform4fv([[self shaderProgram] getUniformLocation:"lp1"], 1, [JJLight getSecondLight]);
     
-    glBindVertexArray(characterVao);
+    glBindVertexArray(_vao);
     
 	//Narysowanie obiektu
     glDrawArrays(GL_TRIANGLES,0,[self vertexCount]);

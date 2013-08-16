@@ -85,32 +85,31 @@ JJCharacter *character;
                                                        VertexCount: [assetManager getVertexCount:@"cube"]
                                                          PositionX: 1.0f Y: 0.0f Z: 0.0f
                                                         PathPointB: glm::vec4(2.0f,3.0f,4.0f,1.0f)
-                                          TimeIntervalBetweenMoves: 0.03f
-                                                           Texture: [assetManager getTexture:@"cube"]
+                                                          StepSize: 0.05f
+                                                           Texture: [assetManager getTexture:@"platform"]
                                                      TextureCoords: [assetManager getUvs:@"cube"]];
-    /*
+    
     dynPlatform2 = [[JJDynamicPlatform alloc] initWithShaderProgram: [assetManager getShaderProgram:@"platform"]
                                                             Camera: camera
                                                           Vertices: cubeVertices
                                                            Normals: cubeNormals
                                                        VertexCount: cubeVertexCount
-                                                         PositionX: -3.0f Y: 0.0f Z: 0.0f
+                                                         PositionX: -1.0f Y: 0.0f Z: 0.0f
                                                         PathPointB: glm::vec4(-2.0f,-3.0f,-4.0f,1.0f)
-                                          TimeIntervalBetweenMoves: 0.05f
+                                                          StepSize: 0.05f
                                                            Texture: [assetManager getTexture:@"platform"]
                                                      TextureCoords: cubeTexCoords];
-    */
+    
     character = [[JJCharacter alloc] initWithShaderProgram: [assetManager getShaderProgram:@"platform"]
                                                     Camera: camera
                                                   Vertices: [assetManager getVertices:@"platform"]
                                                    Normals: [assetManager getNormals:@"platform"]
                                                VertexCount: [assetManager getVertexCount:@"platform"]
-                                                 PositionX: 1.0f Y:0.0f Z:0.0f
+                                                 PositionX: -2.0f Y:0.0f Z:0.0f
                                                    Texture: [assetManager getTexture:@"platform"]
                                                  TexCoords: [assetManager getUvs:@"platform"]];
 
-    
-    
+
     
    // NSLog(@"%d", [character vertexCount]);
   //wypisanie normalnych/wierzcholkow
@@ -184,7 +183,8 @@ JJCharacter *character;
 - (void) nextFrame{
     
     //calculateing new positions here
-    
+    [dynPlatform moveThroughPath];
+    [dynPlatform2 moveThroughPath];
     // np nowe pozycje poruszających sie klocków
     
 }
