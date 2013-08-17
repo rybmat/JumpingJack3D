@@ -13,16 +13,12 @@
 
 NSTimer *renderTimer;
 JJAssetManager *assetManager;
+JJObjectManager *objManager;
 JJCamera *camera;
 
+NSPoint startingPoint;
 
-
-//to delete////
-JJStaticPlatform *platform;
-JJDynamicPlatform *dynPlatform, *dynPlatform2;
-JJStaticPlatform *cube;
-
-JJCharacter *character;
+JJCharacter* character;
 
 //////////////////////////
 
@@ -47,38 +43,29 @@ JJCharacter *character;
     glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
 	glEnable(GL_DEPTH_TEST);
     
-    [JJLight setFirstLightX: 10.0f Y: 1.0f Z: -5.0f];
+    [JJLight setFirstLightX: 10.0f Y: 10000.0f Z: -5.0f];
     [JJLight setSecondLightX: -10.0f Y: -1.0f Z: -5.0f];
     
     assetManager = [[JJAssetManager alloc] init];
     [assetManager load];
-    camera = [[JJCamera alloc] init];
+    camera = [[JJCamera alloc] initWithParameters:1.0f farClipping:50.0f FoV:50.0f aspectRatio:1.0f cameraRadius:10.0f];
     
-    /*cube = [[JJStaticPlatform alloc] initWithShaderProgram: [assetManager getShaderProgram:@"platform"]
-                                                        Camera: camera
-                                                      Vertices: [assetManager getVertices:@"cube"]
-                                                       Normals: [assetManager getNormals:@"cube"]
-                                                   VertexCount: [assetManager getVertexCount:@"cube"]
-                                                     PositionX: 1.0f Y: 0.0f Z: 0.0f
-                                                       Texture: [assetManager getTexture: @"cube"]
-                                                     TexCoords: [assetManager getUvs:@"cube"]];//cubeTexCoords];*/
+    character = [[JJCharacter alloc] initWithShaderProgram: [assetManager getShaderProgram:@"platform"]
+                                                                 Camera: camera
+                                                               Vertices: [assetManager getVertices:@"cube"]
+                                                                Normals: [assetManager getNormals:@"cube"]
+                                                            VertexCount: [assetManager getVertexCount:@"cube"]
+                                                              PositionX: -5.0f Y:2.0f Z:3.0f
+                                                                Texture: [assetManager getTexture:@"platform"]
+                                                              TexCoords: [assetManager getUvs:@"cube"]];
+    [objManager addObject:character];
     
+    objManager = [[JJObjectManager alloc] initWithRefs:assetManager cameraRef:camera characterRef:character];
 
-    platform = [[JJStaticPlatform alloc] initWithShaderProgram: [assetManager getShaderProgram:@"platform"]
-                                                        Camera: camera
-                                                      Vertices: teapotVertices
-                                                       Normals: teapotNormals
-                                                   VertexCount: teapotVertexCount
-                                                     PositionX: 1.0f Y: 0.0f Z: 0.0f
-                                                       Texture: [assetManager getTexture: @"metal"]
-                                                     TexCoords: teapotTexCoords];//cubeTexCoords];
-    [platform rotateX:1.0f Y:3.0f Z:0.0f ByAngle: -40.0f];
-    
-   // glm::vec4 pos = [platform getModelPosition];
-   // NSLog(@"platform position: x: %f, y: %f, z: %f, w: %f", pos.x, pos.y, pos.z, pos.w);
-    
-    
-    dynPlatform = [[JJDynamicPlatform alloc] initWithShaderProgram: [assetManager getShaderProgram:@"platform"]
+    [camera setWithCharacterPosition:[character getModelPosition]];
+
+    /*
+    JJDynamicPlatform* dynPlatform = [[JJDynamicPlatform alloc] initWithShaderProgram: [assetManager getShaderProgram:@"platform"]
                                                             Camera: camera
                                                           Vertices: [assetManager getVertices:@"cube"]
                                                            Normals: [assetManager getNormals:@"cube"]
@@ -89,7 +76,9 @@ JJCharacter *character;
                                                            Texture: [assetManager getTexture:@"cube"]
                                                      TextureCoords: [assetManager getUvs:@"cube"]];
     
-    dynPlatform2 = [[JJDynamicPlatform alloc] initWithShaderProgram: [assetManager getShaderProgram:@"platform"]
+    [objManager addObject:dynPlatform];
+    
+    JJDynamicPlatform* dynPlatform2 = [[JJDynamicPlatform alloc] initWithShaderProgram: [assetManager getShaderProgram:@"platform"]
                                                             Camera: camera
                                                           Vertices: cubeVertices
                                                            Normals: cubeNormals
@@ -99,15 +88,14 @@ JJCharacter *character;
                                                           StepSize: 0.05f
                                                            Texture: [assetManager getTexture:@"platform"]
                                                      TextureCoords: cubeTexCoords];
+    [objManager addObject:dynPlatform2];
+
+     */
     
-    character = [[JJCharacter alloc] initWithShaderProgram: [assetManager getShaderProgram:@"platform"]
-                                                    Camera: camera
-                                                  Vertices: [assetManager getVertices:@"platform"]
-                                                   Normals: [assetManager getNormals:@"platform"]
-                                               VertexCount: [assetManager getVertexCount:@"platform"]
-                                                 PositionX: -2.0f Y:0.0f Z:0.0f
-                                                   Texture: [assetManager getTexture:@"platform"]
-                                                 TexCoords: [assetManager getUvs:@"platform"]];
+    [objManager generateWorld];
+    
+
+
 
 
     
@@ -181,12 +169,8 @@ JJCharacter *character;
 }
 
 - (void) nextFrame{
-    
-    //calculateing new positions here
-    [dynPlatform moveThroughPath];
-    [dynPlatform2 moveThroughPath];
-    // np nowe pozycje poruszających sie klocków
-    
+    [objManager applyAction];
+    [camera setWithCharacterPosition:[character getModelPosition]];// andCharactersFaceVector:glm::vec3(1,1,1)];
 }
 
 - (void)drawRect:(NSRect)dirtyRect
@@ -195,10 +179,8 @@ JJCharacter *character;
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
     // Drawing code here.
-    [platform render];
-    [dynPlatform render];
-    [dynPlatform2 render];
-    [character render];
+    [objManager renderObjects];
+
     glFlush();
 }
 
@@ -218,30 +200,50 @@ JJCharacter *character;
     if ( [theArrow length] == 1 ) {
         keyChar = [theArrow characterAtIndex:0];
         if ( keyChar == NSLeftArrowFunctionKey ) {
-            [character rotateY:1.0f byAngle:5];
+            //[character rotateY:1.0f byAngle:5];
+            [camera rotateHorizontal:7.0f];
             return;
         }
         if ( keyChar == NSRightArrowFunctionKey ) {
-            [character rotateY:-1.0f byAngle:5];
+            //[character rotateY:-1.0f byAngle:5];
+            [camera rotateHorizontal:-7.0f];
             return;
         }
         if ( keyChar == NSUpArrowFunctionKey ) {
-           [character moveZ:0.1f];
+            //[character moveZ:0.1f];
+            [camera rotateVertical:7.0f];
             return;
         }
         if ( keyChar == NSDownArrowFunctionKey ) {
-            [character moveZ:-0.1f];
+            //[character moveZ:-0.1f];
+            [camera rotateVertical:-7.0f];
             return;
         }
         if ( keyChar == ' '){
-            
+         
         }
         
         
         //[super keyDown:theEvent];
     }
     //[super keyDown:theEvent];
-    
+
+}
+
+- (void)scrollWheel:(NSEvent *)theEvent {
+    [camera zoomIn:[theEvent deltaY]];
+    NSLog(@"user scrolled %f horizontally and %f vertically", [theEvent deltaX], [theEvent deltaY]);
+}
+
+- (void) mouseDown:(NSEvent *)theEvent {
+    startingPoint = [theEvent locationInWindow];
+}
+
+- (void)mouseDragged:(NSEvent *)theEvent
+{
+    NSPoint endPoint = [theEvent locationInWindow];
+    [camera rotateHorizontal:-(endPoint.x - startingPoint.x)/100];
+    [camera rotateVertical:-(endPoint.y - startingPoint.y)/100];
 }
 
 @end

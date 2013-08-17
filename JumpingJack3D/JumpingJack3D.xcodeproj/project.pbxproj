@@ -13,7 +13,11 @@
 		10970A0717B6E58A00B51086 /* cube.obj in Resources */ = {isa = PBXBuildFile; fileRef = 10970A0517B6E58A00B51086 /* cube.obj */; };
 		10989BE317B2FDD4005B5599 /* Football.obj in Resources */ = {isa = PBXBuildFile; fileRef = 10989BE217B2FDD4005B5599 /* Football.obj */; };
 		10BE5C2E17BE868E00F5A07B /* cube.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 10BE5C2D17BE868E00F5A07B /* cube.jpg */; };
-		10BE5C3417BE879200F5A07B /* JJObjectManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 10BE5C3317BE879200F5A07B /* JJObjectManager.m */; };
+		10BE5C3417BE879200F5A07B /* JJObjectManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10BE5C3317BE879200F5A07B /* JJObjectManager.mm */; };
+		10BE5C3617BE8E5F00F5A07B /* floor.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 10BE5C3517BE8E5F00F5A07B /* floor.jpg */; };
+		10BE5C3817BE8F4E00F5A07B /* floor.obj in Resources */ = {isa = PBXBuildFile; fileRef = 10BE5C3717BE8F4E00F5A07B /* floor.obj */; };
+		10BE5C3B17BECA4D00F5A07B /* JJMapGenerator.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10BE5C3A17BECA4D00F5A07B /* JJMapGenerator.mm */; };
+		10C577C517BEE9C500007FCE /* JJMapGeneratorTests.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10C577C417BEE9C500007FCE /* JJMapGeneratorTests.mm */; };
 		10FE0170179379D3005A218E /* JJAssetManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10FE016F179379D3005A218E /* JJAssetManager.mm */; };
 		10FE017417937A0B005A218E /* JJCamera.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10FE017317937A0B005A218E /* JJCamera.mm */; };
 		10FE017D17937AAA005A218E /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10FE017C17937AAA005A218E /* SenTestingKit.framework */; };
@@ -56,7 +60,14 @@
 		10989BE217B2FDD4005B5599 /* Football.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Football.obj; sourceTree = "<group>"; };
 		10BE5C2D17BE868E00F5A07B /* cube.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cube.jpg; sourceTree = "<group>"; };
 		10BE5C3217BE879200F5A07B /* JJObjectManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJObjectManager.h; sourceTree = "<group>"; };
-		10BE5C3317BE879200F5A07B /* JJObjectManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJObjectManager.m; sourceTree = "<group>"; };
+		10BE5C3317BE879200F5A07B /* JJObjectManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = JJObjectManager.mm; sourceTree = "<group>"; };
+		10BE5C3517BE8E5F00F5A07B /* floor.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = floor.jpg; sourceTree = "<group>"; };
+		10BE5C3717BE8F4E00F5A07B /* floor.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = floor.obj; sourceTree = "<group>"; };
+		10BE5C3917BECA4D00F5A07B /* JJMapGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJMapGenerator.h; sourceTree = "<group>"; };
+		10BE5C3A17BECA4D00F5A07B /* JJMapGenerator.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = JJMapGenerator.mm; sourceTree = "<group>"; };
+		10C577C317BEE9C500007FCE /* JJMapGeneratorTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJMapGeneratorTests.h; sourceTree = "<group>"; };
+		10C577C417BEE9C500007FCE /* JJMapGeneratorTests.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = JJMapGeneratorTests.mm; sourceTree = "<group>"; };
+		10C577C617BEF07600007FCE /* JJMapGeneratorPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJMapGeneratorPrivate.h; sourceTree = "<group>"; };
 		10FE016E179379D3005A218E /* JJAssetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJAssetManager.h; sourceTree = "<group>"; };
 		10FE016F179379D3005A218E /* JJAssetManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = JJAssetManager.mm; sourceTree = "<group>"; };
 		10FE017217937A0B005A218E /* JJCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJCamera.h; sourceTree = "<group>"; };
@@ -147,11 +158,14 @@
 			isa = PBXGroup;
 			children = (
 				10BE5C3217BE879200F5A07B /* JJObjectManager.h */,
-				10BE5C3317BE879200F5A07B /* JJObjectManager.m */,
+				10BE5C3317BE879200F5A07B /* JJObjectManager.mm */,
 				61D8238C178DE3FB00ABF4E4 /* JJGLView.h */,
 				61D8238D178DE3FB00ABF4E4 /* JJGLView.mm */,
 				61D82381178DE0B700ABF4E4 /* AppDelegate.h */,
 				61D82382178DE0B700ABF4E4 /* AppDelegate.mm */,
+				10BE5C3917BECA4D00F5A07B /* JJMapGenerator.h */,
+				10BE5C3A17BECA4D00F5A07B /* JJMapGenerator.mm */,
+				10C577C617BEF07600007FCE /* JJMapGeneratorPrivate.h */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -198,6 +212,8 @@
 				10FE019417938A39005A218E /* JJAssetManagerTests.mm */,
 				10FE01A41794BAF5005A218E /* JJMeshTests.h */,
 				10FE01A51794BAF5005A218E /* JJMeshTests.mm */,
+				10C577C317BEE9C500007FCE /* JJMapGeneratorTests.h */,
+				10C577C417BEE9C500007FCE /* JJMapGeneratorTests.mm */,
 				10FE018017937AAA005A218E /* Supporting Files */,
 			);
 			path = JJUnitTesting;
@@ -227,6 +243,7 @@
 		10FE018D17937D72005A218E /* models */ = {
 			isa = PBXGroup;
 			children = (
+				10BE5C3717BE8F4E00F5A07B /* floor.obj */,
 				10989BE217B2FDD4005B5599 /* Football.obj */,
 				10970A0517B6E58A00B51086 /* cube.obj */,
 				10FE01A21794BA88005A218E /* platform.obj */,
@@ -237,6 +254,7 @@
 		10FE018E17937D83005A218E /* textures */ = {
 			isa = PBXGroup;
 			children = (
+				10BE5C3517BE8E5F00F5A07B /* floor.jpg */,
 				109709F617B6774600B51086 /* metal.tga */,
 				10BE5C2D17BE868E00F5A07B /* cube.jpg */,
 				10FE019D17945ACB005A218E /* platform.png */,
@@ -446,6 +464,8 @@
 				109709F717B6774600B51086 /* metal.tga in Resources */,
 				10970A0617B6E58A00B51086 /* cube.obj in Resources */,
 				10BE5C2E17BE868E00F5A07B /* cube.jpg in Resources */,
+				10BE5C3617BE8E5F00F5A07B /* floor.jpg in Resources */,
+				10BE5C3817BE8F4E00F5A07B /* floor.obj in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -475,6 +495,7 @@
 				10FE018717937AAA005A218E /* JJCameraTests.mm in Sources */,
 				10FE019517938A39005A218E /* JJAssetManagerTests.mm in Sources */,
 				10FE01A61794BAF5005A218E /* JJMeshTests.mm in Sources */,
+				10C577C517BEE9C500007FCE /* JJMapGeneratorTests.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -499,7 +520,8 @@
 				10FE017417937A0B005A218E /* JJCamera.mm in Sources */,
 				10FE01A117945C28005A218E /* JJMesh.mm in Sources */,
 				10FE01A91794DFC1005A218E /* JJLight.mm in Sources */,
-				10BE5C3417BE879200F5A07B /* JJObjectManager.m in Sources */,
+				10BE5C3417BE879200F5A07B /* JJObjectManager.mm in Sources */,
+				10BE5C3B17BECA4D00F5A07B /* JJMapGenerator.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

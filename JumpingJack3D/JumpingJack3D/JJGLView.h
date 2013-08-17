@@ -16,6 +16,7 @@
 #import "glm/gtc/type_ptr.hpp"
 
 #import "JJAssetManager.h"
+#import "JJObjectManager.h"
 #import "JJStaticPlatform.h"
 #import "JJDynamicPlatform.h"
 #import "JJCharacter.h"

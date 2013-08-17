@@ -25,6 +25,7 @@
 @property float* normals;
 @property int vertexCount;
 @property JJCamera* camera;
+@property glm::vec3 faceVector;
 
 - (id) initWithShaderProgram: (JJShaderProgram*) shProg Camera: (JJCamera*) cam Vertices: (float*) verts Normals: (float*) norms VertexCount: (int) vCount PositionX: (float) x Y: (float) y Z: (float) z;
 
@@ -44,5 +45,5 @@
 - (void) scaleZ: (float) scale;
 
 
-- (glm::vec4) getModelPosition; //x,y,z,w
+- (glm::vec3) getModelPosition; //x,y,z
 @end

@@ -12,13 +12,13 @@
 @implementation JJCamera
 
 static const glm::vec3 worldUp = glm::vec3(0.0f, 1.0f, 0.0f);
-static const float maxZoomIn = 0.0;
+static const float maxZoomIn = 1.0f;
 static const float maxZoomOut = 50.0f;
 
 /* Basic initializer */
 - (id) init
 {
-    return [self initWithParameters:1.0f farClipping:100.0f FoV:50.0f aspectRatio:1.0f cameraRadius:0.0f];
+    return [self initWithParameters:1.0f farClipping:100.0f FoV:50.0f aspectRatio:1.0f cameraRadius:30.0f];
 }
 
 /* Specialized initializer */
@@ -45,7 +45,7 @@ static const float maxZoomOut = 50.0f;
         
         self.characterPosition = glm::vec3(1.0f, 0.0f, 0.0f);
         
-        self.cameraPosition = glm::vec3(0.0f, 0.0f, -20.0f);
+        self.cameraPosition = glm::vec3(0.0f, 1.0f, -20.0f);
         self.target = glm::vec3(1.0f, 0.0f, 0.0f);
         self.up = glm::vec3(0.0f, 1.0f, 0.0f);
         

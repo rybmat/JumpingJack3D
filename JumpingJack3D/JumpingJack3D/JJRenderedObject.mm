@@ -16,6 +16,7 @@
 @synthesize normals;
 @synthesize vertexCount;
 @synthesize camera;
+@synthesize faceVector;
 
 - (id) initWithShaderProgram: (JJShaderProgram*) shProg Camera: (JJCamera*) cam Vertices: (float*) verts Normals: (float*) norms VertexCount: (int) vCount PositionX: (float) x Y: (float) y Z: (float) z{
     
@@ -27,6 +28,7 @@
         [self setNormals:norms];
         [self setVertexCount:vCount];
         [self setMatM:glm::translate(glm::mat4(1.0f), glm::vec3(x,y,z))];
+
     }
     return self;
 }
@@ -86,13 +88,12 @@
 }
 
 
--(glm::vec4) getModelPosition{
-    glm::vec4 position;
+-(glm::vec3) getModelPosition{
+    glm::vec3 position;
     
     position.x = [self matM][3][0];
     position.y = [self matM][3][1];
     position.z = [self matM][3][2];
-    position.w = 1;
     
     return position;
 }
