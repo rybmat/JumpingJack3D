@@ -171,7 +171,7 @@ JJCharacter* character;
 
 - (void) nextFrame{
     [objManager applyAction];
-    [camera setWithCharacterPosition:[character getModelPosition]];// andCharactersFaceVector:glm::vec3(1,1,1)];
+    [camera setWithCharacterPosition:[character getModelPosition] andCharactersFaceVector: [character getFaceVectorInWorldSpace]];
 }
 
 - (void)drawRect:(NSRect)dirtyRect

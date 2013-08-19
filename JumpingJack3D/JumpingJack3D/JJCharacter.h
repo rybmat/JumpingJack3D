@@ -16,9 +16,12 @@
 @property GLuint bufNormals;
 @property GLuint tex0;
 @property GLuint bufTexCoords;
+@property glm::vec4 faceVector;
 
 
 - (id) initWithShaderProgram: (JJShaderProgram*) shProg Camera: (JJCamera*) cam Vertices: (float*) verts Normals: (float*) norms VertexCount: (int) vCount PositionX: (float) x Y: (float) y Z: (float) z Texture: (GLuint) tex TexCoords: (float*) tCoords ;
+
+- (glm::vec3) getFaceVectorInWorldSpace;
 
 - (void) setupVBO;
 

@@ -10,6 +10,8 @@
 
 @implementation JJCharacter
 
+@synthesize faceVector;
+
 
 - (id) initWithShaderProgram: (JJShaderProgram*) shProg Camera: (JJCamera*) cam Vertices: (float*) verts Normals: (float*) norms VertexCount: (int) vCount PositionX: (float) x Y: (float) y Z: (float) z Texture: (GLuint) tex TexCoords: (float*) tCoords {
     
@@ -25,10 +27,18 @@
     _tex0 = tex;
     _texCoords0 = tCoords;
     
+    [self setFaceVector:glm::vec4(0.0f, 0.0f, 1.0f, 0.0f)];
+    
     [self setupVBO];
     [self setupVAO];
     
     return self;
+}
+
+- (glm::vec3) getFaceVectorInWorldSpace{
+    glm::vec4 tmp4 = [self matM]*[self faceVector];
+    glm::vec3 tmp3 = glm::vec3(tmp4.x, tmp4.y, tmp4.z);
+    return tmp3;
 }
 
 - (void) setupVBO{
