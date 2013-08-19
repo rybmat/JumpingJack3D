@@ -48,6 +48,7 @@ JJCharacter* character;
     
     assetManager = [[JJAssetManager alloc] init];
     [assetManager load];
+    
     camera = [[JJCamera alloc] initWithParameters:1.0f farClipping:50.0f FoV:50.0f aspectRatio:1.0f cameraRadius:10.0f];
     
     character = [[JJCharacter alloc] initWithShaderProgram: [assetManager getShaderProgram:@"platform"]
@@ -219,10 +220,22 @@ JJCharacter* character;
             [camera rotateVertical:-7.0f];
             return;
         }
-        if ( keyChar == ' '){
-         
+        if ( keyChar == 'w'){
+            [character moveZ:0.1f];
+            return;
         }
-        
+        if ( keyChar == 's'){
+            [character moveZ:-0.1f];
+            return;
+        }
+        if ( keyChar == 'a'){
+            [character rotateY:1.0f byAngle:5];
+            return;
+        }
+        if ( keyChar == 'd'){
+            [character rotateY:-1.0f byAngle:5];
+            return;
+        }
         
         //[super keyDown:theEvent];
     }
