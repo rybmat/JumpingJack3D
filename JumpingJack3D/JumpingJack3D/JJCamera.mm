@@ -127,7 +127,7 @@ static const float maxZoomOut = 50.0f;
     glm::vec3 rightVector = glm::cross(self.target, worldUp);
     self.up = glm::cross(rightVector, self.target);
     
-    self.viewMatrix = glm::lookAt(self.cameraPosition, self.target, self.up);
+    self.viewMatrix = glm::lookAt(self.cameraPosition, targetPosition /*self.target*/, self.up);
 }
 
 /* Sets all camera attributes needed for View matrix and the builds it       */
@@ -137,8 +137,10 @@ static const float maxZoomOut = 50.0f;
 {
     glm::vec3 geographical = [self convertCartesianToGeo:-fVector];
     self.radius = geographical.x;
-    self.longtitude = geographical.z;
-    self.latitude = geographical.y;
+    self.longtitude = geographical.y;   //z
+    self.latitude = geographical.z;     //y
+    
+    //NSLog(@"x: %f, y: %f, z: %f,",geographical.x, geographical.y, geographical.z);
     [self setWithCharacterPosition:charPosition];
 }
 
@@ -146,8 +148,8 @@ static const float maxZoomOut = 50.0f;
 {
     glm::vec3 geographical = [self convertCartesianToGeo:-fVector];
     self.radius = geographical.x;
-    self.longtitude = geographical.z;
-    self.latitude = geographical.y;
+    self.longtitude = geographical.y;   //z
+    self.latitude = geographical.z;     //y
     [self refresh];
 }
 
