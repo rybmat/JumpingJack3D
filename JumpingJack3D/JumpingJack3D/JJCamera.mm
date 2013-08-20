@@ -22,7 +22,7 @@ static const float maxZoomOut = 50.0f;
 }
 
 /* Specialized initializer */
-- (id) initWithParameters:(float)nClipping farClipping:(float)fClipping FoV:(float)fov aspectRatio:(float)aRatio cameraRadius:(float)radius;
+- (id) initWithParameters:(float)nClipping farClipping:(float)fClipping FoV:(float)fov aspectRatio:(float)aRatio cameraRadius:(float)radius
 {
     return [self initWithParameters:nClipping farClipping:fClipping FoV:fov aspectRatio:aRatio cameraRadius:radius latitude:0 longtitude:0];
 }

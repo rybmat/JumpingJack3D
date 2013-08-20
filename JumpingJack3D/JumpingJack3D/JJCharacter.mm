@@ -27,7 +27,7 @@
     _tex0 = tex;
     _texCoords0 = tCoords;
     
-    [self setFaceVector:glm::vec4(0.0f, 0.0f, 1.0f, 0.0f)];
+    [self setFaceVector:glm::vec4(0.0f, 0.0f, 10.0f, 0.0f)];
     
     [self setupVBO];
     [self setupVAO];
