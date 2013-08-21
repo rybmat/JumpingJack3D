@@ -14,7 +14,7 @@
 static const glm::vec3 worldUp = glm::vec3(0.0f, 1.0f, 0.0f);
 static const float maxZoomIn = 4.0f;
 static const float maxZoomOut = 50.0f;
-static const float standardLatitude = 45.0;
+static const float standardLatitude = 30.0f;
 
 /* Basic initializer */
 - (id) init
@@ -139,7 +139,7 @@ static const float standardLatitude = 45.0;
     glm::vec3 geographical = [self convertCartesianToGeo:-fVector];
     //self.radius = geographical.x;
     self.longtitude = geographical.y;   
-    self.latitude = geographical.z;     
+    self.latitude = standardLatitude;
     
     //NSLog(@"x: %f, y: %f, z: %f,",geographical.x, geographical.y, geographical.z);
     [self setWithCharacterPosition:charPosition];

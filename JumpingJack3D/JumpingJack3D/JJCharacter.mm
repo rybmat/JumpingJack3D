@@ -32,6 +32,10 @@
     [self setupVBO];
     [self setupVAO];
     
+    self.XAxisVelocity = 0.4;
+    self.YAxisVelocity = 0.4;
+    self.ZAxisVelocity = 0.4;
+    
     return self;
 }
 
@@ -105,6 +109,20 @@
     
 	//Narysowanie obiektu
     glDrawArrays(GL_TRIANGLES,0,[self vertexCount]);
+}
+- (void) moveXwithDirection:(int) direction;
+{
+    [self moveX:self.XAxisVelocity/60.0f * direction];
+}
+
+- (void) moveYwithDirection:(int) direction;
+{
+    [self moveY:self.YAxisVelocity/60.0f * direction];
+}
+
+- (void) moveZwithDirection:(int) direction;
+{
+    [self moveZ:self.ZAxisVelocity/60.0f * direction];
 }
 
 @end

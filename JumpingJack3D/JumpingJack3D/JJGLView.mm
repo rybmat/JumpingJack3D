@@ -16,9 +16,9 @@ JJAssetManager *assetManager;
 JJObjectManager *objManager;
 JJCamera *camera;
 
-NSPoint startingPoint;
-
 JJCharacter* character;
+NSMutableSet* keyPressed;
+
 BOOL mousePressed;
 
 - (id)initWithFrame:(NSRect)frame
@@ -48,7 +48,7 @@ BOOL mousePressed;
     assetManager = [[JJAssetManager alloc] init];
     [assetManager load];
     
-    camera = [[JJCamera alloc] initWithParameters:1.0f farClipping:50.0f FoV:50.0f aspectRatio:1.0f cameraRadius:10.0f];
+    camera = [[JJCamera alloc] initWithParameters:1.0f farClipping:100.0f FoV:90.0f aspectRatio:1.0f cameraRadius:10.0f];
     
     character = [[JJCharacter alloc] initWithShaderProgram: [assetManager getShaderProgram:@"platform"]
                                                                  Camera: camera
@@ -114,6 +114,7 @@ BOOL mousePressed;
 
 - (void) timerFired: (id)sender{
     
+    [self processKeys];
     [self nextFrame];
     [self display];
 }
@@ -145,62 +146,51 @@ BOOL mousePressed;
     return  YES;
 }
 
-- (void) keyDown:(NSEvent *)theEvent{
-    
-    NSString *theArrow = [theEvent characters];
-    unichar keyChar = 0;
-    if ( [theArrow length] == 0 )
-        return;
-    if ( [theArrow length] == 1 ) {
-        keyChar = [theArrow characterAtIndex:0];
-        if ( keyChar == NSLeftArrowFunctionKey ) {
-            //[character rotateY:1.0f byAngle:5];
-            [camera rotateHorizontal:7.0f];
-            return;
+- (void) processKeys
+{
+    if (!(keyPressed == nil) and !([keyPressed count] == 0)){
+        for (NSNumber* keyHit in keyPressed) {
+            switch ([keyHit unsignedIntValue]) {
+                case 'w':
+                    [character moveZ:1];
+                    break;
+                case 's':
+                    [character moveZ:-1];
+                    break;
+                case 'a':
+                    [character moveX:1];
+                    break;
+                case 'd':
+                    [character moveX:-1];
+                    break;
+                case ' ':
+                    [character moveY:1];
+                    break;
+                
+                default:
+                    break;
+            }
         }
-        if ( keyChar == NSRightArrowFunctionKey ) {
-            //[character rotateY:-1.0f byAngle:5];
-            [camera rotateHorizontal:-7.0f];
-            return;
-        }
-        if ( keyChar == NSUpArrowFunctionKey ) {
-            //[character moveZ:0.1f];
-            [camera rotateVertical:7.0f];
-            return;
-        }
-        if ( keyChar == NSDownArrowFunctionKey ) {
-            //[character moveZ:-0.1f];
-            [camera rotateVertical:-7.0f];
-            return;
-        }
-        if ( keyChar == 'w'){
-            [character moveZ:0.4f];
-            return;
-        }
-        if ( keyChar == 's'){
-            [character moveZ:-0.4f];
-            return;
-        }
-        if ( keyChar == 'q'){
-            [character rotateY:1.0f byAngle:10];
-            return;
-        }
-        if ( keyChar == 'e'){
-            [character rotateY:-1.0f byAngle:10];
-            return;
-        }
-        if ( keyChar == 'a'){
-            [character moveX:0.4f];
-            return;
-        }
-        if ( keyChar == 'd'){
-            [character moveX:-0.4f];
-            return;
-        }
-        
-        //[super keyDown:theEvent];
     }
-    //[super keyDown:theEvent];
+}
+
+- (void) keyUp:(NSEvent *)theEvent
+{
+    if (keyPressed == nil) {
+        keyPressed = [[NSMutableSet alloc] init];
+    }
+    NSNumber* keyReleased = [NSNumber numberWithUnsignedInt:[[theEvent characters] characterAtIndex:0]];
+    [keyPressed removeObject:keyReleased];
+}
+
+- (void) keyDown:(NSEvent*)theEvent
+{
+    
+    if (keyPressed == nil) {
+        keyPressed = [[NSMutableSet alloc] init];
+    }
+    NSNumber* keyHit = [NSNumber numberWithUnsignedInt:[[theEvent characters] characterAtIndex:0]];
+    [keyPressed addObject:keyHit];
 
 }
 
@@ -211,7 +201,6 @@ BOOL mousePressed;
 
 - (void) mouseDown:(NSEvent *)theEvent {
     mousePressed = YES;
-    startingPoint = [theEvent locationInWindow];
 }
 
 - (void) mouseUp:(NSEvent *)theEvent {
@@ -221,6 +210,12 @@ BOOL mousePressed;
 - (void)mouseDragged:(NSEvent *)theEvent
 {
     [camera rotateHorizontal:-[theEvent deltaX]/10];
+    [camera rotateVertical:[theEvent deltaY]/10];
+}
+
+- (void)mouseMoved:(NSEvent *)theEvent
+{
+    [character rotateY:1.0f byAngle:-[theEvent deltaX]/10];
     [camera rotateVertical:[theEvent deltaY]/10];
 }
 
