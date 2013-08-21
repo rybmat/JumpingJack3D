@@ -20,6 +20,9 @@
 @property float latitude;
 @property float radius;
 
+@property float horizontalRotation;
+@property float zoomFactor;
+
 // Camera's realistic variables
 @property float maxForwardDistance;
 
