@@ -87,7 +87,7 @@ GLuint tex;
 
 - (void) loadTextures
 {
-    NSArray* filePathsTGA = [self.mainBundle pathsForResourcesOfType:self.extensions[JPG] inDirectory:@""];
+    NSArray* filePathsTGA = [self.mainBundle pathsForResourcesOfType:self.extensions[TGA] inDirectory:@""];
     NSArray* filePathsPNG = [self.mainBundle pathsForResourcesOfType:self.extensions[PNG] inDirectory:@""];
     
     NSMutableDictionary* dict = [[NSMutableDictionary alloc] init];

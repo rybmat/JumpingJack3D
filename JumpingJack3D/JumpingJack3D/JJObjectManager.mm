@@ -21,6 +21,8 @@ JJStaticPlatform* baseFloor;
 JJAssetManager* assetManagerRef;
 JJCamera* cameraRef;
 
+NSEnumerator* enumer;
+
 - (id) initWithRefs:(JJAssetManager*)aAssetManagerRef cameraRef:(JJCamera*)aCameraRef characterRef:(JJCharacter *)aCharacterRef
 {
     self = [super init];
@@ -43,6 +45,7 @@ JJCamera* cameraRef;
                                                               Texture: [assetManagerRef getTexture: @"platform"]
                                                             TexCoords: [assetManagerRef getUvs:@"floor"]];
         [baseFloor scaleX:50 Y:1 Z:50];
+        enumer = [[mapGenerator getVisibleMap] objectEnumerator];
     }
     return self;
 }
@@ -74,12 +77,30 @@ JJCamera* cameraRef;
                                                        Normals: [assetManagerRef getNormals:@"cube"]
                                                    VertexCount: [assetManagerRef getVertexCount:@"cube"]
                                                      PositionX: x*2 Y: y*2 Z: z*2
-                                                       Texture: [assetManagerRef getTexture: @"platform"]
+                                                       Texture: [assetManagerRef getTexture: @"metal"]
                                                      TexCoords: [assetManagerRef getUvs:@"cube"]];
         [blocks addObject:cube];
     }
 }
 
+
+- (void) addNewBlock
+{
+    JJStaticPlatform* cube;
+    NSArray* position = [enumer nextObject];
+    float x = [position[0] floatValue];
+    float y = [position[1] floatValue];
+    float z = [position[2] floatValue];
+    cube = [[JJStaticPlatform alloc] initWithShaderProgram: [assetManagerRef getShaderProgram:@"platform"]
+                                                    Camera: cameraRef
+                                                  Vertices: [assetManagerRef getVertices:@"cube"]
+                                                   Normals: [assetManagerRef getNormals:@"cube"]
+                                               VertexCount: [assetManagerRef getVertexCount:@"cube"]
+                                                 PositionX: x*2 Y: y*2 Z: z*2
+                                                   Texture: [assetManagerRef getTexture: @"metal"]
+                                                 TexCoords: [assetManagerRef getUvs:@"cube"]];
+    [blocks addObject:cube];
+}
 
 - (void) renderObjects
 {

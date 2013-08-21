@@ -60,13 +60,13 @@ BOOL mousePressed;
                                                               PositionX: -5.0f Y:2.0f Z:3.0f
                                                                 Texture: [assetManager getTexture:@"platform"]
                                                               TexCoords: [assetManager getUvs:@"cube"]];
-    [objManager addObject:character];
     
     objManager = [[JJObjectManager alloc] initWithRefs:assetManager cameraRef:camera characterRef:character];
+    [objManager addObject:character];
 
     [camera setWithCharacterPosition:[character getModelPosition]];
     
-    [objManager generateWorld];
+    //[objManager generateWorld];
     
 }
 
@@ -118,7 +118,7 @@ BOOL mousePressed;
 
 - (void) timerFired: (id)sender
 {
-    
+
     [self processKeys];
     [self nextFrame];
     [self display];
