@@ -19,14 +19,13 @@ JJCamera *camera;
 NSPoint startingPoint;
 
 JJCharacter* character;
-
-//////////////////////////
+BOOL mousePressed;
 
 - (id)initWithFrame:(NSRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code here.
+        mousePressed = NO;
     }
     
     return self;
@@ -64,58 +63,8 @@ JJCharacter* character;
     objManager = [[JJObjectManager alloc] initWithRefs:assetManager cameraRef:camera characterRef:character];
 
     [camera setWithCharacterPosition:[character getModelPosition]];
-
-    /*
-    JJDynamicPlatform* dynPlatform = [[JJDynamicPlatform alloc] initWithShaderProgram: [assetManager getShaderProgram:@"platform"]
-                                                            Camera: camera
-                                                          Vertices: [assetManager getVertices:@"cube"]
-                                                           Normals: [assetManager getNormals:@"cube"]
-                                                       VertexCount: [assetManager getVertexCount:@"cube"]
-                                                         PositionX: 1.0f Y: 0.0f Z: 0.0f
-                                                        PathPointB: glm::vec4(2.0f,3.0f,4.0f,1.0f)
-                                                          StepSize: 0.05f
-                                                           Texture: [assetManager getTexture:@"cube"]
-                                                     TextureCoords: [assetManager getUvs:@"cube"]];
-    
-    [objManager addObject:dynPlatform];
-    
-    JJDynamicPlatform* dynPlatform2 = [[JJDynamicPlatform alloc] initWithShaderProgram: [assetManager getShaderProgram:@"platform"]
-                                                            Camera: camera
-                                                          Vertices: cubeVertices
-                                                           Normals: cubeNormals
-                                                       VertexCount: cubeVertexCount
-                                                         PositionX: -1.0f Y: 0.0f Z: 0.0f
-                                                        PathPointB: glm::vec4(-2.0f,-3.0f,-4.0f,1.0f)
-                                                          StepSize: 0.05f
-                                                           Texture: [assetManager getTexture:@"platform"]
-                                                     TextureCoords: cubeTexCoords];
-    [objManager addObject:dynPlatform2];
-
-     */
     
     [objManager generateWorld];
-    
-
-
-
-
-    
-   // NSLog(@"%d", [character vertexCount]);
-  //wypisanie normalnych/wierzcholkow
-   /* for( int i = 0; i < 12 * 3 * 4; i++){
-        printf("%f, ",[character normals][i]);
-        if(i % 4 == 3){
-            printf("\n");
-        }
-    }
-*/
-    //wypisanie UV-ek
-    /*for(int j = 0; j < 36 * 2; j++){
-        printf("%f, ", [assetManager getUvs:@"cube"][j]);
-        if(j % 2 == 1){
-            printf("\n");
-        }
-    }*/
     
 }
 
@@ -171,7 +120,11 @@ JJCharacter* character;
 
 - (void) nextFrame{
     [objManager applyAction];
-    [camera setWithCharacterPosition:[character getModelPosition] andCharactersFaceVector: [character getFaceVectorInWorldSpace]];
+    if (mousePressed == NO) {
+        [camera setWithCharacterPosition:[character getModelPosition] andCharactersFaceVector: [character getFaceVectorInWorldSpace]];
+    } else {
+        [camera setWithCharacterPosition:[character getModelPosition]];
+    }
 }
 
 - (void)drawRect:(NSRect)dirtyRect
@@ -194,7 +147,7 @@ JJCharacter* character;
 
 - (void) keyDown:(NSEvent *)theEvent{
     
-    NSString *theArrow = [theEvent charactersIgnoringModifiers];
+    NSString *theArrow = [theEvent characters];
     unichar keyChar = 0;
     if ( [theArrow length] == 0 )
         return;
@@ -221,19 +174,27 @@ JJCharacter* character;
             return;
         }
         if ( keyChar == 'w'){
-            [character moveZ:0.1f];
+            [character moveZ:0.4f];
             return;
         }
         if ( keyChar == 's'){
-            [character moveZ:-0.1f];
+            [character moveZ:-0.4f];
+            return;
+        }
+        if ( keyChar == 'q'){
+            [character rotateY:1.0f byAngle:10];
+            return;
+        }
+        if ( keyChar == 'e'){
+            [character rotateY:-1.0f byAngle:10];
             return;
         }
         if ( keyChar == 'a'){
-            [character rotateY:1.0f byAngle:5];
+            [character moveX:0.4f];
             return;
         }
         if ( keyChar == 'd'){
-            [character rotateY:-1.0f byAngle:5];
+            [character moveX:-0.4f];
             return;
         }
         
@@ -244,19 +205,23 @@ JJCharacter* character;
 }
 
 - (void)scrollWheel:(NSEvent *)theEvent {
-    [camera zoomIn:[theEvent deltaY]];
+    [camera zoomIn:[theEvent deltaY]/3];
     NSLog(@"user scrolled %f horizontally and %f vertically", [theEvent deltaX], [theEvent deltaY]);
 }
 
 - (void) mouseDown:(NSEvent *)theEvent {
+    mousePressed = YES;
     startingPoint = [theEvent locationInWindow];
+}
+
+- (void) mouseUp:(NSEvent *)theEvent {
+    mousePressed = NO;
 }
 
 - (void)mouseDragged:(NSEvent *)theEvent
 {
-    NSPoint endPoint = [theEvent locationInWindow];
-    [camera rotateHorizontal:-(endPoint.x - startingPoint.x)/100];
-    [camera rotateVertical:-(endPoint.y - startingPoint.y)/100];
+    [camera rotateHorizontal:-[theEvent deltaX]/10];
+    [camera rotateVertical:[theEvent deltaY]/10];
 }
 
 @end

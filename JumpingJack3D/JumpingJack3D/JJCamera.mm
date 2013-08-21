@@ -12,8 +12,9 @@
 @implementation JJCamera
 
 static const glm::vec3 worldUp = glm::vec3(0.0f, 1.0f, 0.0f);
-static const float maxZoomIn = 1.0f;
+static const float maxZoomIn = 4.0f;
 static const float maxZoomOut = 50.0f;
+static const float standardLatitude = 45.0;
 
 /* Basic initializer */
 - (id) init
@@ -136,9 +137,9 @@ static const float maxZoomOut = 50.0f;
 - (void) setWithCharacterPosition:(glm::vec3)charPosition andCharactersFaceVector:(glm::vec3)fVector
 {
     glm::vec3 geographical = [self convertCartesianToGeo:-fVector];
-    self.radius = geographical.x;
-    self.longtitude = geographical.y;   //z
-    self.latitude = geographical.z;     //y
+    //self.radius = geographical.x;
+    self.longtitude = geographical.y;   
+    self.latitude = geographical.z;     
     
     //NSLog(@"x: %f, y: %f, z: %f,",geographical.x, geographical.y, geographical.z);
     [self setWithCharacterPosition:charPosition];
@@ -148,8 +149,8 @@ static const float maxZoomOut = 50.0f;
 {
     glm::vec3 geographical = [self convertCartesianToGeo:-fVector];
     self.radius = geographical.x;
-    self.longtitude = geographical.y;   //z
-    self.latitude = geographical.z;     //y
+    self.longtitude = geographical.y;   
+    self.latitude = standardLatitude;
     [self refresh];
 }
 
@@ -193,7 +194,7 @@ static const float maxZoomOut = 50.0f;
 // Expected to have a better function in future - TODO
 - (float) calculateForwardDistanceBasedOn:(float)radius
 {
-    return radius*0.3f;
+    return radius*0.4f;
 }
 
 @end
