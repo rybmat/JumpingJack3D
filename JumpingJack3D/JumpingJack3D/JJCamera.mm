@@ -41,6 +41,9 @@ static const float maxZoomOut = 50.0f;
         self.latitude = aLatitude;
         self.longtitude = aLongtitude;
         
+        self.horizontalRotation = 0.0f;
+        self.zoomFactor = 0.0f;
+        
         self.maxForwardDistance = [self calculateForwardDistanceBasedOn:radius];
         
         self.characterPosition = glm::vec3(1.0f, 0.0f, 0.0f);
@@ -60,8 +63,10 @@ static const float maxZoomOut = 50.0f;
 /* Rotates camera around character horizontally */
 - (void) rotateHorizontal:(float)degrees
 {
-    self.longtitude += degrees;
-    [self refresh];
+    //self.longtitude += degrees;
+    self.horizontalRotation += degrees;
+    
+    //[self refresh]; //niepotrzebne, bo z każdym rysowaniem klatki i tak jest to wywoływane (JJGLView -> nextFrame)
 }
 
 /* Rotates camera around character vertically */
@@ -73,27 +78,37 @@ static const float maxZoomOut = 50.0f;
     } else if (self.latitude <= -90.0f) {
         self.latitude = -90.0f;
     }
-    [self refresh];
+    //[self refresh];  //niepotrzebne, bo z każdym rysowaniem klatki i tak jest to wywoływane (JJGLView -> nextFrame)
 }
 
 /* Zooms in, checks constraints and recalculates forward vector distance */
 - (void) zoomIn:(float)amount
 {
-    if ((self.radius -= amount) <= maxZoomIn) {
+   /* if ((self.radius -= amount) <= maxZoomIn) {
         self.radius = maxZoomIn;
     }
     self.maxForwardDistance = [self calculateForwardDistanceBasedOn:self.radius];
-    [self refresh];
+    [self refresh];*/
+    
+    self.zoomFactor -= amount;
+    if ((self.radius + self.zoomFactor) <= maxZoomIn) {
+        self.zoomFactor = maxZoomIn - self.radius;
+    }
 }
 
 /* Zooms out, checks constraints and recalculates forward vector distance */
 - (void) zoomOut:(float)amount
 {
-    if ((self.radius += amount) >= maxZoomOut) {
+    /*if ((self.radius += amount) >= maxZoomOut) {
         self.radius = maxZoomOut;
     }
     self.maxForwardDistance = [self calculateForwardDistanceBasedOn:self.radius];
-    [self refresh];
+    [self refresh];*/
+     
+    self.zoomFactor += amount;
+    if ((self.radius + self.zoomFactor) >= maxZoomOut) {
+        self.zoomFactor = maxZoomOut - self.radius;
+    }
 }
 
 /* Refreshes camera view with current attributes and Character's position */
@@ -128,6 +143,8 @@ static const float maxZoomOut = 50.0f;
     self.up = glm::cross(rightVector, self.target);
     
     self.viewMatrix = glm::lookAt(self.cameraPosition, targetPosition /*self.target*/, self.up);
+    
+    //NSLog(@"longtitude: %f", self.longtitude);
 }
 
 /* Sets all camera attributes needed for View matrix and the builds it       */
@@ -136,9 +153,9 @@ static const float maxZoomOut = 50.0f;
 - (void) setWithCharacterPosition:(glm::vec3)charPosition andCharactersFaceVector:(glm::vec3)fVector
 {
     glm::vec3 geographical = [self convertCartesianToGeo:-fVector];
-    self.radius = geographical.x;
-    self.longtitude = geographical.y;   //z
-    self.latitude = geographical.z;     //y
+    self.radius = geographical.x + self.zoomFactor;
+    self.longtitude = geographical.y + self.horizontalRotation;   //z
+    self.latitude += geographical.z;     //y
     
     //NSLog(@"x: %f, y: %f, z: %f,",geographical.x, geographical.y, geographical.z);
     [self setWithCharacterPosition:charPosition];

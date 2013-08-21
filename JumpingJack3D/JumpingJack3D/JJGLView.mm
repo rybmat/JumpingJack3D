@@ -171,7 +171,7 @@ JJCharacter* character;
 
 - (void) nextFrame{
     [objManager applyAction];
-    [camera setWithCharacterPosition:[character getModelPosition] andCharactersFaceVector: [character getFaceVectorInWorldSpace]];
+    [camera setWithCharacterPosition:[character getModelPosition]  andCharactersFaceVector: [character getFaceVectorInWorldSpace]];
 }
 
 - (void)drawRect:(NSRect)dirtyRect
@@ -236,7 +236,18 @@ JJCharacter* character;
             [character rotateY:-1.0f byAngle:5];
             return;
         }
-        
+        if ( keyChar == 'q'){
+            [character moveX: 0.1f];
+            return;
+        }
+        if ( keyChar == 'e'){
+            [character moveX: -0.1f];
+            return;
+        }
+        if ( keyChar == ' '){
+            [character moveY:0.1f];
+            return;
+        }
         //[super keyDown:theEvent];
     }
     //[super keyDown:theEvent];
