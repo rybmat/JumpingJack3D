@@ -25,6 +25,6 @@
 - (void) renderObjects;
 - (void) applyAction;
 
-- (void) addNewBlock;
+- (void) showNewBlock;
 
 @end

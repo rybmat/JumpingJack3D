@@ -15,6 +15,6 @@
 - (id) initWithStartingPosition:(glm::vec3)position mapStartingCapacity:(int)capacity ;
 
 - (NSArray*) getVisibleMap;
-
+- (NSArray*) getWholeMap;
 
 @end

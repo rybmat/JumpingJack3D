@@ -44,8 +44,8 @@ NSEnumerator* enumer;
                                                             PositionX: 0.0f Y: -1.0f Z: 0.0f
                                                               Texture: [assetManagerRef getTexture: @"platform"]
                                                             TexCoords: [assetManagerRef getUvs:@"floor"]];
-        [baseFloor scaleX:50 Y:1 Z:50];
-        enumer = [[mapGenerator getVisibleMap] objectEnumerator];
+        [baseFloor scaleX:100 Y:1 Z:100];
+        enumer = [blocks objectEnumerator];
     }
     return self;
 }
@@ -67,7 +67,7 @@ NSEnumerator* enumer;
 - (void) generateWorld
 {
     JJStaticPlatform* cube;
-    for (NSArray* position in [mapGenerator getVisibleMap]) {
+    for (NSArray* position in [mapGenerator getWholeMap]) {
         float x = [position[0] floatValue];
         float y = [position[1] floatValue];
         float z = [position[2] floatValue];
@@ -79,27 +79,16 @@ NSEnumerator* enumer;
                                                      PositionX: x*2 Y: y*2 Z: z*2
                                                        Texture: [assetManagerRef getTexture: @"metal"]
                                                      TexCoords: [assetManagerRef getUvs:@"cube"]];
+        [cube setVisible:NO];
         [blocks addObject:cube];
     }
 }
 
 
-- (void) addNewBlock
+- (void) showNewBlock
 {
-    JJStaticPlatform* cube;
-    NSArray* position = [enumer nextObject];
-    float x = [position[0] floatValue];
-    float y = [position[1] floatValue];
-    float z = [position[2] floatValue];
-    cube = [[JJStaticPlatform alloc] initWithShaderProgram: [assetManagerRef getShaderProgram:@"platform"]
-                                                    Camera: cameraRef
-                                                  Vertices: [assetManagerRef getVertices:@"cube"]
-                                                   Normals: [assetManagerRef getNormals:@"cube"]
-                                               VertexCount: [assetManagerRef getVertexCount:@"cube"]
-                                                 PositionX: x*2 Y: y*2 Z: z*2
-                                                   Texture: [assetManagerRef getTexture: @"metal"]
-                                                 TexCoords: [assetManagerRef getUvs:@"cube"]];
-    [blocks addObject:cube];
+    JJStaticPlatform* cube = [enumer nextObject];
+    [cube setVisible:YES];
 }
 
 - (void) renderObjects
@@ -107,10 +96,14 @@ NSEnumerator* enumer;
     [baseFloor render];
     [characterRef render];
     for (id object in enemies) {
-        [object render];
+        if ([object isVisible]) {
+            [object render];
+        }
     }
     for (id object in blocks) {
-        [object render];
+        if ([object isVisible]) {
+            [object render];
+        }
     }
 }
 

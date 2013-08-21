@@ -27,7 +27,12 @@
 @property JJCamera* camera;
 @property glm::vec3 faceVector;
 
+@property BOOL visible;
+
 - (id) initWithShaderProgram: (JJShaderProgram*) shProg Camera: (JJCamera*) cam Vertices: (float*) verts Normals: (float*) norms VertexCount: (int) vCount PositionX: (float) x Y: (float) y Z: (float) z;
+
+- (void) setVisible:(BOOL)visible;
+- (BOOL) isVisible;
 
 - (void) moveX: (float) x Y: (float) y Z: (float) z;
 - (void) moveX: (float) direction;

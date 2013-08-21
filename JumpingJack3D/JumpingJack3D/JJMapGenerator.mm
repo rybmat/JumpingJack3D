@@ -33,7 +33,7 @@ int randomMap[RANDOM_MAP_SIZE];
 
 - (id) init
 {
-    return [self initWithStartingPosition:glm::vec3(0,0,0) mapStartingCapacity:100];
+    return [self initWithStartingPosition:glm::vec3(0,0,0) mapStartingCapacity:200];
 }
 
 - (id) initWithStartingPosition:(glm::vec3)position mapStartingCapacity:(int)capacity
@@ -99,10 +99,15 @@ int randomMap[RANDOM_MAP_SIZE];
 - (NSArray*) getVisibleMap
 {
     NSMutableArray* tempArray = [[NSMutableArray alloc] init];
-    for (int i=0; i<20; i++) {
+    for (int i=0; i<100; i++) {
         [tempArray addObject:self.map[i]];
     }
     return tempArray;
+}
+
+- (NSArray*) getWholeMap
+{
+    return self.map;
 }
 
 - (BOOL) checkPossiblePoint:(NSArray*)newPoint

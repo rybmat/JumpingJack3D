@@ -17,11 +17,13 @@
 @synthesize vertexCount;
 @synthesize camera;
 @synthesize faceVector;
+@synthesize visible;
 
 - (id) initWithShaderProgram: (JJShaderProgram*) shProg Camera: (JJCamera*) cam Vertices: (float*) verts Normals: (float*) norms VertexCount: (int) vCount PositionX: (float) x Y: (float) y Z: (float) z{
     
     self = [super init];
     if(self){
+        [self setVisible:YES];
         [self setShaderProgram:shProg];
         [self setCamera: cam];
         [self setVertices:verts];
@@ -96,5 +98,10 @@
     position.z = [self matM][3][2];
     
     return position;
+}
+
+- (BOOL) isVisible
+{
+    return self.visible;
 }
 @end
