@@ -42,7 +42,7 @@ NSEnumerator* enumer;
                                                               Normals: [assetManagerRef getNormals:@"floor"]
                                                           VertexCount: [assetManagerRef getVertexCount:@"floor"]
                                                             PositionX: 0.0f Y: -1.0f Z: 0.0f
-                                                              Texture: [assetManagerRef getTexture: @"platform"]
+                                                              Texture: [assetManagerRef getTexture: @"metal"]
                                                             TexCoords: [assetManagerRef getUvs:@"floor"]];
         [baseFloor scaleX:100 Y:1 Z:100];
         enumer = [blocks objectEnumerator];

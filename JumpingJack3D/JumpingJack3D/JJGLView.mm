@@ -54,12 +54,12 @@ BOOL mousePressed;
     
     character = [[JJCharacter alloc] initWithShaderProgram: [assetManager getShaderProgram:@"platform"]
                                                                  Camera: camera
-                                                               Vertices: [assetManager getVertices:@"cube"]
-                                                                Normals: [assetManager getNormals:@"cube"]
-                                                            VertexCount: [assetManager getVertexCount:@"cube"]
+                                                               Vertices: [assetManager getVertices:@"eye"]
+                                                                Normals: [assetManager getNormals:@"eye"]
+                                                            VertexCount: [assetManager getVertexCount:@"eye"]
                                                               PositionX: -5.0f Y:2.0f Z:3.0f
-                                                                Texture: [assetManager getTexture:@"platform"]
-                                                              TexCoords: [assetManager getUvs:@"cube"]];
+                                                                Texture: [assetManager getTexture:@"eye"]
+                                                              TexCoords: [assetManager getUvs:@"eye"]];
     
     objManager = [[JJObjectManager alloc] initWithRefs:assetManager cameraRef:camera characterRef:character];
     [objManager addObject:character];
