@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1018D38617C7A67A009494D8 /* sphere.obj in Resources */ = {isa = PBXBuildFile; fileRef = 1018D38517C7A67A009494D8 /* sphere.obj */; };
+		1018D38817C7D0E8009494D8 /* sphere.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1018D38717C7D0E8009494D8 /* sphere.jpg */; };
 		103F046917C665CD004A357E /* eye.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 103F046817C665CD004A357E /* eye.jpg */; };
 		103F046F17C696EC004A357E /* eye.obj in Resources */ = {isa = PBXBuildFile; fileRef = 103F046E17C696EC004A357E /* eye.obj */; };
 		109709F717B6774600B51086 /* metal.tga in Resources */ = {isa = PBXBuildFile; fileRef = 109709F617B6774600B51086 /* metal.tga */; };
@@ -56,6 +58,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1018D38517C7A67A009494D8 /* sphere.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sphere.obj; sourceTree = "<group>"; };
+		1018D38717C7D0E8009494D8 /* sphere.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sphere.jpg; sourceTree = "<group>"; };
 		103F046817C665CD004A357E /* eye.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = eye.jpg; sourceTree = "<group>"; };
 		103F046E17C696EC004A357E /* eye.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = eye.obj; sourceTree = "<group>"; };
 		109709F517B6773200B51086 /* teapot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = teapot.h; sourceTree = "<group>"; };
@@ -249,6 +253,7 @@
 			children = (
 				103F046E17C696EC004A357E /* eye.obj */,
 				10BE5C3717BE8F4E00F5A07B /* floor.obj */,
+				1018D38517C7A67A009494D8 /* sphere.obj */,
 				10989BE217B2FDD4005B5599 /* Football.obj */,
 				10970A0517B6E58A00B51086 /* cube.obj */,
 				10FE01A21794BA88005A218E /* platform.obj */,
@@ -260,6 +265,7 @@
 			isa = PBXGroup;
 			children = (
 				103F046817C665CD004A357E /* eye.jpg */,
+				1018D38717C7D0E8009494D8 /* sphere.jpg */,
 				10BE5C3517BE8E5F00F5A07B /* floor.jpg */,
 				109709F617B6774600B51086 /* metal.tga */,
 				10BE5C2D17BE868E00F5A07B /* cube.jpg */,
@@ -474,6 +480,8 @@
 				10BE5C3817BE8F4E00F5A07B /* floor.obj in Resources */,
 				103F046917C665CD004A357E /* eye.jpg in Resources */,
 				103F046F17C696EC004A357E /* eye.obj in Resources */,
+				1018D38617C7A67A009494D8 /* sphere.obj in Resources */,
+				1018D38817C7D0E8009494D8 /* sphere.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

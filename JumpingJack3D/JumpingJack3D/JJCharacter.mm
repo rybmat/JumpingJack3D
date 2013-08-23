@@ -32,9 +32,10 @@
     [self setupVBO];
     [self setupVAO];
     
-    self.XAxisVelocity = 0.4;
-    self.YAxisVelocity = 0.4;
-    self.ZAxisVelocity = 0.4;
+    self.XAxisVelocity = 15;
+    self.YAxisVelocity = 15;
+    self.ZAxisVelocity = 15;
+    self.gravity = 0.02;
     
     return self;
 }
@@ -122,7 +123,14 @@
 
 - (void) moveZwithDirection:(int) direction;
 {
+
     [self moveZ:self.ZAxisVelocity/60.0f * direction];
+
+}
+
+- (void) jump
+{
+    
 }
 
 @end

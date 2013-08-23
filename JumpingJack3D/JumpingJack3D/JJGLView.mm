@@ -54,12 +54,12 @@ BOOL mousePressed;
     
     character = [[JJCharacter alloc] initWithShaderProgram: [assetManager getShaderProgram:@"platform"]
                                                                  Camera: camera
-                                                               Vertices: [assetManager getVertices:@"eye"]
-                                                                Normals: [assetManager getNormals:@"eye"]
-                                                            VertexCount: [assetManager getVertexCount:@"eye"]
+                                                               Vertices: [assetManager getVertices:@"sphere"]
+                                                                Normals: [assetManager getNormals:@"sphere"]
+                                                            VertexCount: [assetManager getVertexCount:@"sphere"]
                                                               PositionX: -5.0f Y:2.0f Z:3.0f
-                                                                Texture: [assetManager getTexture:@"eye"]
-                                                              TexCoords: [assetManager getUvs:@"eye"]];
+                                                                Texture: [assetManager getTexture:@"sphere"]
+                                                              TexCoords: [assetManager getUvs:@"sphere"]];
     
     objManager = [[JJObjectManager alloc] initWithRefs:assetManager cameraRef:camera characterRef:character];
     [objManager addObject:character];
@@ -160,22 +160,22 @@ BOOL mousePressed;
         for (NSNumber* keyHit in keyPressed) {
             switch ([keyHit unsignedIntValue]) {
                 case 'w':
-                    [character moveZ:1];
+                    [character moveZwithDirection:1];
                     break;
                 case 's':
-                    [character moveZ:-1];
+                    [character moveZwithDirection:-1];
                     break;
                 case 'a':
-                    [character moveX:1];
+                    [character moveXwithDirection:1];
                     break;
                 case 'd':
-                    [character moveX:-1];
+                    [character moveXwithDirection:-1];
                     break;
                 case ' ':
-                    [character moveY:1];
+                    [character moveYwithDirection:1];
                     break;
                 case 'z':
-                    [character moveY:-1];
+                    [character moveYwithDirection:-1];
                     break;
                 case 'q':
                     [character rotateY:1.0f byAngle:2];

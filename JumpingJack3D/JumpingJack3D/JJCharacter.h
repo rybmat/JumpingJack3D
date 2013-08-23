@@ -20,7 +20,7 @@
 @property float XAxisVelocity;
 @property float YAxisVelocity;
 @property float ZAxisVelocity;
-
+@property float gravity;
 
 - (id) initWithShaderProgram: (JJShaderProgram*) shProg Camera: (JJCamera*) cam Vertices: (float*) verts Normals: (float*) norms VertexCount: (int) vCount PositionX: (float) x Y: (float) y Z: (float) z Texture: (GLuint) tex TexCoords: (float*) tCoords ;
 

@@ -119,7 +119,16 @@ NSEnumerator* enumer;
             [object moveThroughPath];
         }
     }
+    [self calculatePhysics];
 }
 
+- (void) calculatePhysics
+{
+    if ((float)abs([characterRef getModelPosition].y - [baseFloor getModelPosition].y) < .5f) {
+        [characterRef moveY:0.25f];
+    }else{
+        
+    }
+}
 
 @end
