@@ -82,7 +82,7 @@
     
     //glUniformMatrix4fv([[self shaderProgram] getUniformLocation:"P"],1, false, glm::value_ptr([JJSceneObject matP]));
 	//glUniformMatrix4fv([[self shaderProgram] getUniformLocation:"V" ],1, false, glm::value_ptr([JJSceneObject matV]));
-	glUniformMatrix4fv([[self shaderProgram] getUniformLocation:"M"],1, false, glm::value_ptr([self matM]));
+	glUniformMatrix4fv([[self shaderProgram] getUniformLocation:"M"],1, false, glm::value_ptr([self constructModelMatrix]));
 	glUniform1i([[self shaderProgram] getUniformLocation:"textureMap0"], 0);
     
     //światła !!!!!!

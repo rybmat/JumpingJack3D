@@ -11,21 +11,21 @@
 #import "JJShaderProgram.h"
 
 #import "glm/glm.hpp"
-#import "glm/gtc/matrix_transform.hpp"
-#import "glm/gtc/type_ptr.hpp"
 
 #import "JJCamera.h"
 #import "JJLight.h"
 
 @interface JJRenderedObject : NSObject
 
-@property glm::mat4 matM;
 @property JJShaderProgram* shaderProgram;
 @property float* vertices;
 @property float* normals;
 @property int vertexCount;
 @property JJCamera* camera;
-@property glm::vec3 faceVector;
+
+@property glm::vec3 position;
+@property glm::vec3 rotation;
+@property glm::vec3 scale;
 
 @property BOOL visible;
 
@@ -34,21 +34,22 @@
 - (void) setVisible:(BOOL)visible;
 - (BOOL) isVisible;
 
+- (void) move: (glm::vec3)vector;
 - (void) moveX: (float) x Y: (float) y Z: (float) z;
 - (void) moveX: (float) direction;
 - (void) moveY: (float) direction;
 - (void) moveZ: (float) direction;
 
-- (void) rotateX: (float) x Y: (float) y Z: (float) z ByAngle: (float) angle;
-- (void) rotateX: (float) direction byAngle: (float) angle;
-- (void) rotateY: (float) direction byAngle: (float) angle;
-- (void) rotateZ: (float) direction byAngle: (float) angle;
+- (void) rotateX: (float) x Y: (float) y Z: (float) z;
+- (void) rotateXby: (float) angle;
+- (void) rotateYby: (float) angle;
+- (void) rotateZby: (float) angle;
 
 - (void) scaleX: (float) x Y: (float) y Z: (float) z;
 - (void) scaleX: (float) scale;
 - (void) scaleY: (float) scale;
 - (void) scaleZ: (float) scale;
 
+- (glm::mat4) constructModelMatrix;
 
-- (glm::vec3) getModelPosition; //x,y,z
 @end

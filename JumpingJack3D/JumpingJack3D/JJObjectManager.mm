@@ -124,7 +124,7 @@ NSEnumerator* enumer;
 
 - (void) calculatePhysics
 {
-    if ((float)abs([characterRef getModelPosition].y - [baseFloor getModelPosition].y) < .5f) {
+    if ((float)abs(characterRef.position.y - baseFloor.position.y) < .5f) {
         [characterRef moveY:0.25f];
     }else{
         

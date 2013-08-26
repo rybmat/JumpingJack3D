@@ -110,7 +110,7 @@
     if((step.x == 0.0f) && (step.y == 0.0f) && (step.z == 0.0f)){
         _moveDirectionAtoB = !_moveDirectionAtoB;
     }else{
-        [self setMatM:glm::translate([self matM], step)];
+        //[self setMatM:glm::translate([self constructModelMatrix], step)];
     }
     
 }

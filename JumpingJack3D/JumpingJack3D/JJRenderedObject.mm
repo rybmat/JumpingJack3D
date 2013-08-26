@@ -8,16 +8,27 @@
 
 #import "JJRenderedObject.h"
 
+#import "glm/glm.hpp"
+#import "glm/ext.hpp"
+#import "glm/gtc/matrix_transform.hpp"
+#import "glm/gtc/type_ptr.hpp"
+#import "glm/gtc/quaternion.hpp"
+#import "glm/gtx/quaternion.hpp"
+
+
+
+
 @implementation JJRenderedObject
 
-@synthesize matM;
 @synthesize shaderProgram;
 @synthesize vertices;
 @synthesize normals;
 @synthesize vertexCount;
 @synthesize camera;
-@synthesize faceVector;
 @synthesize visible;
+@synthesize position;
+@synthesize rotation;
+@synthesize scale;
 
 - (id) initWithShaderProgram: (JJShaderProgram*) shProg Camera: (JJCamera*) cam Vertices: (float*) verts Normals: (float*) norms VertexCount: (int) vCount PositionX: (float) x Y: (float) y Z: (float) z{
     
@@ -29,79 +40,85 @@
         [self setVertices:verts];
         [self setNormals:norms];
         [self setVertexCount:vCount];
-        [self setMatM:glm::translate(glm::mat4(1.0f), glm::vec3(x,y,z))];
-
+        [self setPosition:glm::vec3(0.0f)];
+        [self setRotation:glm::vec3(0.0f)];
+        [self setScale:glm::vec3(1.0f)];
     }
     return self;
 }
 
+- (void) move: (glm::vec3)vector
+{
+    self.position += vector;
+}
+
 - (void) moveX: (float) x Y: (float) y Z: (float) z{
-    [self setMatM:glm::translate([self matM], glm::vec3(x, y, z))];
+    self.position += glm::vec3(x,y,z);
 }
 
 - (void) moveX: (float) direction{
-    [self setMatM:glm::translate([self matM], glm::vec3(direction, 0.0f, 0.0f))];
-    
+    self.position += glm::vec3(direction, 0.0f, 0.0f);    
 }
 
 - (void) moveY: (float) direction{
-    [self setMatM:glm::translate([self matM], glm::vec3(0.0f, direction, 0.0f))];
+    self.position += glm::vec3(0.0f, direction, 0.0f);
 }
 
 - (void) moveZ: (float) direction{
-    [self setMatM:glm::translate([self matM], glm::vec3(0.0f, 0.0f, direction))];
+    self.position += glm::vec3(0.0f, 0.0f, direction);
 }
 
 
 
-- (void) rotateX: (float) x Y: (float) y Z: (float) z ByAngle: (float) angle{
-    [self setMatM:glm::rotate([self matM], angle, glm::vec3(x, y, z))];
+- (void) rotateX: (float) x Y: (float) y Z: (float) z
+{
+    self.rotation += glm::vec3(x,y,z);
 }
 
-- (void) rotateX: (float) direction byAngle: (float) angle{
-    [self setMatM:glm::rotate([self matM], angle, glm::vec3(direction, 0.0f, 0.0f))];
+- (void) rotateXby: (float) angle
+{
+    self.rotation += glm::vec3(angle, 0.0f, 0.0f);
 }
 
-- (void) rotateY: (float) direction byAngle: (float) angle{
-    [self setMatM:glm::rotate([self matM], angle, glm::vec3(0.0f, direction, 0.0f))];
+- (void) rotateYby: (float) angle
+{
+    self.rotation += glm::vec3(0.0f, angle, 0.0f);
 }
 
-- (void) rotateZ: (float) direction byAngle: (float) angle{
-    [self setMatM:glm::rotate([self matM], angle, glm::vec3(0.0f, 0.0f, direction))];
-
+- (void) rotateZby: (float) angle
+{
+    self.rotation += glm::vec3(0.0f, 0.0f, angle);
 }
 
 
 
 - (void) scaleX: (float) x Y: (float) y Z: (float) z{
-    [self setMatM:glm::scale([self matM], glm::vec3(x, y, z))];
+    self.scale += glm::vec3(x,y,z);
 }
 
-- (void) scaleX: (float) scale{
-    [self setMatM:glm::scale([self matM], glm::vec3(scale, 1.0f, 1.0f))];
+- (void) scaleX: (float) amount{
+    self.scale += glm::vec3(amount, 1.0f, 1.0f);
 }
 
-- (void) scaleY: (float) scale{
-    [self setMatM:glm::scale([self matM], glm::vec3(1.0f, scale, 1.0f))];
+- (void) scaleY: (float) amount{
+    self.scale += glm::vec3(1.0f, amount, 1.0f);
 }
 
-- (void) scaleZ: (float) scale{
-        [self setMatM:glm::scale([self matM], glm::vec3(1.0f, 1.0f, scale))];
-}
-
-
--(glm::vec3) getModelPosition{
-    glm::vec3 position;
-    
-    position.x = [self matM][3][0];
-    position.y = [self matM][3][1];
-    position.z = [self matM][3][2];
-    
-    return position;
+- (void) scaleZ: (float) amount{
+    self.scale += glm::vec3(1.0f, 1.0f, amount);
 }
 
 - (BOOL) isVisible
 {
     return self.visible;
+}
+
+- (glm::mat4) constructModelMatrix
+{
+    glm::quat quat = glm::quat(self.rotation);
+    glm::mat4 rotationMatrix    = glm::toMat4(quat);
+    glm::mat4 translationMatrix = glm::translate(glm::mat4(1.0f), self.position);
+    glm::mat4 scaleMatrix       = glm::scale(glm::mat4(1.0f), self.scale);
+    return translationMatrix * rotationMatrix * scaleMatrix;
 }
 @end

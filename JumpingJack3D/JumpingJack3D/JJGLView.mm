@@ -64,7 +64,7 @@ BOOL mousePressed;
     objManager = [[JJObjectManager alloc] initWithRefs:assetManager cameraRef:camera characterRef:character];
     [objManager addObject:character];
 
-    [camera setWithCharacterPosition:[character getModelPosition]];
+    [camera setWithCharacterPosition:[character position]];
     
     [objManager generateWorld];
 }
@@ -127,9 +127,9 @@ BOOL mousePressed;
 {
     [objManager applyAction];
     if (mousePressed == NO) {
-        [camera setWithCharacterPosition:[character getModelPosition] andCharactersFaceVector: [character getFaceVectorInWorldSpace]];
+        [camera setWithCharacterPosition:[character position] andCharactersFaceVector: character.faceVector];
     } else {
-        [camera setWithCharacterPosition:[character getModelPosition]];
+        [camera setWithCharacterPosition:[character position]];
     }
 }
 
@@ -160,48 +160,34 @@ BOOL mousePressed;
         for (NSNumber* keyHit in keyPressed) {
             switch ([keyHit unsignedIntValue]) {
                 case 'w':
-                    [character moveZwithDirection:1];
+                    [character moveForwards];
                     break;
                 case 's':
-                    [character moveZwithDirection:-1];
+                    [character moveBackwards];
                     break;
                 case 'a':
-                    [character moveXwithDirection:1];
+                    [character strafeLeft];
                     break;
                 case 'd':
-                    [character moveXwithDirection:-1];
+                    [character strafeRight];
                     break;
                 case ' ':
-                    [character moveYwithDirection:1];
+                    [character jump];
                     break;
                 case 'z':
-                    [character moveYwithDirection:-1];
+                    [character dive];
                     break;
                 case 'q':
-                    [character rotateY:1.0f byAngle:2];
+                    [character rotateLeft];
                     break;
                 case 'e':
-                    [character rotateY:1.0f byAngle:-2];
+                    [character rotateRight];
                     break;
                 default:
                     break;
             }
         }
     }
-}
-
-
-- (void) keyDown:(NSEvent*)theEvent
-{
-
-    [objManager showNewBlock];
-
-    if (keyPressed == nil) {
-        keyPressed = [[NSMutableSet alloc] init];
-    }
-    NSNumber* keyHit = [NSNumber numberWithUnsignedInt:[[theEvent characters] characterAtIndex:0]];
-    [keyPressed addObject:keyHit];
-
 }
 
 - (void)scrollWheel:(NSEvent *)theEvent
@@ -227,7 +213,7 @@ BOOL mousePressed;
 
 - (void)mouseMoved:(NSEvent *)theEvent
 {
-    [character rotateY:1.0f byAngle:-[theEvent deltaX]/10];
+    [character rotateBy:-[theEvent deltaY]/10];
 }
 
 - (void) keyUp:(NSEvent*)theEvent
@@ -239,5 +225,16 @@ BOOL mousePressed;
     [keyPressed removeObject:keyReleased];
 }
 
+- (void) keyDown:(NSEvent*)theEvent
+{
     
+    [objManager showNewBlock];
+    
+    if (keyPressed == nil) {
+        keyPressed = [[NSMutableSet alloc] init];
+    }
+    NSNumber* keyHit = [NSNumber numberWithUnsignedInt:[[theEvent characters] characterAtIndex:0]];
+    [keyPressed addObject:keyHit];
+    
+}
 @end

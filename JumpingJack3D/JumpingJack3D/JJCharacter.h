@@ -16,10 +16,13 @@
 @property GLuint bufNormals;
 @property GLuint tex0;
 @property GLuint bufTexCoords;
-@property glm::vec4 faceVector;
-@property float XAxisVelocity;
-@property float YAxisVelocity;
-@property float ZAxisVelocity;
+
+@property glm::vec3 faceVector;
+
+@property float forwardVelocity;
+@property float jumpVelocity;
+@property float strafeVelocity;
+@property float angularVelocity;
 @property float gravity;
 
 - (id) initWithShaderProgram: (JJShaderProgram*) shProg Camera: (JJCamera*) cam Vertices: (float*) verts Normals: (float*) norms VertexCount: (int) vCount PositionX: (float) x Y: (float) y Z: (float) z Texture: (GLuint) tex TexCoords: (float*) tCoords ;
@@ -38,7 +41,14 @@
 
 - (void) render;
 
-- (void) moveXwithDirection:(int) direction;
-- (void) moveYwithDirection:(int) direction;
-- (void) moveZwithDirection:(int) direction;
+- (void) moveForwards;
+- (void) moveBackwards;
+- (void) strafeLeft;
+- (void) strafeRight;
+- (void) rotateLeft;
+- (void) rotateRight;
+- (void) rotateBy:(float)angle;
+- (void) jump;
+- (void) dive;
+
 @end

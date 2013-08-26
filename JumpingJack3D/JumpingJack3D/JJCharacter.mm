@@ -10,9 +10,6 @@
 
 @implementation JJCharacter
 
-@synthesize faceVector;
-
-
 - (id) initWithShaderProgram: (JJShaderProgram*) shProg Camera: (JJCamera*) cam Vertices: (float*) verts Normals: (float*) norms VertexCount: (int) vCount PositionX: (float) x Y: (float) y Z: (float) z Texture: (GLuint) tex TexCoords: (float*) tCoords {
     
     self = [super initWithShaderProgram:shProg
@@ -27,23 +24,23 @@
     _tex0 = tex;
     _texCoords0 = tCoords;
     
-    [self setFaceVector:glm::vec4(0.0f, 0.0f, 10.0f, 0.0f)];
     
     [self setupVBO];
     [self setupVAO];
     
-    self.XAxisVelocity = 15;
-    self.YAxisVelocity = 15;
-    self.ZAxisVelocity = 15;
+    self.faceVector = glm::vec3(0.0f, 0.0f, 1.0f);
+    
+    self.forwardVelocity = 15;
+    self.jumpVelocity = 15;
+    self.strafeVelocity = 15;
+    self.angularVelocity = 120;
     self.gravity = 0.02;
     
     return self;
 }
 
 - (glm::vec3) getFaceVectorInWorldSpace{
-    glm::vec4 tmp4 = [self matM]*[self faceVector];
-    glm::vec3 tmp3 = glm::vec3(tmp4.x, tmp4.y, tmp4.z);
-    return tmp3;
+    return self.faceVector;
 }
 
 - (void) setupVBO{
@@ -101,7 +98,7 @@
     
     glUniformMatrix4fv([[self shaderProgram] getUniformLocation:"P"],1, false, glm::value_ptr([[self camera] projectionMatrix]));
 	glUniformMatrix4fv([[self shaderProgram] getUniformLocation:"V" ],1, false, glm::value_ptr([[self camera] viewMatrix]));
-	glUniformMatrix4fv([[self shaderProgram] getUniformLocation:"M"],1, false, glm::value_ptr([self matM]));
+	glUniformMatrix4fv([[self shaderProgram] getUniformLocation:"M"],1, false, glm::value_ptr([self constructModelMatrix]));
 	glUniform1i([[self shaderProgram] getUniformLocation:"textureMap0"], 0);
     glUniform4fv([[self shaderProgram] getUniformLocation:"lp0"], 1, [JJLight getFirstLight]);
     glUniform4fv([[self shaderProgram] getUniformLocation:"lp1"], 1, [JJLight getSecondLight]);
@@ -111,26 +108,60 @@
 	//Narysowanie obiektu
     glDrawArrays(GL_TRIANGLES,0,[self vertexCount]);
 }
-- (void) moveXwithDirection:(int) direction;
+
+- (void) moveForwards
 {
-    [self moveX:self.XAxisVelocity/60.0f * direction];
+    glm::vec3 moveVector = self.forwardVelocity / 60.0f * self.faceVector;
+    NSLog(@"%.3f %.3f %.3f", self.faceVector.x, self.faceVector.y, self.faceVector.z);
+    [self move:glm::vec3(moveVector)];
 }
 
-- (void) moveYwithDirection:(int) direction;
+- (void) moveBackwards
 {
-    [self moveY:self.YAxisVelocity/60.0f * direction];
+    glm::vec3 moveVector = - self.forwardVelocity / 60.0f * self.faceVector;
+    [self move:glm::vec3(moveVector)];
 }
 
-- (void) moveZwithDirection:(int) direction;
+- (void) strafeRight
 {
+    glm::vec3 rightVector = glm::cross(self.faceVector, glm::vec3(0.0f,1.0f,0.0f));
+    glm::vec3 moveVector = self.strafeVelocity / 60.0f * rightVector;
+    [self move:moveVector];
+}
 
-    [self moveZ:self.ZAxisVelocity/60.0f * direction];
+- (void) strafeLeft
+{
+    glm::vec3 leftVector = glm::cross(glm::vec3(0.0f,1.0f,0.0f), self.faceVector);
+    glm::vec3 moveVector = self.strafeVelocity / 60.0f * leftVector;
+    [self move:moveVector];
+}
 
+- (void) rotateRight
+{
+    float angle = - self.angularVelocity / 60.0f;
+    self.faceVector = glm::rotateY(self.faceVector, angle);
+}
+
+- (void) rotateLeft
+{
+    float angle = self.angularVelocity / 60.0f;
+    self.faceVector = glm::rotateY(self.faceVector, angle);
+}
+
+- (void) rotateBy:(float)angle
+{
+    self.faceVector = glm::rotateY(self.faceVector, angle);
 }
 
 - (void) jump
 {
-    
+    glm::vec3 moveVector = self.jumpVelocity / 60.0f * glm::vec3(0.0f,1.0f,0.0f);
+    [self move:moveVector];
 }
 
+- (void) dive
+{
+    glm::vec3 moveVector = - self.jumpVelocity / 60.0f * glm::vec3(0.0f,1.0f,0.0f);
+    [self move:moveVector];
+}
 @end

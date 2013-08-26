@@ -62,6 +62,7 @@ dependencies: \
   /Users/asiron/code/JJ3D/JumpingJack3D/JumpingJack3D/glm/core/func_integer.inl \
   /Users/asiron/code/JJ3D/JumpingJack3D/JumpingJack3D/glm/./core/func_noise.hpp \
   /Users/asiron/code/JJ3D/JumpingJack3D/JumpingJack3D/glm/core/func_noise.inl \
+  /Users/asiron/code/JJ3D/JumpingJack3D/JumpingJack3D/JJCamera.h \
   /Users/asiron/code/JJ3D/JumpingJack3D/JumpingJack3D/glm/gtc/matrix_transform.hpp \
   /Users/asiron/code/JJ3D/JumpingJack3D/JumpingJack3D/glm/gtc/matrix_transform.inl \
   /Users/asiron/code/JJ3D/JumpingJack3D/JumpingJack3D/glm/gtc/type_ptr.hpp \
@@ -72,7 +73,6 @@ dependencies: \
   /Users/asiron/code/JJ3D/JumpingJack3D/JumpingJack3D/glm/gtc/constants.inl \
   /Users/asiron/code/JJ3D/JumpingJack3D/JumpingJack3D/glm/gtc/quaternion.inl \
   /Users/asiron/code/JJ3D/JumpingJack3D/JumpingJack3D/glm/gtc/type_ptr.inl \
-  /Users/asiron/code/JJ3D/JumpingJack3D/JumpingJack3D/JJCamera.h \
   /Users/asiron/code/JJ3D/JumpingJack3D/JumpingJack3D/glm/ext.hpp \
   /Users/asiron/code/JJ3D/JumpingJack3D/JumpingJack3D/glm/./gtc/epsilon.hpp \
   /Users/asiron/code/JJ3D/JumpingJack3D/JumpingJack3D/glm/gtc/epsilon.inl \

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1018D38617C7A67A009494D8 /* sphere.obj in Resources */ = {isa = PBXBuildFile; fileRef = 1018D38517C7A67A009494D8 /* sphere.obj */; };
 		1018D38817C7D0E8009494D8 /* sphere.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1018D38717C7D0E8009494D8 /* sphere.jpg */; };
+		1018D38B17C7DE77009494D8 /* JJCharacterTests.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1018D38A17C7DE77009494D8 /* JJCharacterTests.mm */; };
 		103F046917C665CD004A357E /* eye.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 103F046817C665CD004A357E /* eye.jpg */; };
 		103F046F17C696EC004A357E /* eye.obj in Resources */ = {isa = PBXBuildFile; fileRef = 103F046E17C696EC004A357E /* eye.obj */; };
 		109709F717B6774600B51086 /* metal.tga in Resources */ = {isa = PBXBuildFile; fileRef = 109709F617B6774600B51086 /* metal.tga */; };
@@ -60,6 +61,8 @@
 /* Begin PBXFileReference section */
 		1018D38517C7A67A009494D8 /* sphere.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sphere.obj; sourceTree = "<group>"; };
 		1018D38717C7D0E8009494D8 /* sphere.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sphere.jpg; sourceTree = "<group>"; };
+		1018D38917C7DE77009494D8 /* JJCharacterTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJCharacterTests.h; sourceTree = "<group>"; };
+		1018D38A17C7DE77009494D8 /* JJCharacterTests.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = JJCharacterTests.mm; sourceTree = "<group>"; };
 		103F046817C665CD004A357E /* eye.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = eye.jpg; sourceTree = "<group>"; };
 		103F046E17C696EC004A357E /* eye.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = eye.obj; sourceTree = "<group>"; };
 		109709F517B6773200B51086 /* teapot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = teapot.h; sourceTree = "<group>"; };
@@ -222,6 +225,8 @@
 				10FE01A51794BAF5005A218E /* JJMeshTests.mm */,
 				10C577C317BEE9C500007FCE /* JJMapGeneratorTests.h */,
 				10C577C417BEE9C500007FCE /* JJMapGeneratorTests.mm */,
+				1018D38917C7DE77009494D8 /* JJCharacterTests.h */,
+				1018D38A17C7DE77009494D8 /* JJCharacterTests.mm */,
 				10FE018017937AAA005A218E /* Supporting Files */,
 			);
 			path = JJUnitTesting;
@@ -512,6 +517,7 @@
 				10FE019517938A39005A218E /* JJAssetManagerTests.mm in Sources */,
 				10FE01A61794BAF5005A218E /* JJMeshTests.mm in Sources */,
 				10C577C517BEE9C500007FCE /* JJMapGeneratorTests.mm in Sources */,
+				1018D38B17C7DE77009494D8 /* JJCharacterTests.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
