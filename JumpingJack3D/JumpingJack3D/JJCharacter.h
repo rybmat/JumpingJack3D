@@ -17,8 +17,6 @@
 @property GLuint tex0;
 @property GLuint bufTexCoords;
 
-@property glm::vec3 faceVector;
-
 @property float forwardVelocity;
 @property float jumpVelocity;
 @property float strafeVelocity;

@@ -51,5 +51,6 @@
 - (void) scaleZ: (float) scale;
 
 - (glm::mat4) constructModelMatrix;
+- (glm::vec3) getFaceVector;
 
 @end

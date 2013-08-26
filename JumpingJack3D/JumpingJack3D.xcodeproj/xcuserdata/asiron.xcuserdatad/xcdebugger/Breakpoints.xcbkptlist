@@ -1178,11 +1178,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JumpingJack3D/JJGLView.mm"
-         timestampString = "399252054.732768"
+         timestampString = "399253193.364755"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "249"
-         endingLineNumber = "249">
+         startingLineNumber = "251"
+         endingLineNumber = "251">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -1202,11 +1202,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JumpingJack3D/JJGLView.mm"
-         timestampString = "399252054.732768"
+         timestampString = "399253193.364755"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "240"
-         endingLineNumber = "240"
+         startingLineNumber = "242"
+         endingLineNumber = "242"
          landmarkName = "@implementation JJGLView"
          landmarkType = "3">
       </FileBreakpoint>
@@ -1462,11 +1462,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JumpingJack3D/JJCharacter.mm"
-         timestampString = "399252054.732768"
+         timestampString = "399252745.138922"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "147"
-         endingLineNumber = "147"
+         startingLineNumber = "141"
+         endingLineNumber = "141"
          landmarkName = "-rotateLeft"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1475,11 +1475,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JumpingJack3D/JJCharacter.mm"
-         timestampString = "399252187.317483"
+         timestampString = "399252745.138922"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "154"
-         endingLineNumber = "154"
+         startingLineNumber = "148"
+         endingLineNumber = "148"
          landmarkName = "-rotateBy:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1514,11 +1514,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JumpingJack3D/JJCharacter.mm"
-         timestampString = "399252187.317483"
+         timestampString = "399252745.138922"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "155"
-         endingLineNumber = "155"
+         startingLineNumber = "149"
+         endingLineNumber = "149"
          landmarkName = "@implementation JJCharacter"
          landmarkType = "3">
       </FileBreakpoint>
@@ -1527,11 +1527,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JumpingJack3D/JJCharacter.mm"
-         timestampString = "398978375.557748"
+         timestampString = "399252745.138922"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "114"
-         endingLineNumber = "114"
+         startingLineNumber = "108"
+         endingLineNumber = "108"
          landmarkName = "-moveForwards"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1540,11 +1540,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JumpingJack3D/JJCharacter.mm"
-         timestampString = "398978375.557748"
+         timestampString = "399252745.138922"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "116"
-         endingLineNumber = "116"
+         startingLineNumber = "110"
+         endingLineNumber = "110"
          landmarkName = "-moveForwards"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1553,11 +1553,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JumpingJack3D/JJCharacter.mm"
-         timestampString = "398978375.557748"
+         timestampString = "399252745.138922"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "117"
-         endingLineNumber = "117"
+         startingLineNumber = "111"
+         endingLineNumber = "111"
          landmarkName = "-moveForwards"
          landmarkType = "5">
       </FileBreakpoint>

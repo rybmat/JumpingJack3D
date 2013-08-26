@@ -27,20 +27,14 @@
     
     [self setupVBO];
     [self setupVAO];
-    
-    self.faceVector = glm::vec3(0.0f, 0.0f, 1.0f);
-    
+        
     self.forwardVelocity = 15;
     self.jumpVelocity = 15;
     self.strafeVelocity = 15;
-    self.angularVelocity = 120;
+    self.angularVelocity = 60;
     self.gravity = 0.02;
     
     return self;
-}
-
-- (glm::vec3) getFaceVectorInWorldSpace{
-    return self.faceVector;
 }
 
 - (void) setupVBO{
@@ -111,27 +105,27 @@
 
 - (void) moveForwards
 {
-    glm::vec3 moveVector = self.forwardVelocity / 60.0f * self.faceVector;
-    NSLog(@"%.3f %.3f %.3f", self.faceVector.x, self.faceVector.y, self.faceVector.z);
+    glm::vec3 moveVector = self.forwardVelocity / 60.0f * self.getFaceVector;
+    NSLog(@"%.3f %.3f %.3f", self.getFaceVector.x, self.getFaceVector.y, self.getFaceVector.z);
     [self move:glm::vec3(moveVector)];
 }
 
 - (void) moveBackwards
 {
-    glm::vec3 moveVector = - self.forwardVelocity / 60.0f * self.faceVector;
+    glm::vec3 moveVector = - self.forwardVelocity / 60.0f * self.getFaceVector;
     [self move:glm::vec3(moveVector)];
 }
 
 - (void) strafeRight
 {
-    glm::vec3 rightVector = glm::cross(self.faceVector, glm::vec3(0.0f,1.0f,0.0f));
+    glm::vec3 rightVector = glm::cross(self.getFaceVector, glm::vec3(0.0f,1.0f,0.0f));
     glm::vec3 moveVector = self.strafeVelocity / 60.0f * rightVector;
     [self move:moveVector];
 }
 
 - (void) strafeLeft
 {
-    glm::vec3 leftVector = glm::cross(glm::vec3(0.0f,1.0f,0.0f), self.faceVector);
+    glm::vec3 leftVector = glm::cross(glm::vec3(0.0f,1.0f,0.0f), self.getFaceVector);
     glm::vec3 moveVector = self.strafeVelocity / 60.0f * leftVector;
     [self move:moveVector];
 }
@@ -139,18 +133,18 @@
 - (void) rotateRight
 {
     float angle = - self.angularVelocity / 60.0f;
-    self.faceVector = glm::rotateY(self.faceVector, angle);
+    [self rotateYby:angle];
 }
 
 - (void) rotateLeft
 {
     float angle = self.angularVelocity / 60.0f;
-    self.faceVector = glm::rotateY(self.faceVector, angle);
+    [self rotateYby:angle];
 }
 
 - (void) rotateBy:(float)angle
 {
-    self.faceVector = glm::rotateY(self.faceVector, angle);
+    [self rotateYby:angle];
 }
 
 - (void) jump

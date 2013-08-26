@@ -40,7 +40,7 @@
         [self setVertices:verts];
         [self setNormals:norms];
         [self setVertexCount:vCount];
-        [self setPosition:glm::vec3(0.0f)];
+        [self setPosition:glm::vec3(x,y,z)];
         [self setRotation:glm::vec3(0.0f)];
         [self setScale:glm::vec3(1.0f)];
     }
@@ -115,10 +115,21 @@
 
 - (glm::mat4) constructModelMatrix
 {
-    glm::quat quat = glm::quat(self.rotation);
+    glm::vec3 rads = glm::vec3(glm::radians(self.rotation.x),
+                                  glm::radians(self.rotation.y),
+                                  glm::radians(self.rotation.z));
+    glm::quat quat = glm::quat(rads);
     glm::mat4 rotationMatrix    = glm::toMat4(quat);
     glm::mat4 translationMatrix = glm::translate(glm::mat4(1.0f), self.position);
     glm::mat4 scaleMatrix       = glm::scale(glm::mat4(1.0f), self.scale);
     return translationMatrix * rotationMatrix * scaleMatrix;
 }
+
+- (glm::vec3) getFaceVector
+{
+    return glm::vec3(-glm::cos(glm::radians(self.rotation.y)),
+                                         0.0f,
+                     glm::sin(glm::radians(self.rotation.y)));
+}
+
 @end

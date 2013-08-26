@@ -127,7 +127,7 @@ BOOL mousePressed;
 {
     [objManager applyAction];
     if (mousePressed == NO) {
-        [camera setWithCharacterPosition:[character position] andCharactersFaceVector: character.faceVector];
+        [camera setWithCharacterPosition:[character position] andCharactersFaceVector: character.getFaceVector];
     } else {
         [camera setWithCharacterPosition:[character position]];
     }
@@ -213,7 +213,7 @@ BOOL mousePressed;
 
 - (void)mouseMoved:(NSEvent *)theEvent
 {
-    [character rotateBy:-[theEvent deltaY]/10];
+    [character rotateBy:-[theEvent deltaX]/10];
 }
 
 - (void) keyUp:(NSEvent*)theEvent
@@ -227,7 +227,9 @@ BOOL mousePressed;
 
 - (void) keyDown:(NSEvent*)theEvent
 {
-    
+    //NSLog(@"%f %f %f", character.getFaceVector.x, character.getFaceVector.y, character.getFaceVector.z);
+    NSLog(@"%f %f %f", character.rotation.x, character.rotation.y, character.rotation.z);
+
     [objManager showNewBlock];
     
     if (keyPressed == nil) {
