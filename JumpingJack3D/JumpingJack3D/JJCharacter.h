@@ -23,17 +23,17 @@
 @property float angularVelocity;
 @property float gravity;
 
+@property float radius;
+
 - (id) initWithShaderProgram: (JJShaderProgram*) shProg Camera: (JJCamera*) cam Vertices: (float*) verts Normals: (float*) norms VertexCount: (int) vCount PositionX: (float) x Y: (float) y Z: (float) z Texture: (GLuint) tex TexCoords: (float*) tCoords ;
 
-- (glm::vec3) getFaceVectorInWorldSpace;
-
 - (void) setupVBO;
-
-- (GLuint) makeBuffer: (void*) data vCount: (int) vertexCount vSize: (int) vertexSize;
 
 - (void) setupVAO;
 
 - (void) assignVBOtoAttribute: (char*) attributeName BufVBO: (GLuint) bufVBO varSize: (int) variableSize;
+
+- (GLuint) makeBuffer: (void*) data vCount: (int) vertexCount vSize: (int) vertexSize;
 
 - (void) dealloc;
 

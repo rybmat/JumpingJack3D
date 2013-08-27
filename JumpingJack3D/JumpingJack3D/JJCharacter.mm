@@ -28,11 +28,13 @@
     [self setupVBO];
     [self setupVAO];
         
-    self.forwardVelocity = 15;
+    self.forwardVelocity = 45;
     self.jumpVelocity = 15;
     self.strafeVelocity = 15;
     self.angularVelocity = 60;
     self.gravity = 0.02;
+    
+    self.radius = 0.5f;
     
     return self;
 }
@@ -106,14 +108,16 @@
 - (void) moveForwards
 {
     glm::vec3 moveVector = self.forwardVelocity / 60.0f * self.getFaceVector;
-    NSLog(@"%.3f %.3f %.3f", self.getFaceVector.x, self.getFaceVector.y, self.getFaceVector.z);
+    
     [self move:glm::vec3(moveVector)];
+    [self rotateForwardBy: -[self calculateRotationFromMoveVector:moveVector]];
 }
 
 - (void) moveBackwards
 {
     glm::vec3 moveVector = - self.forwardVelocity / 60.0f * self.getFaceVector;
     [self move:glm::vec3(moveVector)];
+    [self rotateForwardBy: [self calculateRotationFromMoveVector:moveVector]];
 }
 
 - (void) strafeRight
@@ -121,6 +125,7 @@
     glm::vec3 rightVector = glm::cross(self.getFaceVector, glm::vec3(0.0f,1.0f,0.0f));
     glm::vec3 moveVector = self.strafeVelocity / 60.0f * rightVector;
     [self move:moveVector];
+    [self rotateSidewardBy: [self calculateRotationFromMoveVector:moveVector]];
 }
 
 - (void) strafeLeft
@@ -128,6 +133,7 @@
     glm::vec3 leftVector = glm::cross(glm::vec3(0.0f,1.0f,0.0f), self.getFaceVector);
     glm::vec3 moveVector = self.strafeVelocity / 60.0f * leftVector;
     [self move:moveVector];
+    [self rotateSidewardBy: -[self calculateRotationFromMoveVector:moveVector]];
 }
 
 - (void) rotateRight
@@ -158,4 +164,12 @@
     glm::vec3 moveVector = - self.jumpVelocity / 60.0f * glm::vec3(0.0f,1.0f,0.0f);
     [self move:moveVector];
 }
+
+- (float) calculateRotationFromMoveVector:(glm::vec3)vector
+{
+    float length = glm::length(vector);
+    float angle = length * 180 / (3.1415 * self.radius);
+    return angle/30;
+}
+
 @end

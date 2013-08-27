@@ -23,9 +23,16 @@
 @property int vertexCount;
 @property JJCamera* camera;
 
-@property glm::vec3 position;
-@property glm::vec3 rotation;
 @property glm::vec3 scale;
+@property glm::vec3 position;
+
+/* 
+ 1st float is rotation around Yaxis in degrees
+ 2nd float is rotation around perpendicular axis to faceVector and Yaxis and in degrees (forward move angle)
+ 3rd float is rotation around faceVector in degrees (strafe angle)
+ */
+@property glm::vec3 rotation;
+
 
 @property BOOL visible;
 
@@ -40,10 +47,9 @@
 - (void) moveY: (float) direction;
 - (void) moveZ: (float) direction;
 
-- (void) rotateX: (float) x Y: (float) y Z: (float) z;
-- (void) rotateXby: (float) angle;
 - (void) rotateYby: (float) angle;
-- (void) rotateZby: (float) angle;
+- (void) rotateForwardBy: (float) angle;
+- (void) rotateSidewardBy: (float) angle;
 
 - (void) scaleX: (float) x Y: (float) y Z: (float) z;
 - (void) scaleX: (float) scale;

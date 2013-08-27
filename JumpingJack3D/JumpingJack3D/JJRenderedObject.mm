@@ -15,9 +15,6 @@
 #import "glm/gtc/quaternion.hpp"
 #import "glm/gtx/quaternion.hpp"
 
-
-
-
 @implementation JJRenderedObject
 
 @synthesize shaderProgram;
@@ -30,6 +27,8 @@
 @synthesize rotation;
 @synthesize scale;
 
+glm::quat a;
+
 - (id) initWithShaderProgram: (JJShaderProgram*) shProg Camera: (JJCamera*) cam Vertices: (float*) verts Normals: (float*) norms VertexCount: (int) vCount PositionX: (float) x Y: (float) y Z: (float) z{
     
     self = [super init];
@@ -41,7 +40,7 @@
         [self setNormals:norms];
         [self setVertexCount:vCount];
         [self setPosition:glm::vec3(x,y,z)];
-        [self setRotation:glm::vec3(0.0f)];
+        [self setRotation:glm::vec3(0.0f, 0.0f, 0.0f)];
         [self setScale:glm::vec3(1.0f)];
     }
     return self;
@@ -68,29 +67,17 @@
     self.position += glm::vec3(0.0f, 0.0f, direction);
 }
 
-
-
-- (void) rotateX: (float) x Y: (float) y Z: (float) z
-{
-    self.rotation += glm::vec3(x,y,z);
-}
-
-- (void) rotateXby: (float) angle
-{
+- (void) rotateYby: (float) angle{
     self.rotation += glm::vec3(angle, 0.0f, 0.0f);
 }
 
-- (void) rotateYby: (float) angle
-{
+- (void) rotateForwardBy: (float) angle{
     self.rotation += glm::vec3(0.0f, angle, 0.0f);
 }
 
-- (void) rotateZby: (float) angle
-{
+- (void) rotateSidewardBy: (float) angle{
     self.rotation += glm::vec3(0.0f, 0.0f, angle);
 }
-
-
 
 - (void) scaleX: (float) x Y: (float) y Z: (float) z{
     self.scale += glm::vec3(x,y,z);
@@ -115,11 +102,9 @@
 
 - (glm::mat4) constructModelMatrix
 {
-    glm::vec3 rads = glm::vec3(glm::radians(self.rotation.x),
-                                  glm::radians(self.rotation.y),
-                                  glm::radians(self.rotation.z));
-    glm::quat quat = glm::quat(rads);
-    glm::mat4 rotationMatrix    = glm::toMat4(quat);
+    glm::quat quat = glm::angleAxis(self.rotation.z, [self getFaceVector]) * glm::angleAxis(self.rotation.y, [self getRightVector]) * glm::angleAxis(self.rotation.x, glm::vec3(0.0f, 1.0f, 0.0f));
+    
+    glm::mat4 rotationMatrix = glm::toMat4(quat);
     glm::mat4 translationMatrix = glm::translate(glm::mat4(1.0f), self.position);
     glm::mat4 scaleMatrix       = glm::scale(glm::mat4(1.0f), self.scale);
     return translationMatrix * rotationMatrix * scaleMatrix;
@@ -127,9 +112,14 @@
 
 - (glm::vec3) getFaceVector
 {
-    return glm::vec3(-glm::cos(glm::radians(self.rotation.y)),
+    return glm::vec3(-glm::cos(glm::radians(self.rotation.x)),
                                          0.0f,
-                     glm::sin(glm::radians(self.rotation.y)));
+                     glm::sin(glm::radians(self.rotation.x)));
+}
+
+- (glm::vec3) getRightVector
+{
+    return glm::cross([self getFaceVector], glm::vec3(0.0f, 1.0f, 0.0f));
 }
 
 @end

@@ -194,7 +194,6 @@ BOOL mousePressed;
 {
     [camera zoomIn:[theEvent deltaY]/3];
 }
-
 - (void) mouseDown:(NSEvent *)theEvent
 {
     mousePressed = YES;
