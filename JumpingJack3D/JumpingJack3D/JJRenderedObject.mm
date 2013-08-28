@@ -26,8 +26,7 @@
 @synthesize position;
 @synthesize rotation;
 @synthesize scale;
-
-glm::quat a;
+@synthesize faceVector;
 
 - (id) initWithShaderProgram: (JJShaderProgram*) shProg Camera: (JJCamera*) cam Vertices: (float*) verts Normals: (float*) norms VertexCount: (int) vCount PositionX: (float) x Y: (float) y Z: (float) z{
     
@@ -40,8 +39,9 @@ glm::quat a;
         [self setNormals:norms];
         [self setVertexCount:vCount];
         [self setPosition:glm::vec3(x,y,z)];
-        [self setRotation:glm::vec3(0.0f, 0.0f, 0.0f)];
         [self setScale:glm::vec3(1.0f)];
+        [self setFaceVector:glm::vec3(1,0,0)];
+       // self.rotation = glm::angleAxis(0, glm::vec3(0.0f));
     }
     return self;
 }
@@ -68,15 +68,16 @@ glm::quat a;
 }
 
 - (void) rotateYby: (float) angle{
-    self.rotation += glm::vec3(angle, 0.0f, 0.0f);
+    self.rotation = glm::angleAxis(angle, glm::vec3(0.0f, 1.0f, 0.0f)) * self.rotation;
+    self.faceVector = glm::rotateY(self.faceVector, angle);
 }
 
 - (void) rotateForwardBy: (float) angle{
-    self.rotation += glm::vec3(0.0f, angle, 0.0f);
+    self.rotation = glm::angleAxis(angle, [self getRightVector]) * self.rotation;
 }
 
 - (void) rotateSidewardBy: (float) angle{
-    self.rotation += glm::vec3(0.0f, 0.0f, angle);
+    self.rotation = glm::angleAxis(angle, [self getFaceVector]) * self.rotation;
 }
 
 - (void) scaleX: (float) x Y: (float) y Z: (float) z{
@@ -102,9 +103,7 @@ glm::quat a;
 
 - (glm::mat4) constructModelMatrix
 {
-    glm::quat quat = glm::angleAxis(self.rotation.z, [self getFaceVector]) * glm::angleAxis(self.rotation.y, [self getRightVector]) * glm::angleAxis(self.rotation.x, glm::vec3(0.0f, 1.0f, 0.0f));
-    
-    glm::mat4 rotationMatrix = glm::toMat4(quat);
+    glm::mat4 rotationMatrix = glm::toMat4(self.rotation);
     glm::mat4 translationMatrix = glm::translate(glm::mat4(1.0f), self.position);
     glm::mat4 scaleMatrix       = glm::scale(glm::mat4(1.0f), self.scale);
     return translationMatrix * rotationMatrix * scaleMatrix;
@@ -112,9 +111,7 @@ glm::quat a;
 
 - (glm::vec3) getFaceVector
 {
-    return glm::vec3(-glm::cos(glm::radians(self.rotation.x)),
-                                         0.0f,
-                     glm::sin(glm::radians(self.rotation.x)));
+    return self.faceVector;
 }
 
 - (glm::vec3) getRightVector

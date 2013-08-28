@@ -11,6 +11,7 @@
 #import "JJShaderProgram.h"
 
 #import "glm/glm.hpp"
+#import "glm/gtc/quaternion.hpp"
 
 #import "JJCamera.h"
 #import "JJLight.h"
@@ -25,13 +26,8 @@
 
 @property glm::vec3 scale;
 @property glm::vec3 position;
-
-/* 
- 1st float is rotation around Yaxis in degrees
- 2nd float is rotation around perpendicular axis to faceVector and Yaxis and in degrees (forward move angle)
- 3rd float is rotation around faceVector in degrees (strafe angle)
- */
-@property glm::vec3 rotation;
+@property glm::vec3 faceVector;
+@property glm::quat rotation;
 
 
 @property BOOL visible;
