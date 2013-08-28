@@ -29,9 +29,9 @@
     [self setupVAO];
         
     self.forwardVelocity = 45;
-    self.jumpVelocity = 15;
-    self.strafeVelocity = 15;
-    self.angularVelocity = 60;
+    self.jumpVelocity = 45;
+    self.strafeVelocity = 45;
+    self.angularVelocity = 270;
     self.gravity = 0.02;
     
     self.radius = 0.5f;

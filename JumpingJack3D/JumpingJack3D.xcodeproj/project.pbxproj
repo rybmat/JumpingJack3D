@@ -10,6 +10,8 @@
 		1018D38617C7A67A009494D8 /* sphere.obj in Resources */ = {isa = PBXBuildFile; fileRef = 1018D38517C7A67A009494D8 /* sphere.obj */; };
 		1018D38817C7D0E8009494D8 /* sphere.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1018D38717C7D0E8009494D8 /* sphere.jpg */; };
 		1018D38B17C7DE77009494D8 /* JJCharacterTests.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1018D38A17C7DE77009494D8 /* JJCharacterTests.mm */; };
+		1029081317CD81D5003B2ABD /* ball.obj in Resources */ = {isa = PBXBuildFile; fileRef = 1029081217CD81D5003B2ABD /* ball.obj */; };
+		1029081517CD81F2003B2ABD /* ball.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1029081417CD81F2003B2ABD /* ball.jpg */; };
 		103F046917C665CD004A357E /* eye.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 103F046817C665CD004A357E /* eye.jpg */; };
 		103F046F17C696EC004A357E /* eye.obj in Resources */ = {isa = PBXBuildFile; fileRef = 103F046E17C696EC004A357E /* eye.obj */; };
 		109709F717B6774600B51086 /* metal.tga in Resources */ = {isa = PBXBuildFile; fileRef = 109709F617B6774600B51086 /* metal.tga */; };
@@ -63,6 +65,8 @@
 		1018D38717C7D0E8009494D8 /* sphere.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sphere.jpg; sourceTree = "<group>"; };
 		1018D38917C7DE77009494D8 /* JJCharacterTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJCharacterTests.h; sourceTree = "<group>"; };
 		1018D38A17C7DE77009494D8 /* JJCharacterTests.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = JJCharacterTests.mm; sourceTree = "<group>"; };
+		1029081217CD81D5003B2ABD /* ball.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ball.obj; sourceTree = "<group>"; };
+		1029081417CD81F2003B2ABD /* ball.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ball.jpg; sourceTree = "<group>"; };
 		103F046817C665CD004A357E /* eye.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = eye.jpg; sourceTree = "<group>"; };
 		103F046E17C696EC004A357E /* eye.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = eye.obj; sourceTree = "<group>"; };
 		109709F517B6773200B51086 /* teapot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = teapot.h; sourceTree = "<group>"; };
@@ -257,6 +261,7 @@
 			isa = PBXGroup;
 			children = (
 				103F046E17C696EC004A357E /* eye.obj */,
+				1029081217CD81D5003B2ABD /* ball.obj */,
 				10BE5C3717BE8F4E00F5A07B /* floor.obj */,
 				1018D38517C7A67A009494D8 /* sphere.obj */,
 				10989BE217B2FDD4005B5599 /* Football.obj */,
@@ -270,6 +275,7 @@
 			isa = PBXGroup;
 			children = (
 				103F046817C665CD004A357E /* eye.jpg */,
+				1029081417CD81F2003B2ABD /* ball.jpg */,
 				1018D38717C7D0E8009494D8 /* sphere.jpg */,
 				10BE5C3517BE8E5F00F5A07B /* floor.jpg */,
 				109709F617B6774600B51086 /* metal.tga */,
@@ -487,6 +493,8 @@
 				103F046F17C696EC004A357E /* eye.obj in Resources */,
 				1018D38617C7A67A009494D8 /* sphere.obj in Resources */,
 				1018D38817C7D0E8009494D8 /* sphere.jpg in Resources */,
+				1029081317CD81D5003B2ABD /* ball.obj in Resources */,
+				1029081517CD81F2003B2ABD /* ball.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

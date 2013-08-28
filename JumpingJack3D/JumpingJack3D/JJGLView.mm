@@ -54,12 +54,12 @@ BOOL mousePressed;
     
     character = [[JJCharacter alloc] initWithShaderProgram: [assetManager getShaderProgram:@"platform"]
                                                                  Camera: camera
-                                                               Vertices: [assetManager getVertices:@"sphere"]
-                                                                Normals: [assetManager getNormals:@"sphere"]
-                                                            VertexCount: [assetManager getVertexCount:@"sphere"]
+                                                               Vertices: [assetManager getVertices:@"ball"]
+                                                                Normals: [assetManager getNormals:@"ball"]
+                                                            VertexCount: [assetManager getVertexCount:@"ball"]
                                                               PositionX: -5.0f Y:2.0f Z:3.0f
-                                                                Texture: [assetManager getTexture:@"sphere"]
-                                                              TexCoords: [assetManager getUvs:@"sphere"]];
+                                                                Texture: [assetManager getTexture:@"ball"]
+                                                              TexCoords: [assetManager getUvs:@"ball"]];
     
     objManager = [[JJObjectManager alloc] initWithRefs:assetManager cameraRef:camera characterRef:character];
     [objManager addObject:character];
@@ -212,7 +212,7 @@ BOOL mousePressed;
 
 - (void)mouseMoved:(NSEvent *)theEvent
 {
-    [character rotateBy:-[theEvent deltaX]/10];
+    [character rotateBy:-[theEvent deltaX]/3];
 }
 
 - (void) keyUp:(NSEvent*)theEvent
