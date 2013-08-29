@@ -42,7 +42,6 @@ float invertedFrameRate;
     self.maxForwardVelocity = 10;
     self.maxJumpVelocity = 12;
     self.maxStrafeVelocity = 4;
-    
     self.angularVelocity = 270;
     self.gravity = 30 ;
     

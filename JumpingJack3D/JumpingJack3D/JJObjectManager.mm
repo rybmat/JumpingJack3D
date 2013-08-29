@@ -24,6 +24,7 @@ JJCamera* cameraRef;
 NSEnumerator* enumer;
 
 glm::vec3 gridRatios;
+glm::vec3 paddingRatios;
 
 - (id) initWithRefs:(JJAssetManager*)aAssetManagerRef cameraRef:(JJCamera*)aCameraRef characterRef:(JJCharacter *)aCharacterRef
 {
@@ -43,13 +44,13 @@ glm::vec3 gridRatios;
                                                              Vertices: [assetManagerRef getVertices:@"floor"]
                                                               Normals: [assetManagerRef getNormals:@"floor"]
                                                           VertexCount: [assetManagerRef getVertexCount:@"floor"]
-                                                            PositionX: 0.0f Y: -1.0f Z: 0.0f
+                                                            PositionX: 0.0f Y: 0.0f Z: 0.0f
                                                               Texture: [assetManagerRef getTexture: @"floor"]
                                                             TexCoords: [assetManagerRef getUvs:@"floor"]];
-        [baseFloor scaleX:100 Y:1 Z:100];
+        [baseFloor scaleX:1000 Y:1 Z:1000];
         enumer = [blocks objectEnumerator];
-        
-        gridRatios = glm::vec3(4.0f, 1.0f, 4.0f);
+        paddingRatios = glm::vec3(0.1f, 0.1f, 0.1f);
+        gridRatios = glm::vec3(2.0f, 0.5f, 2.0f);
     }
     return self;
 }
@@ -70,11 +71,12 @@ glm::vec3 gridRatios;
 
 - (void) generateWorld
 {
+    int counter = 1;
     JJStaticPlatform* cube;
     for (NSArray* position in [mapGenerator getWholeMap]) {
-        float x = [position[0] floatValue] * gridRatios.x;
-        float y = [position[1] floatValue] * gridRatios.y;
-        float z = [position[2] floatValue] * gridRatios.z;
+        float x = [position[0] floatValue] * (gridRatios.x + paddingRatios.x) * 2;
+        float y = [position[1] floatValue] * (gridRatios.y + paddingRatios.y) * 2 + gridRatios.y;
+        float z = [position[2] floatValue] * (gridRatios.z + paddingRatios.z) * 2;
         cube = [[JJStaticPlatform alloc] initWithShaderProgram: [assetManagerRef getShaderProgram:@"platform"]
                                                         Camera: cameraRef
                                                       Vertices: [assetManagerRef getVertices:@"cube"]
@@ -84,11 +86,12 @@ glm::vec3 gridRatios;
                                                        Texture: [assetManagerRef getTexture: @"metal"]
                                                      TexCoords: [assetManagerRef getUvs:@"cube"]];
         //[cube scaleY:.5f];
-        [cube scaleX:gridRatios.x/2 Y:gridRatios.y/2 Z:gridRatios.z/2];
+        [cube scaleX:gridRatios.x Y:gridRatios.y Z:gridRatios.z];
         // Debugging purposes
         //[cube setVisible:NO];
         [blocks addObject:cube];
-        characterRef.position = glm::vec3(x,y+2,z);
+        characterRef.position = glm::vec3(x,y+4,z);
+        counter++;
     }
 }
 
