@@ -16,7 +16,9 @@ float yVelocity;
 float forwardVelocity;
 float strafeVelocity;
 
-- (id) initWithShaderProgram: (JJShaderProgram*) shProg Camera: (JJCamera*) cam Vertices: (float*) verts Normals: (float*) norms VertexCount: (int) vCount PositionX: (float) x Y: (float) y Z: (float) z Texture: (GLuint) tex TexCoords: (float*) tCoords {
+float invertedFrameRate;
+
+- (id) initWithShaderProgram: (JJShaderProgram*) shProg Camera: (JJCamera*) cam Vertices: (float*) verts Normals: (float*) norms VertexCount: (int) vCount PositionX: (float) x Y: (float) y Z: (float) z Texture: (GLuint) tex TexCoords: (float*) tCoords frameRate:(int) rate{
     
     self = [super initWithShaderProgram:shProg
                                  Camera:cam
@@ -29,6 +31,8 @@ float strafeVelocity;
     
     _tex0 = tex;
     _texCoords0 = tCoords;
+    
+    invertedFrameRate = (float) 1 / rate;
     
     self.jumped = NO;
     
@@ -134,22 +138,22 @@ float strafeVelocity;
     }
     
     if (self.jumped == YES) {
-        yVelocity -= self.gravity / 60.0f;
-        [self moveY:yVelocity / 60.0f];
+        yVelocity -= self.gravity * invertedFrameRate;
+        [self moveY:yVelocity * invertedFrameRate];
     }
-    glm::vec3 moveVector = forwardVelocity / 60.0f * self.getFaceVector;
+    glm::vec3 moveVector = forwardVelocity * invertedFrameRate * self.getFaceVector;
     [self move:moveVector];
     int rotateSign = (forwardVelocity > 0 ) ? -1 : 1;
     [self rotateForwardBy: rotateSign * [self calculateRotationFromMoveVector:moveVector]];
     
     glm::vec3 strafeVector = glm::cross(self.getFaceVector, glm::vec3(0.0f,1.0f,0.0f));
-    moveVector = strafeVelocity / 60.0f * strafeVector;
+    moveVector = strafeVelocity * invertedFrameRate * strafeVector;
     [self move:moveVector];
     rotateSign = (strafeVelocity > 0) ? 1 : -1;
     [self rotateSidewardBy: rotateSign * [self calculateRotationFromMoveVector:moveVector]];
     
     if (self.deccelerate == YES) {
-        float deccelerationStep = self.deccelerate / 60.0f;
+        float deccelerationStep = self.deccelerate * invertedFrameRate;
         forwardVelocity += (forwardVelocity > 0) ? -deccelerationStep : deccelerationStep;
         strafeVelocity  += (strafeVelocity  > 0) ? -deccelerationStep : deccelerationStep;
     }
@@ -160,7 +164,7 @@ float strafeVelocity;
 {
     self.deccelerate = NO;
 
-    forwardVelocity += self.acceleration / 60.0f;
+    forwardVelocity += self.acceleration * invertedFrameRate;
 
 }
 
@@ -168,7 +172,7 @@ float strafeVelocity;
 {
     self.deccelerate = NO;
     
-    forwardVelocity -= self.acceleration / 60.0f;
+    forwardVelocity -= self.acceleration * invertedFrameRate;
 
 }
 
@@ -176,7 +180,7 @@ float strafeVelocity;
 {
     self.deccelerate = NO;
     
-    strafeVelocity += self.acceleration / 60.0f;
+    strafeVelocity += self.acceleration * invertedFrameRate;
 
 }
 
@@ -184,19 +188,19 @@ float strafeVelocity;
 {
     self.deccelerate = NO;
     
-    strafeVelocity -= self.acceleration / 60.0f;
+    strafeVelocity -= self.acceleration * invertedFrameRate;
 
 }
 
 - (void) rotateRight
 {
-    float angle = - self.angularVelocity / 60.0f;
+    float angle = - self.angularVelocity * invertedFrameRate;
     [self rotateYby:angle];
 }
 
 - (void) rotateLeft
 {
-    float angle = self.angularVelocity / 60.0f;
+    float angle = self.angularVelocity * invertedFrameRate;
     [self rotateYby:angle];
 }
 

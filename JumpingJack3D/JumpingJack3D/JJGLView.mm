@@ -59,7 +59,8 @@ BOOL mousePressed;
                                                             VertexCount: [assetManager getVertexCount:@"ball"]
                                                               PositionX: -5.0f Y:2.0f Z:3.0f
                                                                 Texture: [assetManager getTexture:@"ball"]
-                                                              TexCoords: [assetManager getUvs:@"ball"]];
+                                                              TexCoords: [assetManager getUvs:@"ball"]
+                                                              frameRate: 60];
     
     objManager = [[JJObjectManager alloc] initWithRefs:assetManager cameraRef:camera characterRef:character];
     [objManager addObject:character];
