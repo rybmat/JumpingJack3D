@@ -39,8 +39,8 @@ float invertedFrameRate;
     [self setupVBO];
     [self setupVAO];
         
-    self.maxForwardVelocity = 40;
-    self.maxJumpVelocity = 40;
+    self.maxForwardVelocity = 10;
+    self.maxJumpVelocity = 12;
     self.maxStrafeVelocity = 4;
     
     self.angularVelocity = 270;

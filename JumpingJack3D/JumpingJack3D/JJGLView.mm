@@ -61,7 +61,7 @@ BOOL mousePressed;
                                                                 Texture: [assetManager getTexture:@"ball"]
                                                               TexCoords: [assetManager getUvs:@"ball"]
                                                               frameRate: 60];
-    
+    [character scaleX:.5f Y:.5f Z:.5f];
     objManager = [[JJObjectManager alloc] initWithRefs:assetManager cameraRef:camera characterRef:character];
 
     [camera setWithCharacterPosition:[character position]];

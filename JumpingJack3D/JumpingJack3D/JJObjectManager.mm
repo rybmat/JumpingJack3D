@@ -23,6 +23,8 @@ JJCamera* cameraRef;
 
 NSEnumerator* enumer;
 
+glm::vec3 gridRatios;
+
 - (id) initWithRefs:(JJAssetManager*)aAssetManagerRef cameraRef:(JJCamera*)aCameraRef characterRef:(JJCharacter *)aCharacterRef
 {
     self = [super init];
@@ -42,10 +44,12 @@ NSEnumerator* enumer;
                                                               Normals: [assetManagerRef getNormals:@"floor"]
                                                           VertexCount: [assetManagerRef getVertexCount:@"floor"]
                                                             PositionX: 0.0f Y: -1.0f Z: 0.0f
-                                                              Texture: [assetManagerRef getTexture: @"metal"]
+                                                              Texture: [assetManagerRef getTexture: @"floor"]
                                                             TexCoords: [assetManagerRef getUvs:@"floor"]];
         [baseFloor scaleX:100 Y:1 Z:100];
         enumer = [blocks objectEnumerator];
+        
+        gridRatios = glm::vec3(4.0f, 1.0f, 4.0f);
     }
     return self;
 }
@@ -68,9 +72,9 @@ NSEnumerator* enumer;
 {
     JJStaticPlatform* cube;
     for (NSArray* position in [mapGenerator getWholeMap]) {
-        float x = [position[0] floatValue] * 2;
-        float y = [position[1] floatValue] * 2;
-        float z = [position[2] floatValue] * 2;
+        float x = [position[0] floatValue] * gridRatios.x;
+        float y = [position[1] floatValue] * gridRatios.y;
+        float z = [position[2] floatValue] * gridRatios.z;
         cube = [[JJStaticPlatform alloc] initWithShaderProgram: [assetManagerRef getShaderProgram:@"platform"]
                                                         Camera: cameraRef
                                                       Vertices: [assetManagerRef getVertices:@"cube"]
@@ -79,6 +83,8 @@ NSEnumerator* enumer;
                                                      PositionX: x Y: y Z: z
                                                        Texture: [assetManagerRef getTexture: @"metal"]
                                                      TexCoords: [assetManagerRef getUvs:@"cube"]];
+        //[cube scaleY:.5f];
+        [cube scaleX:gridRatios.x/2 Y:gridRatios.y/2 Z:gridRatios.z/2];
         // Debugging purposes
         //[cube setVisible:NO];
         [blocks addObject:cube];
