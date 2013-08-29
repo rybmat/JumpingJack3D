@@ -124,11 +124,14 @@ NSEnumerator* enumer;
 
 - (void) calculatePhysics
 {
-    if ((float)abs(characterRef.position.y - baseFloor.position.y) < .5f) {
-        [characterRef moveY:0.25f];
-    }else{
+    [characterRef applyPhysics]; 
+    if (characterRef.position.y  < baseFloor.position.y + characterRef.radius) {
+        float difference = ABS(characterRef.position.y - (baseFloor.position.y + characterRef.radius));
+        [characterRef moveY:difference];
+        characterRef.jumped = NO;
+    } else {
         
-    }
+    };
 }
 
 @end

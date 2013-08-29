@@ -187,6 +187,8 @@ BOOL mousePressed;
                     break;
             }
         }
+    } else {
+        [character setDeccelerate:YES];
     }
 }
 
@@ -227,7 +229,7 @@ BOOL mousePressed;
 - (void) keyDown:(NSEvent*)theEvent
 {
     //NSLog(@"%f %f %f", character.getFaceVector.x, character.getFaceVector.y, character.getFaceVector.z);
-    NSLog(@"%f %f %f", character.rotation.x, character.rotation.y, character.rotation.z);
+    NSLog(@"%f", character.position.y);
 
     [objManager showNewBlock];
     

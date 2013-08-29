@@ -17,13 +17,19 @@
 @property GLuint tex0;
 @property GLuint bufTexCoords;
 
-@property float forwardVelocity;
-@property float jumpVelocity;
-@property float strafeVelocity;
+@property float maxForwardVelocity;
+@property float maxJumpVelocity;
+@property float maxStrafeVelocity;
 @property float angularVelocity;
+
+@property float acceleration;
+@property float decceleration; //energy loss
 @property float gravity;
 
 @property float radius;
+
+@property BOOL deccelerate;
+@property BOOL jumped;
 
 - (id) initWithShaderProgram: (JJShaderProgram*) shProg Camera: (JJCamera*) cam Vertices: (float*) verts Normals: (float*) norms VertexCount: (int) vCount PositionX: (float) x Y: (float) y Z: (float) z Texture: (GLuint) tex TexCoords: (float*) tCoords ;
 
@@ -38,6 +44,8 @@
 - (void) dealloc;
 
 - (void) render;
+
+- (void) applyPhysics;
 
 - (void) moveForwards;
 - (void) moveBackwards;

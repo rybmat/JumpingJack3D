@@ -41,7 +41,7 @@
         [self setPosition:glm::vec3(x,y,z)];
         [self setScale:glm::vec3(1.0f)];
         [self setFaceVector:glm::vec3(1,0,0)];
-       // self.rotation = glm::angleAxis(0, glm::vec3(0.0f));
+        self.rotation = glm::angleAxis(0.0f, glm::vec3(0.0f, 1.0f, 0.0f));
     }
     return self;
 }

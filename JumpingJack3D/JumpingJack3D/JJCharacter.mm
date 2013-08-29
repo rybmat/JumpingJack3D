@@ -10,6 +10,12 @@
 
 @implementation JJCharacter
 
+@synthesize deccelerate;
+
+float yVelocity;
+float forwardVelocity;
+float strafeVelocity;
+
 - (id) initWithShaderProgram: (JJShaderProgram*) shProg Camera: (JJCamera*) cam Vertices: (float*) verts Normals: (float*) norms VertexCount: (int) vCount PositionX: (float) x Y: (float) y Z: (float) z Texture: (GLuint) tex TexCoords: (float*) tCoords {
     
     self = [super initWithShaderProgram:shProg
@@ -24,17 +30,24 @@
     _tex0 = tex;
     _texCoords0 = tCoords;
     
+    self.jumped = NO;
     
     [self setupVBO];
     [self setupVAO];
         
-    self.forwardVelocity = 45;
-    self.jumpVelocity = 45;
-    self.strafeVelocity = 45;
-    self.angularVelocity = 270;
-    self.gravity = 0.02;
+    self.maxForwardVelocity = 40;
+    self.maxJumpVelocity = 40;
+    self.maxStrafeVelocity = 40;
     
-    self.radius = 0.5f;
+    self.angularVelocity = 270;
+    self.gravity = 30 ;
+    
+    self.acceleration = 20;
+    self.decceleration = self.acceleration / 1.0f;
+    
+    self.deccelerate = YES;
+    
+    self.radius = 1.0f;
     
     return self;
 }
@@ -105,35 +118,74 @@
     glDrawArrays(GL_TRIANGLES,0,[self vertexCount]);
 }
 
+- (void) applyPhysics
+{
+    if (forwardVelocity > self.maxForwardVelocity) {
+        forwardVelocity = self.maxForwardVelocity;
+    }
+    if (forwardVelocity < -self.maxForwardVelocity) {
+        forwardVelocity = -self.maxForwardVelocity;
+    }
+    if (strafeVelocity > self.maxStrafeVelocity) {
+        strafeVelocity = self.maxStrafeVelocity;
+    }
+    if (strafeVelocity < -self.maxStrafeVelocity) {
+        strafeVelocity = -self.maxStrafeVelocity;
+    }
+    
+    if (self.jumped == YES) {
+        yVelocity -= self.gravity / 60.0f;
+        [self moveY:yVelocity / 60.0f];
+    }
+    glm::vec3 moveVector = forwardVelocity / 60.0f * self.getFaceVector;
+    [self move:moveVector];
+    int rotateSign = (forwardVelocity > 0 ) ? -1 : 1;
+    [self rotateForwardBy: rotateSign * [self calculateRotationFromMoveVector:moveVector]];
+    
+    glm::vec3 strafeVector = glm::cross(self.getFaceVector, glm::vec3(0.0f,1.0f,0.0f));
+    moveVector = strafeVelocity / 60.0f * strafeVector;
+    [self move:moveVector];
+    rotateSign = (strafeVelocity > 0) ? 1 : -1;
+    [self rotateSidewardBy: rotateSign * [self calculateRotationFromMoveVector:moveVector]];
+    
+    if (self.deccelerate == YES) {
+        float deccelerationStep = self.deccelerate / 60.0f;
+        forwardVelocity += (forwardVelocity > 0) ? -deccelerationStep : deccelerationStep;
+        strafeVelocity  += (strafeVelocity  > 0) ? -deccelerationStep : deccelerationStep;
+    }
+    
+}
+
 - (void) moveForwards
 {
-    glm::vec3 moveVector = self.forwardVelocity / 60.0f * self.getFaceVector;
-    
-    [self move:glm::vec3(moveVector)];
-    [self rotateForwardBy: -[self calculateRotationFromMoveVector:moveVector]];
+    self.deccelerate = NO;
+
+    forwardVelocity += self.acceleration / 60.0f;
+
 }
 
 - (void) moveBackwards
 {
-    glm::vec3 moveVector = - self.forwardVelocity / 60.0f * self.getFaceVector;
-    [self move:glm::vec3(moveVector)];
-    [self rotateForwardBy: [self calculateRotationFromMoveVector:moveVector]];
+    self.deccelerate = NO;
+    
+    forwardVelocity -= self.acceleration / 60.0f;
+
 }
 
 - (void) strafeRight
 {
-    glm::vec3 rightVector = glm::cross(self.getFaceVector, glm::vec3(0.0f,1.0f,0.0f));
-    glm::vec3 moveVector = self.strafeVelocity / 60.0f * rightVector;
-    [self move:moveVector];
-    [self rotateSidewardBy: [self calculateRotationFromMoveVector:moveVector]];
+    self.deccelerate = NO;
+    
+    strafeVelocity += self.acceleration / 60.0f;
+
 }
 
 - (void) strafeLeft
 {
-    glm::vec3 leftVector = glm::cross(glm::vec3(0.0f,1.0f,0.0f), self.getFaceVector);
-    glm::vec3 moveVector = self.strafeVelocity / 60.0f * leftVector;
-    [self move:moveVector];
-    [self rotateSidewardBy: -[self calculateRotationFromMoveVector:moveVector]];
+    self.deccelerate = NO;
+    
+    strafeVelocity -= self.acceleration / 60.0f;
+
 }
 
 - (void) rotateRight
@@ -155,21 +207,26 @@
 
 - (void) jump
 {
-    glm::vec3 moveVector = self.jumpVelocity / 60.0f * glm::vec3(0.0f,1.0f,0.0f);
-    [self move:moveVector];
+    if (self.jumped == YES) {
+        return;
+    }
+    yVelocity = self.maxJumpVelocity;
+    self.jumped = YES;
 }
 
 - (void) dive
 {
-    glm::vec3 moveVector = - self.jumpVelocity / 60.0f * glm::vec3(0.0f,1.0f,0.0f);
-    [self move:moveVector];
+    if (self.jumped == NO) {
+        return;
+    }
+    yVelocity = -self.maxJumpVelocity;
 }
 
 - (float) calculateRotationFromMoveVector:(glm::vec3)vector
 {
     float length = glm::length(vector);
     float angle = length * 180 / (3.1415 * self.radius);
-    return angle/30;
+    return angle;
 }
 
 @end
