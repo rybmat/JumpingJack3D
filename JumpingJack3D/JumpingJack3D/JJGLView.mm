@@ -10,6 +10,13 @@
                                 function; \
                                 break;
 
+#define _case_flag(key,function,flag) case (key): \
+                                    function; \
+                                    flag = YES; \
+                                    break;
+
+#define ESCAPE 27
+#define SPACE 32
 #import "JJGLView.h"
 #import "cube.h"
 #import "teapot.h"
@@ -62,7 +69,7 @@ BOOL mousePressed;
                                                                Vertices: [assetManager getVertices:@"ball"]
                                                                 Normals: [assetManager getNormals:@"ball"]
                                                             VertexCount: [assetManager getVertexCount:@"ball"]
-                                                              PositionX: -5.0f Y:2.0f Z:3.0f
+                                                              PositionX: 0.0f Y: 0.0f Z: 0.0f
                                                                 Texture: [assetManager getTexture:@"ball"]
                                                               TexCoords: [assetManager getUvs:@"ball"]
                                                               frameRate: 60];
@@ -161,24 +168,28 @@ BOOL mousePressed;
 
 - (void) processKeys
 {
+    BOOL clickedWorS = NO, clickedAorD = NO;    
     if (!(keyPressed == nil) and !([keyPressed count] == 0)) {
         for (NSNumber* keyHit in keyPressed) {
             switch ([keyHit unsignedIntValue]) {
-                _case('w', [character moveForwards])
-                _case('s', [character moveBackwards])
-                _case('a', [character strafeLeft])
-                _case('d', [character strafeRight])
-                _case(' ', [character jump])
-                _case('z', [character dive])
-                _case('q', [character rotateLeft])
-                _case('e', [character rotateRight])
+                _case_flag('w',   [character moveForwards], clickedWorS)
+                _case_flag('s',   [character moveBackwards], clickedWorS)
+                _case_flag('a',   [character strafeLeft], clickedAorD)
+                _case_flag('d',   [character strafeRight], clickedAorD)
+                
+                _case(SPACE, [character jump])
+                _case('z',   [character dive])
+                _case('q',   [character rotateLeft])
+                _case('e',   [character rotateRight])
+                _case(ESCAPE,[character portToCheckPoint]);
                 default:
+                    NSLog(@"%u", [keyHit unsignedIntValue]);
                     break;
             }
         }
-    } else {
-        [character setDeccelerate:YES];
     }
+    character.deccelerateForward = !clickedWorS;
+    character.deccelerateStrafe  = !clickedAorD;
 }
 
 - (void)scrollWheel:(NSEvent *)theEvent

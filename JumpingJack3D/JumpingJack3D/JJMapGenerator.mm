@@ -33,7 +33,7 @@ int randomMap[RANDOM_MAP_SIZE];
 
 - (id) init
 {
-    return [self initWithStartingPosition:glm::vec3(0,0,0) mapStartingCapacity:50];
+    return [self initWithStartingPosition:glm::vec3(0,0,0) mapStartingCapacity:40];
 }
 
 - (id) initWithStartingPosition:(glm::vec3)position mapStartingCapacity:(int)capacity

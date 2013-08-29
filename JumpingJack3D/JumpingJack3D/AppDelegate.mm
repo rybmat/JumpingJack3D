@@ -13,6 +13,12 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     [self.window setAcceptsMouseMovedEvents:YES];
+ 
+    [NSCursor hide];
+    
+    NSRect newSize = [[NSScreen mainScreen] frame];
+    [self.window setFrame:newSize display:YES animate:YES];
 }
+
 
 @end

@@ -12,7 +12,7 @@
 @implementation JJCamera
 
 static const glm::vec3 worldUp = glm::vec3(0.0f, 1.0f, 0.0f);
-static const float maxZoomIn = 4.0f;
+static const float maxZoomIn = 2.0f;
 static const float maxZoomOut = 50.0f;
 static const float standardLatitude = 30.0f;
 
@@ -125,7 +125,7 @@ static const float standardLatitude = 30.0f;
     glm::vec3 rightVector = glm::cross(self.target, worldUp);
     self.up = glm::cross(rightVector, self.target);
     
-    self.viewMatrix = glm::lookAt(self.cameraPosition, targetPosition /*self.target*/, self.up);
+    self.viewMatrix = glm::lookAt(self.cameraPosition, targetPosition, self.up);
     
     //NSLog(@"longtitude: %f", self.longtitude);
 }

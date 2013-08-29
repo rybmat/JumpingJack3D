@@ -17,16 +17,19 @@
 @property GLuint tex0;
 @property GLuint bufTexCoords;
 
+@property glm::vec3 checkPoint;
+
 @property float maxForwardVelocity;
 @property float maxJumpVelocity;
 @property float maxStrafeVelocity;
 @property float angularVelocity;
 
 @property float acceleration;
-@property float decceleration; //energy loss
+@property float decceleration; //energy loss from friction
 @property float gravity;
 
-@property BOOL deccelerate;
+@property BOOL deccelerateForward;
+@property BOOL deccelerateStrafe;
 @property BOOL jumped;
 
 - (id) initWithShaderProgram: (JJShaderProgram*) shProg Camera: (JJCamera*) cam Vertices: (float*) verts Normals: (float*) norms VertexCount: (int) vCount PositionX: (float) x Y: (float) y Z: (float) z Texture: (GLuint) tex TexCoords: (float*) tCoords frameRate:(int)ratewwww;
@@ -54,7 +57,12 @@
 - (void) rotateBy:(float)angle;
 - (void) jump;
 - (void) dive;
-- (void) bounce;
+
+- (void) bounceVertical;
+- (void) bounceHorizontalX;
+- (void) bounceHorizontalZ;
+
+- (void) portToCheckPoint;
 
 - (void) changeFrameRate:(int)frameRate;
 

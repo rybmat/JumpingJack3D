@@ -10,11 +10,11 @@
 
 @implementation JJCharacter
 
-@synthesize deccelerate;
-
 float yVelocity;
 float forwardVelocity;
 float strafeVelocity;
+
+float jumpKineticEnergy;
 
 float invertedFrameRate;
 
@@ -32,6 +32,8 @@ float invertedFrameRate;
     _tex0 = tex;
     _texCoords0 = tCoords;
     
+    yVelocity = forwardVelocity = strafeVelocity = jumpKineticEnergy = 0.0f;
+    
     invertedFrameRate = (float) 1 / rate;
     
     self.jumped = NO;
@@ -40,16 +42,19 @@ float invertedFrameRate;
     [self setupVAO];
         
     self.maxForwardVelocity = 10;
-    self.maxJumpVelocity = 12;
-    self.maxStrafeVelocity = 4;
+    self.maxJumpVelocity = 20;
+    self.maxStrafeVelocity = 10;
     self.angularVelocity = 270;
     self.gravity = 30 ;
     
     self.acceleration = 20;
-    self.decceleration = self.acceleration / 1.0f;
+    self.decceleration = self.acceleration / 20.0f;
     
-    self.deccelerate = YES;
-        
+    self.deccelerateStrafe  = YES;
+    self.deccelerateForward = YES;
+    
+    self.checkPoint = self.position;
+    
     return self;
 }
 
@@ -148,9 +153,13 @@ float invertedFrameRate;
     rotateSign = (strafeVelocity > 0) ? 1 : -1;
     [self rotateSidewardBy: rotateSign * [self calculateRotationFromMoveVector:moveVector]];
     
-    if (self.deccelerate == YES) {
-        float deccelerationStep = self.deccelerate * invertedFrameRate;
+    if (self.deccelerateForward == YES) {
+        float deccelerationStep = self.decceleration * invertedFrameRate;
         forwardVelocity += (forwardVelocity > 0) ? -deccelerationStep : deccelerationStep;
+    }
+    
+    if (self.deccelerateStrafe == YES) {
+        float deccelerationStep = self.decceleration * invertedFrameRate;
         strafeVelocity  += (strafeVelocity  > 0) ? -deccelerationStep : deccelerationStep;
     }
     
@@ -158,7 +167,7 @@ float invertedFrameRate;
 
 - (void) moveForwards
 {
-    self.deccelerate = NO;
+    self.deccelerateForward = NO;
 
     forwardVelocity += self.acceleration * invertedFrameRate;
 
@@ -166,7 +175,7 @@ float invertedFrameRate;
 
 - (void) moveBackwards
 {
-    self.deccelerate = NO;
+    self.deccelerateForward = NO;
     
     forwardVelocity -= self.acceleration * invertedFrameRate;
 
@@ -174,7 +183,7 @@ float invertedFrameRate;
 
 - (void) strafeRight
 {
-    self.deccelerate = NO;
+    self.deccelerateStrafe = NO;
     
     strafeVelocity += self.acceleration * invertedFrameRate;
 
@@ -182,7 +191,7 @@ float invertedFrameRate;
 
 - (void) strafeLeft
 {
-    self.deccelerate = NO;
+    self.deccelerateStrafe = NO;
     
     strafeVelocity -= self.acceleration * invertedFrameRate;
 
@@ -205,12 +214,12 @@ float invertedFrameRate;
     [self rotateYby:angle];
 }
 
-- (void) jump
+- (void) jump 
 {
     if (self.jumped == YES) {
         return;
     }
-    yVelocity = self.maxJumpVelocity;
+    yVelocity = jumpKineticEnergy = self.maxJumpVelocity;
     self.jumped = YES;
 }
 
@@ -223,9 +232,45 @@ float invertedFrameRate;
     yVelocity = -self.maxJumpVelocity;
 }
 
-- (void) bounce
+- (void) bounceVertical
 {
     yVelocity = ABS(yVelocity) / 2;
+    jumpKineticEnergy /= 2;
+    if (jumpKineticEnergy < self.maxJumpVelocity / 2 ) {
+        self.jumped = NO;
+    }
+}
+
+- (void) bounceHorizontalX
+{
+//    forwardVelocity = -forwardVelocity / 2;
+//    strafeVelocity  = -strafeVelocity  / 2;
+    glm::vec3 right = glm::normalize(glm::cross(self.faceVector, glm::vec3(0.0f, 1.0f, 0.0f)));
+    glm::vec3 move = right * strafeVelocity + self.faceVector * forwardVelocity;
+    glm::vec3 inverted = forwardVelocity * glm::vec3(-move.x,0.0f,move.z);
+
+    forwardVelocity = glm::dot(inverted, self.faceVector) / glm::length(self.faceVector) / 2;
+    strafeVelocity  = glm::dot(inverted, right) / glm::length(right) / 2 ;
+    
+}
+
+- (void) bounceHorizontalZ
+{
+    //    forwardVelocity = -forwardVelocity / 2;
+    //    strafeVelocity  = -strafeVelocity  / 2;
+    glm::vec3 right = glm::normalize(glm::cross(self.faceVector, glm::vec3(0.0f, 1.0f, 0.0f)));
+    glm::vec3 move = right * strafeVelocity + self.faceVector * forwardVelocity;
+    glm::vec3 inverted = glm::vec3(move.x,0.0f,-move.z);
+    
+    forwardVelocity = glm::dot(inverted, self.faceVector) / glm::length(self.faceVector) / 2;
+    strafeVelocity  = glm::dot(inverted, right) / glm::length(right) / 2 ;
+}
+
+- (void) portToCheckPoint
+{
+    forwardVelocity = strafeVelocity = yVelocity = 0.0f;
+    glm::vec3 difference = self.checkPoint - self.position;
+    [self move:difference];
 }
 
 - (float) calculateRotationFromMoveVector:(glm::vec3)vector

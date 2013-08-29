@@ -10,7 +10,7 @@ in vec4 iVectorL0;
 in vec4 iVectorL1;
 in vec2 iTexCoords0;
 
-float shininess=50;
+float shininess=5000;
 
 void main(void) {
 	vec4 eyeVectorN = normalize(iVectorN);

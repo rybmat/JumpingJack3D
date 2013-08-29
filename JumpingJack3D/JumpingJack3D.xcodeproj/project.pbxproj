@@ -10,6 +10,8 @@
 		1018D38617C7A67A009494D8 /* sphere.obj in Resources */ = {isa = PBXBuildFile; fileRef = 1018D38517C7A67A009494D8 /* sphere.obj */; };
 		1018D38817C7D0E8009494D8 /* sphere.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1018D38717C7D0E8009494D8 /* sphere.jpg */; };
 		1018D38B17C7DE77009494D8 /* JJCharacterTests.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1018D38A17C7DE77009494D8 /* JJCharacterTests.mm */; };
+		1023A89217CF96D5007659CE /* circle.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1023A89117CF96D5007659CE /* circle.jpg */; };
+		1023A89417CF96DF007659CE /* circle.obj in Resources */ = {isa = PBXBuildFile; fileRef = 1023A89317CF96DF007659CE /* circle.obj */; };
 		103F046917C665CD004A357E /* eye.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 103F046817C665CD004A357E /* eye.jpg */; };
 		103F046F17C696EC004A357E /* eye.obj in Resources */ = {isa = PBXBuildFile; fileRef = 103F046E17C696EC004A357E /* eye.obj */; };
 		109709F717B6774600B51086 /* metal.tga in Resources */ = {isa = PBXBuildFile; fileRef = 109709F617B6774600B51086 /* metal.tga */; };
@@ -17,6 +19,8 @@
 		10970A0617B6E58A00B51086 /* cube.obj in Resources */ = {isa = PBXBuildFile; fileRef = 10970A0517B6E58A00B51086 /* cube.obj */; };
 		10970A0717B6E58A00B51086 /* cube.obj in Resources */ = {isa = PBXBuildFile; fileRef = 10970A0517B6E58A00B51086 /* cube.obj */; };
 		10989BE317B2FDD4005B5599 /* Football.obj in Resources */ = {isa = PBXBuildFile; fileRef = 10989BE217B2FDD4005B5599 /* Football.obj */; };
+		10A2F64317CFCD020006F1EA /* star.obj in Resources */ = {isa = PBXBuildFile; fileRef = 10A2F64217CFCD020006F1EA /* star.obj */; };
+		10A2F64517CFCD0A0006F1EA /* star.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 10A2F64417CFCD0A0006F1EA /* star.jpg */; };
 		10BE5C2E17BE868E00F5A07B /* cube.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 10BE5C2D17BE868E00F5A07B /* cube.jpg */; };
 		10BE5C3417BE879200F5A07B /* JJObjectManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10BE5C3317BE879200F5A07B /* JJObjectManager.mm */; };
 		10BE5C3617BE8E5F00F5A07B /* floor.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 10BE5C3517BE8E5F00F5A07B /* floor.jpg */; };
@@ -65,12 +69,16 @@
 		1018D38717C7D0E8009494D8 /* sphere.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sphere.jpg; sourceTree = "<group>"; };
 		1018D38917C7DE77009494D8 /* JJCharacterTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJCharacterTests.h; sourceTree = "<group>"; };
 		1018D38A17C7DE77009494D8 /* JJCharacterTests.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = JJCharacterTests.mm; sourceTree = "<group>"; };
+		1023A89117CF96D5007659CE /* circle.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = circle.jpg; sourceTree = "<group>"; };
+		1023A89317CF96DF007659CE /* circle.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = circle.obj; sourceTree = "<group>"; };
 		103F046817C665CD004A357E /* eye.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = eye.jpg; sourceTree = "<group>"; };
 		103F046E17C696EC004A357E /* eye.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = eye.obj; sourceTree = "<group>"; };
 		109709F517B6773200B51086 /* teapot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = teapot.h; sourceTree = "<group>"; };
 		109709F617B6774600B51086 /* metal.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = metal.tga; sourceTree = "<group>"; };
 		10970A0517B6E58A00B51086 /* cube.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cube.obj; sourceTree = "<group>"; };
 		10989BE217B2FDD4005B5599 /* Football.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Football.obj; sourceTree = "<group>"; };
+		10A2F64217CFCD020006F1EA /* star.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = star.obj; sourceTree = "<group>"; };
+		10A2F64417CFCD0A0006F1EA /* star.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = star.jpg; sourceTree = "<group>"; };
 		10BE5C2D17BE868E00F5A07B /* cube.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cube.jpg; sourceTree = "<group>"; };
 		10BE5C3217BE879200F5A07B /* JJObjectManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJObjectManager.h; sourceTree = "<group>"; };
 		10BE5C3317BE879200F5A07B /* JJObjectManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = JJObjectManager.mm; sourceTree = "<group>"; };
@@ -260,6 +268,8 @@
 		10FE018D17937D72005A218E /* models */ = {
 			isa = PBXGroup;
 			children = (
+				10A2F64217CFCD020006F1EA /* star.obj */,
+				1023A89317CF96DF007659CE /* circle.obj */,
 				103F046E17C696EC004A357E /* eye.obj */,
 				10BE5C3717BE8F4E00F5A07B /* floor.obj */,
 				10C3A91717CE745D00003884 /* ball.obj */,
@@ -274,8 +284,10 @@
 		10FE018E17937D83005A218E /* textures */ = {
 			isa = PBXGroup;
 			children = (
+				10A2F64417CFCD0A0006F1EA /* star.jpg */,
 				103F046817C665CD004A357E /* eye.jpg */,
 				10C3A91517CE745400003884 /* ball.jpg */,
+				1023A89117CF96D5007659CE /* circle.jpg */,
 				1018D38717C7D0E8009494D8 /* sphere.jpg */,
 				10BE5C3517BE8E5F00F5A07B /* floor.jpg */,
 				109709F617B6774600B51086 /* metal.tga */,
@@ -495,6 +507,10 @@
 				1018D38817C7D0E8009494D8 /* sphere.jpg in Resources */,
 				10C3A91617CE745400003884 /* ball.jpg in Resources */,
 				10C3A91817CE745D00003884 /* ball.obj in Resources */,
+				1023A89217CF96D5007659CE /* circle.jpg in Resources */,
+				1023A89417CF96DF007659CE /* circle.obj in Resources */,
+				10A2F64317CFCD020006F1EA /* star.obj in Resources */,
+				10A2F64517CFCD0A0006F1EA /* star.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
