@@ -139,7 +139,7 @@ glm::vec3 paddingRatios;
     if (characterRef.position.y  < baseFloor.position.y + characterRef.boundingBox.r) {
         float difference = ABS(characterRef.position.y - (baseFloor.position.y + characterRef.boundingBox.r));
         [characterRef moveY:difference];
-        characterRef.jumped = NO;
+        [characterRef bounce];        
     };
     for (JJRenderedObject* block in blocks) {
         if (characterRef.position.x < block.position.x + block.boundingBox.x and

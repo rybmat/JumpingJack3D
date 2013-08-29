@@ -54,6 +54,7 @@
 - (void) rotateBy:(float)angle;
 - (void) jump;
 - (void) dive;
+- (void) bounce;
 
 - (void) changeFrameRate:(int)frameRate;
 

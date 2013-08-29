@@ -6,9 +6,14 @@
 //  Copyright (c) 2013 Mateusz Rybarski. All rights reserved.
 //
 
+#define _case(key,function) case (key): \
+                                function; \
+                                break;
+
 #import "JJGLView.h"
 #import "cube.h"
 #import "teapot.h"
+
 @implementation JJGLView
 
 NSTimer *renderTimer;
@@ -159,30 +164,14 @@ BOOL mousePressed;
     if (!(keyPressed == nil) and !([keyPressed count] == 0)) {
         for (NSNumber* keyHit in keyPressed) {
             switch ([keyHit unsignedIntValue]) {
-                case 'w':
-                    [character moveForwards];
-                    break;
-                case 's':
-                    [character moveBackwards];
-                    break;
-                case 'a':
-                    [character strafeLeft];
-                    break;
-                case 'd':
-                    [character strafeRight];
-                    break;
-                case ' ':
-                    [character jump];
-                    break;
-                case 'z':
-                    [character dive];
-                    break;
-                case 'q':
-                    [character rotateLeft];
-                    break;
-                case 'e':
-                    [character rotateRight];
-                    break;
+                _case('w', [character moveForwards])
+                _case('s', [character moveBackwards])
+                _case('a', [character strafeLeft])
+                _case('d', [character strafeRight])
+                _case(' ', [character jump])
+                _case('z', [character dive])
+                _case('q', [character rotateLeft])
+                _case('e', [character rotateRight])
                 default:
                     break;
             }
@@ -228,11 +217,6 @@ BOOL mousePressed;
 
 - (void) keyDown:(NSEvent*)theEvent
 {
-    //NSLog(@"%f %f %f", character.getFaceVector.x, character.getFaceVector.y, character.getFaceVector.z);
-    NSLog(@"%f", character.position.y);
-
-    [objManager showNewBlock];
-    
     if (keyPressed == nil) {
         keyPressed = [[NSMutableSet alloc] init];
     }

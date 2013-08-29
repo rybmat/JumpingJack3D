@@ -223,6 +223,11 @@ float invertedFrameRate;
     yVelocity = -self.maxJumpVelocity;
 }
 
+- (void) bounce
+{
+    yVelocity = ABS(yVelocity) / 2;
+}
+
 - (float) calculateRotationFromMoveVector:(glm::vec3)vector
 {
     float length = glm::length(vector);
