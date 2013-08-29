@@ -232,5 +232,9 @@ float invertedFrameRate;
     float angle = length * 180 / (3.1415 * self.radius);
     return angle;
 }
+- (void) changeFrameRate:(int)frameRate
+{
+    invertedFrameRate = (float) 1 / frameRate;
+}
 
 @end

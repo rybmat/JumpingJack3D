@@ -57,4 +57,6 @@
 - (void) jump;
 - (void) dive;
 
+- (void) changeFrameRate:(int)frameRate;
+
 @end
