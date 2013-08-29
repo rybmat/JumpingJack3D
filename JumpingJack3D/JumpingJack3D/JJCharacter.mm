@@ -247,10 +247,10 @@ float invertedFrameRate;
 //    strafeVelocity  = -strafeVelocity  / 2;
     glm::vec3 right = glm::normalize(glm::cross(self.faceVector, glm::vec3(0.0f, 1.0f, 0.0f)));
     glm::vec3 move = right * strafeVelocity + self.faceVector * forwardVelocity;
-    glm::vec3 inverted = forwardVelocity * glm::vec3(-move.x,0.0f,move.z);
+    glm::vec3 inverted = glm::vec3(-move.x,0.0f,move.z);
 
-    forwardVelocity = glm::dot(inverted, self.faceVector) / glm::length(self.faceVector) / 2;
-    strafeVelocity  = glm::dot(inverted, right) / glm::length(right) / 2 ;
+    forwardVelocity = glm::dot(inverted, self.faceVector) / glm::length(self.faceVector);
+    strafeVelocity  = glm::dot(inverted, right) / glm::length(right);
     
 }
 
@@ -262,8 +262,8 @@ float invertedFrameRate;
     glm::vec3 move = right * strafeVelocity + self.faceVector * forwardVelocity;
     glm::vec3 inverted = glm::vec3(move.x,0.0f,-move.z);
     
-    forwardVelocity = glm::dot(inverted, self.faceVector) / glm::length(self.faceVector) / 2;
-    strafeVelocity  = glm::dot(inverted, right) / glm::length(right) / 2 ;
+    forwardVelocity = glm::dot(inverted, self.faceVector) / glm::length(self.faceVector);
+    strafeVelocity  = glm::dot(inverted, right) / glm::length(right);
 }
 
 - (void) portToCheckPoint
