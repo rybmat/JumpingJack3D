@@ -28,6 +28,9 @@
 @property float decceleration; //energy loss from friction
 @property float gravity;
 
+@property float horizontalCollisionEnergyLoss;
+@property float verticalCollisionEnergyLoss;
+
 @property BOOL deccelerateForward;
 @property BOOL deccelerateStrafe;
 @property BOOL jumped;

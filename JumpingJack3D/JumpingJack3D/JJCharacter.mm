@@ -53,6 +53,9 @@ float invertedFrameRate;
     self.deccelerateStrafe  = YES;
     self.deccelerateForward = YES;
     
+    self.horizontalCollisionEnergyLoss = 0.2f;
+    self.verticalCollisionEnergyLoss   = 0.5f;
+    
     self.checkPoint = self.position;
     
     return self;
@@ -234,36 +237,37 @@ float invertedFrameRate;
 
 - (void) bounceVertical
 {
-    yVelocity = ABS(yVelocity) / 2;
-    jumpKineticEnergy /= 2;
-    if (jumpKineticEnergy < self.maxJumpVelocity / 2 ) {
+    float lossMul = 1 - self.verticalCollisionEnergyLoss;
+    yVelocity = ABS(yVelocity) * lossMul;
+    jumpKineticEnergy *= lossMul;
+    if (jumpKineticEnergy < self.maxJumpVelocity * lossMul ) {
         self.jumped = NO;
     }
 }
 
 - (void) bounceHorizontalX
 {
-//    forwardVelocity = -forwardVelocity / 2;
-//    strafeVelocity  = -strafeVelocity  / 2;
     glm::vec3 right = glm::normalize(glm::cross(self.faceVector, glm::vec3(0.0f, 1.0f, 0.0f)));
     glm::vec3 move = right * strafeVelocity + self.faceVector * forwardVelocity;
     glm::vec3 inverted = glm::vec3(-move.x,0.0f,move.z);
 
-    forwardVelocity = glm::dot(inverted, self.faceVector) / glm::length(self.faceVector);
-    strafeVelocity  = glm::dot(inverted, right) / glm::length(right);
+    float lossMul = 1 - self.horizontalCollisionEnergyLoss;
+    
+    forwardVelocity = (glm::dot(inverted, self.faceVector) / glm::length(self.faceVector)) * lossMul ;
+    strafeVelocity  = (glm::dot(inverted, right) / glm::length(right)) * lossMul;
     
 }
 
 - (void) bounceHorizontalZ
 {
-    //    forwardVelocity = -forwardVelocity / 2;
-    //    strafeVelocity  = -strafeVelocity  / 2;
     glm::vec3 right = glm::normalize(glm::cross(self.faceVector, glm::vec3(0.0f, 1.0f, 0.0f)));
     glm::vec3 move = right * strafeVelocity + self.faceVector * forwardVelocity;
     glm::vec3 inverted = glm::vec3(move.x,0.0f,-move.z);
     
-    forwardVelocity = glm::dot(inverted, self.faceVector) / glm::length(self.faceVector);
-    strafeVelocity  = glm::dot(inverted, right) / glm::length(right);
+    float lossMul = 1 - self.horizontalCollisionEnergyLoss;
+    
+    forwardVelocity = (glm::dot(inverted, self.faceVector) / glm::length(self.faceVector)) * lossMul;
+    strafeVelocity  = (glm::dot(inverted, right) / glm::length(right)) * lossMul;
 }
 
 - (void) portToCheckPoint
