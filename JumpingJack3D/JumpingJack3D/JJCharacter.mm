@@ -41,7 +41,7 @@ float invertedFrameRate;
         
     self.maxForwardVelocity = 40;
     self.maxJumpVelocity = 40;
-    self.maxStrafeVelocity = 40;
+    self.maxStrafeVelocity = 4;
     
     self.angularVelocity = 270;
     self.gravity = 30 ;
@@ -50,9 +50,7 @@ float invertedFrameRate;
     self.decceleration = self.acceleration / 1.0f;
     
     self.deccelerate = YES;
-    
-    self.radius = 1.0f;
-    
+        
     return self;
 }
 
@@ -137,10 +135,9 @@ float invertedFrameRate;
         strafeVelocity = -self.maxStrafeVelocity;
     }
     
-    if (self.jumped == YES) {
-        yVelocity -= self.gravity * invertedFrameRate;
-        [self moveY:yVelocity * invertedFrameRate];
-    }
+    yVelocity -= self.gravity * invertedFrameRate;
+    [self moveY:yVelocity * invertedFrameRate];
+    
     glm::vec3 moveVector = forwardVelocity * invertedFrameRate * self.getFaceVector;
     [self move:moveVector];
     int rotateSign = (forwardVelocity > 0 ) ? -1 : 1;
@@ -221,6 +218,7 @@ float invertedFrameRate;
 - (void) dive
 {
     if (self.jumped == NO) {
+        yVelocity = 0; 
         return;
     }
     yVelocity = -self.maxJumpVelocity;
@@ -229,12 +227,16 @@ float invertedFrameRate;
 - (float) calculateRotationFromMoveVector:(glm::vec3)vector
 {
     float length = glm::length(vector);
-    float angle = length * 180 / (3.1415 * self.radius);
-    return angle;
+    return length * 180 / (3.1415 * self.boundingBox.x);
 }
 - (void) changeFrameRate:(int)frameRate
 {
     invertedFrameRate = (float) 1 / frameRate;
+}
+
+- (void) setYVelocity:(float)velocity
+{
+    yVelocity = velocity;
 }
 
 @end

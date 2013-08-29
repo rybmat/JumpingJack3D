@@ -63,7 +63,6 @@ BOOL mousePressed;
                                                               frameRate: 60];
     
     objManager = [[JJObjectManager alloc] initWithRefs:assetManager cameraRef:camera characterRef:character];
-    [objManager addObject:character];
 
     [camera setWithCharacterPosition:[character position]];
     

@@ -27,6 +27,7 @@
 @synthesize rotation;
 @synthesize scale;
 @synthesize faceVector;
+@synthesize boundingBox;
 
 - (id) initWithShaderProgram: (JJShaderProgram*) shProg Camera: (JJCamera*) cam Vertices: (float*) verts Normals: (float*) norms VertexCount: (int) vCount PositionX: (float) x Y: (float) y Z: (float) z{
     
@@ -39,9 +40,10 @@
         [self setNormals:norms];
         [self setVertexCount:vCount];
         [self setPosition:glm::vec3(x,y,z)];
-        [self setScale:glm::vec3(1.0f)];
-        [self setFaceVector:glm::vec3(1,0,0)];
-        self.rotation = glm::angleAxis(0.0f, glm::vec3(0.0f, 1.0f, 0.0f));
+        [self setScale:glm::vec3(1.0f, 1.0f, 1.0f)];
+        [self setFaceVector:glm::vec3(1.0f, 0.0f, 0.0f)];
+        [self setRotation:glm::angleAxis(0.0f, glm::vec3(0.0f, 1.0f, 0.0f))];
+        [self setBoundingBox:glm::vec3(1.0f, 1.0f, 1.0f)];
     }
     return self;
 }
@@ -81,19 +83,39 @@
 }
 
 - (void) scaleX: (float) x Y: (float) y Z: (float) z{
-    self.scale += glm::vec3(x,y,z);
+    self.scale = glm::vec3(x * self.scale.x,
+                           y * self.scale.y,
+                           z * self.scale.z);
+    self.boundingBox = glm::vec3(x * self.boundingBox.x,
+                                 y * self.boundingBox.y,
+                                 z * self.boundingBox.z);
 }
 
 - (void) scaleX: (float) amount{
-    self.scale += glm::vec3(amount, 1.0f, 1.0f);
+    self.scale = glm::vec3(self.scale.x * amount,
+                           self.scale.y,
+                           self.scale.z);
+    self.boundingBox = glm::vec3(self.boundingBox.x * amount,
+                                 self.boundingBox.y,
+                                 self.boundingBox.z);
 }
 
 - (void) scaleY: (float) amount{
-    self.scale += glm::vec3(1.0f, amount, 1.0f);
+    self.scale = glm::vec3(self.scale.x,
+                           self.scale.y * amount,
+                           self.scale.z);
+    self.boundingBox = glm::vec3(self.boundingBox.x,
+                                 self.boundingBox.y * amount,
+                                 self.boundingBox.z);
 }
 
 - (void) scaleZ: (float) amount{
-    self.scale += glm::vec3(1.0f, 1.0f, amount);
+    self.scale = glm::vec3(self.scale.x,
+                           self.scale.y,
+                           self.scale.z * amount);
+    self.boundingBox = glm::vec3(self.boundingBox.x,
+                                 self.boundingBox.y,
+                                 self.boundingBox.z * amount);
 }
 
 - (BOOL) isVisible

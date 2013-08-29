@@ -26,8 +26,6 @@
 @property float decceleration; //energy loss
 @property float gravity;
 
-@property float radius;
-
 @property BOOL deccelerate;
 @property BOOL jumped;
 
@@ -58,5 +56,7 @@
 - (void) dive;
 
 - (void) changeFrameRate:(int)frameRate;
+
+- (void) setYVelocity:(float)velocity;
 
 @end

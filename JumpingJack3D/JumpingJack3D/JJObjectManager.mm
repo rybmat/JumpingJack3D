@@ -68,19 +68,21 @@ NSEnumerator* enumer;
 {
     JJStaticPlatform* cube;
     for (NSArray* position in [mapGenerator getWholeMap]) {
-        float x = [position[0] floatValue];
-        float y = [position[1] floatValue];
-        float z = [position[2] floatValue];
+        float x = [position[0] floatValue] * 2;
+        float y = [position[1] floatValue] * 2;
+        float z = [position[2] floatValue] * 2;
         cube = [[JJStaticPlatform alloc] initWithShaderProgram: [assetManagerRef getShaderProgram:@"platform"]
                                                         Camera: cameraRef
                                                       Vertices: [assetManagerRef getVertices:@"cube"]
                                                        Normals: [assetManagerRef getNormals:@"cube"]
                                                    VertexCount: [assetManagerRef getVertexCount:@"cube"]
-                                                     PositionX: x*2 Y: y*2 Z: z*2
+                                                     PositionX: x Y: y Z: z
                                                        Texture: [assetManagerRef getTexture: @"metal"]
                                                      TexCoords: [assetManagerRef getUvs:@"cube"]];
-        [cube setVisible:NO];
+        // Debugging purposes
+        //[cube setVisible:NO];
         [blocks addObject:cube];
+        characterRef.position = glm::vec3(x,y+2,z);
     }
 }
 
@@ -124,14 +126,41 @@ NSEnumerator* enumer;
 
 - (void) calculatePhysics
 {
-    [characterRef applyPhysics]; 
-    if (characterRef.position.y  < baseFloor.position.y + characterRef.radius) {
-        float difference = ABS(characterRef.position.y - (baseFloor.position.y + characterRef.radius));
+    [characterRef applyPhysics];
+    if (characterRef.position.y  < baseFloor.position.y + characterRef.boundingBox.r) {
+        float difference = ABS(characterRef.position.y - (baseFloor.position.y + characterRef.boundingBox.r));
         [characterRef moveY:difference];
         characterRef.jumped = NO;
-    } else {
-        
     };
+    for (JJRenderedObject* block in blocks) {
+        if (characterRef.position.x < block.position.x + block.boundingBox.x and
+            characterRef.position.x > block.position.x - block.boundingBox.x and
+            characterRef.position.z < block.position.z + block.boundingBox.z and
+            characterRef.position.z > block.position.z - block.boundingBox.z ) {
+            // inside 2d horizontal plane
+            // calculate min vector distance
+            float minDistance = block.boundingBox.y + characterRef.boundingBox.r;
+            float distance = glm::length(characterRef.position - block.position);
+            float minUpwardsVector   = glm::length(glm::vec3(characterRef.position.x,
+                                                             block.position.y + minDistance,
+                                                             characterRef.position.z) - block.position);
+            float minDownwardsVector = glm::length(glm::vec3(characterRef.position.x,
+                                                             block.position.y - minDistance,
+                                                             characterRef.position.z) - block.position);
+            if (characterRef.position.y >= block.position.y and distance < minUpwardsVector ) {
+                float difference = ABS(characterRef.position.y - (block.position.y + minDistance));
+                [characterRef moveY:difference];
+                [characterRef setYVelocity:0.0f];
+                characterRef.jumped = NO;
+                
+            } else if (characterRef.position.y < block.position.y and distance < minDownwardsVector ){
+                float difference = ABS(characterRef.position.y - (block.position.y - minDistance));
+                [characterRef moveY:-difference];
+                [characterRef setYVelocity:0.0f];
+                characterRef.jumped = NO;
+             }
+        }
+    }
 }
 
 @end

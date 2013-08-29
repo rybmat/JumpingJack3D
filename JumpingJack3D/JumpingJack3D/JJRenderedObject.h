@@ -29,6 +29,7 @@
 @property glm::vec3 faceVector;
 @property glm::quat rotation;
 
+@property glm::vec3 boundingBox;
 
 @property BOOL visible;
 
