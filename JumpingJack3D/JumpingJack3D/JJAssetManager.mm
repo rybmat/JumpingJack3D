@@ -57,6 +57,7 @@ GLuint tex;
     NSMutableDictionary* shaderPrograms = [[NSMutableDictionary alloc] init];
     
     for (NSString* key in [vertexShaderFiles allKeys]) {
+        NSLog(@"%@", key);
         JJShaderProgram* program = [[JJShaderProgram alloc] initWithVertexFile:vertexShaderFiles[key]
                                                             GeometryShaderFile:geometryShaderFiles[key]
                                                             FragmentShaderFile:fragmentShaderFiles[key]];

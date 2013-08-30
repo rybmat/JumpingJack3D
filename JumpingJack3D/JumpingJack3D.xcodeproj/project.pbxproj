@@ -44,6 +44,8 @@
 		10FE01AB1794E01A005A218E /* TODO.txt in Resources */ = {isa = PBXBuildFile; fileRef = 10FE01AA1794E01A005A218E /* TODO.txt */; };
 		6130D165178EED0B004F2FA5 /* platform.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 6130D164178EED0B004F2FA5 /* platform.vsh */; };
 		6130D167178EEF2F004F2FA5 /* platform.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 6130D166178EEF2F004F2FA5 /* platform.fsh */; };
+		61D3A34F17D0A4AF0050E34E /* star.fsh in Sources */ = {isa = PBXBuildFile; fileRef = 61D3A34E17D0A4AE0050E34E /* star.fsh */; };
+		61D3A35117D0A6E90050E34E /* star.vsh in Sources */ = {isa = PBXBuildFile; fileRef = 61D3A35017D0A6E90050E34E /* star.vsh */; };
 		61D82370178DE0B700ABF4E4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61D8236F178DE0B700ABF4E4 /* Cocoa.framework */; };
 		61D8237A178DE0B700ABF4E4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 61D82378178DE0B700ABF4E4 /* InfoPlist.strings */; };
 		61D8237C178DE0B700ABF4E4 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 61D8237B178DE0B700ABF4E4 /* main.mm */; };
@@ -117,6 +119,8 @@
 		10FE01AA1794E01A005A218E /* TODO.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO.txt; sourceTree = "<group>"; };
 		6130D164178EED0B004F2FA5 /* platform.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = platform.vsh; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.glsl; };
 		6130D166178EEF2F004F2FA5 /* platform.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = platform.fsh; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.glsl; };
+		61D3A34E17D0A4AE0050E34E /* star.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = star.fsh; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.glsl; };
+		61D3A35017D0A6E90050E34E /* star.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = star.vsh; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.glsl; };
 		61D8236C178DE0B700ABF4E4 /* JumpingJack3D.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JumpingJack3D.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61D8236F178DE0B700ABF4E4 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		61D82372178DE0B700ABF4E4 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -300,6 +304,8 @@
 		6130D168178EF36F004F2FA5 /* shaders */ = {
 			isa = PBXGroup;
 			children = (
+				61D3A34E17D0A4AE0050E34E /* star.fsh */,
+				61D3A35017D0A6E90050E34E /* star.vsh */,
 				6130D164178EED0B004F2FA5 /* platform.vsh */,
 				6130D166178EEF2F004F2FA5 /* platform.fsh */,
 			);
@@ -568,6 +574,8 @@
 				10FE01A91794DFC1005A218E /* JJLight.mm in Sources */,
 				10BE5C3417BE879200F5A07B /* JJObjectManager.mm in Sources */,
 				10BE5C3B17BECA4D00F5A07B /* JJMapGenerator.mm in Sources */,
+				61D3A34F17D0A4AF0050E34E /* star.fsh in Sources */,
+				61D3A35117D0A6E90050E34E /* star.vsh in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

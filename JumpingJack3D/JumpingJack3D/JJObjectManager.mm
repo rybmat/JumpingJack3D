@@ -52,14 +52,17 @@ glm::vec3 paddingRatios;
         paddingRatios = glm::vec3(0.1f, 0.1f, 0.1f);
         gridRatios = glm::vec3(1.7f, 2.5f, 1.7f);
         
-        JJStaticPlatform* star = [[JJStaticPlatform alloc] initWithShaderProgram: [assetManagerRef getShaderProgram:@"platform"]
-                                                        Camera: cameraRef
-                                                      Vertices: [assetManagerRef getVertices:@"star"]
-                                                       Normals: [assetManagerRef getNormals:@"star"]
-                                                   VertexCount: [assetManagerRef getVertexCount:@"star"]
-                                                     PositionX: -10.0f Y: 4.0f Z: -10.0f
-                                                       Texture: [assetManagerRef getTexture: @"star"]
-                                                     TexCoords: [assetManagerRef getUvs:@"star"]];
+        JJDynamicEnemy* star = [[JJDynamicEnemy alloc] initWithShaderProgram:[assetManagerRef getShaderProgram:@"star"]
+                                                                      Camera:cameraRef
+                                                                    Vertices:[assetManagerRef getVertices:@"star"]
+                                                                     Normals:[assetManagerRef getNormals:@"star"]
+                                                                 VertexCount:[assetManagerRef getVertexCount:@"star"]
+                                                                   PositionX:-10.0f Y:0.5f Z:-10.0f
+                                                                  PathPointB:glm::vec4(-20.0f, 0.5f, -20.0f, 1.0f)
+                                                                    StepSize:0.07f
+                                                                     Texture:[assetManagerRef getTexture:@"star"]
+                                                               TextureCoords:[assetManagerRef getUvs:@"star"] ];
+        
         [self addObject:star];
     }
     return self;

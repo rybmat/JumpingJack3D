@@ -111,6 +111,7 @@
         _moveDirectionAtoB = !_moveDirectionAtoB;
     }else{
         //[self setMatM:glm::translate([self constructModelMatrix], step)];
+        [self moveX: step.x Y:step.y Z:step.z];
     }
     
 }

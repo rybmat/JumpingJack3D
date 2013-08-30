@@ -11,7 +11,7 @@
 @implementation JJDynamicEnemy
 
 
-- (id) initWithShaderProgram: (JJShaderProgram*) shProg Camera: (JJCamera*) cam Vertices: (float*) verts Normals: (float*) norms VertexCount: (int) vCount PositionX: (float) x Y: (float) y Z: (float) z Texture: (GLuint) tex TexCoords: (float*) tCoords {
+- (id) initWithShaderProgram: (JJShaderProgram*) shProg Camera: (JJCamera*) cam Vertices: (float*) verts Normals: (float*) norms VertexCount: (int) vCount PositionX: (float) x Y: (float) y Z: (float) z PathPointB: (glm::vec4) pointB StepSize: (float) stp Texture: (GLuint) tex TextureCoords: (float*) tCoords{
     
     self = [super initWithShaderProgram:shProg
                                  Camera:cam
@@ -20,10 +20,16 @@
                             VertexCount:vCount
                               PositionX:x
                                       Y:y
-                                      Z:z];
+                                      Z:z
+                             PathPointB:pointB
+                                   Step: stp];
     
     _tex0 = tex;
     _texCoords0 = tCoords;
+    
+    [self setupVBO];
+    [self setupVAO];
+    
     return self;
 }
 
@@ -80,18 +86,23 @@
     
     [[self shaderProgram] use];
     
-    //glUniformMatrix4fv([[self shaderProgram] getUniformLocation:"P"],1, false, glm::value_ptr([JJSceneObject matP]));
-	//glUniformMatrix4fv([[self shaderProgram] getUniformLocation:"V" ],1, false, glm::value_ptr([JJSceneObject matV]));
+    glUniformMatrix4fv([[self shaderProgram] getUniformLocation:"P"],1, false, glm::value_ptr([[self camera] projectionMatrix]));
+	glUniformMatrix4fv([[self shaderProgram] getUniformLocation:"V" ],1, false, glm::value_ptr([[self camera] viewMatrix]));
 	glUniformMatrix4fv([[self shaderProgram] getUniformLocation:"M"],1, false, glm::value_ptr([self constructModelMatrix]));
 	glUniform1i([[self shaderProgram] getUniformLocation:"textureMap0"], 0);
-    
-    //światła !!!!!!
+    glUniform4fv([[self shaderProgram] getUniformLocation:"lp0"], 1, [JJLight getFirstLight]);
+    glUniform4fv([[self shaderProgram] getUniformLocation:"lp1"], 1, [JJLight getSecondLight]);
     
     glBindVertexArray(_vao);
     
 	//Narysowanie obiektu
     glDrawArrays(GL_TRIANGLES,0,[self vertexCount]);
 	
+}
+
+- (void) moveThroughPath{
+    [super moveThroughPath];
+    [self rotateYby:10.0f];
 }
 
 @end
