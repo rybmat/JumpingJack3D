@@ -37,7 +37,6 @@
     [mesh setCountsWithLines:lines];
     
     STAssertTrue(mesh.uvCount      == 14, @"but instead was %d", mesh.uvCount);
-    STAssertTrue(mesh.normalsCount == 8,  @"but instead was %d", mesh.normalsCount);
     STAssertTrue(mesh.vertexCount  == 8,  @"but instead was %d", mesh.vertexCount);
     STAssertTrue(mesh.faceCount    == 12, @"but instead was %d", mesh.faceCount);
     

@@ -26,10 +26,6 @@
 
 - (void)testRotateByAngle
 {
-    chr.faceVector = glm::vec3(1.0f,0.0f,0.0f);
-    [chr rotateBy:90.0f];
-    glm::vec3 assumed = glm::vec3(0.0f,0.0f,-1.0f);
-    STAssertTrue(chr.faceVector == assumed, @"but instead was %f %f %f", chr.faceVector.x, chr.faceVector.y, chr.faceVector.z);
 }
 
 @end

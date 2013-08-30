@@ -12,6 +12,8 @@
 		1018D38B17C7DE77009494D8 /* JJCharacterTests.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1018D38A17C7DE77009494D8 /* JJCharacterTests.mm */; };
 		1023A89217CF96D5007659CE /* circle.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1023A89117CF96D5007659CE /* circle.jpg */; };
 		1023A89417CF96DF007659CE /* circle.obj in Resources */ = {isa = PBXBuildFile; fileRef = 1023A89317CF96DF007659CE /* circle.obj */; };
+		103552EB17D0E37800FFB359 /* star.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 61D3A34E17D0A4AE0050E34E /* star.fsh */; };
+		103552EC17D0E37800FFB359 /* star.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 61D3A35017D0A6E90050E34E /* star.vsh */; };
 		103F046917C665CD004A357E /* eye.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 103F046817C665CD004A357E /* eye.jpg */; };
 		103F046F17C696EC004A357E /* eye.obj in Resources */ = {isa = PBXBuildFile; fileRef = 103F046E17C696EC004A357E /* eye.obj */; };
 		109709F717B6774600B51086 /* metal.tga in Resources */ = {isa = PBXBuildFile; fileRef = 109709F617B6774600B51086 /* metal.tga */; };
@@ -495,8 +497,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+<<<<<<< HEAD
 				6194142D17D0E726003A1243 /* star.fsh in Resources */,
 				6194142E17D0E726003A1243 /* star.vsh in Resources */,
+=======
+				103552EB17D0E37800FFB359 /* star.fsh in Resources */,
+				103552EC17D0E37800FFB359 /* star.vsh in Resources */,
+>>>>>>> master
 				61D8237A178DE0B700ABF4E4 /* InfoPlist.strings in Resources */,
 				61D82380178DE0B700ABF4E4 /* Credits.rtf in Resources */,
 				61D82386178DE0B700ABF4E4 /* MainMenu.xib in Resources */,

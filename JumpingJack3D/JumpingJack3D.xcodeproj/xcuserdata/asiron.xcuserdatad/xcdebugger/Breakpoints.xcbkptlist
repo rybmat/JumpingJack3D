@@ -221,8 +221,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "67"
          endingLineNumber = "67"
-         landmarkName = "@implementation JJAssetManager"
-         landmarkType = "3">
+         landmarkName = "-loadShaders"
+         landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -702,8 +702,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "119"
          endingLineNumber = "119"
-         landmarkName = "@implementation JJAssetManager"
-         landmarkType = "3">
+         landmarkName = "-loadTextures"
+         landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -1363,8 +1363,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "165"
          endingLineNumber = "165"
-         landmarkName = "-loadTextureDDS:texHandler:"
-         landmarkType = "5">
+         landmarkName = "@implementation JJAssetManager"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -1455,32 +1455,6 @@
          startingLineNumber = "218"
          endingLineNumber = "218"
          landmarkName = "-rotateBy:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "JJUnitTesting/JJCharacterTests.mm"
-         timestampString = "398976142.737894"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "30"
-         endingLineNumber = "30"
-         landmarkName = "-testRotateByAngle"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "JJUnitTesting/JJCharacterTests.mm"
-         timestampString = "398976426.729785"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "32"
-         endingLineNumber = "32"
-         landmarkName = "-testRotateByAngle"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint

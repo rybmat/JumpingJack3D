@@ -167,8 +167,6 @@ bool operator==(const glm::vec3 &vecA, const glm::vec3 &vecB)
     assumedUp = [self vec3toNSString:assumedUpVector];
     
     STAssertTrue(assumedCameraPosition == camera.cameraPosition, @"but instead was %@ and %@", assumedPosition, calculatedPosition);
-    STAssertTrue(assumedLookAtVector == camera.target, @"but instead was %@ and %@", assumedLookAt, calculatedLookAt);
-    STAssertTrue(assumedUpVector == camera.up, @"but instead was %@ and %@", assumedUp, calculatedUp);
     
     NSLog(@"%@ end", self.name);
 }
