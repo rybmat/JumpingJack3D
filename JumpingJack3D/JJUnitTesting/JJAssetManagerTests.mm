@@ -71,7 +71,7 @@
     
     [assetManager loadShaders];
     //STAssertNotNil(assetManager.shaders[@"ball"], @"but intead is nil");
-    STAssertNotNil(assetManager.shaders[@"platform"], @"but instead is nil");
+    STAssertNotNil(assetManager.shaders[@"star"], @"but instead is nil");
     
     NSLog(@"%@ end", self.name);
 }
