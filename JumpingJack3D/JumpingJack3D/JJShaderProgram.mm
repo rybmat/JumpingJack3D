@@ -11,10 +11,7 @@
 @implementation JJShaderProgram
 
 
-GLuint shaderProgram;
-GLuint vShader;
-GLuint gShader;
-GLuint fShader;
+
 
 - (const GLchar*) readFile: (NSString*) fileName{
     NSFileManager *fm = [NSFileManager defaultManager];
@@ -63,7 +60,7 @@ GLuint fShader;
 		printf("%s\n",infoLog);
 		delete []infoLog;
 	}
-	
+    
     
 	return shader;
 }
@@ -73,28 +70,28 @@ GLuint fShader;
     
     self = [super init];
     NSLog(@"Loading vertex shader %@...", vShaderFile);
-	vShader= [self loadShaderWithType:GL_VERTEX_SHADER andFileName:vShaderFile];
+	_vShader= [self loadShaderWithType:GL_VERTEX_SHADER andFileName:vShaderFile];
     
     if (gShaderFile!=NULL) {
 		NSLog(@"Loading geometry shader %@...", gShaderFile);
-		gShader = [self loadShaderWithType:GL_GEOMETRY_SHADER andFileName: gShaderFile];
+		_gShader = [self loadShaderWithType:GL_GEOMETRY_SHADER andFileName: gShaderFile];
 	} else {
-		gShader=0;
+		_gShader=0;
 	}
     
     NSLog(@"Loading fragment shader %@...", fShaderFile);
-	fShader= [self loadShaderWithType: GL_FRAGMENT_SHADER andFileName: fShaderFile];
+	_fShader= [self loadShaderWithType: GL_FRAGMENT_SHADER andFileName: fShaderFile];
     
-	shaderProgram=glCreateProgram();
+	_shaderProgram=glCreateProgram();
     
     //NSLog(@"prog %u vs %u, fs %u",shaderProgram, vShader, fShader);
     
-    glAttachShader(shaderProgram,vShader);
-	glAttachShader(shaderProgram,fShader);
+    glAttachShader(_shaderProgram,_vShader);
+	glAttachShader(_shaderProgram,_fShader);
 	if (gShaderFile!=NULL){
-        glAttachShader(shaderProgram,gShader);
+        glAttachShader(_shaderProgram,_gShader);
     }
-	glLinkProgram(shaderProgram);
+	glLinkProgram(_shaderProgram);
     
     
     //log błędów linkowania
@@ -102,12 +99,12 @@ GLuint fShader;
 	int charsWritten  = 0;
 	char *infoLog;
     
-	glGetProgramiv(shaderProgram, GL_INFO_LOG_LENGTH,&infologLength);
+	glGetProgramiv(_shaderProgram, GL_INFO_LOG_LENGTH,&infologLength);
     
 	if (infologLength > 1)
 	{
 		infoLog = new char[infologLength];
-		glGetProgramInfoLog(shaderProgram, infologLength, &charsWritten, infoLog);
+		glGetProgramInfoLog(_shaderProgram, infologLength, &charsWritten, infoLog);
 		NSLog(@"%s",infoLog);
 		delete []infoLog;
 	}
@@ -117,31 +114,31 @@ GLuint fShader;
 }
 
 -(void) use {
-	glUseProgram(shaderProgram);
+	glUseProgram(_shaderProgram);
 }
 
 //Zwraca numer slotu zmiennej jednorodnej o nazwie variableName
 -(GLuint) getUniformLocation:(char*) variableName {
-	return glGetUniformLocation(shaderProgram,variableName);
+	return glGetUniformLocation(_shaderProgram,variableName);
 }
 
 //Zwraca numer slotu atrybutu o nazwie variableName
 -(GLuint) getAttribLocation:(char*) variableName {
-	return glGetAttribLocation(shaderProgram,variableName);
+	return glGetAttribLocation(_shaderProgram,variableName);
 }
 
 -(void) dealloc{
-	glDetachShader(shaderProgram, vShader);
-	if (gShader!=0)
-        glDetachShader(shaderProgram, gShader);
-	glDetachShader(shaderProgram, fShader);
+	glDetachShader(_shaderProgram, _vShader);
+	if (_gShader!=0)
+        glDetachShader(_shaderProgram, _gShader);
+	glDetachShader(_shaderProgram, _fShader);
     
-	glDeleteShader(vShader);
-	if (gShader!=0)
-        glDeleteShader(gShader);
-	glDeleteShader(fShader);
+	glDeleteShader(_vShader);
+	if (_gShader!=0)
+        glDeleteShader(_gShader);
+	glDeleteShader(_fShader);
     
-	glDeleteProgram(shaderProgram);
+	glDeleteProgram(_shaderProgram);
 }
 
 @end

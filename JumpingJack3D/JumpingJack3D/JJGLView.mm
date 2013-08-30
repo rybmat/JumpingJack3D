@@ -7,13 +7,13 @@
 //
 
 #define _case(key,function) case (key): \
-                                function; \
-                                break;
+function; \
+break;
 
 #define _case_flag(key,function,flag) case (key): \
-                                    function; \
-                                    flag = YES; \
-                                    break;
+function; \
+flag = YES; \
+break;
 
 #define ESCAPE 27
 #define SPACE 32
@@ -57,7 +57,7 @@ BOOL mousePressed;
 	glEnable(GL_DEPTH_TEST);
     
     [JJLight setFirstLightX: 10.0f Y: 10000.0f Z: -5.0f];
-    [JJLight setSecondLightX: -10.0f Y: -1.0f Z: -5.0f];
+    [JJLight setSecondLightX: -10.0f Y: 10.0f Z: -10.0f];
     
     assetManager = [[JJAssetManager alloc] init];
     [assetManager load];
@@ -65,17 +65,17 @@ BOOL mousePressed;
     camera = [[JJCamera alloc] initWithParameters:1.0f farClipping:1000.0f FoV:90.0f aspectRatio:1.0f cameraRadius:10.0f];
     
     character = [[JJCharacter alloc] initWithShaderProgram: [assetManager getShaderProgram:@"platform"]
-                                                                 Camera: camera
-                                                               Vertices: [assetManager getVertices:@"ball"]
-                                                                Normals: [assetManager getNormals:@"ball"]
-                                                            VertexCount: [assetManager getVertexCount:@"ball"]
-                                                              PositionX: 0.0f Y: 0.0f Z: 0.0f
-                                                                Texture: [assetManager getTexture:@"ball"]
-                                                              TexCoords: [assetManager getUvs:@"ball"]
-                                                              frameRate: 60];
+                                                    Camera: camera
+                                                  Vertices: [assetManager getVertices:@"ball"]
+                                                   Normals: [assetManager getNormals:@"ball"]
+                                               VertexCount: [assetManager getVertexCount:@"ball"]
+                                                 PositionX: 0.0f Y: 0.0f Z: 0.0f
+                                                   Texture: [assetManager getTexture:@"ball"]
+                                                 TexCoords: [assetManager getUvs:@"ball"]
+                                                 frameRate: 60];
     [character scaleX:.5f Y:.5f Z:.5f];
     objManager = [[JJObjectManager alloc] initWithRefs:assetManager cameraRef:camera characterRef:character];
-
+    
     [camera setWithCharacterPosition:[character position]];
     
     [objManager generateWorld];
@@ -83,7 +83,7 @@ BOOL mousePressed;
 
 - (void) dealloc
 {
- 
+    
 }
 
 - (void) awakeFromNib
@@ -129,7 +129,7 @@ BOOL mousePressed;
 
 - (void) timerFired: (id)sender
 {
-
+    
     [self processKeys];
     [self nextFrame];
     [self display];
@@ -152,7 +152,7 @@ BOOL mousePressed;
     
     // Drawing code here.
     [objManager renderObjects];
-
+    
     glFlush();
 }
 
@@ -168,20 +168,20 @@ BOOL mousePressed;
 
 - (void) processKeys
 {
-    BOOL clickedWorS = NO, clickedAorD = NO;    
+    BOOL clickedWorS = NO, clickedAorD = NO;
     if (!(keyPressed == nil) and !([keyPressed count] == 0)) {
         for (NSNumber* keyHit in keyPressed) {
             switch ([keyHit unsignedIntValue]) {
-                _case_flag('w',   [character moveForwards], clickedWorS)
-                _case_flag('s',   [character moveBackwards], clickedWorS)
-                _case_flag('a',   [character strafeLeft], clickedAorD)
-                _case_flag('d',   [character strafeRight], clickedAorD)
-                
-                _case(SPACE, [character jump])
-                _case('z',   [character dive])
-                _case('q',   [character rotateLeft])
-                _case('e',   [character rotateRight])
-                _case(ESCAPE,[character portToCheckPoint]);
+                    _case_flag('w',   [character moveForwards], clickedWorS)
+                    _case_flag('s',   [character moveBackwards], clickedWorS)
+                    _case_flag('a',   [character strafeLeft], clickedAorD)
+                    _case_flag('d',   [character strafeRight], clickedAorD)
+                    
+                    _case(SPACE, [character jump])
+                    _case('z',   [character dive])
+                    _case('q',   [character rotateLeft])
+                    _case('e',   [character rotateRight])
+                    _case(ESCAPE,[character portToCheckPoint]);
                 default:
                     NSLog(@"%u", [keyHit unsignedIntValue]);
                     break;

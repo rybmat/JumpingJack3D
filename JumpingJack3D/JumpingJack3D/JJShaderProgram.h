@@ -12,6 +12,10 @@
 
 @interface JJShaderProgram : NSObject
 
+@property GLuint shaderProgram;
+@property GLuint vShader;
+@property GLuint gShader;
+@property GLuint fShader;
 
 -(id) initWithVertexFile: (NSString*) vShaderFile GeometryShaderFile: (NSString*) gShaderFile FragmentShaderFile: (NSString*) fShaderFile;
 -(void) use;
