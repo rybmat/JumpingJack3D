@@ -44,6 +44,8 @@
 		10FE01AB1794E01A005A218E /* TODO.txt in Resources */ = {isa = PBXBuildFile; fileRef = 10FE01AA1794E01A005A218E /* TODO.txt */; };
 		6130D165178EED0B004F2FA5 /* platform.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 6130D164178EED0B004F2FA5 /* platform.vsh */; };
 		6130D167178EEF2F004F2FA5 /* platform.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 6130D166178EEF2F004F2FA5 /* platform.fsh */; };
+		6194142D17D0E726003A1243 /* star.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 61D3A34E17D0A4AE0050E34E /* star.fsh */; };
+		6194142E17D0E726003A1243 /* star.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 61D3A35017D0A6E90050E34E /* star.vsh */; };
 		61D3A34F17D0A4AF0050E34E /* star.fsh in Sources */ = {isa = PBXBuildFile; fileRef = 61D3A34E17D0A4AE0050E34E /* star.fsh */; };
 		61D3A35117D0A6E90050E34E /* star.vsh in Sources */ = {isa = PBXBuildFile; fileRef = 61D3A35017D0A6E90050E34E /* star.vsh */; };
 		61D82370178DE0B700ABF4E4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61D8236F178DE0B700ABF4E4 /* Cocoa.framework */; };
@@ -493,6 +495,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6194142D17D0E726003A1243 /* star.fsh in Resources */,
+				6194142E17D0E726003A1243 /* star.vsh in Resources */,
 				61D8237A178DE0B700ABF4E4 /* InfoPlist.strings in Resources */,
 				61D82380178DE0B700ABF4E4 /* Credits.rtf in Resources */,
 				61D82386178DE0B700ABF4E4 /* MainMenu.xib in Resources */,
