@@ -16,7 +16,7 @@
 - (const GLchar*) readFile: (NSString*) fileName{
     NSFileManager *fm = [NSFileManager defaultManager];
     if([fm fileExistsAtPath:fileName] == NO){
-        NSLog(@"plik %@ nie istnieje", fileName);
+        NSLog(@"ShaderLoader: file %@ does not exists", [fileName lastPathComponent]);
         return nil;
     }
     
@@ -30,22 +30,22 @@
 - (GLuint) loadShaderWithType: (GLenum) shaderType andFileName: (NSString*) fileName{
     //uchwyt na shader
 	GLuint shader=glCreateShader(shaderType);   //GL_VERTEX_SHADER, GL_GEOMETRY_SHADER lub GL_FRAGMENT_SHADER
-	NSLog(@"wygenerowany uchwyt");
+	NSLog(@"\t\t Handle generated");
     
     //Wczytanie pliku z shaderem
 	const GLchar* shaderSource= [self readFile:fileName];
-	NSLog(@"plik wczytany");
+	NSLog(@"\t\t File loaded");
     
     //Powiązanie shadera z uchwytem
 	glShaderSource(shader,1,&shaderSource,NULL);
-	NSLog(@"powiazane zrodlo z uchwytem");
+	NSLog(@"\t\t Source linked to handle");
     
     //kompilacja źródła
 	glCompileShader(shader);
-    NSLog(@"shader skompilowany");
+    NSLog(@"\t\t Source compiled");
     
 	//usunięcie źródła shadera z pamięci
-	delete []shaderSource;
+	delete[] shaderSource;
     
     //log błędów kompilacji
 	int infologLength = 0;
@@ -69,17 +69,18 @@
 -(id) initWithVertexFile: (NSString*) vShaderFile GeometryShaderFile: (NSString*) gShaderFile FragmentShaderFile: (NSString*) fShaderFile {
     
     self = [super init];
-    NSLog(@"Loading vertex shader %@...", vShaderFile);
+    NSLog(@"ShaderLoader: Creating shader program for <%@>", [[fShaderFile lastPathComponent] stringByDeletingPathExtension]);
+    NSLog(@"\t Loading vertex shader %@...", [vShaderFile lastPathComponent]);
 	_vShader= [self loadShaderWithType:GL_VERTEX_SHADER andFileName:vShaderFile];
     
     if (gShaderFile!=NULL) {
-		NSLog(@"Loading geometry shader %@...", gShaderFile);
+		NSLog(@"\t Loading geometry shader %@...", [gShaderFile lastPathComponent]);
 		_gShader = [self loadShaderWithType:GL_GEOMETRY_SHADER andFileName: gShaderFile];
 	} else {
 		_gShader=0;
 	}
     
-    NSLog(@"Loading fragment shader %@...", fShaderFile);
+    NSLog(@"\t Loading fragment shader %@...", [fShaderFile lastPathComponent]);
 	_fShader= [self loadShaderWithType: GL_FRAGMENT_SHADER andFileName: fShaderFile];
     
 	_shaderProgram=glCreateProgram();
@@ -109,7 +110,7 @@
 		delete []infoLog;
 	}
     
-	NSLog(@"Shader program created");
+	NSLog(@"ShaderLoader: Program successfully created!");
     return self;
 }
 

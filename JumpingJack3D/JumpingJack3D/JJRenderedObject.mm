@@ -22,6 +22,7 @@
 @synthesize normals;
 @synthesize vertexCount;
 @synthesize camera;
+
 @synthesize visible;
 @synthesize position;
 @synthesize rotation;

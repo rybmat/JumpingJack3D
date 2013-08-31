@@ -39,10 +39,13 @@ GLuint tex;
 
 - (void) load
 {
+    NSLog(@"AssetManager: Loading shaders");
     [self loadShaders];
     NSLog(@"AssetManager: Shaders loaded");
+    NSLog(@"AssetManager: Loading textures");
     [self loadTextures];
     NSLog(@"AssetManager: Textures loaded");
+    NSLog(@"AssetManager: Loading models");
     [self loadMeshes];
     NSLog(@"AssetManager: Meshes loaded");
 }
@@ -57,7 +60,6 @@ GLuint tex;
     NSMutableDictionary* shaderPrograms = [[NSMutableDictionary alloc] init];
     
     for (NSString* key in [vertexShaderFiles allKeys]) {
-        NSLog(@"%@", key);
         JJShaderProgram* program = [[JJShaderProgram alloc] initWithVertexFile:vertexShaderFiles[key]
                                                             GeometryShaderFile:geometryShaderFiles[key]
                                                             FragmentShaderFile:fragmentShaderFiles[key]];

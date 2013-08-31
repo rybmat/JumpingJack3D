@@ -42,7 +42,7 @@ int randomMap[RANDOM_MAP_SIZE];
     if (self) {
         self.startingPosition = position;
         self.mapRefreshSize = capacity;
-        self.previousPointsCapacity = 5;
+        self.previousPointsCapacity = 20;
         self.previousPointsMarker = 0;
         self.mapCurrentSize = 0;
         self.map            = [[NSMutableArray alloc] initWithCapacity:self.mapRefreshSize];
@@ -52,17 +52,7 @@ int randomMap[RANDOM_MAP_SIZE];
         self.forwardsChance = 0.5;
         self.sidewardsChance = 0.5;
         
-        for (int i=0, j=0, k=0; i<RANDOM_MAP_SIZE; ++i) {
-            randomMap[i] = j ;
-            NSLog(@"%d %d ", i, j);
-            if (k + 1 >= RANDOM_MAP_SIZE * directionRates[j]) {
-                k = 0;
-                j++;
-            } else {
-                k++;
-            }
-        }
-    
+        [self fillRandomMap];
         [self initMap];
     }
     return self;
@@ -117,7 +107,8 @@ int randomMap[RANDOM_MAP_SIZE];
     for (NSArray* pos in self.previousPoints) {
         if ([self checkTwoPointsForSimilarity:pos second:newPoint] == YES) {
             continue;
-        } else if ([self isValidPoint:newPoint] == YES){
+        }
+        if ([self isValidPoint:newPoint] == YES){
             return YES;
         }
     }
@@ -193,5 +184,17 @@ int randomMap[RANDOM_MAP_SIZE];
              [NSNumber numberWithInt:forwards]];
 }
 
+- (void) fillRandomMap
+{
+    for (int i=0, j=0, k=0; i<RANDOM_MAP_SIZE; ++i) {
+        randomMap[i] = j ;
+        if (k + 1 >= RANDOM_MAP_SIZE * directionRates[j]) {
+            k = 0;
+            j++;
+        } else {
+            k++;
+        }
+    }
+}
 
 @end

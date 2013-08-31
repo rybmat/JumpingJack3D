@@ -17,6 +17,7 @@ break;
 
 #define ESCAPE 27
 #define SPACE 32
+#define TAB 9
 #import "JJGLView.h"
 #import "cube.h"
 #import "teapot.h"
@@ -182,6 +183,8 @@ BOOL mousePressed;
                     _case('q',   [character rotateLeft])
                     _case('e',   [character rotateRight])
                     _case(ESCAPE,[character portToCheckPoint]);
+                    _case('x',   [character changeFrameRate:180])
+                    _case('c',   [character changeFrameRate:60])
                 default:
                     NSLog(@"%u", [keyHit unsignedIntValue]);
                     break;
@@ -219,6 +222,9 @@ BOOL mousePressed;
 
 - (void) keyUp:(NSEvent*)theEvent
 {
+    if (9 == [[theEvent characters] characterAtIndex:0]) {
+        [objManager showNewBlock];
+    }
     if (keyPressed == nil) {
         keyPressed = [[NSMutableSet alloc] init];
     }

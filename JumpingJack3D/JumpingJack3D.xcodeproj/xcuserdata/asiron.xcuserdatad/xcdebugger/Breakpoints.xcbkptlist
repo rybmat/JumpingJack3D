@@ -216,11 +216,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JumpingJack3D/JJAssetManager.mm"
-         timestampString = "398362342.406692"
+         timestampString = "399576945.95096"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "67"
-         endingLineNumber = "67"
+         startingLineNumber = "69"
+         endingLineNumber = "69"
          landmarkName = "-loadShaders"
          landmarkType = "5">
       </FileBreakpoint>
@@ -528,150 +528,7 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JumpingJack3D/JJAssetManager.mm"
-         timestampString = "398362342.406692"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "128"
-         endingLineNumber = "128"
-         landmarkName = "-loadTexture:withColorMode:texHandler:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "JumpingJack3D/JJAssetManager.mm"
-         timestampString = "398362342.406692"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "136"
-         endingLineNumber = "136"
-         landmarkName = "-loadTextureOtherThanDDS:withColorMode:texHandler:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "JumpingJack3D/JJAssetManager.mm"
-         timestampString = "398362342.406692"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "151"
-         endingLineNumber = "151"
-         landmarkName = "-loadTextureOtherThanDDS:withColorMode:texHandler:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "JumpingJack3D/JJAssetManager.mm"
-         timestampString = "398362342.406692"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "123"
-         endingLineNumber = "123"
-         landmarkName = "-loadTexture:withColorMode:texHandler:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "JumpingJack3D/JJAssetManager.mm"
-         timestampString = "398362342.406692"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "125"
-         endingLineNumber = "125"
-         landmarkName = "-loadTexture:withColorMode:texHandler:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "JumpingJack3D/JJAssetManager.mm"
-         timestampString = "398362342.406692"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "153"
-         endingLineNumber = "153"
-         landmarkName = "-loadTextureOtherThanDDS:withColorMode:texHandler:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "JumpingJack3D/JJAssetManager.mm"
-         timestampString = "398362342.406692"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "162"
-         endingLineNumber = "162"
-         landmarkName = "-loadTextureOtherThanDDS:withColorMode:texHandler:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "JumpingJack3D/JJAssetManager.mm"
-         timestampString = "398362342.406692"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "93"
-         endingLineNumber = "93"
-         landmarkName = "-loadTextures"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "JumpingJack3D/JJAssetManager.mm"
-         timestampString = "398362342.406692"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "108"
-         endingLineNumber = "108"
-         landmarkName = "-loadTextures"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "JumpingJack3D/JJAssetManager.mm"
-         timestampString = "398362342.406692"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "124"
-         endingLineNumber = "124"
-         landmarkName = "-loadTexture:withColorMode:texHandler:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "JumpingJack3D/JJAssetManager.mm"
-         timestampString = "398362342.406692"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "126"
-         endingLineNumber = "126"
-         landmarkName = "-loadTexture:withColorMode:texHandler:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "JumpingJack3D/JJAssetManager.mm"
-         timestampString = "398362342.406692"
+         timestampString = "399576945.95096"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "130"
@@ -684,12 +541,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JumpingJack3D/JJAssetManager.mm"
-         timestampString = "398362342.406692"
+         timestampString = "399576945.95096"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "118"
-         endingLineNumber = "118"
-         landmarkName = "-loadTextures"
+         startingLineNumber = "138"
+         endingLineNumber = "138"
+         landmarkName = "-loadTextureOtherThanDDS:withColorMode:texHandler:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -697,12 +554,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JumpingJack3D/JJAssetManager.mm"
-         timestampString = "398362342.406692"
+         timestampString = "399576945.95096"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "119"
-         endingLineNumber = "119"
-         landmarkName = "-loadTextures"
+         startingLineNumber = "153"
+         endingLineNumber = "153"
+         landmarkName = "-loadTextureOtherThanDDS:withColorMode:texHandler:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -710,7 +567,59 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JumpingJack3D/JJAssetManager.mm"
-         timestampString = "398362342.406692"
+         timestampString = "399576945.95096"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "125"
+         endingLineNumber = "125"
+         landmarkName = "-loadTexture:withColorMode:texHandler:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "JumpingJack3D/JJAssetManager.mm"
+         timestampString = "399576945.95096"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "127"
+         endingLineNumber = "127"
+         landmarkName = "-loadTexture:withColorMode:texHandler:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "JumpingJack3D/JJAssetManager.mm"
+         timestampString = "399576945.95096"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "155"
+         endingLineNumber = "155"
+         landmarkName = "-loadTextureOtherThanDDS:withColorMode:texHandler:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "JumpingJack3D/JJAssetManager.mm"
+         timestampString = "399576945.95096"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "164"
+         endingLineNumber = "164"
+         landmarkName = "-loadTextureOtherThanDDS:withColorMode:texHandler:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "JumpingJack3D/JJAssetManager.mm"
+         timestampString = "399576945.95096"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "95"
@@ -723,7 +632,85 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JumpingJack3D/JJAssetManager.mm"
-         timestampString = "398362342.406692"
+         timestampString = "399576945.95096"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "110"
+         endingLineNumber = "110"
+         landmarkName = "-loadTextures"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "JumpingJack3D/JJAssetManager.mm"
+         timestampString = "399576945.95096"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "126"
+         endingLineNumber = "126"
+         landmarkName = "-loadTexture:withColorMode:texHandler:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "JumpingJack3D/JJAssetManager.mm"
+         timestampString = "399576945.95096"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "128"
+         endingLineNumber = "128"
+         landmarkName = "-loadTexture:withColorMode:texHandler:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "JumpingJack3D/JJAssetManager.mm"
+         timestampString = "399576945.95096"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "132"
+         endingLineNumber = "132"
+         landmarkName = "-loadTexture:withColorMode:texHandler:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "JumpingJack3D/JJAssetManager.mm"
+         timestampString = "399576945.95096"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "120"
+         endingLineNumber = "120"
+         landmarkName = "-loadTextures"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "JumpingJack3D/JJAssetManager.mm"
+         timestampString = "399576945.95096"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "121"
+         endingLineNumber = "121"
+         landmarkName = "-loadTextures"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "JumpingJack3D/JJAssetManager.mm"
+         timestampString = "399576945.95096"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "97"
@@ -736,59 +723,7 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JumpingJack3D/JJAssetManager.mm"
-         timestampString = "398362342.406692"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "100"
-         endingLineNumber = "100"
-         landmarkName = "-loadTextures"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "JumpingJack3D/JJAssetManager.mm"
-         timestampString = "398362342.406692"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "135"
-         endingLineNumber = "135"
-         landmarkName = "-loadTextureOtherThanDDS:withColorMode:texHandler:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "JumpingJack3D/JJAssetManager.mm"
-         timestampString = "398362342.406692"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "168"
-         endingLineNumber = "168"
-         landmarkName = "-loadTextureDDS:texHandler:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "JumpingJack3D/JJAssetManager.mm"
-         timestampString = "398362342.406692"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "98"
-         endingLineNumber = "98"
-         landmarkName = "-loadTextures"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "JumpingJack3D/JJAssetManager.mm"
-         timestampString = "398362342.406692"
+         timestampString = "399576945.95096"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "99"
@@ -801,11 +736,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JumpingJack3D/JJAssetManager.mm"
-         timestampString = "398362342.406692"
+         timestampString = "399576945.95096"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "104"
-         endingLineNumber = "104"
+         startingLineNumber = "102"
+         endingLineNumber = "102"
          landmarkName = "-loadTextures"
          landmarkType = "5">
       </FileBreakpoint>
@@ -814,11 +749,76 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JumpingJack3D/JJAssetManager.mm"
-         timestampString = "398362342.406692"
+         timestampString = "399576945.95096"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "115"
-         endingLineNumber = "115"
+         startingLineNumber = "137"
+         endingLineNumber = "137"
+         landmarkName = "-loadTextureOtherThanDDS:withColorMode:texHandler:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "JumpingJack3D/JJAssetManager.mm"
+         timestampString = "399576945.95096"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "170"
+         endingLineNumber = "170"
+         landmarkName = "-loadTextureDDS:texHandler:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "JumpingJack3D/JJAssetManager.mm"
+         timestampString = "399576945.95096"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "100"
+         endingLineNumber = "100"
+         landmarkName = "-loadTextures"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "JumpingJack3D/JJAssetManager.mm"
+         timestampString = "399576945.95096"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "101"
+         endingLineNumber = "101"
+         landmarkName = "-loadTextures"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "JumpingJack3D/JJAssetManager.mm"
+         timestampString = "399576945.95096"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "106"
+         endingLineNumber = "106"
+         landmarkName = "-loadTextures"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "JumpingJack3D/JJAssetManager.mm"
+         timestampString = "399576945.95096"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "117"
+         endingLineNumber = "117"
          landmarkName = "-loadTextures"
          landmarkType = "5">
       </FileBreakpoint>
@@ -840,11 +840,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JumpingJack3D/JJMapGenerator.mm"
-         timestampString = "398815551.576308"
+         timestampString = "399576387.34815"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "82"
-         endingLineNumber = "82"
+         startingLineNumber = "72"
+         endingLineNumber = "72"
          landmarkName = "-initMap"
          landmarkType = "5">
       </FileBreakpoint>
@@ -853,11 +853,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JumpingJack3D/JJMapGenerator.mm"
-         timestampString = "398815551.576308"
+         timestampString = "399576387.34815"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "83"
-         endingLineNumber = "83"
+         startingLineNumber = "73"
+         endingLineNumber = "73"
          landmarkName = "-initMap"
          landmarkType = "5">
       </FileBreakpoint>
@@ -866,11 +866,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JumpingJack3D/JJMapGenerator.mm"
-         timestampString = "398815551.576308"
+         timestampString = "399576387.34815"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "85"
-         endingLineNumber = "85"
+         startingLineNumber = "75"
+         endingLineNumber = "75"
          landmarkName = "-initMap"
          landmarkType = "5">
       </FileBreakpoint>
@@ -879,11 +879,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JumpingJack3D/JJMapGenerator.mm"
-         timestampString = "398815551.576308"
+         timestampString = "399576387.34815"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "87"
-         endingLineNumber = "87"
+         startingLineNumber = "77"
+         endingLineNumber = "77"
          landmarkName = "-initMap"
          landmarkType = "5">
       </FileBreakpoint>
@@ -892,11 +892,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JumpingJack3D/JJMapGenerator.mm"
-         timestampString = "398819878.45806"
+         timestampString = "399576387.34815"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "116"
-         endingLineNumber = "116"
+         startingLineNumber = "106"
+         endingLineNumber = "106"
          landmarkName = "-checkPossiblePoint:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -905,11 +905,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JumpingJack3D/JJMapGenerator.mm"
-         timestampString = "398819878.45806"
+         timestampString = "399576387.34815"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "118"
-         endingLineNumber = "118"
+         startingLineNumber = "108"
+         endingLineNumber = "108"
          landmarkName = "-checkPossiblePoint:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -918,11 +918,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JumpingJack3D/JJMapGenerator.mm"
-         timestampString = "398819878.45806"
+         timestampString = "399576387.34815"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "119"
-         endingLineNumber = "119"
+         startingLineNumber = "109"
+         endingLineNumber = "109"
          landmarkName = "-checkPossiblePoint:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -931,11 +931,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JumpingJack3D/JJMapGenerator.mm"
-         timestampString = "398819878.45806"
+         timestampString = "399579480.218117"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "121"
-         endingLineNumber = "121"
+         startingLineNumber = "112"
+         endingLineNumber = "112"
          landmarkName = "-checkPossiblePoint:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -944,11 +944,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JumpingJack3D/JJMapGenerator.mm"
-         timestampString = "398819878.45806"
+         timestampString = "399579480.218117"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "163"
-         endingLineNumber = "163"
+         startingLineNumber = "154"
+         endingLineNumber = "154"
          landmarkName = "-randomizeDirection"
          landmarkType = "5">
       </FileBreakpoint>
@@ -957,11 +957,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JumpingJack3D/JJMapGenerator.mm"
-         timestampString = "398819878.45806"
+         timestampString = "399579480.218117"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "120"
-         endingLineNumber = "120"
+         startingLineNumber = "110"
+         endingLineNumber = "110"
          landmarkName = "-checkPossiblePoint:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -970,11 +970,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JumpingJack3D/JJMapGenerator.mm"
-         timestampString = "398819878.45806"
+         timestampString = "399579480.218117"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "127"
-         endingLineNumber = "127"
+         startingLineNumber = "118"
+         endingLineNumber = "118"
          landmarkName = "-isValidPoint:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -983,11 +983,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JumpingJack3D/JJMapGenerator.mm"
-         timestampString = "398819878.45806"
+         timestampString = "399579480.218117"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "130"
-         endingLineNumber = "130"
+         startingLineNumber = "121"
+         endingLineNumber = "121"
          landmarkName = "-isValidPoint:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -996,11 +996,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JumpingJack3D/JJMapGenerator.mm"
-         timestampString = "398819878.45806"
+         timestampString = "399579480.218117"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "131"
-         endingLineNumber = "131"
+         startingLineNumber = "122"
+         endingLineNumber = "122"
          landmarkName = "-isValidPoint:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1009,11 +1009,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JumpingJack3D/JJMapGenerator.mm"
-         timestampString = "398815551.576308"
+         timestampString = "399576387.34815"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "89"
-         endingLineNumber = "89"
+         startingLineNumber = "79"
+         endingLineNumber = "79"
          landmarkName = "-initMap"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1022,11 +1022,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JumpingJack3D/JJMapGenerator.mm"
-         timestampString = "398819878.45806"
+         timestampString = "399579480.218117"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "135"
-         endingLineNumber = "135"
+         startingLineNumber = "126"
+         endingLineNumber = "126"
          landmarkName = "-isValidPoint:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1035,11 +1035,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JumpingJack3D/JJMapGenerator.mm"
-         timestampString = "398815551.576308"
+         timestampString = "399576387.34815"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "84"
-         endingLineNumber = "84"
+         startingLineNumber = "74"
+         endingLineNumber = "74"
          landmarkName = "-initMap"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1048,11 +1048,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JumpingJack3D/JJMapGenerator.mm"
-         timestampString = "398817523.954622"
+         timestampString = "399576387.34815"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "96"
-         endingLineNumber = "96"
+         startingLineNumber = "86"
+         endingLineNumber = "86"
          landmarkName = "-initMap"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1152,11 +1152,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JumpingJack3D/JJRenderedObject.mm"
-         timestampString = "399433717.171418"
+         timestampString = "399576387.34815"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "42"
-         endingLineNumber = "42"
+         startingLineNumber = "43"
+         endingLineNumber = "43"
          landmarkName = "-initWithShaderProgram:Camera:Vertices:Normals:VertexCount:PositionX:Y:Z:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1165,11 +1165,13 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JumpingJack3D/JJGLView.mm"
-         timestampString = "399573847.726362"
+         timestampString = "399578451.6856"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "246"
-         endingLineNumber = "246">
+         startingLineNumber = "252"
+         endingLineNumber = "252"
+         landmarkName = "@implementation JJGLView"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -1189,7 +1191,7 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JumpingJack3D/JJMapGenerator.mm"
-         timestampString = "398815551.576308"
+         timestampString = "399576387.34815"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "55"
@@ -1202,37 +1204,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JumpingJack3D/JJMapGenerator.mm"
-         timestampString = "398815551.576308"
+         timestampString = "399579480.218117"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "64"
-         endingLineNumber = "64"
-         landmarkName = "-initWithStartingPosition:mapStartingCapacity:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "JumpingJack3D/JJMapGenerator.mm"
-         timestampString = "398815551.576308"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "65"
-         endingLineNumber = "65"
-         landmarkName = "-initWithStartingPosition:mapStartingCapacity:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "JumpingJack3D/JJMapGenerator.mm"
-         timestampString = "398819878.45806"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "183"
-         endingLineNumber = "183"
+         startingLineNumber = "174"
+         endingLineNumber = "174"
          landmarkName = "-randomizeDirection"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1241,11 +1217,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JumpingJack3D/JJMapGenerator.mm"
-         timestampString = "398819878.45806"
+         timestampString = "399579480.218117"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "129"
-         endingLineNumber = "129"
+         startingLineNumber = "120"
+         endingLineNumber = "120"
          landmarkName = "-isValidPoint:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1254,11 +1230,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JumpingJack3D/JJMapGenerator.mm"
-         timestampString = "398819878.45806"
+         timestampString = "399579480.218117"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "133"
-         endingLineNumber = "133"
+         startingLineNumber = "124"
+         endingLineNumber = "124"
          landmarkName = "-isValidPoint:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1267,11 +1243,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JumpingJack3D/JJMapGenerator.mm"
-         timestampString = "398819878.45806"
+         timestampString = "399579480.218117"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "134"
-         endingLineNumber = "134"
+         startingLineNumber = "125"
+         endingLineNumber = "125"
          landmarkName = "-isValidPoint:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1293,11 +1269,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JumpingJack3D/JJMapGenerator.mm"
-         timestampString = "398817330.908942"
+         timestampString = "399576387.34815"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "68"
-         endingLineNumber = "68"
+         startingLineNumber = "58"
+         endingLineNumber = "58"
          landmarkName = "-initWithStartingPosition:mapStartingCapacity:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1306,11 +1282,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JumpingJack3D/JJMapGenerator.mm"
-         timestampString = "398817517.33918"
+         timestampString = "399576387.34815"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "91"
-         endingLineNumber = "91"
+         startingLineNumber = "81"
+         endingLineNumber = "81"
          landmarkName = "-initMap"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1319,11 +1295,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JumpingJack3D/JJAssetManager.mm"
-         timestampString = "398817879.880724"
+         timestampString = "399576945.95096"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "165"
-         endingLineNumber = "165"
+         startingLineNumber = "167"
+         endingLineNumber = "167"
          landmarkName = "@implementation JJAssetManager"
          landmarkType = "3">
       </FileBreakpoint>
@@ -1332,11 +1308,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JumpingJack3D/JJAssetManager.mm"
-         timestampString = "398817881.572155"
+         timestampString = "399576945.95096"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "166"
-         endingLineNumber = "166"
+         startingLineNumber = "168"
+         endingLineNumber = "168"
          landmarkName = "-loadTextureDDS:texHandler:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1345,11 +1321,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JumpingJack3D/JJObjectManager.mm"
-         timestampString = "399494604.892338"
+         timestampString = "399578519.181397"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "127"
-         endingLineNumber = "127"
+         startingLineNumber = "128"
+         endingLineNumber = "128"
          landmarkName = "-renderObjects"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1358,12 +1334,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JumpingJack3D/JJObjectManager.mm"
-         timestampString = "399494604.892338"
+         timestampString = "399578519.181397"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "108"
          endingLineNumber = "108"
-         landmarkName = "-showNewBlock"
+         landmarkName = "-generateWorld"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -1371,11 +1347,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JumpingJack3D/JJRenderedObject.mm"
-         timestampString = "399433717.171418"
+         timestampString = "399576387.34815"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "65"
-         endingLineNumber = "65"
+         startingLineNumber = "66"
+         endingLineNumber = "66"
          landmarkName = "-moveY:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1512,11 +1488,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JumpingJack3D/JJObjectManager.mm"
-         timestampString = "399494604.892338"
+         timestampString = "399578519.181397"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "149"
-         endingLineNumber = "149"
+         startingLineNumber = "150"
+         endingLineNumber = "150"
          landmarkName = "-calculatePhysics"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1525,11 +1501,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JumpingJack3D/JJObjectManager.mm"
-         timestampString = "399494604.892338"
+         timestampString = "399578519.181397"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "159"
-         endingLineNumber = "159"
+         startingLineNumber = "160"
+         endingLineNumber = "160"
          landmarkName = "-calculatePhysics"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1538,11 +1514,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JumpingJack3D/JJObjectManager.mm"
-         timestampString = "399494604.892338"
+         timestampString = "399578519.181397"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "156"
-         endingLineNumber = "156"
+         startingLineNumber = "157"
+         endingLineNumber = "157"
          landmarkName = "-calculatePhysics"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1551,11 +1527,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JumpingJack3D/JJObjectManager.mm"
-         timestampString = "399494604.892338"
+         timestampString = "399578519.181397"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "162"
-         endingLineNumber = "162"
+         startingLineNumber = "163"
+         endingLineNumber = "163"
          landmarkName = "-calculatePhysics"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1564,11 +1540,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JumpingJack3D/JJObjectManager.mm"
-         timestampString = "399494604.892338"
+         timestampString = "399578519.181397"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "174"
-         endingLineNumber = "174"
+         startingLineNumber = "175"
+         endingLineNumber = "175"
          landmarkName = "-calculatePhysics"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1577,11 +1553,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JumpingJack3D/JJObjectManager.mm"
-         timestampString = "399494604.892338"
+         timestampString = "399578519.181397"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "172"
-         endingLineNumber = "172"
+         startingLineNumber = "173"
+         endingLineNumber = "173"
          landmarkName = "-calculatePhysics"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1590,11 +1566,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JumpingJack3D/JJObjectManager.mm"
-         timestampString = "399494604.892338"
+         timestampString = "399578519.181397"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "170"
-         endingLineNumber = "170"
+         startingLineNumber = "171"
+         endingLineNumber = "171"
          landmarkName = "-calculatePhysics"
          landmarkType = "5">
       </FileBreakpoint>

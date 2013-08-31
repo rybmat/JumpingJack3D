@@ -101,10 +101,11 @@ glm::vec3 paddingRatios;
         //[cube scaleY:.5f];
         [cube scaleX:gridRatios.x Y:gridRatios.y Z:gridRatios.z];
         // Debugging purposes
-        //[cube setVisible:NO];
+        [cube setVisible:NO];
         [blocks addObject:cube];
     }
-    characterRef.position = characterRef.checkPoint = glm::vec3(x,y+4,z);
+    //characterRef.position = characterRef.checkPoint = glm::vec3(x,y+4,z);
+    characterRef.position = characterRef.checkPoint = glm::vec3(-10,0,-10);
 }
 
 
