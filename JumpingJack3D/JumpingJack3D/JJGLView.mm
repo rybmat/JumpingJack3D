@@ -65,7 +65,7 @@ BOOL mousePressed;
     
     camera = [[JJCamera alloc] initWithParameters:1.0f farClipping:1000.0f FoV:90.0f aspectRatio:1.0f cameraRadius:10.0f];
     
-    character = [[JJCharacter alloc] initWithShaderProgram: [assetManager getShaderProgram:@"platform"]
+    character = [[JJCharacter alloc] initWithShaderProgram: [assetManager getShaderProgram:@"character"]
                                                     Camera: camera
                                                   Vertices: [assetManager getVertices:@"ball"]
                                                    Normals: [assetManager getNormals:@"ball"]

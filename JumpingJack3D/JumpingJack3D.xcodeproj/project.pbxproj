@@ -46,6 +46,22 @@
 		10FE01AB1794E01A005A218E /* TODO.txt in Resources */ = {isa = PBXBuildFile; fileRef = 10FE01AA1794E01A005A218E /* TODO.txt */; };
 		6130D165178EED0B004F2FA5 /* platform.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 6130D164178EED0B004F2FA5 /* platform.vsh */; };
 		6130D167178EEF2F004F2FA5 /* platform.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 6130D166178EEF2F004F2FA5 /* platform.fsh */; };
+		6154A39D17D32BD500910FBF /* JJFloor.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6154A39C17D32BD500910FBF /* JJFloor.mm */; };
+		6154A39E17D32BD500910FBF /* JJFloor.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6154A39C17D32BD500910FBF /* JJFloor.mm */; };
+		6154A3A017D32C6A00910FBF /* metal_spec.tga in Resources */ = {isa = PBXBuildFile; fileRef = 6154A39F17D32C6A00910FBF /* metal_spec.tga */; };
+		6154A3A117D32C6A00910FBF /* metal_spec.tga in Resources */ = {isa = PBXBuildFile; fileRef = 6154A39F17D32C6A00910FBF /* metal_spec.tga */; };
+		6154A3A317D32DD500910FBF /* floor.vsh in Sources */ = {isa = PBXBuildFile; fileRef = 6154A3A217D32DD500910FBF /* floor.vsh */; };
+		6154A3A417D32DD500910FBF /* floor.vsh in Sources */ = {isa = PBXBuildFile; fileRef = 6154A3A217D32DD500910FBF /* floor.vsh */; };
+		6154A3A617D32DE100910FBF /* floor.fsh in Sources */ = {isa = PBXBuildFile; fileRef = 6154A3A517D32DE100910FBF /* floor.fsh */; };
+		6154A3A717D32DE100910FBF /* floor.fsh in Sources */ = {isa = PBXBuildFile; fileRef = 6154A3A517D32DE100910FBF /* floor.fsh */; };
+		6154A3A817D32E4E00910FBF /* floor.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 6154A3A217D32DD500910FBF /* floor.vsh */; };
+		6154A3A917D32E4E00910FBF /* floor.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 6154A3A517D32DE100910FBF /* floor.fsh */; };
+		6154A3AE17D3336900910FBF /* character.vsh in Sources */ = {isa = PBXBuildFile; fileRef = 6154A3AD17D3336900910FBF /* character.vsh */; };
+		6154A3AF17D3336900910FBF /* character.vsh in Sources */ = {isa = PBXBuildFile; fileRef = 6154A3AD17D3336900910FBF /* character.vsh */; };
+		6154A3B117D3337600910FBF /* character.fsh in Sources */ = {isa = PBXBuildFile; fileRef = 6154A3B017D3337600910FBF /* character.fsh */; };
+		6154A3B217D3337600910FBF /* character.fsh in Sources */ = {isa = PBXBuildFile; fileRef = 6154A3B017D3337600910FBF /* character.fsh */; };
+		6154A3B317D333BD00910FBF /* character.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 6154A3AD17D3336900910FBF /* character.vsh */; };
+		6154A3B417D333BD00910FBF /* character.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 6154A3B017D3337600910FBF /* character.fsh */; };
 		61D3A34F17D0A4AF0050E34E /* star.fsh in Sources */ = {isa = PBXBuildFile; fileRef = 61D3A34E17D0A4AE0050E34E /* star.fsh */; };
 		61D3A35117D0A6E90050E34E /* star.vsh in Sources */ = {isa = PBXBuildFile; fileRef = 61D3A35017D0A6E90050E34E /* star.vsh */; };
 		61D82370178DE0B700ABF4E4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61D8236F178DE0B700ABF4E4 /* Cocoa.framework */; };
@@ -121,6 +137,13 @@
 		10FE01AA1794E01A005A218E /* TODO.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO.txt; sourceTree = "<group>"; };
 		6130D164178EED0B004F2FA5 /* platform.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = platform.vsh; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.glsl; };
 		6130D166178EEF2F004F2FA5 /* platform.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = platform.fsh; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.glsl; };
+		6154A39B17D32BD500910FBF /* JJFloor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJFloor.h; sourceTree = "<group>"; };
+		6154A39C17D32BD500910FBF /* JJFloor.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = JJFloor.mm; sourceTree = "<group>"; };
+		6154A39F17D32C6A00910FBF /* metal_spec.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = metal_spec.tga; sourceTree = "<group>"; };
+		6154A3A217D32DD500910FBF /* floor.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = floor.vsh; sourceTree = "<group>"; };
+		6154A3A517D32DE100910FBF /* floor.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = floor.fsh; sourceTree = "<group>"; };
+		6154A3AD17D3336900910FBF /* character.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = character.vsh; sourceTree = "<group>"; };
+		6154A3B017D3337600910FBF /* character.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = character.fsh; sourceTree = "<group>"; };
 		61D3A34E17D0A4AE0050E34E /* star.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = star.fsh; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.glsl; };
 		61D3A35017D0A6E90050E34E /* star.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = star.vsh; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.glsl; };
 		61D8236C178DE0B700ABF4E4 /* JumpingJack3D.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JumpingJack3D.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -297,6 +320,7 @@
 				1018D38717C7D0E8009494D8 /* sphere.jpg */,
 				10BE5C3517BE8E5F00F5A07B /* floor.jpg */,
 				109709F617B6774600B51086 /* metal.tga */,
+				6154A39F17D32C6A00910FBF /* metal_spec.tga */,
 				10BE5C2D17BE868E00F5A07B /* cube.jpg */,
 				10FE019D17945ACB005A218E /* platform.png */,
 			);
@@ -310,6 +334,10 @@
 				61D3A35017D0A6E90050E34E /* star.vsh */,
 				6130D164178EED0B004F2FA5 /* platform.vsh */,
 				6130D166178EEF2F004F2FA5 /* platform.fsh */,
+				6154A3A217D32DD500910FBF /* floor.vsh */,
+				6154A3A517D32DE100910FBF /* floor.fsh */,
+				6154A3AD17D3336900910FBF /* character.vsh */,
+				6154A3B017D3337600910FBF /* character.fsh */,
 			);
 			path = shaders;
 			sourceTree = "<group>";
@@ -332,6 +360,8 @@
 				61D8239D178E11E800ABF4E4 /* JJStaticObject.mm */,
 				61D8239F178E135600ABF4E4 /* JJStaticPlatform.h */,
 				61D823A0178E135600ABF4E4 /* JJStaticPlatform.mm */,
+				6154A39B17D32BD500910FBF /* JJFloor.h */,
+				6154A39C17D32BD500910FBF /* JJFloor.mm */,
 				61D823A2178E137B00ABF4E4 /* JJStaticEnemy.h */,
 				61D823A3178E137B00ABF4E4 /* JJStaticEnemy.mm */,
 				61D823A5178E13BE00ABF4E4 /* JJDynamicObject.h */,
@@ -488,6 +518,7 @@
 				10FE018417937AAA005A218E /* InfoPlist.strings in Resources */,
 				109709F817B6774600B51086 /* metal.tga in Resources */,
 				10970A0717B6E58A00B51086 /* cube.obj in Resources */,
+				6154A3A117D32C6A00910FBF /* metal_spec.tga in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -495,6 +526,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6154A3B317D333BD00910FBF /* character.vsh in Resources */,
+				6154A3B417D333BD00910FBF /* character.fsh in Resources */,
+				6154A3A817D32E4E00910FBF /* floor.vsh in Resources */,
+				6154A3A917D32E4E00910FBF /* floor.fsh in Resources */,
 				103552EB17D0E37800FFB359 /* star.fsh in Resources */,
 				103552EC17D0E37800FFB359 /* star.vsh in Resources */,
 				61D8237A178DE0B700ABF4E4 /* InfoPlist.strings in Resources */,
@@ -521,6 +556,7 @@
 				1023A89417CF96DF007659CE /* circle.obj in Resources */,
 				10A2F64317CFCD020006F1EA /* star.obj in Resources */,
 				10A2F64517CFCD0A0006F1EA /* star.jpg in Resources */,
+				6154A3A017D32C6A00910FBF /* metal_spec.tga in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -552,6 +588,11 @@
 				10FE01A61794BAF5005A218E /* JJMeshTests.mm in Sources */,
 				10C577C517BEE9C500007FCE /* JJMapGeneratorTests.mm in Sources */,
 				1018D38B17C7DE77009494D8 /* JJCharacterTests.mm in Sources */,
+				6154A39E17D32BD500910FBF /* JJFloor.mm in Sources */,
+				6154A3A417D32DD500910FBF /* floor.vsh in Sources */,
+				6154A3A717D32DE100910FBF /* floor.fsh in Sources */,
+				6154A3AF17D3336900910FBF /* character.vsh in Sources */,
+				6154A3B217D3337600910FBF /* character.fsh in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -580,6 +621,11 @@
 				10BE5C3B17BECA4D00F5A07B /* JJMapGenerator.mm in Sources */,
 				61D3A34F17D0A4AF0050E34E /* star.fsh in Sources */,
 				61D3A35117D0A6E90050E34E /* star.vsh in Sources */,
+				6154A39D17D32BD500910FBF /* JJFloor.mm in Sources */,
+				6154A3A317D32DD500910FBF /* floor.vsh in Sources */,
+				6154A3A617D32DE100910FBF /* floor.fsh in Sources */,
+				6154A3AE17D3336900910FBF /* character.vsh in Sources */,
+				6154A3B117D3337600910FBF /* character.fsh in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

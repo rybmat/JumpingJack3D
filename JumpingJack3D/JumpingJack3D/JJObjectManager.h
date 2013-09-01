@@ -14,6 +14,7 @@
 #import "JJAssetManager.h"
 #import "JJCharacter.h"
 #import "JJCamera.h"
+#import "JJFloor.h"
 
 @interface JJObjectManager : NSObject
 

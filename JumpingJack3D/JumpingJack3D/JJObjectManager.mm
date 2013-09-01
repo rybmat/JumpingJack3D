@@ -17,7 +17,7 @@ NSMutableArray* blocks;
 
 JJMapGenerator* mapGenerator;
 JJCharacter* characterRef;
-JJStaticPlatform* baseFloor;
+JJFloor* baseFloor;
 JJAssetManager* assetManagerRef;
 JJCamera* cameraRef;
 
@@ -39,7 +39,7 @@ glm::vec3 paddingRatios;
         
         enemies = [[NSMutableArray alloc] init];
         blocks = [[NSMutableArray alloc] init];
-        baseFloor = [[JJStaticPlatform alloc] initWithShaderProgram: [assetManagerRef getShaderProgram:@"platform"]
+        baseFloor = [[JJFloor alloc] initWithShaderProgram: [assetManagerRef getShaderProgram:@"floor"]
                                                                Camera: cameraRef
                                                              Vertices: [assetManagerRef getVertices:@"circle"]
                                                               Normals: [assetManagerRef getNormals:@"circle"]
@@ -97,11 +97,12 @@ glm::vec3 paddingRatios;
                                                    VertexCount: [assetManagerRef getVertexCount:@"cube"]
                                                      PositionX: x Y: y Z: z
                                                        Texture: [assetManagerRef getTexture: @"metal"]
+                                                      Texture2: [assetManagerRef getTexture: @"metal_spec"]
                                                      TexCoords: [assetManagerRef getUvs:@"cube"]];
         //[cube scaleY:.5f];
         [cube scaleX:gridRatios.x Y:gridRatios.y Z:gridRatios.z];
         // Debugging purposes
-        [cube setVisible:NO];
+        //[cube setVisible:NO];
         [blocks addObject:cube];
     }
     //characterRef.position = characterRef.checkPoint = glm::vec3(x,y+4,z);

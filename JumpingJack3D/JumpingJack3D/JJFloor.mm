@@ -1,17 +1,17 @@
 //
-//  JJStaticPlatform.m
+//  JJFloor.m
 //  JumpingJack3D
 //
-//  Created by Mateusz Rybarski on 11.07.2013.
+//  Created by Mateusz Rybarski on 01.09.2013.
 //  Copyright (c) 2013 Mateusz Rybarski. All rights reserved.
 //
 
-#import "JJStaticPlatform.h"
+#import "JJFloor.h"
 
-@implementation JJStaticPlatform
+@implementation JJFloor
 
 
-- (id) initWithShaderProgram: (JJShaderProgram*) shProg Camera: (JJCamera*) cam Vertices: (float*) verts Normals: (float*) norms VertexCount: (int) vCount PositionX: (float) x Y: (float) y Z: (float) z Texture: (GLuint) tex Texture2: (GLuint)tex1 TexCoords: (float*) tCoords {
+- (id) initWithShaderProgram: (JJShaderProgram*) shProg Camera: (JJCamera*) cam Vertices: (float*) verts Normals: (float*) norms VertexCount: (int) vCount PositionX: (float) x Y: (float) y Z: (float) z Texture: (GLuint) tex TexCoords: (float*) tCoords {
     
     self = [super initWithShaderProgram:shProg
                                  Camera:cam
@@ -23,7 +23,6 @@
                                       Z:z];
     
     _tex0 = tex;
-    _tex1 = tex1;
     _texCoords0 = tCoords;
     
     [self setupVBO];
@@ -82,8 +81,6 @@
     
     glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, _tex0);
-    glActiveTexture(GL_TEXTURE1);
-    glBindTexture(GL_TEXTURE_2D, _tex1);
     
     [[self shaderProgram] use];
     
@@ -91,7 +88,6 @@
 	glUniformMatrix4fv([[self shaderProgram] getUniformLocation:"V" ],1, false, glm::value_ptr([[self camera] viewMatrix]));
 	glUniformMatrix4fv([[self shaderProgram] getUniformLocation:"M"],1, false, glm::value_ptr([self constructModelMatrix]));
 	glUniform1i([[self shaderProgram] getUniformLocation:"textureMap0"], 0);
-    glUniform1i([[self shaderProgram] getUniformLocation:"textureMap1"], 1);
     glUniform4fv([[self shaderProgram] getUniformLocation:"lp0"], 1, [JJLight getFirstLight]);
     glUniform4fv([[self shaderProgram] getUniformLocation:"lp1"], 1, [JJLight getSecondLight]);
     
