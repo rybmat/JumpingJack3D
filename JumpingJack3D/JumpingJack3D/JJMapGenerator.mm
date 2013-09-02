@@ -6,7 +6,9 @@
 //  Copyright (c) 2013 Mateusz Rybarski. All rights reserved.
 //
 
-#define RANDOM_MAP_SIZE 10000
+#define RANDOM_MAP_SIZE   10000
+#define MAX_PATTERN_SIZE      8
+#define PROPABILITY_MAP_SIZE 17
 
 #define _case(something,X,Y,Z) case (something):\
                                 sidewards = X;\
@@ -14,6 +16,10 @@
                                 forwards = Z;\
                               break;
 
+#define _morph_rule(dir, amount) case (dir): \
+                            switchPattern[dir][dir ## _GROUND] *= amount; \
+                            switchPattern[dir][dir ## _UP] = 1 - switchPattern[dir][dir ## _GROUND]; \
+                        break;
 
 #import "JJMapGenerator.h"
 #import "JJMapGeneratorPrivate.h"
@@ -25,20 +31,36 @@ enum platformDirections {FORWARD_GROUND, BACKWARD_GROUND, LEFT_GROUND, RIGHT_GRO
                          FORWARD_UP, BACKWARD_UP, LEFT_UP, RIGHT_UP,
                          FORWARD_LEFT_UP, FORWARD_RIGHT_UP, BACKWARD_LEFT_UP, BACKWARD_RIGHT_UP, MID_UP};
 
+enum patternSignature { FORWARD_LEFT, LEFT, BACKWARD_LEFT, BACKWARD, BACKWARD_RIGHT, RIGHT, FORWARD_RIGHT, FORWARD };
+
 // has to add up to 1.0f
-//float directionRates[17] = { 0.1f, 0.1f, 0.1f, 0.1f, 0.05f, 0.05f, 0.05f, 0.05f, 0.05f, 0.05f, 0.05f, 0.05f, 0.05f, 0.05f, 0.05f, 0.05f, 0.0f };
-//float directionRates[17] = { 0.05f, 0.05f, 0.05f, 0.05f, 0.0f, 0.0f, 0.0f, 0.0f, 0.2f, 0.2f, 0.2f, 0.2f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f };
+//float directionRates[PROPABILITY_MAP_SIZE] = { 0.1f, 0.1f, 0.1f, 0.1f, 0.05f, 0.05f, 0.05f, 0.05f, 0.05f, 0.05f, 0.05f, 0.05f, 0.05f, 0.05f, 0.05f, 0.05f, 0.0f };
+//float directionRates[PROPABILITY_MAP_SIZE] = { 0.05f, 0.05f, 0.05f, 0.05f, 0.0f, 0.0f, 0.0f, 0.0f, 0.2f, 0.2f, 0.2f, 0.2f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f };
 
-float leftForwardPattern[17]   = { 0.1f, 0.0f, 0.1f, 0.0f, 0.15f, 0.0f,  0.0f,  0.0f,  0.25f, 0.0f,  0.25f, 0.0f,  0.15f, 0.0f,  0.0f,  0.0f,  0.0f };
-float rightForwardPattern[17]  = { 0.1f, 0.0f, 0.0f, 0.1f, 0.0f,  0.15f, 0.0f,  0.0f,  0.25f, 0.0f,  0.0f,  0.25f, 0.0f,  0.15f, 0.0f,  0.0f,  0.0f };
-float leftBackwardPattern[17]  = { 0.0f, 0.1f, 0.1f, 0.0f, 0.0f,  0.0f,  0.15f, 0.0f,  0.0f,  0.25f, 0.25f, 0.0f,  0.0f,  0.0f,  0.15f, 0.0f,  0.0f };
-float rightBackwardPattern[17] = { 0.0f, 0.1f, 0.0f, 0.1f, 0.0f,  0.0f,  0.0f,  0.15f, 0.0f,  0.25f, 0.0f,  0.25f, 0.0f,  0.0f,  0.0f,  0.15f, 0.0f };
+    
+// DESCRIPTION                                        FG    BG    LG    RG    FLG    FRG    BLG    BRG    FU     BU     LU     RU     FLU    FRU    BLU    BRU    MU
+float leftForwardPattern[PROPABILITY_MAP_SIZE]   = { 0.1f, 0.0f, 0.1f, 0.0f, 0.15f, 0.0f,  0.0f,  0.0f,  0.25f, 0.0f,  0.25f, 0.0f,  0.15f, 0.0f,  0.0f,  0.0f,  0.0f };
+float rightForwardPattern[PROPABILITY_MAP_SIZE]  = { 0.1f, 0.0f, 0.0f, 0.1f, 0.0f,  0.15f, 0.0f,  0.0f,  0.25f, 0.0f,  0.0f,  0.25f, 0.0f,  0.15f, 0.0f,  0.0f,  0.0f };
+float leftBackwardPattern[PROPABILITY_MAP_SIZE]  = { 0.0f, 0.1f, 0.1f, 0.0f, 0.0f,  0.0f,  0.15f, 0.0f,  0.0f,  0.25f, 0.25f, 0.0f,  0.0f,  0.0f,  0.15f, 0.0f,  0.0f };
+float rightBackwardPattern[PROPABILITY_MAP_SIZE] = { 0.0f, 0.1f, 0.0f, 0.1f, 0.0f,  0.0f,  0.0f,  0.15f, 0.0f,  0.25f, 0.0f,  0.25f, 0.0f,  0.0f,  0.0f,  0.15f, 0.0f };
 
-float* switchPattern[4] = {&leftForwardPattern[0], &leftBackwardPattern[0], &rightBackwardPattern[0], &rightForwardPattern[0]};
+float leftPattern[PROPABILITY_MAP_SIZE]          = { 0.0f, 0.0f, 0.5f, 0.0f, 0.0f,  0.0f, 0.0f,   0.0f,  0.0f,  0.0f,  0.5f,  0.0f,  0.0f,  0.0f,  0.0f,  0.0f,  0.0f };
+float rightPattern[PROPABILITY_MAP_SIZE]         = { 0.0f, 0.0f, 0.0f, 0.5f, 0.0f,  0.0f, 0.0f,   0.0f,  0.0f,  0.0f,  0.0f,  0.5f,  0.0f,  0.0f,  0.0f,  0.0f,  0.0f };
+float forwardPattern[PROPABILITY_MAP_SIZE]       = { 0.5f, 0.0f, 0.0f, 0.0f, 0.0f,  0.0f, 0.0f,   0.0f,  0.5f,  0.0f,  0.0f,  0.0f,  0.0f,  0.0f,  0.0f,  0.0f,  0.0f };
+float backwardPattern[PROPABILITY_MAP_SIZE]      = { 0.0f, 0.5f, 0.0f, 0.0f, 0.0f,  0.0f, 0.0f,   0.0f,  0.0f,  0.5f,  0.0f,  0.0f,  0.0f,  0.0f,  0.0f,  0.0f,  0.0f };
 
-//float directionRates[17] = { 0.25f, 0.0f, 0.15f, 0.0f, 0.15f, 0.0f, 0.0f, 0.0f, 0.15f, 0.0f, 0.15f, 0.0f, 0.15f, 0.0f, 0.0f, 0.0f, 0.0f };
+float* switchPattern[MAX_PATTERN_SIZE] = {&leftForwardPattern[0],   &leftPattern[0],  &leftBackwardPattern[0], &backwardPattern[0],
+                                          &rightBackwardPattern[0], &rightPattern[0], &rightForwardPattern[0], &forwardPattern[0]};
 
-float* currentDirectionRates = NULL;
+//float directionRates[PROPABILITY_MAP_SIZE] = { 0.25f, 0.0f, 0.15f, 0.0f, 0.15f, 0.0f, 0.0f, 0.0f, 0.15f, 0.0f, 0.15f, 0.0f, 0.15f, 0.0f, 0.0f, 0.0f, 0.0f };
+
+float* patternHandler = NULL;
+
+int changeRate          = 8;
+int maxChangeRate       = 10;
+int minChangeRate       = 1;
+int changeDirection     = 1;
+int directionChangerate = 3;
 
 int currentPattern = 0;
 
@@ -65,8 +87,9 @@ int randomMap[RANDOM_MAP_SIZE];
         self.forwardsChance = 0.5;
         self.sidewardsChance = 0.5;
         
-        [self morphDirectionProbabilites];
+        [self morphMapGeneration:0];
         [self initMap];
+        NSLog(@"floor %f", ceil(2.2f));
     }
     return self;
 }
@@ -83,7 +106,7 @@ int randomMap[RANDOM_MAP_SIZE];
     [self.map addObject:self.previousPoints[0]];
     self.previousPointsMarker++;
     NSArray* newPoint;
-    for (int i = 1, j = 0; i < self.mapRefreshSize; ++i, ++j) {
+    for (int i = 1; i < self.mapRefreshSize; ++i) {
         do {
             newPoint = [self add:[self randomizeDirection] toSecond:self.map[i-1]];
             
@@ -96,10 +119,9 @@ int randomMap[RANDOM_MAP_SIZE];
         self.previousPointsMarker++;
         self.previousPointsMarker %= self.previousPointsCapacity;
         
-        if (j > 20) {
-            [self morphDirectionProbabilites];
-            j = 0;
-        }
+
+        [self morphMapGeneration:i];
+
     }
     self.mapCurrentSize = self.mapRefreshSize;
 }
@@ -202,19 +224,36 @@ int randomMap[RANDOM_MAP_SIZE];
              [NSNumber numberWithInt:forwards]];
 }
 
-- (void) morphDirectionProbabilites
+- (void) morphMapGeneration:(int)pointNumber
 {
-    currentPattern++;
-    currentPattern %= 4;
-    currentDirectionRates = switchPattern[currentPattern];
-    [self prepareRandomMap];
+    if (pointNumber % changeRate == 0) {
+        changeRate += changeDirection;
+        if (changeRate >= maxChangeRate) {
+            changeRate = maxChangeRate;
+            changeDirection *= -1;
+        }
+        if (changeRate <= minChangeRate) {
+            changeRate = minChangeRate;
+            changeDirection *= -1;
+        }
+        
+        currentPattern += changeDirection;
+        
+        if (currentPattern >= MAX_PATTERN_SIZE) {
+            currentPattern = 0;
+        } else if (currentPattern < 0) {
+            currentPattern = MAX_PATTERN_SIZE - 1;
+        }
+        patternHandler = switchPattern[currentPattern];
+        [self prepareRandomMap];
+    }
 }
 
 - (void) prepareRandomMap
 {
     float constraintCheck = 0.0f;
-    for (int i=0; i<17; ++i) {
-        constraintCheck += currentDirectionRates[i];
+    for (int i=0; i<PROPABILITY_MAP_SIZE; ++i) {
+        constraintCheck += patternHandler[i];
     }
     
     if ( ABS(constraintCheck - 1.0f) > 0.0001 ) {
@@ -224,12 +263,22 @@ int randomMap[RANDOM_MAP_SIZE];
     
     for (int i=0, j=0, k=0; i<RANDOM_MAP_SIZE; ++i) {
         randomMap[i] = j ;
-        if (k + 1 >= RANDOM_MAP_SIZE * currentDirectionRates[j]) {
+        if (k + 1 >= RANDOM_MAP_SIZE * patternHandler[j]) {
             k = 0;
             j++;
         } else {
             k++;
         }
+    }
+}
+
+- (void) morphPattern:(int)type
+{
+    switch (type) {
+            _morph_rule(FORWARD, 1.5)
+            _morph_rule(BACKWARD, 1.5)
+            _morph_rule(LEFT, 1.5)
+            _morph_rule(RIGHT, 1.5)
     }
 }
 
