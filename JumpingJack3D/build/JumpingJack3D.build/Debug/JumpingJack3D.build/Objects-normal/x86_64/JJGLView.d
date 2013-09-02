@@ -210,6 +210,7 @@ dependencies: \
   /Users/asiron/code/JJ3D/JumpingJack3D/JumpingJack3D/JJDynamicObject.h \
   /Users/asiron/code/JJ3D/JumpingJack3D/JumpingJack3D/JJStaticEnemy.h \
   /Users/asiron/code/JJ3D/JumpingJack3D/JumpingJack3D/JJCharacter.h \
+  /Users/asiron/code/JJ3D/JumpingJack3D/JumpingJack3D/JJFloor.h \
   /Users/asiron/code/JJ3D/JumpingJack3D/JumpingJack3D/JJDynamicPlatform.h \
   /Users/asiron/code/JJ3D/JumpingJack3D/JumpingJack3D/cube.h \
   /Users/asiron/code/JJ3D/JumpingJack3D/JumpingJack3D/assets/teapot.h

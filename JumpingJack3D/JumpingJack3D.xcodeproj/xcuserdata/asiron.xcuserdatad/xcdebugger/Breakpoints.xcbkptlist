@@ -840,11 +840,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JumpingJack3D/JJMapGenerator.mm"
-         timestampString = "399576387.34815"
+         timestampString = "399840079.355179"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "72"
-         endingLineNumber = "72"
+         startingLineNumber = "85"
+         endingLineNumber = "85"
          landmarkName = "-initMap"
          landmarkType = "5">
       </FileBreakpoint>
@@ -853,11 +853,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JumpingJack3D/JJMapGenerator.mm"
-         timestampString = "399576387.34815"
+         timestampString = "399840079.355179"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "73"
-         endingLineNumber = "73"
+         startingLineNumber = "86"
+         endingLineNumber = "86"
          landmarkName = "-initMap"
          landmarkType = "5">
       </FileBreakpoint>
@@ -866,11 +866,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JumpingJack3D/JJMapGenerator.mm"
-         timestampString = "399576387.34815"
+         timestampString = "399840079.355179"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "75"
-         endingLineNumber = "75"
+         startingLineNumber = "88"
+         endingLineNumber = "88"
          landmarkName = "-initMap"
          landmarkType = "5">
       </FileBreakpoint>
@@ -879,11 +879,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JumpingJack3D/JJMapGenerator.mm"
-         timestampString = "399576387.34815"
+         timestampString = "399840079.355179"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "77"
-         endingLineNumber = "77"
+         startingLineNumber = "90"
+         endingLineNumber = "90"
          landmarkName = "-initMap"
          landmarkType = "5">
       </FileBreakpoint>
@@ -892,11 +892,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JumpingJack3D/JJMapGenerator.mm"
-         timestampString = "399576387.34815"
+         timestampString = "399840079.355179"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "106"
-         endingLineNumber = "106"
+         startingLineNumber = "124"
+         endingLineNumber = "124"
          landmarkName = "-checkPossiblePoint:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -905,11 +905,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JumpingJack3D/JJMapGenerator.mm"
-         timestampString = "399576387.34815"
+         timestampString = "399840079.355179"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "108"
-         endingLineNumber = "108"
+         startingLineNumber = "126"
+         endingLineNumber = "126"
          landmarkName = "-checkPossiblePoint:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -918,11 +918,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JumpingJack3D/JJMapGenerator.mm"
-         timestampString = "399576387.34815"
+         timestampString = "399840079.355179"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "109"
-         endingLineNumber = "109"
+         startingLineNumber = "127"
+         endingLineNumber = "127"
          landmarkName = "-checkPossiblePoint:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -931,11 +931,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JumpingJack3D/JJMapGenerator.mm"
-         timestampString = "399579480.218117"
+         timestampString = "399840079.355179"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "112"
-         endingLineNumber = "112"
+         startingLineNumber = "130"
+         endingLineNumber = "130"
          landmarkName = "-checkPossiblePoint:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -944,11 +944,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JumpingJack3D/JJMapGenerator.mm"
-         timestampString = "399579480.218117"
+         timestampString = "399840079.355179"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "154"
-         endingLineNumber = "154"
+         startingLineNumber = "172"
+         endingLineNumber = "172"
          landmarkName = "-randomizeDirection"
          landmarkType = "5">
       </FileBreakpoint>
@@ -957,11 +957,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JumpingJack3D/JJMapGenerator.mm"
-         timestampString = "399579480.218117"
+         timestampString = "399840079.355179"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "110"
-         endingLineNumber = "110"
+         startingLineNumber = "128"
+         endingLineNumber = "128"
          landmarkName = "-checkPossiblePoint:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -970,11 +970,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JumpingJack3D/JJMapGenerator.mm"
-         timestampString = "399579480.218117"
+         timestampString = "399840079.355179"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "118"
-         endingLineNumber = "118"
+         startingLineNumber = "136"
+         endingLineNumber = "136"
          landmarkName = "-isValidPoint:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -983,11 +983,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JumpingJack3D/JJMapGenerator.mm"
-         timestampString = "399579480.218117"
+         timestampString = "399840079.355179"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "121"
-         endingLineNumber = "121"
+         startingLineNumber = "139"
+         endingLineNumber = "139"
          landmarkName = "-isValidPoint:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -996,11 +996,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JumpingJack3D/JJMapGenerator.mm"
-         timestampString = "399579480.218117"
+         timestampString = "399840079.355179"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "122"
-         endingLineNumber = "122"
+         startingLineNumber = "140"
+         endingLineNumber = "140"
          landmarkName = "-isValidPoint:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1009,11 +1009,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JumpingJack3D/JJMapGenerator.mm"
-         timestampString = "399576387.34815"
+         timestampString = "399840079.355179"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "79"
-         endingLineNumber = "79"
+         startingLineNumber = "92"
+         endingLineNumber = "92"
          landmarkName = "-initMap"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1022,11 +1022,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JumpingJack3D/JJMapGenerator.mm"
-         timestampString = "399579480.218117"
+         timestampString = "399840079.355179"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "126"
-         endingLineNumber = "126"
+         startingLineNumber = "144"
+         endingLineNumber = "144"
          landmarkName = "-isValidPoint:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1035,11 +1035,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JumpingJack3D/JJMapGenerator.mm"
-         timestampString = "399576387.34815"
+         timestampString = "399840079.355179"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "74"
-         endingLineNumber = "74"
+         startingLineNumber = "87"
+         endingLineNumber = "87"
          landmarkName = "-initMap"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1048,11 +1048,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JumpingJack3D/JJMapGenerator.mm"
-         timestampString = "399576387.34815"
+         timestampString = "399840079.355179"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "86"
-         endingLineNumber = "86"
+         startingLineNumber = "104"
+         endingLineNumber = "104"
          landmarkName = "-initMap"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1191,24 +1191,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JumpingJack3D/JJMapGenerator.mm"
-         timestampString = "399576387.34815"
+         timestampString = "399840079.355179"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "55"
-         endingLineNumber = "55"
-         landmarkName = "-initWithStartingPosition:mapStartingCapacity:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "JumpingJack3D/JJMapGenerator.mm"
-         timestampString = "399579480.218117"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "174"
-         endingLineNumber = "174"
+         startingLineNumber = "192"
+         endingLineNumber = "192"
          landmarkName = "-randomizeDirection"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1217,11 +1204,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JumpingJack3D/JJMapGenerator.mm"
-         timestampString = "399579480.218117"
+         timestampString = "399840079.355179"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "120"
-         endingLineNumber = "120"
+         startingLineNumber = "138"
+         endingLineNumber = "138"
          landmarkName = "-isValidPoint:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1230,11 +1217,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JumpingJack3D/JJMapGenerator.mm"
-         timestampString = "399579480.218117"
+         timestampString = "399840079.355179"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "124"
-         endingLineNumber = "124"
+         startingLineNumber = "142"
+         endingLineNumber = "142"
          landmarkName = "-isValidPoint:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1243,11 +1230,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JumpingJack3D/JJMapGenerator.mm"
-         timestampString = "399579480.218117"
+         timestampString = "399840079.355179"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "125"
-         endingLineNumber = "125"
+         startingLineNumber = "143"
+         endingLineNumber = "143"
          landmarkName = "-isValidPoint:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1256,11 +1243,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JumpingJack3D/JJMapGenerator.mm"
-         timestampString = "398817326.14086"
+         timestampString = "399840079.355179"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "36"
-         endingLineNumber = "36"
+         startingLineNumber = "49"
+         endingLineNumber = "49"
          landmarkName = "-init"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1269,11 +1256,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JumpingJack3D/JJMapGenerator.mm"
-         timestampString = "399576387.34815"
+         timestampString = "399840079.355179"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "58"
-         endingLineNumber = "58"
+         startingLineNumber = "71"
+         endingLineNumber = "71"
          landmarkName = "-initWithStartingPosition:mapStartingCapacity:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1282,11 +1269,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JumpingJack3D/JJMapGenerator.mm"
-         timestampString = "399576387.34815"
+         timestampString = "399840079.355179"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "81"
-         endingLineNumber = "81"
+         startingLineNumber = "94"
+         endingLineNumber = "94"
          landmarkName = "-initMap"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1597,6 +1584,19 @@
          endingLineNumber = "223"
          landmarkName = "-jump"
          landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "JumpingJack3D/JJMapGenerator.mm"
+         timestampString = "399839990.170567"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "37"
+         endingLineNumber = "37"
+         landmarkName = "@implementation JJMapGenerator"
+         landmarkType = "3">
       </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>

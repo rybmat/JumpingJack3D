@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Mateusz Rybarski. All rights reserved.
 //
 
-#define RANDOM_MAP_SIZE 100
+#define RANDOM_MAP_SIZE 10000
 
 #define _case(something,X,Y,Z) case (something):\
                                 sidewards = X;\
@@ -26,14 +26,27 @@ enum platformDirections {FORWARD_GROUND, BACKWARD_GROUND, LEFT_GROUND, RIGHT_GRO
                          FORWARD_LEFT_UP, FORWARD_RIGHT_UP, BACKWARD_LEFT_UP, BACKWARD_RIGHT_UP, MID_UP};
 
 // has to add up to 1.0f
-float directionRates[17] = { 0.1f, 0.1f, 0.1f, 0.1f, 0.05f, 0.05f, 0.05f, 0.05f, 0.05f, 0.05f, 0.05f, 0.05f, 0.05f, 0.05f, 0.05f, 0.05f, 0.0f };
+//float directionRates[17] = { 0.1f, 0.1f, 0.1f, 0.1f, 0.05f, 0.05f, 0.05f, 0.05f, 0.05f, 0.05f, 0.05f, 0.05f, 0.05f, 0.05f, 0.05f, 0.05f, 0.0f };
 //float directionRates[17] = { 0.05f, 0.05f, 0.05f, 0.05f, 0.0f, 0.0f, 0.0f, 0.0f, 0.2f, 0.2f, 0.2f, 0.2f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f };
+
+float leftForwardPattern[17]   = { 0.1f, 0.0f, 0.1f, 0.0f, 0.15f, 0.0f,  0.0f,  0.0f,  0.25f, 0.0f,  0.25f, 0.0f,  0.15f, 0.0f,  0.0f,  0.0f,  0.0f };
+float rightForwardPattern[17]  = { 0.1f, 0.0f, 0.0f, 0.1f, 0.0f,  0.15f, 0.0f,  0.0f,  0.25f, 0.0f,  0.0f,  0.25f, 0.0f,  0.15f, 0.0f,  0.0f,  0.0f };
+float leftBackwardPattern[17]  = { 0.0f, 0.1f, 0.1f, 0.0f, 0.0f,  0.0f,  0.15f, 0.0f,  0.0f,  0.25f, 0.25f, 0.0f,  0.0f,  0.0f,  0.15f, 0.0f,  0.0f };
+float rightBackwardPattern[17] = { 0.0f, 0.1f, 0.0f, 0.1f, 0.0f,  0.0f,  0.0f,  0.15f, 0.0f,  0.25f, 0.0f,  0.25f, 0.0f,  0.0f,  0.0f,  0.15f, 0.0f };
+
+float* switchPattern[4] = {&leftForwardPattern[0], &leftBackwardPattern[0], &rightBackwardPattern[0], &rightForwardPattern[0]};
+
+//float directionRates[17] = { 0.25f, 0.0f, 0.15f, 0.0f, 0.15f, 0.0f, 0.0f, 0.0f, 0.15f, 0.0f, 0.15f, 0.0f, 0.15f, 0.0f, 0.0f, 0.0f, 0.0f };
+
+float* currentDirectionRates = NULL;
+
+int currentPattern = 0;
 
 int randomMap[RANDOM_MAP_SIZE];
 
 - (id) init
 {
-    return [self initWithStartingPosition:glm::vec3(0,0,0) mapStartingCapacity:40];
+    return [self initWithStartingPosition:glm::vec3(0,0,0) mapStartingCapacity:160];
 }
 
 - (id) initWithStartingPosition:(glm::vec3)position mapStartingCapacity:(int)capacity
@@ -52,7 +65,7 @@ int randomMap[RANDOM_MAP_SIZE];
         self.forwardsChance = 0.5;
         self.sidewardsChance = 0.5;
         
-        [self fillRandomMap];
+        [self morphDirectionProbabilites];
         [self initMap];
     }
     return self;
@@ -70,7 +83,7 @@ int randomMap[RANDOM_MAP_SIZE];
     [self.map addObject:self.previousPoints[0]];
     self.previousPointsMarker++;
     NSArray* newPoint;
-    for (int i = 1; i < self.mapRefreshSize; ++i) {
+    for (int i = 1, j = 0; i < self.mapRefreshSize; ++i, ++j) {
         do {
             newPoint = [self add:[self randomizeDirection] toSecond:self.map[i-1]];
             
@@ -82,6 +95,11 @@ int randomMap[RANDOM_MAP_SIZE];
         
         self.previousPointsMarker++;
         self.previousPointsMarker %= self.previousPointsCapacity;
+        
+        if (j > 20) {
+            [self morphDirectionProbabilites];
+            j = 0;
+        }
     }
     self.mapCurrentSize = self.mapRefreshSize;
 }
@@ -175,7 +193,7 @@ int randomMap[RANDOM_MAP_SIZE];
             upwards = 1;
             forwards = 0;
             sidewards = 0;
-            NSLog(@"default path");
+            NSLog(@"MapGenerator: Choosing default path, there must have been some mistake");
             break;
     }
     
@@ -184,11 +202,29 @@ int randomMap[RANDOM_MAP_SIZE];
              [NSNumber numberWithInt:forwards]];
 }
 
-- (void) fillRandomMap
+- (void) morphDirectionProbabilites
 {
+    currentPattern++;
+    currentPattern %= 4;
+    currentDirectionRates = switchPattern[currentPattern];
+    [self prepareRandomMap];
+}
+
+- (void) prepareRandomMap
+{
+    float constraintCheck = 0.0f;
+    for (int i=0; i<17; ++i) {
+        constraintCheck += currentDirectionRates[i];
+    }
+    
+    if ( ABS(constraintCheck - 1.0f) > 0.0001 ) {
+        NSLog(@"MapGenerator: Constraint check violated, direction propabilites do not add up to 1.0 instead they sum to %f", constraintCheck);
+        [NSApp performSelector:@selector(terminate:) withObject:nil afterDelay:0.0];
+    }
+    
     for (int i=0, j=0, k=0; i<RANDOM_MAP_SIZE; ++i) {
         randomMap[i] = j ;
-        if (k + 1 >= RANDOM_MAP_SIZE * directionRates[j]) {
+        if (k + 1 >= RANDOM_MAP_SIZE * currentDirectionRates[j]) {
             k = 0;
             j++;
         } else {
