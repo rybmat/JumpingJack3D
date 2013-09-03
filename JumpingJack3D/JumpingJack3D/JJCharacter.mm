@@ -18,6 +18,8 @@ float jumpKineticEnergy;
 
 float invertedFrameRate;
 
+int savedScore;
+
 - (id) initWithShaderProgram: (JJShaderProgram*) shProg Camera: (JJCamera*) cam Vertices: (float*) verts Normals: (float*) norms VertexCount: (int) vCount PositionX: (float) x Y: (float) y Z: (float) z Texture: (GLuint) tex TexCoords: (float*) tCoords frameRate:(int) rate{
     
     self = [super initWithShaderProgram:shProg
@@ -56,7 +58,14 @@ float invertedFrameRate;
     self.horizontalCollisionEnergyLoss = 0.2f;
     self.verticalCollisionEnergyLoss   = 0.5f;
     
+    self.deathSpeed = 75;
+    
     self.checkPoint = self.position;
+    
+    self.score = 0;
+    self.lives = 3;
+    
+    savedScore = 0;
     
     return self;
 }
@@ -142,8 +151,18 @@ float invertedFrameRate;
         strafeVelocity = -self.maxStrafeVelocity;
     }
     
+    
     yVelocity -= self.gravity * invertedFrameRate;
     [self moveY:yVelocity * invertedFrameRate];
+    
+    if (yVelocity < -self.deathSpeed) {
+        self.lives--;
+        [self portToCheckPoint];
+        if (self.lives == 0) {
+            [NSApp performSelector:@selector(terminate:) withObject:nil afterDelay:0.0];
+        }
+        return;
+    }
     
     glm::vec3 moveVector = forwardVelocity * invertedFrameRate * self.getFaceVector;
     [self move:moveVector];
@@ -237,6 +256,8 @@ float invertedFrameRate;
 
 - (void) bounceVertical
 {
+    [self setScore:150];
+    
     float lossMul = 1 - self.verticalCollisionEnergyLoss;
     yVelocity = ABS(yVelocity) * lossMul;
     jumpKineticEnergy *= lossMul;
@@ -290,6 +311,12 @@ float invertedFrameRate;
 - (void) setYVelocity:(float)velocity
 {
     yVelocity = velocity;
+}
+
+- (void) setScore:(int)score
+{
+    _score = score;
+    [JJScore changeText:[NSString stringWithFormat:@"Score: %d\nLives:  %d", self.score, self.lives]];
 }
 
 @end

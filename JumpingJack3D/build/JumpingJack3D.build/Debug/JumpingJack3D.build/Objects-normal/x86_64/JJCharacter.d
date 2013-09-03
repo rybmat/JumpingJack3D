@@ -199,4 +199,5 @@ dependencies: \
   /Users/asiron/code/JJ3D/JumpingJack3D/JumpingJack3D/glm/./gtx/wrap.hpp \
   /Users/asiron/code/JJ3D/JumpingJack3D/JumpingJack3D/glm/./gtx/wrap.inl \
   /Users/asiron/code/JJ3D/JumpingJack3D/JumpingJack3D/glm/./virtrev/xstream.hpp \
-  /Users/asiron/code/JJ3D/JumpingJack3D/JumpingJack3D/JJLight.h
+  /Users/asiron/code/JJ3D/JumpingJack3D/JumpingJack3D/JJLight.h \
+  /Users/asiron/code/JJ3D/JumpingJack3D/JumpingJack3D/JJScore.h

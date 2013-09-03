@@ -31,6 +31,7 @@
 		10C3A91617CE745400003884 /* ball.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 10C3A91517CE745400003884 /* ball.jpg */; };
 		10C3A91817CE745D00003884 /* ball.obj in Resources */ = {isa = PBXBuildFile; fileRef = 10C3A91717CE745D00003884 /* ball.obj */; };
 		10C577C517BEE9C500007FCE /* JJMapGeneratorTests.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10C577C417BEE9C500007FCE /* JJMapGeneratorTests.mm */; };
+		10C6AFD617D5BF8000C87936 /* JJScore.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C6AFD517D5BF7F00C87936 /* JJScore.m */; };
 		10FE0170179379D3005A218E /* JJAssetManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10FE016F179379D3005A218E /* JJAssetManager.mm */; };
 		10FE017417937A0B005A218E /* JJCamera.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10FE017317937A0B005A218E /* JJCamera.mm */; };
 		10FE017D17937AAA005A218E /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10FE017C17937AAA005A218E /* SenTestingKit.framework */; };
@@ -111,6 +112,8 @@
 		10C577C317BEE9C500007FCE /* JJMapGeneratorTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJMapGeneratorTests.h; sourceTree = "<group>"; };
 		10C577C417BEE9C500007FCE /* JJMapGeneratorTests.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = JJMapGeneratorTests.mm; sourceTree = "<group>"; };
 		10C577C617BEF07600007FCE /* JJMapGeneratorPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJMapGeneratorPrivate.h; sourceTree = "<group>"; };
+		10C6AFD417D5BF7F00C87936 /* JJScore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJScore.h; sourceTree = "<group>"; };
+		10C6AFD517D5BF7F00C87936 /* JJScore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJScore.m; sourceTree = "<group>"; };
 		10FE016E179379D3005A218E /* JJAssetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJAssetManager.h; sourceTree = "<group>"; };
 		10FE016F179379D3005A218E /* JJAssetManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = JJAssetManager.mm; sourceTree = "<group>"; };
 		10FE017217937A0B005A218E /* JJCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJCamera.h; sourceTree = "<group>"; };
@@ -218,6 +221,8 @@
 				10BE5C3917BECA4D00F5A07B /* JJMapGenerator.h */,
 				10BE5C3A17BECA4D00F5A07B /* JJMapGenerator.mm */,
 				10C577C617BEF07600007FCE /* JJMapGeneratorPrivate.h */,
+				10C6AFD417D5BF7F00C87936 /* JJScore.h */,
+				10C6AFD517D5BF7F00C87936 /* JJScore.m */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -626,6 +631,7 @@
 				6154A3A617D32DE100910FBF /* floor.fsh in Sources */,
 				6154A3AE17D3336900910FBF /* character.vsh in Sources */,
 				6154A3B117D3337600910FBF /* character.fsh in Sources */,
+				10C6AFD617D5BF8000C87936 /* JJScore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

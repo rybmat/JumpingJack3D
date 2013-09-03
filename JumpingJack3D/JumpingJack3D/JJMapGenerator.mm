@@ -34,7 +34,7 @@ enum platformDirections {FORWARD_GROUND, BACKWARD_GROUND, LEFT_GROUND, RIGHT_GRO
 enum patternSignature { FORWARD_LEFT, LEFT, BACKWARD_LEFT, BACKWARD, BACKWARD_RIGHT, RIGHT, FORWARD_RIGHT, FORWARD };
 
 // has to add up to 1.0f
-//float directionRates[PROPABILITY_MAP_SIZE] = { 0.1f, 0.1f, 0.1f, 0.1f, 0.05f, 0.05f, 0.05f, 0.05f, 0.05f, 0.05f, 0.05f, 0.05f, 0.05f, 0.05f, 0.05f, 0.05f, 0.0f };
+float directionRates[PROPABILITY_MAP_SIZE] = { 0.1f, 0.1f, 0.1f, 0.1f, 0.05f, 0.05f, 0.05f, 0.05f, 0.05f, 0.05f, 0.05f, 0.05f, 0.05f, 0.05f, 0.05f, 0.05f, 0.0f };
 //float directionRates[PROPABILITY_MAP_SIZE] = { 0.05f, 0.05f, 0.05f, 0.05f, 0.0f, 0.0f, 0.0f, 0.0f, 0.2f, 0.2f, 0.2f, 0.2f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f };
 
     
@@ -68,7 +68,7 @@ int randomMap[RANDOM_MAP_SIZE];
 
 - (id) init
 {
-    return [self initWithStartingPosition:glm::vec3(0,0,0) mapStartingCapacity:160];
+    return [self initWithStartingPosition:glm::vec3(0,0,0) mapStartingCapacity:50];
 }
 
 - (id) initWithStartingPosition:(glm::vec3)position mapStartingCapacity:(int)capacity

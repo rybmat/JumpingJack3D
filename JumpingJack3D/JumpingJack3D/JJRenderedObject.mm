@@ -45,6 +45,8 @@
         [self setFaceVector:glm::vec3(1.0f, 0.0f, 0.0f)];
         [self setRotation:glm::angleAxis(0.0f, glm::vec3(0.0f, 1.0f, 0.0f))];
         [self setBoundingBox:glm::vec3(1.0f, 1.0f, 1.0f)];
+        
+        self.number = 0;
     }
     return self;
 }

@@ -57,8 +57,8 @@ glm::vec3 paddingRatios;
                                                                     Vertices:[assetManagerRef getVertices:@"star"]
                                                                      Normals:[assetManagerRef getNormals:@"star"]
                                                                  VertexCount:[assetManagerRef getVertexCount:@"star"]
-                                                                   PositionX:-10.0f Y:0.5f Z:-10.0f
-                                                                  PathPointB:glm::vec4(-20.0f, 0.5f, -20.0f, 1.0f)
+                                                                   PositionX:-10.0f Y:4.5f Z:-10.0f
+                                                                  PathPointB:glm::vec4(-20.0f, 4.5f, -20.0f, 1.0f)
                                                                     StepSize:0.07f
                                                                      Texture:[assetManagerRef getTexture:@"star"]
                                                                TextureCoords:[assetManagerRef getUvs:@"star"] ];
@@ -86,6 +86,7 @@ glm::vec3 paddingRatios;
 {
     float x,y,z;
     JJStaticPlatform* cube;
+    int num = 1;
     for (NSArray* position in [mapGenerator getWholeMap]) {
         x = [position[0] floatValue] * (gridRatios.x + paddingRatios.x) * 2;
         y = [position[1] floatValue] * (gridRatios.y + paddingRatios.y) * 2 + gridRatios.y;
@@ -98,15 +99,17 @@ glm::vec3 paddingRatios;
                                                      PositionX: x Y: y Z: z
                                                        Texture: [assetManagerRef getTexture: @"metal"]
                                                       Texture2: [assetManagerRef getTexture: @"metal_spec"]
-                                                     TexCoords: [assetManagerRef getUvs:@"cube"]];
+                                                     TexCoords: [assetManagerRef getUvs:@"cube"]
+                                                        Number: num];
         //[cube scaleY:.5f];
         [cube scaleX:gridRatios.x Y:gridRatios.y Z:gridRatios.z];
         // Debugging purposes
         //[cube setVisible:NO];
         [blocks addObject:cube];
+        num++;
     }
-    characterRef.position = characterRef.checkPoint = glm::vec3(x,y+4,z);
-    //characterRef.position = characterRef.checkPoint = glm::vec3(-10,0,-10);
+    //characterRef.position = characterRef.checkPoint = glm::vec3(x,y+4,z);
+    characterRef.position = characterRef.checkPoint = glm::vec3(-10,0,-10);
 }
 
 
@@ -175,6 +178,7 @@ glm::vec3 paddingRatios;
                 float difference = ABS(characterRef.position.y - (block.position.y + minDistance));
                 [characterRef moveY:difference];
                 [characterRef bounceVertical];
+                [characterRef setScore:block.number];
                 
             } else if (characterRef.position.y < block.position.y and distance < minDownwardsVector ){
                 float difference = ABS(characterRef.position.y - (block.position.y - minDistance));

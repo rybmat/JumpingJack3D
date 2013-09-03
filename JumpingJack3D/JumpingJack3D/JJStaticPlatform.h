@@ -18,7 +18,7 @@
 @property GLuint tex1;
 @property GLuint bufTexCoords;
 
-- (id) initWithShaderProgram: (JJShaderProgram*) shProg Camera: (JJCamera*) cam Vertices: (float*) verts Normals: (float*) norms VertexCount: (int) vCount PositionX: (float) x Y: (float) y Z: (float) z Texture: (GLuint) tex Texture2: (GLuint)tex1 TexCoords: (float*) tCoords;
+- (id) initWithShaderProgram: (JJShaderProgram*) shProg Camera: (JJCamera*) cam Vertices: (float*) verts Normals: (float*) norms VertexCount: (int) vCount PositionX: (float) x Y: (float) y Z: (float) z Texture: (GLuint) tex Texture2: (GLuint)tex1 TexCoords: (float*) tCoords Number: (int) num;
 
 
 - (void) render;

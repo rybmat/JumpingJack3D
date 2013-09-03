@@ -7,6 +7,7 @@
 //
 
 #import "JJRenderedObject.h"
+#import "JJScore.h"
 
 @interface JJCharacter : JJRenderedObject
 
@@ -28,8 +29,13 @@
 @property float decceleration; //energy loss from friction
 @property float gravity;
 
+@property int score;
+@property int lives;
+
 @property float horizontalCollisionEnergyLoss;
 @property float verticalCollisionEnergyLoss;
+
+@property int deathSpeed;
 
 @property BOOL deccelerateForward;
 @property BOOL deccelerateStrafe;
@@ -70,5 +76,7 @@
 - (void) changeFrameRate:(int)frameRate;
 
 - (void) setYVelocity:(float)velocity;
+
+- (void) setScore:(int)score;
 
 @end
