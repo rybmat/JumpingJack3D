@@ -255,9 +255,7 @@ int savedScore;
 }
 
 - (void) bounceVertical
-{
-    [self setScore:150];
-    
+{    
     float lossMul = 1 - self.verticalCollisionEnergyLoss;
     yVelocity = ABS(yVelocity) * lossMul;
     jumpKineticEnergy *= lossMul;

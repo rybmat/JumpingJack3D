@@ -57,8 +57,8 @@ glm::vec3 paddingRatios;
                                                                     Vertices:[assetManagerRef getVertices:@"star"]
                                                                      Normals:[assetManagerRef getNormals:@"star"]
                                                                  VertexCount:[assetManagerRef getVertexCount:@"star"]
-                                                                   PositionX:-10.0f Y:4.5f Z:-10.0f
-                                                                  PathPointB:glm::vec4(-20.0f, 4.5f, -20.0f, 1.0f)
+                                                                   PositionX:-10.0f Y:10.0f Z:-10.0f
+                                                                  PathPointB:glm::vec4(-10.0f, 10.0f, -10.0f, 1.0f)
                                                                     StepSize:0.07f
                                                                      Texture:[assetManagerRef getTexture:@"star"]
                                                                TextureCoords:[assetManagerRef getUvs:@"star"] ];
@@ -157,6 +157,8 @@ glm::vec3 paddingRatios;
         float difference = ABS(characterRef.position.y - (baseFloor.position.y + characterRef.boundingBox.r));
         [characterRef moveY:difference];
         [characterRef bounceVertical];
+        [characterRef setScore:0];
+
     };
     for (JJRenderedObject* block in blocks) {
         // Vertical collisions
@@ -236,6 +238,29 @@ glm::vec3 paddingRatios;
                 float difference = ABS(characterRef.position.z - (block.position.z - minDistance));
                 [characterRef moveZ:-difference];
                 [characterRef bounceHorizontalZ];
+            }
+        }
+    }
+    for (JJRenderedObject* enemy in enemies) {
+        glm::vec3 horizontalDistance = glm::vec3(characterRef.position.x - enemy.position.x,
+                                                 0,
+                                                 characterRef.position.z - enemy.position.z);
+        
+        if (glm::length(horizontalDistance) <= enemy.boundingBox.r) {
+            //inside 2d horizontal circle
+            float bounding = characterRef.boundingBox.r + enemy.boundingBox.z;
+            
+            if (characterRef.position.y >= enemy.position.y and characterRef.position.y < enemy.position.y + bounding) {
+                // above
+                float difference = ABS(characterRef.position.y - (enemy.position.y + bounding));
+                [characterRef moveY:difference];
+                [characterRef bounceVertical];
+            }
+            if (characterRef.position.y < enemy.position.y and characterRef.position.y  > enemy.position.y - bounding) {
+                // below
+                float difference = ABS(characterRef.position.y - (enemy.position.y + bounding));
+                [characterRef moveY:-difference];
+                [characterRef bounceVertical];
             }
         }
     }
