@@ -41,7 +41,7 @@
 @property BOOL deccelerateStrafe;
 @property BOOL jumped;
 
-- (id) initWithShaderProgram: (JJShaderProgram*) shProg Camera: (JJCamera*) cam Vertices: (float*) verts Normals: (float*) norms VertexCount: (int) vCount PositionX: (float) x Y: (float) y Z: (float) z Texture: (GLuint) tex TexCoords: (float*) tCoords frameRate:(int)ratewwww;
+- (id) initWithShaderProgram: (JJShaderProgram*) shProg Camera: (JJCamera*) cam Vertices: (float*) verts Normals: (float*) norms VertexCount: (int) vCount PositionX: (float) x Y: (float) y Z: (float) z Texture: (GLuint) tex TexCoords: (float*) tCoords frameRate:(int)rate;
 
 - (void) setupVBO;
 
@@ -66,6 +66,12 @@
 - (void) rotateBy:(float)angle;
 - (void) jump;
 - (void) dive;
+
+- (void) dieWithExplosion:(BOOL)triggered;
+
+- (void) hitEnemy;
+
+- (void) triggerExplosion;
 
 - (void) bounceVertical;
 - (void) bounceHorizontalX;

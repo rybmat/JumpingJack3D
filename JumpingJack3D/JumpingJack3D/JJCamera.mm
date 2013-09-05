@@ -108,12 +108,21 @@ static const float standardLatitude = 30.0f;
     [self refresh];
 }
 
+- (void) refreshWithoutMoving
+{
+
+}
+
 /* Sets all camera attributes needed for View matrix and the builds it      */
 /* Converts geographical representation of camera in 3D space to cartesian  */
 /* Calculates lookAt and up vectors and builds View matrix                  */
 /* Uses forward vector to aim camera not directly at character but above it */
 - (void) setWithCharacterPosition:(glm::vec3)charPosition
 {
+    if (isLocked == YES) {
+        [self followTarget:charPosition];
+        return;
+    }
     self.characterPosition = charPosition;
     self.cameraPosition = charPosition + [self convertGeoToCartesian:self.radius
                                                           longtitude:self.longtitude
@@ -126,8 +135,24 @@ static const float standardLatitude = 30.0f;
     self.up = glm::cross(rightVector, self.target);
     
     self.viewMatrix = glm::lookAt(self.cameraPosition, targetPosition, self.up);
+}
+
+- (void) followTarget:(glm::vec3)targetPosition
+{
+    glm::vec3 targetVector = glm::normalize(targetPosition - self.cameraPosition);
+    glm::vec3 geographical = [self convertCartesianToGeo:-targetVector];
     
-    //NSLog(@"longtitude: %f", self.longtitude);
+    self.longtitude = geographical.y;
+    self.latitude   = geographical.z;
+
+    targetPosition = targetPosition + [self calculateForwardVectorWithLongtitude:self.longtitude];
+    
+    self.target = glm::normalize(targetPosition - self.cameraPosition);
+    glm::vec3 rightVector = glm::cross(self.target, worldUp);
+    self.up = glm::cross(rightVector, self.target);
+    
+    self.viewMatrix = glm::lookAt(self.cameraPosition, targetPosition, self.up);
+    
 }
 
 /* Sets all camera attributes needed for View matrix and the builds it       */
@@ -135,6 +160,10 @@ static const float standardLatitude = 30.0f;
 /* camera exactly behind it, using subroutine                                */
 - (void) setWithCharacterPosition:(glm::vec3)charPosition andCharactersFaceVector:(glm::vec3)fVector
 {
+    if (isLocked == YES) {
+        [self followTarget:charPosition];
+        return;
+    }
     glm::vec3 geographical = [self convertCartesianToGeo:-fVector];
     //self.radius = geographical.x;
     self.longtitude = geographical.y;   
@@ -196,4 +225,13 @@ static const float standardLatitude = 30.0f;
     return radius*0.4f;
 }
 
+- (void) lock
+{
+    isLocked = YES;
+}
+
+- (void) unlock
+{
+    isLocked = NO;
+}
 @end

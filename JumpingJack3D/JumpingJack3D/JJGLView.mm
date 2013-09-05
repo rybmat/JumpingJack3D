@@ -182,9 +182,10 @@ BOOL mousePressed;
                     _case('z',   [character dive])
                     _case('q',   [character rotateLeft])
                     _case('e',   [character rotateRight])
-                    _case(ESCAPE,[character portToCheckPoint]);
+                    _case(ESCAPE,[character portToCheckPoint])
                     _case('x',   [character changeFrameRate:180])
                     _case('c',   [character changeFrameRate:60])
+                    _case('t',   [character triggerExplosion])
                 default:
                     NSLog(@"%u", [keyHit unsignedIntValue]);
                     break;
@@ -234,6 +235,7 @@ BOOL mousePressed;
 
 - (void) keyDown:(NSEvent*)theEvent
 {
+
     if (keyPressed == nil) {
         keyPressed = [[NSMutableSet alloc] init];
     }

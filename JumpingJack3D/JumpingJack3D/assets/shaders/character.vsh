@@ -14,19 +14,19 @@ in vec4 normal;
 in vec2 texCoords0;
 
 
-out vec4 iVectorV;
-out vec4 iVectorN;
-out vec4 iVectorL0;
-out vec4 iVectorL1;
-out vec2 iTexCoords0;
+out vec4 gVectorV;
+out vec4 gVectorN;
+out vec4 gVectorL0;
+out vec4 gVectorL1;
+out vec2 gTexCoords0;
 
 void main(void) {
-	gl_Position=P*V*M*vertex;
+	gl_Position=vertex;
 	
-    iVectorN = normalize(V*M*normal);               //znormalizowany wektor normalny w przestrzeni oka
-	iVectorV = normalize(vec4(0,0,0,1)-V*M*vertex); //znormalizowany wektor do obserwatora w przestrzeni oka
-	iVectorL0 = normalize(V*lp0-V*M*vertex);        //znormalizowany wektor do swiatla "0" w przestrzeni oka
-    iVectorL1 = normalize(V*lp1-V*M*vertex);        //znormalizowany wektor do swiatla "1" w przestrzeni oka
-	iTexCoords0 = texCoords0;
+    gVectorN = normalize(V*M*normal);               //znormalizowany wektor normalny w przestrzeni oka
+	gVectorV = normalize(vec4(0,0,0,1)-V*M*vertex); //znormalizowany wektor do obserwatora w przestrzeni oka
+	gVectorL0 = normalize(V*lp0-V*M*vertex);        //znormalizowany wektor do swiatla "0" w przestrzeni oka
+    gVectorL1 = normalize(V*lp1-V*M*vertex);        //znormalizowany wektor do swiatla "1" w przestrzeni oka
+	gTexCoords0 = texCoords0;
     
 }

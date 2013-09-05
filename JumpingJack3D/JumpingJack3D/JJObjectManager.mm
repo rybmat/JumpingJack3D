@@ -58,11 +58,11 @@ glm::vec3 paddingRatios;
                                                                      Normals:[assetManagerRef getNormals:@"star"]
                                                                  VertexCount:[assetManagerRef getVertexCount:@"star"]
                                                                    PositionX:-10.0f Y:10.0f Z:-10.0f
-                                                                  PathPointB:glm::vec4(-0.0f, 10.0f, -0.0f, 1.0f)
+                                                                  PathPointB:glm::vec4(-10.0f, 10.0f, -10.0f, 1.0f)
                                                                     StepSize:0.07f
                                                                      Texture:[assetManagerRef getTexture:@"star"]
                                                                TextureCoords:[assetManagerRef getUvs:@"star"] ];
-        
+        [star scaleX:5 Y:1 Z:5];
         [self addObject:star];
     }
     return self;
@@ -274,19 +274,21 @@ glm::vec3 paddingRatios;
         
         if (glm::length(horizontalDistance) <= enemy.boundingBox.r) {
             //inside 2d horizontal circle
-            float bounding = characterRef.boundingBox.r + enemy.boundingBox.z;
+            float bounding = characterRef.boundingBox.r; //+ enemy.boundingBox.z;
             
             if (characterRef.position.y >= enemy.position.y and characterRef.position.y < enemy.position.y + bounding) {
                 // above
                 float difference = ABS(characterRef.position.y - (enemy.position.y + bounding));
                 [characterRef moveY:difference];
                 [characterRef bounceVertical];
+                [characterRef dieWithExplosion:YES];
             }
             if (characterRef.position.y < enemy.position.y and characterRef.position.y  > enemy.position.y - bounding) {
                 // below
                 float difference = ABS(characterRef.position.y - (enemy.position.y + bounding));
                 [characterRef moveY:-difference];
                 [characterRef bounceVertical];
+                [characterRef dieWithExplosion:YES];
             }
         }
     }

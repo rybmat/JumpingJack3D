@@ -12,8 +12,6 @@ uniform vec4 lp1;
 in vec4 vertex;
 in vec4 normal;
 
-
-
 out vec4 iVectorV;
 out vec4 iVectorN;
 out vec4 iVectorL0;

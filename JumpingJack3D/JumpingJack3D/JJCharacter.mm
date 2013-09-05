@@ -20,6 +20,13 @@ float invertedFrameRate;
 
 int savedScore;
 
+float explosionState = 0.0f;
+float maxExplosionState = 3.0f;
+
+BOOL isExploding = NO;
+
+BOOL setToDie = NO;
+
 - (id) initWithShaderProgram: (JJShaderProgram*) shProg Camera: (JJCamera*) cam Vertices: (float*) verts Normals: (float*) norms VertexCount: (int) vCount PositionX: (float) x Y: (float) y Z: (float) z Texture: (GLuint) tex TexCoords: (float*) tCoords frameRate:(int) rate{
     
     self = [super initWithShaderProgram:shProg
@@ -44,7 +51,7 @@ int savedScore;
     [self setupVAO];
         
     self.maxForwardVelocity = 10;
-    self.maxJumpVelocity = 40;
+    self.maxJumpVelocity = 40;//22;
     self.maxStrafeVelocity = 10;
     self.angularVelocity = 270;
     self.gravity = 30 ;
@@ -58,12 +65,12 @@ int savedScore;
     self.horizontalCollisionEnergyLoss = 0.2f;
     self.verticalCollisionEnergyLoss   = 0.5f;
     
-    self.deathSpeed = 75;
+    self.deathSpeed = 50.0f;
     
     self.checkPoint = self.position;
     
     self.score = 0;
-    self.lives = 3;
+    self.lives = 300;
     
     savedScore = 0;
     
@@ -130,6 +137,8 @@ int savedScore;
     glUniform4fv([[self shaderProgram] getUniformLocation:"lp0"], 1, [JJLight getFirstLight]);
     glUniform4fv([[self shaderProgram] getUniformLocation:"lp1"], 1, [JJLight getSecondLight]);
     
+    glUniform1f([[self shaderProgram] getUniformLocation:"time"], explosionState);
+    
     glBindVertexArray(_vao);
     
 	//Narysowanie obiektu
@@ -138,6 +147,15 @@ int savedScore;
 
 - (void) applyPhysics
 {
+    if (isExploding == YES) {
+        explosionState += .01;//0.10f * (1.0f - explosionState/maxExplosionState);
+        if (explosionState >= maxExplosionState - 0.05) {
+            explosionState = 0.0f;
+            isExploding = NO;
+            //www[self portToCheckPoint];
+        }
+    }
+    
     if (forwardVelocity > self.maxForwardVelocity) {
         forwardVelocity = self.maxForwardVelocity;
     }
@@ -155,12 +173,9 @@ int savedScore;
     yVelocity -= self.gravity * invertedFrameRate;
     [self moveY:yVelocity * invertedFrameRate];
     
-    if (yVelocity < -self.deathSpeed) {
-        self.lives--;
-        [self portToCheckPoint];
-        if (self.lives == 0) {
-            [NSApp performSelector:@selector(terminate:) withObject:nil afterDelay:0.0];
-        }
+    if (yVelocity < -self.deathSpeed and setToDie == NO) {
+        [self.camera lock];
+        setToDie = YES;
         return;
     }
     
@@ -254,8 +269,18 @@ int savedScore;
     yVelocity = -self.maxJumpVelocity;
 }
 
+- (void) hitEnemy
+{
+    [self dieWithExplosion:YES];
+}
+
 - (void) bounceVertical
 {    
+    if (setToDie == YES) {
+        [self dieWithExplosion:NO];
+        return;
+    }
+    
     float lossMul = 1 - self.verticalCollisionEnergyLoss;
     yVelocity = ABS(yVelocity) * lossMul;
     jumpKineticEnergy *= lossMul;
@@ -274,7 +299,7 @@ int savedScore;
     
     forwardVelocity = (glm::dot(inverted, self.faceVector) / glm::length(self.faceVector)) * lossMul ;
     strafeVelocity  = (glm::dot(inverted, right) / glm::length(right)) * lossMul;
-    
+
 }
 
 - (void) bounceHorizontalZ
@@ -315,6 +340,31 @@ int savedScore;
 {
     _score = score;
     [JJScore changeText:[NSString stringWithFormat:@"Score: %d\nLives:  %d", self.score, self.lives]];
+}
+
+- (void) dieWithExplosion:(BOOL)triggered
+{
+    self.lives--;
+    if (self.lives == 0) {
+        [NSApp performSelector:@selector(terminate:) withObject:nil afterDelay:0.0];
+    }
+    [self.camera unlock];
+    setToDie = NO;
+    
+    if (triggered == YES) {
+        [self triggerExplosion];
+    } else {
+        [self portToCheckPoint];
+    }
+}
+
+- (void) triggerExplosion
+{
+    if (explosionState >= maxExplosionState or isExploding == YES) {
+        return;
+    }
+    explosionState = 0.01;
+    isExploding = YES;
 }
 
 @end

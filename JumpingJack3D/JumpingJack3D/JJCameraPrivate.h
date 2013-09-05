@@ -8,7 +8,9 @@
 
 #import "JJCamera.h"
 
-@interface JJCamera () {}
+@interface JJCamera () {
+    BOOL isLocked;
+}
 
 // Camera's View matrix variables
 @property glm::vec3 up;

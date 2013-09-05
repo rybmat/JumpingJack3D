@@ -42,4 +42,7 @@
 - (void) rotateHorizontal:(float) degrees;
 - (void) rotateVertical:(float) degrees;
 
+- (void) lock;
+- (void) unlock;
+
 @end
