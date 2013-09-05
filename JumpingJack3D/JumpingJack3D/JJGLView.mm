@@ -57,8 +57,8 @@ BOOL mousePressed;
     glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
 	glEnable(GL_DEPTH_TEST);
     
-    [JJLight setFirstLightX: 10.0f Y: 10000.0f Z: -5.0f];
-    [JJLight setSecondLightX: -10.0f Y: 10.0f Z: -10.0f];
+    [JJLight setFirstLightX: 50.0f Y: 100.0f Z: 50.0f];
+    [JJLight setSecondLightX: -10.0f Y: 20.0f Z: -10.0f];
     
     assetManager = [[JJAssetManager alloc] init];
     [assetManager load];

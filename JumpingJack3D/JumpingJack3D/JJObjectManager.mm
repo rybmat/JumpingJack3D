@@ -58,7 +58,7 @@ glm::vec3 paddingRatios;
                                                                      Normals:[assetManagerRef getNormals:@"star"]
                                                                  VertexCount:[assetManagerRef getVertexCount:@"star"]
                                                                    PositionX:-10.0f Y:10.0f Z:-10.0f
-                                                                  PathPointB:glm::vec4(-10.0f, 10.0f, -10.0f, 1.0f)
+                                                                  PathPointB:glm::vec4(-0.0f, 10.0f, -0.0f, 1.0f)
                                                                     StepSize:0.07f
                                                                      Texture:[assetManagerRef getTexture:@"star"]
                                                                TextureCoords:[assetManagerRef getUvs:@"star"] ];
@@ -84,13 +84,39 @@ glm::vec3 paddingRatios;
 
 - (void) generateWorld
 {
-    float x,y,z;
+    float x,y,z,x2,y2,z2;
     JJStaticPlatform* cube;
+    JJDynamicEnemy* enemy;
+    NSArray* position, *position2;
     int num = 1;
-    for (NSArray* position in [mapGenerator getWholeMap]) {
+    //for (NSArray* position in [mapGenerator getWholeMap]) {
+    for (int i = 0; i<[[mapGenerator getWholeMap] count]; i++){
+        position = [[mapGenerator getWholeMap] objectAtIndex:i];
+    
         x = [position[0] floatValue] * (gridRatios.x + paddingRatios.x) * 2;
         y = [position[1] floatValue] * (gridRatios.y + paddingRatios.y) * 2 + gridRatios.y;
         z = [position[2] floatValue] * (gridRatios.z + paddingRatios.z) * 2;
+        
+        if (i % 14 == 0 && i!=0) {
+            position2 = [[mapGenerator getWholeMap] objectAtIndex:i+5];
+            x2 = [position2[0] floatValue] * (gridRatios.x + paddingRatios.x) * 2;
+            y2 = [position2[1] floatValue] * (gridRatios.y + paddingRatios.y) * 2 + gridRatios.y + 5;
+            z2 = [position2[2] floatValue] * (gridRatios.z + paddingRatios.z) * 2;
+            
+            enemy = [[JJDynamicEnemy alloc] initWithShaderProgram:[assetManagerRef getShaderProgram:@"star"]
+                                                           Camera:cameraRef
+                                                         Vertices:[assetManagerRef getVertices:@"star"]
+                                                          Normals:[assetManagerRef getNormals:@"star"]
+                                                      VertexCount:[assetManagerRef getVertexCount:@"star"]
+                                                        PositionX: x Y:y + 5 Z:z
+                                                       PathPointB:glm::vec4(x2, y2, z2, 1.0f)
+                                                         StepSize:0.07f
+                                                          Texture:[assetManagerRef getTexture:@"star"]
+                                                    TextureCoords:[assetManagerRef getUvs:@"star"] ];
+            [enemy scaleX:0.5 Y:1.0 Z:0.5];
+            [blocks addObject:enemy];
+
+        }
         cube = [[JJStaticPlatform alloc] initWithShaderProgram: [assetManagerRef getShaderProgram:@"platform"]
                                                         Camera: cameraRef
                                                       Vertices: [assetManagerRef getVertices:@"cube"]

@@ -29,7 +29,7 @@ void main(void) {
     float rv1 = pow(max(0, dot(eyeVectorR1, eyeVectorV)), shininess);
     float rv = max(rv0, rv1);
     
-	vec4 texColor=vec4(0.95, 0.95, 0.95, 1);
+	vec4 texColor=vec4(0.75, 0.75, 0.75, 1);
     
     
 	vec4 La = vec4(0,0,0,1);        //światło otoczenia
