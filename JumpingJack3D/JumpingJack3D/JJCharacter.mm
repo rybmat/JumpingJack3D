@@ -21,7 +21,7 @@ float invertedFrameRate;
 int savedScore;
 
 float explosionState = 0.0f;
-float maxExplosionState = 3.0f;
+float maxExplosionState = 100.0f;
 
 BOOL isExploding = NO;
 
@@ -51,7 +51,7 @@ BOOL setToDie = NO;
     [self setupVAO];
         
     self.maxForwardVelocity = 10;
-    self.maxJumpVelocity = 40;//22;
+    self.maxJumpVelocity = 80;//22;
     self.maxStrafeVelocity = 10;
     self.angularVelocity = 270;
     self.gravity = 30 ;
@@ -148,7 +148,8 @@ BOOL setToDie = NO;
 - (void) applyPhysics
 {
     if (isExploding == YES) {
-        explosionState += 0.10f * (1.0f - explosionState/maxExplosionState);
+        explosionState += 10.0f * (1.0f - explosionState/maxExplosionState);
+        NSLog(@"%f", explosionState);
         if (explosionState >= maxExplosionState - 0.05) {
             explosionState = 0.0f;
             isExploding = NO;

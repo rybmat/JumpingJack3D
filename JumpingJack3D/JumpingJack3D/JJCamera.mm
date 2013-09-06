@@ -12,7 +12,7 @@
 @implementation JJCamera
 
 static const glm::vec3 worldUp = glm::vec3(0.0f, 1.0f, 0.0f);
-static const float maxZoomIn = 2.0f;
+static const float maxZoomIn = 1.0f;
 static const float maxZoomOut = 50.0f;
 static const float standardLatitude = 30.0f;
 
