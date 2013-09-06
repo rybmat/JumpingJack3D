@@ -148,7 +148,7 @@ BOOL setToDie = NO;
 - (void) applyPhysics
 {
     if (isExploding == YES) {
-        explosionState += .1;//0.10f * (1.0f - explosionState/maxExplosionState);
+        explosionState += 0.10f * (1.0f - explosionState/maxExplosionState);
         if (explosionState >= maxExplosionState - 0.05) {
             explosionState = 0.0f;
             isExploding = NO;
@@ -363,7 +363,6 @@ BOOL setToDie = NO;
     if (explosionState >= maxExplosionState or isExploding == YES) {
         return;
     }
-    explosionState = 0.01;
     isExploding = YES;
 }
 
