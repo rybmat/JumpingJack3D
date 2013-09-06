@@ -21,7 +21,7 @@ out vec4 gVectorL1;
 out vec2 gTexCoords0;
 
 void main(void) {
-	gl_Position = vertex;
+	gl_Position = M * vertex;
 	
     gVectorN = normalize(V*M*normal);               //znormalizowany wektor normalny w przestrzeni oka
 	gVectorV = normalize(vec4(0,0,0,1)-V*M*vertex); //znormalizowany wektor do obserwatora w przestrzeni oka

@@ -7,6 +7,7 @@ uniform mat4 M;
 uniform float time;
 
 layout (triangles) in;
+//layout (points) out;
 layout (triangle_strip) out;
 layout (max_vertices=200) out;
 
@@ -28,57 +29,82 @@ vec3 cg;
 void makeVertex(float s, float t)
 {
     vec3 v = v0 + s * v1 + t * v2;
-    float velocity = .2 * length(v - cg);
+    float velocity = 2 * length(v - cg);
     vec3 np = normalize(cross(v1.xyz,v2.xyz));
     vec3 position = time * np * velocity;
-    position.y -=0 *  time * time;
+    
+    position.y -= 0.00005 *  time * time;
     
     for (int i=0; i < gl_in.length(); i++) {
-        gl_Position = P * V * M *(gl_in[i].gl_Position + vec4(position, 0));
-        iVectorV    = gVectorV[i];
-        iVectorN    = gVectorN[i];
-        iVectorL0   = gVectorL0[i];
-        iVectorL1   = gVectorL1[i];
-        iTexCoords0 = gTexCoords0[i];
+        vec4 new_pos = (gl_in[i].gl_Position + vec4(position, 0));
+        if (new_pos.y < 0) {
+            new_pos.y = 0.1;
+        }
+        gl_Position = P * V * new_pos;
+    
+        iVectorV    = vec4(s,t,0,0);
+//        iVectorN    = gVectorN[i];
+//        iVectorL0   = gVectorL0[i];
+//        iVectorL1   = gVectorL1[i];
+//        iTexCoords0 = gTexCoords0[i];
+        
         EmitVertex();
     }
-    gl_Position = P * V * M *(gl_in[0].gl_Position + vec4(position, 0)) ;
-    iVectorV    = gVectorV[0];
-    iVectorN    = gVectorN[0];
-    iVectorL0   = gVectorL0[0];
-    iVectorL1   = gVectorL1[0];
-    iTexCoords0 = gTexCoords0[0];
-    
-    EmitVertex();
+//    gl_Position = P * V *(gl_in[0].gl_Position + vec4(position, 0)) ;
+//    iVectorV    = gVectorV[0];
+//    iVectorN    = gVectorN[0];
+//    iVectorL0   = gVectorL0[0];
+//    iVectorL1   = gVectorL1[0];
+//    iTexCoords0 = gTexCoords0[0];
+//    
+//    EmitVertex();
     
     EndPrimitive();
 }
 
 void main() {
-    v1  = (gl_in[1].gl_Position - gl_in[0].gl_Position).xyz;
-    v2  = (gl_in[2].gl_Position - gl_in[0].gl_Position).xyz;
-    v0  =  gl_in[0].gl_Position.xyz;
-           
-    cg = ( gl_in[0].gl_Position.xyz + gl_in[1].gl_Position.xyz + gl_in[2].gl_Position.xyz ) / 3.0;
-        
-    int numLayers = 1 << 5;
-
-           float dt = 1.0 / float(numLayers);
-           float t = 1.0;
-           
-           for ( int it = 0; it <= numLayers; it++) {
-               float smax = 1.0 - t;
-               int nums = it + 1;
-               float ds = smax / float (nums - 1 );
-               float s = 0.0;
+    
+    if (time > 0) {
+        // explosion geoshader
+        v1  = (gl_in[1].gl_Position - gl_in[0].gl_Position).xyz;
+        v2  = (gl_in[2].gl_Position - gl_in[0].gl_Position).xyz;
+        v0  =  gl_in[0].gl_Position.xyz;
                
-               for (int is =0 ; is < nums; is++) {
-                   makeVertex(s,t);
-                   s += ds;
-               }
-           }
+        cg = ( gl_in[0].gl_Position.xyz + gl_in[1].gl_Position.xyz + gl_in[2].gl_Position.xyz ) / 3.0;
+            
+        int numLayers = 1 << 1;
+
+        float dt = 1.0 / float(numLayers);
+        float t = 1.0;
+               
+        for ( int it = 0; it <= numLayers; it++) {
+            
+            float smax = 1.0 - t;
+            int nums = it + 1;
+            float ds = smax / float (nums - 1 );
+            float s = 0.0;
            
-           t -= dt;
+            for (int is =0 ; is < nums; is++) {
+                makeVertex(s,t);
+                s += ds;
+            }
+            
+            t -= dt;
+        }
+    } else {
+        //pass-through shader
+        for (int i=0; i<gl_in.length(); i++) {
+            gl_Position = P * V * gl_in[i].gl_Position;
+            
+            iVectorV    = gVectorV[i];
+            iVectorN    = gVectorN[i];
+            iVectorL0   = gVectorL0[i];
+            iVectorL1   = gVectorL1[i];
+            iTexCoords0 = gTexCoords0[i];
+
+            EmitVertex();
+        }
+    }
 }
 
 

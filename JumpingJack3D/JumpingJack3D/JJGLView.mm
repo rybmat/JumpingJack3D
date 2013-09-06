@@ -7,17 +7,18 @@
 //
 
 #define _case(key,function) case (key): \
-function; \
-break;
+                                  function; \
+                                  break;
 
 #define _case_flag(key,function,flag) case (key): \
-function; \
-flag = YES; \
-break;
+                                            function; \
+                                            flag = YES; \
+                                            break;
 
 #define ESCAPE 27
 #define SPACE 32
 #define TAB 9
+
 #import "JJGLView.h"
 #import "cube.h"
 #import "teapot.h"

@@ -21,7 +21,7 @@ float invertedFrameRate;
 int savedScore;
 
 float explosionState = 0.0f;
-float maxExplosionState = 100.0f;
+float maxExplosionState = 1000.0f;
 
 BOOL isExploding = NO;
 
@@ -148,7 +148,7 @@ BOOL setToDie = NO;
 - (void) applyPhysics
 {
     if (isExploding == YES) {
-        explosionState += 10.0f * (1.0f - explosionState/maxExplosionState);
+        explosionState += 15.0f;// * (1.0f - explosionState/maxExplosionState);
         NSLog(@"%f", explosionState);
         if (explosionState >= maxExplosionState - 0.05) {
             explosionState = 0.0f;
@@ -180,16 +180,14 @@ BOOL setToDie = NO;
         return;
     }
     
-    glm::vec3 moveVector = forwardVelocity * invertedFrameRate * self.getFaceVector;
-    [self move:moveVector];
-    int rotateSign = (forwardVelocity > 0 ) ? -1 : 1;
-    [self rotateForwardBy: rotateSign * [self calculateRotationFromMoveVector:moveVector]];
+    glm::vec3 moveForwardVector = forwardVelocity * invertedFrameRate * self.getFaceVector;
+    [self move:moveForwardVector];
+
     
     glm::vec3 strafeVector = glm::cross(self.getFaceVector, glm::vec3(0.0f,1.0f,0.0f));
-    moveVector = strafeVelocity * invertedFrameRate * strafeVector;
-    [self move:moveVector];
-    rotateSign = (strafeVelocity > 0) ? 1 : -1;
-    [self rotateSidewardBy: rotateSign * [self calculateRotationFromMoveVector:moveVector]];
+    glm::vec3 moveSidewardVector = strafeVelocity * invertedFrameRate * strafeVector;
+    [self move:moveSidewardVector];
+
     
     if (self.deccelerateForward == YES) {
         float deccelerationStep = self.decceleration * invertedFrameRate;
@@ -199,6 +197,12 @@ BOOL setToDie = NO;
     if (self.deccelerateStrafe == YES) {
         float deccelerationStep = self.decceleration * invertedFrameRate;
         strafeVelocity  += (strafeVelocity  > 0) ? -deccelerationStep : deccelerationStep;
+    }
+    if (isExploding == NO) {
+        int rotateSign = (forwardVelocity > 0 ) ? -1 : 1;
+        [self rotateForwardBy: rotateSign * [self calculateRotationFromMoveVector:moveForwardVector]];
+        rotateSign = (strafeVelocity > 0) ? 1 : -1;
+        [self rotateSidewardBy: rotateSign * [self calculateRotationFromMoveVector:moveSidewardVector]];
     }
     
 }
