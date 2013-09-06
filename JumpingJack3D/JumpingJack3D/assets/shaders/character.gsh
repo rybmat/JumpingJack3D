@@ -41,30 +41,17 @@ void makeVertex(float s, float t)
             new_pos.y = 0.1;
         }
         gl_Position = P * V * new_pos;
-    
         iVectorV    = vec4(s,t,0,0);
-//        iVectorN    = gVectorN[i];
-//        iVectorL0   = gVectorL0[i];
-//        iVectorL1   = gVectorL1[i];
-//        iTexCoords0 = gTexCoords0[i];
         
         EmitVertex();
     }
-//    gl_Position = P * V *(gl_in[0].gl_Position + vec4(position, 0)) ;
-//    iVectorV    = gVectorV[0];
-//    iVectorN    = gVectorN[0];
-//    iVectorL0   = gVectorL0[0];
-//    iVectorL1   = gVectorL1[0];
-//    iTexCoords0 = gTexCoords0[0];
-//    
-//    EmitVertex();
     
     EndPrimitive();
 }
 
 void main() {
     
-    if (time > 0) {
+    if (time > 0.0) {
         // explosion geoshader
         v1  = (gl_in[1].gl_Position - gl_in[0].gl_Position).xyz;
         v2  = (gl_in[2].gl_Position - gl_in[0].gl_Position).xyz;
@@ -88,7 +75,6 @@ void main() {
                 makeVertex(s,t);
                 s += ds;
             }
-            
             t -= dt;
         }
     } else {
@@ -106,54 +92,3 @@ void main() {
         }
     }
 }
-
-
-/*
-void main(void) {
-    
-    const int levels  = 3;
-    const float gravity = 0.2;
-    
-    vec4 v0 = gl_in[0].gl_Position;
-	vec4 v1 = gl_in[1].gl_Position;
-	vec4 v2 = gl_in[2].gl_Position;
-    
-	vec4 ap = v1-v0;
-	vec4 bp = v2-v0;
-    
-	vec3 np = normalize(cross(ap.xyz,bp.xyz));
-    
-    vec3 position = time * np;
-    position.y -= time * time * 0.2;
-
-    vec4 n = vec4(position,0);
-    
-    int i;
-    
-    for (int j=0; j < levels; ++j) {
-        
-        float toCenter = 1.0 / levels;
-        
-        for (i=0; i < gl_in.length(); i++) {
-            gl_Position = P * V * (gl_in[i].gl_Position + n);
-            iVectorV    = gVectorV[i];
-            iVectorN    = gVectorN[i];
-            iVectorL0   = gVectorL0[i];
-            iVectorL1   = gVectorL1[i];
-            iTexCoords0 = gTexCoords0[i];
-            EmitVertex();
-        }
-        
-        gl_Position = P * V * (gl_in[0].gl_Position + n) ;
-        iVectorV    = gVectorV[0];
-        iVectorN    = gVectorN[0];
-        iVectorL0   = gVectorL0[0];
-        iVectorL1   = gVectorL1[0];
-        iTexCoords0 = gTexCoords0[0];
-        
-        EmitVertex();
-        
-        EndPrimitive();
-    }
-}
-*/

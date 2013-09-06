@@ -14,13 +14,14 @@ in vec2 iTexCoords0;
 
 float shininess=50;
 
-void main(void) {    
-	if (time > 0 ) {
+void main(void) {
+    
+	if (time > 0.0 ) {
     
         pixelColor = vec4(iVectorV.x, 0, iVectorV.x, 1.0);
         
     } else {
-        
+    
         vec4 eyeVectorN = normalize(iVectorN);
         vec4 eyeVectorV = normalize(iVectorV);
         vec4 eyeVectorL0 = normalize(iVectorL0);

@@ -51,7 +51,7 @@ BOOL setToDie = NO;
     [self setupVAO];
         
     self.maxForwardVelocity = 10;
-    self.maxJumpVelocity = 80;//22;
+    self.maxJumpVelocity = 22;
     self.maxStrafeVelocity = 10;
     self.angularVelocity = 270;
     self.gravity = 30 ;
