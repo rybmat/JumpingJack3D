@@ -23,7 +23,9 @@ out vec4 iVectorL0;
 out vec4 iVectorL1;
 out vec2 iTexCoords0;
 
-void main(void) {
+ void main(void) {
+
+
     
 	vec4 v0 = gl_in[0].gl_Position;
 	vec4 v1 = gl_in[1].gl_Position;
@@ -42,7 +44,7 @@ void main(void) {
 	int i;
 	
 	for (i=0; i < gl_in.length(); i++) {
-		gl_Position = P*V*M*wgl_in[i].gl_Position + vec4(diff,0);
+		gl_Position = P * V * M * gl_in[i].gl_Position + vec4(diff,0);
         iVectorV    = gVectorV[i];
         iVectorN    = gVectorN[i];
         iVectorL0   = gVectorL0[i];
@@ -51,7 +53,7 @@ void main(void) {
 		EmitVertex();
 	}
     
-	gl_Position = P*V*M*gl_in[0].gl_Position + vec4(diff, 0);
+	gl_Position = P * V * M * gl_in[0].gl_Position + vec4(diff, 0);
     iVectorV    = gVectorV[0];
     iVectorN    = gVectorN[0];
     iVectorL0   = gVectorL0[0];
