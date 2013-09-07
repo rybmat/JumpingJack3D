@@ -17,10 +17,7 @@ float shininess=50;
 void main(void) {
     
 	if (time > 0.0 ) {
-//        int red  = int(iVectorV.x);
-//        int blue = int(iVectorV.y);
-//        int green = (iVectorV.x == iVectorV.y) ? 1 : 0;
-//        //pixelColor = vec4(iVectorV.x, iVectorV.x, iVectorV.x, 1.0);
+        //pixelColor = vec4(iVectorV.x, iVectorV.x, iVectorV.x, 1.0);
 //        pixelColor = vec4(red, green, blue, 1.0);
         
         vec4 eyeVectorN = normalize(iVectorN);
@@ -39,7 +36,13 @@ void main(void) {
         float rv1 = pow(max(0, dot(eyeVectorR1, eyeVectorV)), shininess);
         float rv = max(rv0, rv1);
         
-        vec4 texColor0= vec4(0,1,0,0);
+        int red  = int(iTexCoords0.x);
+        int blue = int(iTexCoords0.y);
+        int green = (iTexCoords0.x == iTexCoords0.y) ? 1 : 0;
+        //pixelColor = vec4(iVectorV.x, iVectorV.x, iVectorV.x, 1.0);
+
+        
+        vec4 texColor0= vec4(red,green,blue,0);
         
         
         vec4 La = vec4(0,0,0,1);        //światło otoczenia

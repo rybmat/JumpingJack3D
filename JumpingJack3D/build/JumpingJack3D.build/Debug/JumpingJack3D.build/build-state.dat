@@ -5,22 +5,22 @@ cCheck dependencies
 cProcessInfoPlistFile /Users/asiron/code/JJ3D/JumpingJack3D/build/Debug/JumpingJack3D.app/Contents/Info.plist JumpingJack3D/JumpingJack3D-Info.plist
 cProcessPCH /var/folders/l8/gpq0vjns1y57_qs6rgtg916r0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/JumpingJack3D-Prefix-dlfdbgnxqwiptgepkqbxkkcqiesx/JumpingJack3D-Prefix.pch.pth JumpingJack3D/JumpingJack3D-Prefix.pch normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
 cProcessPCH++ /var/folders/l8/gpq0vjns1y57_qs6rgtg916r0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/JumpingJack3D-Prefix-gwubkhpeuddhbpbckdomkqtgkroa/JumpingJack3D-Prefix.pch.pth JumpingJack3D/JumpingJack3D-Prefix.pch normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/JumpingJack3D.build/Debug/JumpingJack3D.build/Objects-normal/x86_64/JJUtilities.o /Users/asiron/code/JJ3D/JumpingJack3D/JumpingJack3D/JJUtilities.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/JumpingJack3D.build/Debug/JumpingJack3D.build/Objects-normal/x86_64/JJStaticObject.o /Users/asiron/code/JJ3D/JumpingJack3D/JumpingJack3D/JJStaticObject.mm normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/JumpingJack3D.build/Debug/JumpingJack3D.build/Objects-normal/x86_64/JJStaticPlatform.o /Users/asiron/code/JJ3D/JumpingJack3D/JumpingJack3D/JJStaticPlatform.mm normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/JumpingJack3D.build/Debug/JumpingJack3D.build/Objects-normal/x86_64/AppDelegate.o /Users/asiron/code/JJ3D/JumpingJack3D/JumpingJack3D/AppDelegate.mm normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
 cCompileC build/JumpingJack3D.build/Debug/JumpingJack3D.build/Objects-normal/x86_64/main.o /Users/asiron/code/JJ3D/JumpingJack3D/JumpingJack3D/main.mm normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/JumpingJack3D.build/Debug/JumpingJack3D.build/Objects-normal/x86_64/JJRenderedObject.o /Users/asiron/code/JJ3D/JumpingJack3D/JumpingJack3D/JJRenderedObject.mm normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/JumpingJack3D.build/Debug/JumpingJack3D.build/Objects-normal/x86_64/JJShaderProgram.o /Users/asiron/code/JJ3D/JumpingJack3D/JumpingJack3D/JJShaderProgram.mm normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/JumpingJack3D.build/Debug/JumpingJack3D.build/Objects-normal/x86_64/AppDelegate.o /Users/asiron/code/JJ3D/JumpingJack3D/JumpingJack3D/AppDelegate.mm normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
 cCompileC build/JumpingJack3D.build/Debug/JumpingJack3D.build/Objects-normal/x86_64/JJGLView.o /Users/asiron/code/JJ3D/JumpingJack3D/JumpingJack3D/JJGLView.mm normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/JumpingJack3D.build/Debug/JumpingJack3D.build/Objects-normal/x86_64/JJUtilities.o /Users/asiron/code/JJ3D/JumpingJack3D/JumpingJack3D/JJUtilities.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/JumpingJack3D.build/Debug/JumpingJack3D.build/Objects-normal/x86_64/JJShaderProgram.o /Users/asiron/code/JJ3D/JumpingJack3D/JumpingJack3D/JJShaderProgram.mm normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/JumpingJack3D.build/Debug/JumpingJack3D.build/Objects-normal/x86_64/JJRenderedObject.o /Users/asiron/code/JJ3D/JumpingJack3D/JumpingJack3D/JJRenderedObject.mm normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/JumpingJack3D.build/Debug/JumpingJack3D.build/Objects-normal/x86_64/JJStaticObject.o /Users/asiron/code/JJ3D/JumpingJack3D/JumpingJack3D/JJStaticObject.mm normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
 cCompileC build/JumpingJack3D.build/Debug/JumpingJack3D.build/Objects-normal/x86_64/JJStaticEnemy.o /Users/asiron/code/JJ3D/JumpingJack3D/JumpingJack3D/JJStaticEnemy.mm normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/JumpingJack3D.build/Debug/JumpingJack3D.build/Objects-normal/x86_64/JJDynamicEnemy.o /Users/asiron/code/JJ3D/JumpingJack3D/JumpingJack3D/JJDynamicEnemy.mm normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/JumpingJack3D.build/Debug/JumpingJack3D.build/Objects-normal/x86_64/JJDynamicPlatform.o /Users/asiron/code/JJ3D/JumpingJack3D/JumpingJack3D/JJDynamicPlatform.mm normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
 cCompileC build/JumpingJack3D.build/Debug/JumpingJack3D.build/Objects-normal/x86_64/JJDynamicObject.o /Users/asiron/code/JJ3D/JumpingJack3D/JumpingJack3D/JJDynamicObject.mm normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/JumpingJack3D.build/Debug/JumpingJack3D.build/Objects-normal/x86_64/JJDynamicPlatform.o /Users/asiron/code/JJ3D/JumpingJack3D/JumpingJack3D/JJDynamicPlatform.mm normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/JumpingJack3D.build/Debug/JumpingJack3D.build/Objects-normal/x86_64/JJDynamicEnemy.o /Users/asiron/code/JJ3D/JumpingJack3D/JumpingJack3D/JJDynamicEnemy.mm normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/JumpingJack3D.build/Debug/JumpingJack3D.build/Objects-normal/x86_64/JJStaticPlatform.o /Users/asiron/code/JJ3D/JumpingJack3D/JumpingJack3D/JJStaticPlatform.mm normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
 cCompileC build/JumpingJack3D.build/Debug/JumpingJack3D.build/Objects-normal/x86_64/JJCharacter.o /Users/asiron/code/JJ3D/JumpingJack3D/JumpingJack3D/JJCharacter.mm normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
 cCompileC build/JumpingJack3D.build/Debug/JumpingJack3D.build/Objects-normal/x86_64/JJCamera.o /Users/asiron/code/JJ3D/JumpingJack3D/JumpingJack3D/JJCamera.mm normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/JumpingJack3D.build/Debug/JumpingJack3D.build/Objects-normal/x86_64/JJAssetManager.o /Users/asiron/code/JJ3D/JumpingJack3D/JumpingJack3D/JJAssetManager.mm normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
 cCompileC build/JumpingJack3D.build/Debug/JumpingJack3D.build/Objects-normal/x86_64/JJMesh.o /Users/asiron/code/JJ3D/JumpingJack3D/JumpingJack3D/JJMesh.mm normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/JumpingJack3D.build/Debug/JumpingJack3D.build/Objects-normal/x86_64/JJAssetManager.o /Users/asiron/code/JJ3D/JumpingJack3D/JumpingJack3D/JJAssetManager.mm normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
 cCompileC build/JumpingJack3D.build/Debug/JumpingJack3D.build/Objects-normal/x86_64/JJLight.o /Users/asiron/code/JJ3D/JumpingJack3D/JumpingJack3D/JJLight.mm normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
 cCompileC build/JumpingJack3D.build/Debug/JumpingJack3D.build/Objects-normal/x86_64/JJMapGenerator.o /Users/asiron/code/JJ3D/JumpingJack3D/JumpingJack3D/JJMapGenerator.mm normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
 cCompileC build/JumpingJack3D.build/Debug/JumpingJack3D.build/Objects-normal/x86_64/JJObjectManager.o /Users/asiron/code/JJ3D/JumpingJack3D/JumpingJack3D/JJObjectManager.mm normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
@@ -28,37 +28,37 @@ cCompileC build/JumpingJack3D.build/Debug/JumpingJack3D.build/Objects-normal/x86
 cCompileC build/JumpingJack3D.build/Debug/JumpingJack3D.build/Objects-normal/x86_64/JJHUD.o /Users/asiron/code/JJ3D/JumpingJack3D/JumpingJack3D/JJHUD.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
 cLd /Users/asiron/code/JJ3D/JumpingJack3D/build/Debug/JumpingJack3D.app/Contents/MacOS/JumpingJack3D normal x86_64
 cCpResource JumpingJack3D/assets/shaders/character.gsh build/Debug/JumpingJack3D.app/Contents/Resources/character.gsh
-cCpResource JumpingJack3D/assets/shaders/character.fsh build/Debug/JumpingJack3D.app/Contents/Resources/character.fsh
 cCpResource JumpingJack3D/assets/shaders/character.vsh build/Debug/JumpingJack3D.app/Contents/Resources/character.vsh
+cCpResource JumpingJack3D/assets/shaders/character.fsh build/Debug/JumpingJack3D.app/Contents/Resources/character.fsh
 cCpResource JumpingJack3D/assets/shaders/floor.vsh build/Debug/JumpingJack3D.app/Contents/Resources/floor.vsh
 cCpResource JumpingJack3D/assets/shaders/star.fsh build/Debug/JumpingJack3D.app/Contents/Resources/star.fsh
 cCpResource JumpingJack3D/assets/shaders/star.vsh build/Debug/JumpingJack3D.app/Contents/Resources/star.vsh
 cCpResource JumpingJack3D/assets/shaders/floor.fsh build/Debug/JumpingJack3D.app/Contents/Resources/floor.fsh
-cCopyStringsFile /Users/asiron/code/JJ3D/JumpingJack3D/build/Debug/JumpingJack3D.app/Contents/Resources/en.lproj/InfoPlist.strings JumpingJack3D/en.lproj/InfoPlist.strings
 cCpResource JumpingJack3D/en.lproj/Credits.rtf build/Debug/JumpingJack3D.app/Contents/Resources/en.lproj/Credits.rtf
+cCopyStringsFile /Users/asiron/code/JJ3D/JumpingJack3D/build/Debug/JumpingJack3D.app/Contents/Resources/en.lproj/InfoPlist.strings JumpingJack3D/en.lproj/InfoPlist.strings
 cCompileXIB /Users/asiron/code/JJ3D/JumpingJack3D/JumpingJack3D/en.lproj/MainMenu.xib
 cCpResource JumpingJack3D/assets/shaders/platform.vsh build/Debug/JumpingJack3D.app/Contents/Resources/platform.vsh
 cCpResource JumpingJack3D/assets/shaders/platform.fsh build/Debug/JumpingJack3D.app/Contents/Resources/platform.fsh
 cCpResource JumpingJack3D/assets/textures/platform.png build/Debug/JumpingJack3D.app/Contents/Resources/platform.png
 cCpResource JumpingJack3D/assets/models/platform.obj build/Debug/JumpingJack3D.app/Contents/Resources/platform.obj
-cCpResource JumpingJack3D/assets/models/Football.obj build/Debug/JumpingJack3D.app/Contents/Resources/Football.obj
 cCpResource TODO.txt build/Debug/JumpingJack3D.app/Contents/Resources/TODO.txt
-cCpResource JumpingJack3D/assets/models/cube.obj build/Debug/JumpingJack3D.app/Contents/Resources/cube.obj
 cCpResource JumpingJack3D/assets/textures/metal.tga build/Debug/JumpingJack3D.app/Contents/Resources/metal.tga
+cCpResource JumpingJack3D/assets/models/Football.obj build/Debug/JumpingJack3D.app/Contents/Resources/Football.obj
+cCpResource JumpingJack3D/assets/models/cube.obj build/Debug/JumpingJack3D.app/Contents/Resources/cube.obj
+cCpResource JumpingJack3D/assets/textures/cube.jpg build/Debug/JumpingJack3D.app/Contents/Resources/cube.jpg
 cCpResource JumpingJack3D/assets/models/floor.obj build/Debug/JumpingJack3D.app/Contents/Resources/floor.obj
 cCpResource JumpingJack3D/assets/textures/floor.jpg build/Debug/JumpingJack3D.app/Contents/Resources/floor.jpg
-cCpResource JumpingJack3D/assets/textures/eye.jpg build/Debug/JumpingJack3D.app/Contents/Resources/eye.jpg
-cCpResource JumpingJack3D/assets/textures/cube.jpg build/Debug/JumpingJack3D.app/Contents/Resources/cube.jpg
-cCpResource JumpingJack3D/assets/textures/sphere.jpg build/Debug/JumpingJack3D.app/Contents/Resources/sphere.jpg
 cCpResource JumpingJack3D/assets/models/eye.obj build/Debug/JumpingJack3D.app/Contents/Resources/eye.obj
+cCpResource JumpingJack3D/assets/textures/eye.jpg build/Debug/JumpingJack3D.app/Contents/Resources/eye.jpg
+cCpResource JumpingJack3D/assets/textures/sphere.jpg build/Debug/JumpingJack3D.app/Contents/Resources/sphere.jpg
 cCpResource JumpingJack3D/assets/models/sphere.obj build/Debug/JumpingJack3D.app/Contents/Resources/sphere.obj
 cCpResource JumpingJack3D/assets/textures/ball.jpg build/Debug/JumpingJack3D.app/Contents/Resources/ball.jpg
-cCpResource JumpingJack3D/assets/textures/circle.jpg build/Debug/JumpingJack3D.app/Contents/Resources/circle.jpg
-cCpResource JumpingJack3D/assets/models/circle.obj build/Debug/JumpingJack3D.app/Contents/Resources/circle.obj
 cCpResource JumpingJack3D/assets/models/ball.obj build/Debug/JumpingJack3D.app/Contents/Resources/ball.obj
+cCpResource JumpingJack3D/assets/models/circle.obj build/Debug/JumpingJack3D.app/Contents/Resources/circle.obj
+cCpResource JumpingJack3D/assets/textures/circle.jpg build/Debug/JumpingJack3D.app/Contents/Resources/circle.jpg
+cCpResource JumpingJack3D/assets/textures/star.jpg build/Debug/JumpingJack3D.app/Contents/Resources/star.jpg
 cCpResource JumpingJack3D/assets/textures/metal_spec.tga build/Debug/JumpingJack3D.app/Contents/Resources/metal_spec.tga
 cCpResource JumpingJack3D/assets/models/star.obj build/Debug/JumpingJack3D.app/Contents/Resources/star.obj
-cCpResource JumpingJack3D/assets/textures/star.jpg build/Debug/JumpingJack3D.app/Contents/Resources/star.jpg
 cTouch /Users/asiron/code/JJ3D/JumpingJack3D/build/Debug/JumpingJack3D.app
 
 N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk
@@ -358,14 +358,14 @@ t1378402352
 s70537
 
 N/Users/asiron/code/JJ3D/JumpingJack3D/JumpingJack3D/assets/shaders/character.fsh
-c00000000522B30630000000000000BFC
-t1378562147
-s3068
+c00000000522B34A20000000000000C59
+t1378563234
+s3161
 
 N/Users/asiron/code/JJ3D/JumpingJack3D/JumpingJack3D/assets/shaders/character.gsh
-c00000000522B320E0000000000002446
-t1378562574
-s9286
+c00000000522B38210000000000002534
+t1378564129
+s9524
 
 N/Users/asiron/code/JJ3D/JumpingJack3D/JumpingJack3D/assets/shaders/character.vsh
 c00000000522A4B2A0000000000000317
@@ -1468,7 +1468,7 @@ t1373939920
 s37
 
 N/Users/asiron/code/JJ3D/JumpingJack3D/build/Debug/JumpingJack3D.app
-t1378562475
+t1378564008
 s102
 
 N/Users/asiron/code/JJ3D/JumpingJack3D/build/Debug/JumpingJack3D.app/Contents/Info.plist
@@ -1500,12 +1500,12 @@ t1378404961
 s759557
 
 N/Users/asiron/code/JJ3D/JumpingJack3D/build/Debug/JumpingJack3D.app/Contents/Resources/character.fsh
-t1378562148
-s3068
+t1378563264
+s3161
 
 N/Users/asiron/code/JJ3D/JumpingJack3D/build/Debug/JumpingJack3D.app/Contents/Resources/character.gsh
-t1378562475
-s9286
+t1378564008
+s9524
 
 N/Users/asiron/code/JJ3D/JumpingJack3D/build/Debug/JumpingJack3D.app/Contents/Resources/character.vsh
 t1378503466
@@ -1785,7 +1785,7 @@ r0
 
 CCheck dependencies
 r0
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies944edc8e69dbb741^5dc3dc8e69dbb741^---0#1#0#--18"Check dependencies36"AAA90FB8-9851-4B4E-8F94-CA7C19280378-
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies983258a16fdbb741^5f9858a16fdbb741^---0#1#0#--18"Check dependencies36"B559296C-37A2-4798-82BA-F305ECD63E37-
 
 CCompileC build/JumpingJack3D.build/Debug/JumpingJack3D.build/Objects-normal/x86_64/AppDelegate.o /Users/asiron/code/JJ3D/JumpingJack3D/JumpingJack3D/AppDelegate.mm normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
 s400097755.264812
@@ -2269,22 +2269,22 @@ xbuild/Debug/JumpingJack3D.app/Contents/Resources/star.obj
 lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection62"Copy build/Debug/JumpingJack3D.app/Contents/Resources/star.obj35b35ee101d9b741^d0d05fe101d9b741^---0#0#0#-19%DVTDocumentLocation2@111"file://localhost/Users/asiron/code/JJ3D/JumpingJack3D/build/Debug/JumpingJack3D.app/Contents/Resources/star.obj000000000080d041^425"CpResource JumpingJack3D/assets/models/star.obj build/Debug/JumpingJack3D.app/Contents/Resources/star.obj    cd /Users/asiron/code/JJ3D/JumpingJack3D    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/asiron/code/JJ3D/JumpingJack3D/JumpingJack3D/assets/models/star.obj /Users/asiron/code/JJ3D/JumpingJack3D/build/Debug/JumpingJack3D.app/Contents/Resources36"E9119D92-3744-4254-AB1C-B3350760218C-
 
 CCpResource JumpingJack3D/assets/shaders/character.fsh build/Debug/JumpingJack3D.app/Contents/Resources/character.fsh
-s400254948.241213
-e400254948.252439
+s400256064.972223
+e400256064.974821
 r1
 xCpResource
 xJumpingJack3D/assets/shaders/character.fsh
 xbuild/Debug/JumpingJack3D.app/Contents/Resources/character.fsh
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection67"Copy build/Debug/JumpingJack3D.app/Contents/Resources/character.fsh4b003ee467dbb741^aed443e467dbb741^---0#0#0#-19%DVTDocumentLocation2@116"file://localhost/Users/asiron/code/JJ3D/JumpingJack3D/build/Debug/JumpingJack3D.app/Contents/Resources/character.fsh0000000000000000^442"CpResource JumpingJack3D/assets/shaders/character.fsh build/Debug/JumpingJack3D.app/Contents/Resources/character.fsh    cd /Users/asiron/code/JJ3D/JumpingJack3D    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/asiron/code/JJ3D/JumpingJack3D/JumpingJack3D/assets/shaders/character.fsh /Users/asiron/code/JJ3D/JumpingJack3D/build/Debug/JumpingJack3D.app/Contents/Resources36"758EBB9D-8C4C-4935-B042-2364B650C9B7-
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection67"Copy build/Debug/JumpingJack3D.app/Contents/Resources/character.fshb308f9406cdbb741^d1caf9406cdbb741^---0#0#0#-19%DVTDocumentLocation2@116"file://localhost/Users/asiron/code/JJ3D/JumpingJack3D/build/Debug/JumpingJack3D.app/Contents/Resources/character.fsh0000000000000000^442"CpResource JumpingJack3D/assets/shaders/character.fsh build/Debug/JumpingJack3D.app/Contents/Resources/character.fsh    cd /Users/asiron/code/JJ3D/JumpingJack3D    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/asiron/code/JJ3D/JumpingJack3D/JumpingJack3D/assets/shaders/character.fsh /Users/asiron/code/JJ3D/JumpingJack3D/build/Debug/JumpingJack3D.app/Contents/Resources36"1BF3520F-389A-456B-A188-9FACB8472CFC-
 
 CCpResource JumpingJack3D/assets/shaders/character.gsh build/Debug/JumpingJack3D.app/Contents/Resources/character.gsh
-s400255374.932717
-e400255374.935584
+s400256929.417409
+e400256929.420196
 r1
 xCpResource
 xJumpingJack3D/assets/shaders/character.gsh
 xbuild/Debug/JumpingJack3D.app/Contents/Resources/character.gsh
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection67"Copy build/Debug/JumpingJack3D.app/Contents/Resources/character.gsh28f0ee8e69dbb741^74b3ef8e69dbb741^---0#0#0#-19%DVTDocumentLocation2@116"file://localhost/Users/asiron/code/JJ3D/JumpingJack3D/build/Debug/JumpingJack3D.app/Contents/Resources/character.gsh0000000000000000^442"CpResource JumpingJack3D/assets/shaders/character.gsh build/Debug/JumpingJack3D.app/Contents/Resources/character.gsh    cd /Users/asiron/code/JJ3D/JumpingJack3D    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/asiron/code/JJ3D/JumpingJack3D/JumpingJack3D/assets/shaders/character.gsh /Users/asiron/code/JJ3D/JumpingJack3D/build/Debug/JumpingJack3D.app/Contents/Resources36"7D9A9C5F-C97E-4D5D-B6DD-376CFA78A830-
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection67"Copy build/Debug/JumpingJack3D.app/Contents/Resources/character.gshaa0c6ba16fdbb741^abcd6ba16fdbb741^---0#0#0#-19%DVTDocumentLocation2@116"file://localhost/Users/asiron/code/JJ3D/JumpingJack3D/build/Debug/JumpingJack3D.app/Contents/Resources/character.gsh0000000000000000^442"CpResource JumpingJack3D/assets/shaders/character.gsh build/Debug/JumpingJack3D.app/Contents/Resources/character.gsh    cd /Users/asiron/code/JJ3D/JumpingJack3D    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/asiron/code/JJ3D/JumpingJack3D/JumpingJack3D/assets/shaders/character.gsh /Users/asiron/code/JJ3D/JumpingJack3D/build/Debug/JumpingJack3D.app/Contents/Resources36"89EDF776-2C30-4E29-B9F5-8EE671C0F2BC-
 
 CCpResource JumpingJack3D/assets/shaders/character.vsh build/Debug/JumpingJack3D.app/Contents/Resources/character.vsh
 s400196266.240395
@@ -2509,10 +2509,10 @@ xcom.apple.compilers.llvm.clang.1_0.compiler
 lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection49"Precompile JumpingJack3D/JumpingJack3D-Prefix.pchd506ffd901d9b741^22fe41db01d9b741^---0#0#0#-19%DVTDocumentLocation2@92"file://localhost/Users/asiron/code/JJ3D/JumpingJack3D/JumpingJack3D/JumpingJack3D-Prefix.pch0000000000000000^3357"ProcessPCH++ /var/folders/l8/gpq0vjns1y57_qs6rgtg916r0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/JumpingJack3D-Prefix-gwubkhpeuddhbpbckdomkqtgkroa/JumpingJack3D-Prefix.pch.pth JumpingJack3D/JumpingJack3D-Prefix.pch normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/asiron/code/JJ3D/JumpingJack3D    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c++-header -arch x86_64 -fmessage-length=0 -std=gnu++11 -stdlib=libc++ -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wenum-conversion -Wshorten-64-to-32 -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -Wno-c++11-extensions -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.8 -g -fvisibility-inlines-hidden -Wno-sign-conversion -iquote /Users/asiron/code/JJ3D/JumpingJack3D/build/JumpingJack3D.build/Debug/JumpingJack3D.build/JumpingJack3D-generated-files.hmap -I/Users/asiron/code/JJ3D/JumpingJack3D/build/JumpingJack3D.build/Debug/JumpingJack3D.build/JumpingJack3D-own-target-headers.hmap -I/Users/asiron/code/JJ3D/JumpingJack3D/build/JumpingJack3D.build/Debug/JumpingJack3D.build/JumpingJack3D-all-target-headers.hmap -iquote /Users/asiron/code/JJ3D/JumpingJack3D/build/JumpingJack3D.build/Debug/JumpingJack3D.build/JumpingJack3D-project-headers.hmap -I/Users/asiron/code/JJ3D/JumpingJack3D/build/Debug/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/asiron/code/JJ3D/JumpingJack3D/build/JumpingJack3D.build/Debug/JumpingJack3D.build/DerivedSources/x86_64 -I/Users/asiron/code/JJ3D/JumpingJack3D/build/JumpingJack3D.build/Debug/JumpingJack3D.build/DerivedSources -F/Users/asiron/code/JJ3D/JumpingJack3D/build/Debug --serialize-diagnostics /var/folders/l8/gpq0vjns1y57_qs6rgtg916r0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/JumpingJack3D-Prefix-gwubkhpeuddhbpbckdomkqtgkroa/JumpingJack3D-Prefix.pch.dia -c /Users/asiron/code/JJ3D/JumpingJack3D/JumpingJack3D/JumpingJack3D-Prefix.pch -o /var/folders/l8/gpq0vjns1y57_qs6rgtg916r0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/JumpingJack3D-Prefix-gwubkhpeuddhbpbckdomkqtgkroa/JumpingJack3D-Prefix.pch.pth -MMD -MT dependencies -MF /var/folders/l8/gpq0vjns1y57_qs6rgtg916r0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/JumpingJack3D-Prefix-gwubkhpeuddhbpbckdomkqtgkroa/JumpingJack3D-Prefix.pch.d36"7E6822FB-4240-488C-9B92-6A60E3252862-
 
 CTouch /Users/asiron/code/JJ3D/JumpingJack3D/build/Debug/JumpingJack3D.app
-s400255374.951149
-e400255374.958234
+s400256929.436432
+e400256929.444637
 r1
 xTouch
 x/Users/asiron/code/JJ3D/JumpingJack3D/build/Debug/JumpingJack3D.app
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection73"Touch /Users/asiron/code/JJ3D/JumpingJack3D/build/Debug/JumpingJack3D.appdba3f38e69dbb741^164ff58e69dbb741^---0#0#0#--171"Touch build/Debug/JumpingJack3D.app    cd /Users/asiron/code/JJ3D/JumpingJack3D    /usr/bin/touch -c /Users/asiron/code/JJ3D/JumpingJack3D/build/Debug/JumpingJack3D.app36"C351BBE6-7C02-44BD-A0BA-CE240D375FB9-
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection73"Touch /Users/asiron/code/JJ3D/JumpingJack3D/build/Debug/JumpingJack3D.appaed46fa16fdbb741^46d371a16fdbb741^---0#0#0#--171"Touch build/Debug/JumpingJack3D.app    cd /Users/asiron/code/JJ3D/JumpingJack3D    /usr/bin/touch -c /Users/asiron/code/JJ3D/JumpingJack3D/build/Debug/JumpingJack3D.app36"57D7BD2B-4B39-47EC-B742-3C037D0C10A5-
 
