@@ -153,60 +153,61 @@ BOOL setToDie = NO;
         if (explosionState >= maxExplosionState - 0.05) {
             [self explosionEnded];
         }
-    }
-    
-    // Velocity constraints handling
-    if (forwardVelocity > self.maxForwardVelocity) {
-        forwardVelocity = self.maxForwardVelocity;
-    }
-    if (forwardVelocity < -self.maxForwardVelocity) {
-        forwardVelocity = -self.maxForwardVelocity;
-    }
-    if (strafeVelocity > self.maxStrafeVelocity) {
-        strafeVelocity = self.maxStrafeVelocity;
-    }
-    if (strafeVelocity < -self.maxStrafeVelocity) {
-        strafeVelocity = -self.maxStrafeVelocity;
-    }
-    
-    
-    yVelocity -= self.gravity * invertedFrameRate;
-    [self moveY:yVelocity * invertedFrameRate];
-    
-    if (yVelocity < -self.deathSpeed and setToDie == NO) {
-        [self.camera lock];
-        setToDie = YES;
-        return;
-    }
+    } else {
+        
+        // Velocity constraints handling
+        if (forwardVelocity > self.maxForwardVelocity) {
+            forwardVelocity = self.maxForwardVelocity;
+        }
+        if (forwardVelocity < -self.maxForwardVelocity) {
+            forwardVelocity = -self.maxForwardVelocity;
+        }
+        if (strafeVelocity > self.maxStrafeVelocity) {
+            strafeVelocity = self.maxStrafeVelocity;
+        }
+        if (strafeVelocity < -self.maxStrafeVelocity) {
+            strafeVelocity = -self.maxStrafeVelocity;
+        }
+        
+        
+        yVelocity -= self.gravity * invertedFrameRate;
+        [self moveY:yVelocity * invertedFrameRate];
+        
+        if (yVelocity < -self.deathSpeed and setToDie == NO) {
+            [self.camera lock];
+            setToDie = YES;
+            return;
+        }
 
-    if (setToDie == YES and self.position.y < 20.0) {
-        [self.camera prepareDeathCam:self.position];
-    }
-    
-    glm::vec3 moveForwardVector = forwardVelocity * invertedFrameRate * self.getFaceVector;
-    [self move:moveForwardVector];
+        if (setToDie == YES and self.position.y < 20.0) {
+            [self.camera prepareDeathCam:self.position];
+        }
+        
+        glm::vec3 moveForwardVector = forwardVelocity * invertedFrameRate * self.getFaceVector;
+        [self move:moveForwardVector];
 
-    
-    glm::vec3 strafeVector = glm::cross(self.getFaceVector, glm::vec3(0.0f,1.0f,0.0f));
-    glm::vec3 moveSidewardVector = strafeVelocity * invertedFrameRate * strafeVector;
-    [self move:moveSidewardVector];
+        
+        glm::vec3 strafeVector = glm::cross(self.getFaceVector, glm::vec3(0.0f,1.0f,0.0f));
+        glm::vec3 moveSidewardVector = strafeVelocity * invertedFrameRate * strafeVector;
+        [self move:moveSidewardVector];
 
-    
-    if (self.deccelerateForward == YES) {
-        float deccelerationStep = self.decceleration * invertedFrameRate;
-        forwardVelocity += (forwardVelocity > 0) ? -deccelerationStep : deccelerationStep;
-    }
-    
-    if (self.deccelerateStrafe == YES) {
-        float deccelerationStep = self.decceleration * invertedFrameRate;
-        strafeVelocity  += (strafeVelocity  > 0) ? -deccelerationStep : deccelerationStep;
-    }
-    
-    if (isExploding == NO) {
-        int rotateSign = (forwardVelocity > 0 ) ? -1 : 1;
-        [self rotateForwardBy: rotateSign * [self calculateRotationFromMoveVector:moveForwardVector]];
-        rotateSign = (strafeVelocity > 0) ? 1 : -1;
-        [self rotateSidewardBy: rotateSign * [self calculateRotationFromMoveVector:moveSidewardVector]];
+        
+        if (self.deccelerateForward == YES) {
+            float deccelerationStep = self.decceleration * invertedFrameRate;
+            forwardVelocity += (forwardVelocity > 0) ? -deccelerationStep : deccelerationStep;
+        }
+        
+        if (self.deccelerateStrafe == YES) {
+            float deccelerationStep = self.decceleration * invertedFrameRate;
+            strafeVelocity  += (strafeVelocity  > 0) ? -deccelerationStep : deccelerationStep;
+        }
+        
+        if (isExploding == NO) {
+            int rotateSign = (forwardVelocity > 0 ) ? -1 : 1;
+            [self rotateForwardBy: rotateSign * [self calculateRotationFromMoveVector:moveForwardVector]];
+            rotateSign = (strafeVelocity > 0) ? 1 : -1;
+            [self rotateSidewardBy: rotateSign * [self calculateRotationFromMoveVector:moveSidewardVector]];
+        }
     }
     
 }
@@ -344,7 +345,7 @@ BOOL setToDie = NO;
 - (void) setYVelocity:(float)velocity
 {
     yVelocity = velocity;
-}
+} 
 
 - (void) setScore:(int)score
 {
