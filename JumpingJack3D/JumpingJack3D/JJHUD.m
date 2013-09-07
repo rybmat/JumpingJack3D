@@ -52,7 +52,7 @@ NSRect screenSize;
 
 - (void)drawRect:(NSRect)dirtyRect
 {
-    
+        
 }
 
 + (void) changeScore:(int)aScore andLives:(int)lives;
@@ -60,23 +60,16 @@ NSRect screenSize;
     [scoreAndLives setStringValue:[NSString stringWithFormat:@"Score: %d\nLives:  %d", aScore, lives]];
 }
 
-+ (void) changeMessage:(NSString *)text;
++ (void) changeMessage:(NSTimer *)timer;
 {
-    [centeredMessage setStringValue:text];
-}
-
-
-+ (void) resetMessage
-{
-    [centeredMessage setStringValue:@""];
-
+    [centeredMessage setStringValue:(NSString*)[timer userInfo]];
 }
 
 + (void) flashMessage:(NSString*)message for:(float)seconds;
 {
     [centeredMessage setStringValue:message];
     
-    [NSTimer scheduledTimerWithTimeInterval:seconds target:self selector:@selector(resetMessage) userInfo:nil repeats:NO];
+    [NSTimer scheduledTimerWithTimeInterval:seconds target:self selector:@selector(changeMessage:) userInfo:@"" repeats:NO];
 }
 
 @end

@@ -12,6 +12,6 @@
 
 + (void) changeScore:(int)aScore andLives:(int)lives;
 
-+ (void) changeMessage:(NSString*)text;
++ (void) changeMessage:(NSTimer*)timer;
 + (void) flashMessage:(NSString*)message for:(float)seconds;
 @end

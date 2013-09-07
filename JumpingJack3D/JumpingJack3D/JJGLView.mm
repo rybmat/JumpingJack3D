@@ -115,7 +115,6 @@ BOOL mousePressed;
     
     [self setOpenGLContext:context];
     
-    
     renderTimer = [NSTimer timerWithTimeInterval:1/60.0
                                           target:self
                                         selector:@selector(timerFired:)

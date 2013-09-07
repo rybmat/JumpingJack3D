@@ -89,7 +89,6 @@ int randomMap[RANDOM_MAP_SIZE];
         
         [self morphMapGeneration:0];
         [self initMap];
-        NSLog(@"floor %f", ceil(2.2f));
     }
     return self;
 }
