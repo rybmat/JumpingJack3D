@@ -108,13 +108,15 @@ static const float standardLatitude = 30.0f;
     [self refresh];
 }
 
-- (void) refreshWithoutMoving
+- (void) prepareDeathCam:(glm::vec3)charPosition
 {
-
+    self.cameraPosition = glm::vec3(charPosition.x - 10.0f, 4.0f,
+                                    charPosition.z - 10.0f);
+    [self lock];
 }
 
 /* Sets all camera attributes needed for View matrix and the builds it      */
-/* Converts geographical representation of camera in 3D space to cartesian  */
+/* Converts geographica; representation of camera in 3D space to cartesian  */
 /* Calculates lookAt and up vectors and builds View matrix                  */
 /* Uses forward vector to aim camera not directly at character but above it */
 - (void) setWithCharacterPosition:(glm::vec3)charPosition

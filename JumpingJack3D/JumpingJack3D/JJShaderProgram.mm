@@ -119,13 +119,13 @@
 }
 
 //Zwraca numer slotu zmiennej jednorodnej o nazwie variableName
--(GLuint) getUniformLocation:(char*) variableName {
-	return glGetUniformLocation(_shaderProgram,variableName);
+-(GLuint) getUniformLocation:(NSString*) variableName {
+	return glGetUniformLocation(_shaderProgram,[variableName cStringUsingEncoding:NSASCIIStringEncoding]);
 }
 
 //Zwraca numer slotu atrybutu o nazwie variableName
--(GLuint) getAttribLocation:(char*) variableName {
-	return glGetAttribLocation(_shaderProgram,variableName);
+-(GLuint) getAttribLocation:(NSString*) variableName {
+	return glGetAttribLocation(_shaderProgram,[variableName cStringUsingEncoding:NSASCIIStringEncoding]);
 }
 
 -(void) dealloc{

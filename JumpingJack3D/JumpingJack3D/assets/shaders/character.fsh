@@ -17,9 +17,11 @@ float shininess=50;
 void main(void) {
     
 	if (time > 0.0 ) {
-    
-        pixelColor = vec4(iVectorV.x, 0, iVectorV.x, 1.0);
-        
+        int red  = int(iVectorV.x);
+        int blue = int(iVectorV.y);
+        int green = (iVectorV.x == iVectorV.y) ? 1 : 0;
+        //pixelColor = vec4(iVectorV.x, iVectorV.x, iVectorV.x, 1.0);
+        pixelColor = vec4(red, green, blue, 1.0);
     } else {
     
         vec4 eyeVectorN = normalize(iVectorN);

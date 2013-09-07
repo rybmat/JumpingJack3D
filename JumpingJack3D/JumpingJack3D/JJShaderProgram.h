@@ -19,7 +19,7 @@
 
 -(id) initWithVertexFile: (NSString*) vShaderFile GeometryShaderFile: (NSString*) gShaderFile FragmentShaderFile: (NSString*) fShaderFile;
 -(void) use;
--(GLuint) getUniformLocation: (char*) variableName;
--(GLuint) getAttribLocation: (char*) variableName;
+-(GLuint) getUniformLocation: (NSString*) variableName;
+-(GLuint) getAttribLocation: (NSString*) variableName;
 
 @end

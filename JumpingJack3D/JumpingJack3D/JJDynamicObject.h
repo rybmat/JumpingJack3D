@@ -18,6 +18,6 @@
 
 - (id) initWithShaderProgram: (JJShaderProgram*) shProg Camera: (JJCamera*) cam Vertices: (float*) verts Normals: (float*) norms VertexCount: (int) vCount PositionX: (float) x Y: (float) y Z: (float) z PathPointB: (glm::vec4) pointB Step: (float) stp;
     
--(void) moveThroughPath;//: (id) sender;
+-(void) moveThroughPath;
 
 @end

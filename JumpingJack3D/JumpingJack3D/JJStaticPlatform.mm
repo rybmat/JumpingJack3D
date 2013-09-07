@@ -54,15 +54,15 @@
     glGenVertexArrays(1,&_vao);
 	glBindVertexArray(_vao);
     
-	[self assignVBOtoAttribute:"vertex" BufVBO: _bufVertices varSize:4];
-	[self assignVBOtoAttribute:"normal" BufVBO: _bufNormals varSize:4];
-    [self assignVBOtoAttribute:"texCoords0" BufVBO: _bufTexCoords varSize:2];
+	[self assignVBOtoAttribute:@"vertex" BufVBO: _bufVertices varSize:4];
+	[self assignVBOtoAttribute:@"normal" BufVBO: _bufNormals varSize:4];
+    [self assignVBOtoAttribute:@"texCoords0" BufVBO: _bufTexCoords varSize:2];
 	
 	glBindVertexArray(0);
     
 }
 
-- (void) assignVBOtoAttribute: (char*) attributeName BufVBO: (GLuint) bufVBO varSize: (int) variableSize {
+- (void) assignVBOtoAttribute: (NSString*) attributeName BufVBO: (GLuint) bufVBO varSize: (int) variableSize {
 	GLuint location=[[self shaderProgram] getAttribLocation:attributeName];
 	glBindBuffer(GL_ARRAY_BUFFER,bufVBO);
 	glEnableVertexAttribArray(location);
@@ -89,13 +89,13 @@
     
     [[self shaderProgram] use];
     
-    glUniformMatrix4fv([[self shaderProgram] getUniformLocation:"P"],1, false, glm::value_ptr([[self camera] projectionMatrix]));
-	glUniformMatrix4fv([[self shaderProgram] getUniformLocation:"V" ],1, false, glm::value_ptr([[self camera] viewMatrix]));
-	glUniformMatrix4fv([[self shaderProgram] getUniformLocation:"M"],1, false, glm::value_ptr([self constructModelMatrix]));
-	glUniform1i([[self shaderProgram] getUniformLocation:"textureMap0"], 0);
-    glUniform1i([[self shaderProgram] getUniformLocation:"textureMap1"], 1);
-    glUniform4fv([[self shaderProgram] getUniformLocation:"lp0"], 1, [JJLight getFirstLight]);
-    glUniform4fv([[self shaderProgram] getUniformLocation:"lp1"], 1, [JJLight getSecondLight]);
+    glUniformMatrix4fv([[self shaderProgram] getUniformLocation:@"P"],1, false, glm::value_ptr([[self camera] projectionMatrix]));
+	glUniformMatrix4fv([[self shaderProgram] getUniformLocation:@"V" ],1, false, glm::value_ptr([[self camera] viewMatrix]));
+	glUniformMatrix4fv([[self shaderProgram] getUniformLocation:@"M"],1, false, glm::value_ptr([self constructModelMatrix]));
+	glUniform1i([[self shaderProgram] getUniformLocation:@"textureMap0"], 0);
+    glUniform1i([[self shaderProgram] getUniformLocation:@"textureMap1"], 1);
+    glUniform4fv([[self shaderProgram] getUniformLocation:@"lp0"], 1, [JJLight getFirstLight]);
+    glUniform4fv([[self shaderProgram] getUniformLocation:@"lp1"], 1, [JJLight getSecondLight]);
     
     glBindVertexArray(_vao);
     

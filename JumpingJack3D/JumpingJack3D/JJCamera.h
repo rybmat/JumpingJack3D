@@ -31,6 +31,8 @@
 - (void) setWithCharacterPosition:(glm::vec3)charPosition andCharactersFaceVector:(glm::vec3)fVector;
 - (void) setWithCharacterPosition:(glm::vec3)charPostion;
 
+- (void) prepareDeathCam:(glm::vec3)charPosition;
+
 - (void) resetWithCharacterFaceVector:(glm::vec3)fVector;
 
 - (void) refresh;

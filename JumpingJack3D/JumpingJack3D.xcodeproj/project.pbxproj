@@ -31,7 +31,6 @@
 		10C577C517BEE9C500007FCE /* JJMapGeneratorTests.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10C577C417BEE9C500007FCE /* JJMapGeneratorTests.mm */; };
 		10C58E7A17D8F55A00AF58D9 /* star.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 10C58E7917D8F55A00AF58D9 /* star.jpg */; };
 		10C58E8017D8F7BD00AF58D9 /* star.obj in Resources */ = {isa = PBXBuildFile; fileRef = 10C58E7F17D8F7BD00AF58D9 /* star.obj */; };
-		10C58E8217D8F8EF00AF58D9 /* character.gsh in Sources */ = {isa = PBXBuildFile; fileRef = 10C58E8117D8F8EF00AF58D9 /* character.gsh */; };
 		10C58E8317D9005800AF58D9 /* character.gsh in Resources */ = {isa = PBXBuildFile; fileRef = 10C58E8117D8F8EF00AF58D9 /* character.gsh */; };
 		10C6AFD617D5BF8000C87936 /* JJScore.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C6AFD517D5BF7F00C87936 /* JJScore.m */; };
 		10FE0170179379D3005A218E /* JJAssetManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10FE016F179379D3005A218E /* JJAssetManager.mm */; };
@@ -50,23 +49,12 @@
 		6130D165178EED0B004F2FA5 /* platform.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 6130D164178EED0B004F2FA5 /* platform.vsh */; };
 		6130D167178EEF2F004F2FA5 /* platform.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 6130D166178EEF2F004F2FA5 /* platform.fsh */; };
 		6154A39D17D32BD500910FBF /* JJFloor.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6154A39C17D32BD500910FBF /* JJFloor.mm */; };
-		6154A39E17D32BD500910FBF /* JJFloor.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6154A39C17D32BD500910FBF /* JJFloor.mm */; };
 		6154A3A017D32C6A00910FBF /* metal_spec.tga in Resources */ = {isa = PBXBuildFile; fileRef = 6154A39F17D32C6A00910FBF /* metal_spec.tga */; };
 		6154A3A117D32C6A00910FBF /* metal_spec.tga in Resources */ = {isa = PBXBuildFile; fileRef = 6154A39F17D32C6A00910FBF /* metal_spec.tga */; };
-		6154A3A317D32DD500910FBF /* floor.vsh in Sources */ = {isa = PBXBuildFile; fileRef = 6154A3A217D32DD500910FBF /* floor.vsh */; };
-		6154A3A417D32DD500910FBF /* floor.vsh in Sources */ = {isa = PBXBuildFile; fileRef = 6154A3A217D32DD500910FBF /* floor.vsh */; };
-		6154A3A617D32DE100910FBF /* floor.fsh in Sources */ = {isa = PBXBuildFile; fileRef = 6154A3A517D32DE100910FBF /* floor.fsh */; };
-		6154A3A717D32DE100910FBF /* floor.fsh in Sources */ = {isa = PBXBuildFile; fileRef = 6154A3A517D32DE100910FBF /* floor.fsh */; };
 		6154A3A817D32E4E00910FBF /* floor.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 6154A3A217D32DD500910FBF /* floor.vsh */; };
 		6154A3A917D32E4E00910FBF /* floor.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 6154A3A517D32DE100910FBF /* floor.fsh */; };
-		6154A3AE17D3336900910FBF /* character.vsh in Sources */ = {isa = PBXBuildFile; fileRef = 6154A3AD17D3336900910FBF /* character.vsh */; };
-		6154A3AF17D3336900910FBF /* character.vsh in Sources */ = {isa = PBXBuildFile; fileRef = 6154A3AD17D3336900910FBF /* character.vsh */; };
-		6154A3B117D3337600910FBF /* character.fsh in Sources */ = {isa = PBXBuildFile; fileRef = 6154A3B017D3337600910FBF /* character.fsh */; };
-		6154A3B217D3337600910FBF /* character.fsh in Sources */ = {isa = PBXBuildFile; fileRef = 6154A3B017D3337600910FBF /* character.fsh */; };
 		6154A3B317D333BD00910FBF /* character.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 6154A3AD17D3336900910FBF /* character.vsh */; };
 		6154A3B417D333BD00910FBF /* character.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 6154A3B017D3337600910FBF /* character.fsh */; };
-		61D3A34F17D0A4AF0050E34E /* star.fsh in Sources */ = {isa = PBXBuildFile; fileRef = 61D3A34E17D0A4AE0050E34E /* star.fsh */; };
-		61D3A35117D0A6E90050E34E /* star.vsh in Sources */ = {isa = PBXBuildFile; fileRef = 61D3A35017D0A6E90050E34E /* star.vsh */; };
 		61D82370178DE0B700ABF4E4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61D8236F178DE0B700ABF4E4 /* Cocoa.framework */; };
 		61D8237A178DE0B700ABF4E4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 61D82378178DE0B700ABF4E4 /* InfoPlist.strings */; };
 		61D8237C178DE0B700ABF4E4 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 61D8237B178DE0B700ABF4E4 /* main.mm */; };
@@ -598,11 +586,6 @@
 				10FE01A61794BAF5005A218E /* JJMeshTests.mm in Sources */,
 				10C577C517BEE9C500007FCE /* JJMapGeneratorTests.mm in Sources */,
 				1018D38B17C7DE77009494D8 /* JJCharacterTests.mm in Sources */,
-				6154A39E17D32BD500910FBF /* JJFloor.mm in Sources */,
-				6154A3A417D32DD500910FBF /* floor.vsh in Sources */,
-				6154A3A717D32DE100910FBF /* floor.fsh in Sources */,
-				6154A3AF17D3336900910FBF /* character.vsh in Sources */,
-				6154A3B217D3337600910FBF /* character.fsh in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -629,15 +612,8 @@
 				10FE01A91794DFC1005A218E /* JJLight.mm in Sources */,
 				10BE5C3417BE879200F5A07B /* JJObjectManager.mm in Sources */,
 				10BE5C3B17BECA4D00F5A07B /* JJMapGenerator.mm in Sources */,
-				61D3A34F17D0A4AF0050E34E /* star.fsh in Sources */,
-				61D3A35117D0A6E90050E34E /* star.vsh in Sources */,
 				6154A39D17D32BD500910FBF /* JJFloor.mm in Sources */,
-				6154A3A317D32DD500910FBF /* floor.vsh in Sources */,
-				6154A3A617D32DE100910FBF /* floor.fsh in Sources */,
-				6154A3AE17D3336900910FBF /* character.vsh in Sources */,
-				6154A3B117D3337600910FBF /* character.fsh in Sources */,
 				10C6AFD617D5BF8000C87936 /* JJScore.m in Sources */,
-				10C58E8217D8F8EF00AF58D9 /* character.gsh in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

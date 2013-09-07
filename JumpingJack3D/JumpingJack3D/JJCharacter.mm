@@ -97,15 +97,15 @@ BOOL setToDie = NO;
     glGenVertexArrays(1,&_vao);
 	glBindVertexArray(_vao);
     
-	[self assignVBOtoAttribute:"vertex" BufVBO: _bufVertices varSize:4];
-	[self assignVBOtoAttribute:"normal" BufVBO: _bufNormals varSize:4];
-    [self assignVBOtoAttribute:"texCoords0" BufVBO: _bufTexCoords varSize:2];
+	[self assignVBOtoAttribute:@"vertex" BufVBO: _bufVertices varSize:4];
+	[self assignVBOtoAttribute:@"normal" BufVBO: _bufNormals varSize:4];
+    [self assignVBOtoAttribute:@"texCoords0" BufVBO: _bufTexCoords varSize:2];
 	
 	glBindVertexArray(0);
     
 }
 
-- (void) assignVBOtoAttribute: (char*) attributeName BufVBO: (GLuint) bufVBO varSize: (int) variableSize {
+- (void) assignVBOtoAttribute: (NSString*) attributeName BufVBO: (GLuint) bufVBO varSize: (int) variableSize {
 	GLuint location=[[self shaderProgram] getAttribLocation:attributeName];
 	glBindBuffer(GL_ARRAY_BUFFER,bufVBO);
 	glEnableVertexAttribArray(location);
@@ -130,14 +130,14 @@ BOOL setToDie = NO;
     
     [[self shaderProgram] use];
     
-    glUniformMatrix4fv([[self shaderProgram] getUniformLocation:"P"],1, false, glm::value_ptr([[self camera] projectionMatrix]));
-	glUniformMatrix4fv([[self shaderProgram] getUniformLocation:"V" ],1, false, glm::value_ptr([[self camera] viewMatrix]));
-	glUniformMatrix4fv([[self shaderProgram] getUniformLocation:"M"],1, false, glm::value_ptr([self constructModelMatrix]));
-	glUniform1i([[self shaderProgram] getUniformLocation:"textureMap0"], 0);
-    glUniform4fv([[self shaderProgram] getUniformLocation:"lp0"], 1, [JJLight getFirstLight]);
-    glUniform4fv([[self shaderProgram] getUniformLocation:"lp1"], 1, [JJLight getSecondLight]);
+    glUniformMatrix4fv([[self shaderProgram] getUniformLocation:@"P"],1, false, glm::value_ptr([[self camera] projectionMatrix]));
+	glUniformMatrix4fv([[self shaderProgram] getUniformLocation:@"V" ],1, false, glm::value_ptr([[self camera] viewMatrix]));
+	glUniformMatrix4fv([[self shaderProgram] getUniformLocation:@"M"],1, false, glm::value_ptr([self constructModelMatrix]));
+	glUniform1i([[self shaderProgram] getUniformLocation:@"textureMap0"], 0);
+    glUniform4fv([[self shaderProgram] getUniformLocation:@"lp0"], 1, [JJLight getFirstLight]);
+    glUniform4fv([[self shaderProgram] getUniformLocation:@"lp1"], 1, [JJLight getSecondLight]);
     
-    glUniform1f([[self shaderProgram] getUniformLocation:"time"], explosionState);
+    glUniform1f([[self shaderProgram] getUniformLocation:@"time"], explosionState);
     
     glBindVertexArray(_vao);
     
@@ -147,16 +147,15 @@ BOOL setToDie = NO;
 
 - (void) applyPhysics
 {
+    // Explosion handling
     if (isExploding == YES) {
-        explosionState += 15.0f;// * (1.0f - explosionState/maxExplosionState);
-        NSLog(@"%f", explosionState);
+        explosionState += 15.0f;
         if (explosionState >= maxExplosionState - 0.05) {
-            explosionState = 0.0f;
-            isExploding = NO;
-            //www[self portToCheckPoint];
+            [self explosionEnded];
         }
     }
     
+    // Velocity constraints handling
     if (forwardVelocity > self.maxForwardVelocity) {
         forwardVelocity = self.maxForwardVelocity;
     }
@@ -179,6 +178,10 @@ BOOL setToDie = NO;
         setToDie = YES;
         return;
     }
+
+    if (setToDie == YES and self.position.y < 20.0) {
+        [self.camera prepareDeathCam:self.position];
+    }
     
     glm::vec3 moveForwardVector = forwardVelocity * invertedFrameRate * self.getFaceVector;
     [self move:moveForwardVector];
@@ -198,6 +201,7 @@ BOOL setToDie = NO;
         float deccelerationStep = self.decceleration * invertedFrameRate;
         strafeVelocity  += (strafeVelocity  > 0) ? -deccelerationStep : deccelerationStep;
     }
+    
     if (isExploding == NO) {
         int rotateSign = (forwardVelocity > 0 ) ? -1 : 1;
         [self rotateForwardBy: rotateSign * [self calculateRotationFromMoveVector:moveForwardVector]];
@@ -282,7 +286,8 @@ BOOL setToDie = NO;
 - (void) bounceVertical
 {    
     if (setToDie == YES) {
-        [self dieWithExplosion:NO];
+        [self dieWithExplosion:YES];
+        yVelocity = 0;
         return;
     }
     
@@ -353,7 +358,6 @@ BOOL setToDie = NO;
     if (self.lives == 0) {
         [NSApp performSelector:@selector(terminate:) withObject:nil afterDelay:0.0];
     }
-    [self.camera unlock];
     setToDie = NO;
     
     if (triggered == YES) {
@@ -371,4 +375,11 @@ BOOL setToDie = NO;
     isExploding = YES;
 }
 
+- (void) explosionEnded
+{
+    explosionState = 0.0f;
+    isExploding = NO;
+    [self.camera unlock];
+    [self portToCheckPoint];
+}
 @end

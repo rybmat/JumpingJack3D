@@ -29,7 +29,7 @@
 @property float decceleration; //energy loss from friction
 @property float gravity;
 
-@property int score;
+@property (readonly) int score;
 @property int lives;
 
 @property float horizontalCollisionEnergyLoss;
@@ -42,14 +42,6 @@
 @property BOOL jumped;
 
 - (id) initWithShaderProgram: (JJShaderProgram*) shProg Camera: (JJCamera*) cam Vertices: (float*) verts Normals: (float*) norms VertexCount: (int) vCount PositionX: (float) x Y: (float) y Z: (float) z Texture: (GLuint) tex TexCoords: (float*) tCoords frameRate:(int)rate;
-
-- (void) setupVBO;
-
-- (void) setupVAO;
-
-- (void) assignVBOtoAttribute: (char*) attributeName BufVBO: (GLuint) bufVBO varSize: (int) variableSize;
-
-- (GLuint) makeBuffer: (void*) data vCount: (int) vertexCount vSize: (int) vertexSize;
 
 - (void) dealloc;
 

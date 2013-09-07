@@ -14,7 +14,7 @@
 {
     [super setUp];
     NSLog(@"%@ setUp", self.name);
-    srand(time(0));
+    srand((unsigned int)time(NULL));
     gen = [[JJMapGenerator alloc] init];
     STAssertNotNil(gen, @"Cannot create JJMapGenerator instance");
 }
