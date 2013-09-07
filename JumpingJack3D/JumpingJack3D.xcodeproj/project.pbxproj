@@ -136,7 +136,7 @@
 		6154A39F17D32C6A00910FBF /* metal_spec.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = metal_spec.tga; sourceTree = "<group>"; };
 		6154A3A217D32DD500910FBF /* floor.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = floor.vsh; sourceTree = "<group>"; };
 		6154A3A517D32DE100910FBF /* floor.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = floor.fsh; sourceTree = "<group>"; };
-		6154A3AD17D3336900910FBF /* character.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = character.vsh; sourceTree = "<group>"; };
+		6154A3AD17D3336900910FBF /* character.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = character.vsh; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.glsl; };
 		6154A3B017D3337600910FBF /* character.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = character.fsh; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.glsl; };
 		61D3A34E17D0A4AE0050E34E /* star.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = star.fsh; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.glsl; };
 		61D3A35017D0A6E90050E34E /* star.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = star.vsh; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.glsl; };

@@ -78,9 +78,17 @@ BOOL setToDie = NO;
 }
 
 - (void) setupVBO{
-    _bufVertices = [self makeBuffer: [self vertices] vCount: [self vertexCount] vSize: sizeof(float)*4];
-	_bufNormals = [self makeBuffer: [self normals] vCount: [self vertexCount] vSize: sizeof(float)*4];
-    _bufTexCoords = [self makeBuffer: _texCoords0 vCount: [self vertexCount] vSize:sizeof(float) *2];
+    
+    float* velMulBuffer = (float*)malloc(sizeof(float) * [self vertexCount]);
+    
+    for (int i=0; i < [self vertexCount]; i++) {
+        velMulBuffer[i] = ((float)rand() / RAND_MAX) + .5f;
+    }
+    
+    _bufVertices   = [self makeBuffer: [self vertices] vCount: [self vertexCount] vSize: sizeof(float)*4];
+	_bufNormals    = [self makeBuffer: [self normals] vCount: [self vertexCount] vSize: sizeof(float)*4];
+    _bufTexCoords  = [self makeBuffer: _texCoords0 vCount: [self vertexCount] vSize:sizeof(float) *2];
+    _velMultiplier = [self makeBuffer:velMulBuffer vCount: [self vertexCount] vSize:sizeof(float)];
 }
 
 - (GLuint) makeBuffer: (void*) data vCount: (int) vertexCount vSize: (int) vertexSize {
@@ -100,7 +108,8 @@ BOOL setToDie = NO;
 	[self assignVBOtoAttribute:@"vertex" BufVBO: _bufVertices varSize:4];
 	[self assignVBOtoAttribute:@"normal" BufVBO: _bufNormals varSize:4];
     [self assignVBOtoAttribute:@"texCoords0" BufVBO: _bufTexCoords varSize:2];
-	
+	[self assignVBOtoAttribute:@"velocities" BufVBO: _velMultiplier varSize:1];
+    
 	glBindVertexArray(0);
     
 }
@@ -118,6 +127,7 @@ BOOL setToDie = NO;
     glDeleteBuffers(1,&_bufVertices);
 	glDeleteBuffers(1,&_bufNormals);
     glDeleteBuffers(1, &_bufTexCoords);
+    glDeleteBuffers(1, &_velMultiplier);
     
     glDeleteTextures(1, &_tex0);
     

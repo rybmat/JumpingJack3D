@@ -17,6 +17,7 @@
 @property GLuint bufNormals;
 @property GLuint tex0;
 @property GLuint bufTexCoords;
+@property GLuint velMultiplier;
 
 @property (readonly) glm::vec3 checkPoint;
 

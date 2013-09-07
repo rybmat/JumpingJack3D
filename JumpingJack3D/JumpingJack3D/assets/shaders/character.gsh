@@ -11,6 +11,7 @@ layout (triangles) in;
 layout (triangle_strip) out;
 layout (max_vertices=200) out;
 
+in float velocityMultiplier[];
 in vec4 gVectorV[];
 in vec4 gVectorN[];
 in vec4 gVectorL0[];
@@ -27,13 +28,13 @@ vec3 v0, v1, v2;
 vec3 cg;
 
 const float gravity   = 0.00005;
-const float velMul    = 1.3;
+const float velMul    = 2.5;
 const float voxelSize = 0.04;
 
 void makeVertex(float s, float t)
 {
     vec3 v = v0 + s * v1 + t * v2;
-    float velocity = velMul * length(v - cg);
+    float velocity = velocityMultiplier[0] * length(v - cg);
     vec3 np = normalize(cross(v1.xyz,v2.xyz));
     vec3 position = time * np * velocity;
     
@@ -269,7 +270,7 @@ void main() {
                
         cg = ( gl_in[0].gl_Position.xyz + gl_in[1].gl_Position.xyz + gl_in[2].gl_Position.xyz ) / 3.0;
             
-        int numLayers = 1 << 1;
+        int numLayers = 1 << 0;
 
         float dt = 1.0 / float(numLayers);
         float t = 1.0;

@@ -9,6 +9,7 @@ uniform vec4 lp1;
 
 
 //Atrybuty
+in float velocities;
 in vec4 vertex;
 in vec4 normal;
 in vec2 texCoords0;
@@ -19,10 +20,12 @@ out vec4 gVectorN;
 out vec4 gVectorL0;
 out vec4 gVectorL1;
 out vec2 gTexCoords0;
+out float velocityMultiplier;
 
 void main(void) {
 	gl_Position = M * vertex;
 	
+    velocityMultiplier = velocities;
     gVectorN = normalize(V*M*normal);               //znormalizowany wektor normalny w przestrzeni oka
 	gVectorV = normalize(vec4(0,0,0,1)-V*M*vertex); //znormalizowany wektor do obserwatora w przestrzeni oka
 	gVectorL0 = normalize(V*lp0-V*M*vertex);        //znormalizowany wektor do swiatla "0" w przestrzeni oka
