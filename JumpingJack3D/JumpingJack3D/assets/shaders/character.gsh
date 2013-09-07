@@ -35,16 +35,222 @@ void makeVertex(float s, float t)
     
     position.y -= 0.00005 *  time * time;
     
-    for (int i=0; i < gl_in.length(); i++) {
-        vec4 new_pos = (gl_in[i].gl_Position + vec4(position, 0));
-        if (new_pos.y < 0) {
-            new_pos.y = 0.1;
-        }
-        gl_Position = P * V * new_pos;
-        iVectorV    = vec4(s,t,0,0);
-        
-        EmitVertex();
-    }
+//    for (int i=0; i < gl_in.length(); i++) {
+//        vec4 new_pos = (gl_in[i].gl_Position + vec4(position, 0));
+//        if (new_pos.y < 0) {
+//            new_pos.y = 0.1;
+//        }
+//        gl_Position = P * V * new_pos;
+//        iVectorV    = vec4(s,t,0,0);
+//        
+//        EmitVertex();
+//    }
+//    
+//    EndPrimitive();
+
+    vec4 color = vec4(0,0,0,0);
+    
+    iVectorV    = gVectorV[0];
+    iVectorN    = gVectorN[0];
+    iVectorL0   = gVectorL0[0];
+    iVectorL1   = gVectorL1[0];
+    iTexCoords0 = gTexCoords0[0];
+    gl_Position = P * V * (gl_in[0].gl_Position + vec4(position, 0) + vec4(0.02, -0.02, 0.02, 0.0));
+    EmitVertex();
+
+    iVectorV    = gVectorV[0];
+    iVectorN    = gVectorN[0];
+    iVectorL0   = gVectorL0[0];
+    iVectorL1   = gVectorL1[0];
+    iTexCoords0 = gTexCoords0[0];
+    gl_Position = P * V * (gl_in[0].gl_Position + vec4(position, 0) + vec4(0.02, 0.02, 0.02, 0.0));
+    EmitVertex();
+
+    iVectorV    = gVectorV[0];
+    iVectorN    = gVectorN[0];
+    iVectorL0   = gVectorL0[0];
+    iVectorL1   = gVectorL1[0];
+    iTexCoords0 = gTexCoords0[0];
+    gl_Position = P * V * (gl_in[0].gl_Position + vec4(position, 0) + vec4(-0.02, -0.02, 0.02, 0.0));
+    EmitVertex();
+
+    iVectorV    = gVectorV[0];
+    iVectorN    = gVectorN[0];
+    iVectorL0   = gVectorL0[0];
+    iVectorL1   = gVectorL1[0];
+    iTexCoords0 = gTexCoords0[0];
+    gl_Position = P * V * (gl_in[0].gl_Position + vec4(position, 0) +  vec4(-0.02, 0.02, 0.02, 0.0));
+    EmitVertex();
+    
+    EndPrimitive();
+    
+    iVectorV    = gVectorV[0];
+    iVectorN    = gVectorN[0];
+    iVectorL0   = gVectorL0[0];
+    iVectorL1   = gVectorL1[0];
+    iTexCoords0 = gTexCoords0[0];
+    gl_Position = P * V * (gl_in[0].gl_Position + vec4(position, 0) + vec4(0.02, -0.02, -0.02, 0.0));
+    EmitVertex();
+    
+    iVectorV    = gVectorV[0];
+    iVectorN    = gVectorN[0];
+    iVectorL0   = gVectorL0[0];
+    iVectorL1   = gVectorL1[0];
+    iTexCoords0 = gTexCoords0[0];
+    gl_Position = P * V * (gl_in[0].gl_Position + vec4(position, 0) + vec4(0.02, 0.02, -0.02, 0.0));
+    EmitVertex();
+
+    iVectorV    = gVectorV[0];
+    iVectorN    = gVectorN[0];
+    iVectorL0   = gVectorL0[0];
+    iVectorL1   = gVectorL1[0];
+    iTexCoords0 = gTexCoords0[0];
+    gl_Position = P * V * (gl_in[0].gl_Position + vec4(position, 0) + vec4(-0.02, -0.02, -0.02, 0.0));
+    EmitVertex();
+    
+    iVectorV    = gVectorV[0];
+    iVectorN    = gVectorN[0];
+    iVectorL0   = gVectorL0[0];
+    iVectorL1   = gVectorL1[0];
+    iTexCoords0 = gTexCoords0[0];
+    gl_Position = P * V * (gl_in[0].gl_Position + vec4(position, 0) +  vec4(-0.02, 0.02, -0.02, 0.0));
+    EmitVertex();
+    
+    EndPrimitive();
+    
+    iVectorV    = gVectorV[0];
+    iVectorN    = gVectorN[0];
+    iVectorL0   = gVectorL0[0];
+    iVectorL1   = gVectorL1[0];
+    iTexCoords0 = gTexCoords0[0];
+    gl_Position = P * V * (gl_in[0].gl_Position + vec4(position, 0) + vec4(-0.02, -0.02, 0.02, 0.0));
+    EmitVertex();
+    
+    iVectorV    = gVectorV[0];
+    iVectorN    = gVectorN[0];
+    iVectorL0   = gVectorL0[0];
+    iVectorL1   = gVectorL1[0];
+    iTexCoords0 = gTexCoords0[0];
+    gl_Position = P * V * (gl_in[0].gl_Position + vec4(position, 0) + vec4(-0.02, 0.02, 0.02, 0.0));
+    EmitVertex();
+    
+    iVectorV    = gVectorV[0];
+    iVectorN    = gVectorN[0];
+    iVectorL0   = gVectorL0[0];
+    iVectorL1   = gVectorL1[0];
+    iTexCoords0 = gTexCoords0[0];
+    gl_Position = P * V * (gl_in[0].gl_Position + vec4(position, 0) + vec4(-0.02, -0.02, -0.02, 0.0));
+    EmitVertex();
+    
+    iVectorV    = gVectorV[0];
+    iVectorN    = gVectorN[0];
+    iVectorL0   = gVectorL0[0];
+    iVectorL1   = gVectorL1[0];
+    iTexCoords0 = gTexCoords0[0];
+    gl_Position = P * V * (gl_in[0].gl_Position + vec4(position, 0) +  vec4(-0.02, 0.02, -0.02, 0.0));
+    EmitVertex();
+    
+    EndPrimitive();
+    
+    iVectorV    = gVectorV[0];
+    iVectorN    = gVectorN[0];
+    iVectorL0   = gVectorL0[0];
+    iVectorL1   = gVectorL1[0];
+    iTexCoords0 = gTexCoords0[0];
+    gl_Position = P * V * (gl_in[0].gl_Position + vec4(position, 0) + vec4(0.02, -0.02, 0.02, 0.0));
+    EmitVertex();
+    
+    iVectorV    = gVectorV[0];
+    iVectorN    = gVectorN[0];
+    iVectorL0   = gVectorL0[0];
+    iVectorL1   = gVectorL1[0];
+    iTexCoords0 = gTexCoords0[0];
+    gl_Position = P * V * (gl_in[0].gl_Position + vec4(position, 0) + vec4(0.02, 0.02, 0.02, 0.0));
+    EmitVertex();
+    
+    iVectorV    = gVectorV[0];
+    iVectorN    = gVectorN[0];
+    iVectorL0   = gVectorL0[0];
+    iVectorL1   = gVectorL1[0];
+    iTexCoords0 = gTexCoords0[0];
+    gl_Position = P * V * (gl_in[0].gl_Position + vec4(position, 0) + vec4(0.02, -0.02, -0.02, 0.0));
+    EmitVertex();
+    
+    iVectorV    = gVectorV[0];
+    iVectorN    = gVectorN[0];
+    iVectorL0   = gVectorL0[0];
+    iVectorL1   = gVectorL1[0];
+    iTexCoords0 = gTexCoords0[0];
+    gl_Position = P * V * (gl_in[0].gl_Position + vec4(position, 0) +  vec4(0.02, 0.02, -0.02, 0.0));
+    EmitVertex();
+    
+    EndPrimitive();
+    
+    iVectorV    = gVectorV[0];
+    iVectorN    = gVectorN[0];
+    iVectorL0   = gVectorL0[0];
+    iVectorL1   = gVectorL1[0];
+    iTexCoords0 = gTexCoords0[0];
+    gl_Position = P * V * (gl_in[0].gl_Position + vec4(position, 0) + vec4(0.02, 0.02, -0.02, 0.0));
+    EmitVertex();
+    
+    iVectorV    = gVectorV[0];
+    iVectorN    = gVectorN[0];
+    iVectorL0   = gVectorL0[0];
+    iVectorL1   = gVectorL1[0];
+    iTexCoords0 = gTexCoords0[0];
+    gl_Position = P * V * (gl_in[0].gl_Position + vec4(position, 0) + vec4(0.02, 0.02, 0.02, 0.0));
+    EmitVertex();
+    
+    iVectorV    = gVectorV[0];
+    iVectorN    = gVectorN[0];
+    iVectorL0   = gVectorL0[0];
+    iVectorL1   = gVectorL1[0];
+    iTexCoords0 = gTexCoords0[0];
+    gl_Position = P * V * (gl_in[0].gl_Position + vec4(position, 0) + vec4(-0.02, 0.02, -0.02, 0.0));
+    EmitVertex();
+    
+    iVectorV    = gVectorV[0];
+    iVectorN    = gVectorN[0];
+    iVectorL0   = gVectorL0[0];
+    iVectorL1   = gVectorL1[0];
+    iTexCoords0 = gTexCoords0[0];
+    gl_Position = P * V * (gl_in[0].gl_Position + vec4(position, 0) +  vec4(-0.02, 0.02, 0.02, 0.0));
+    EmitVertex();
+    
+    EndPrimitive();
+    
+    iVectorV    = gVectorV[0];
+    iVectorN    = gVectorN[0];
+    iVectorL0   = gVectorL0[0];
+    iVectorL1   = gVectorL1[0];
+    iTexCoords0 = gTexCoords0[0];
+    gl_Position = P * V * (gl_in[0].gl_Position + vec4(position, 0) + vec4(0.02, -0.02, -0.02, 0.0));
+    EmitVertex();
+    
+    iVectorV    = gVectorV[0];
+    iVectorN    = gVectorN[0];
+    iVectorL0   = gVectorL0[0];
+    iVectorL1   = gVectorL1[0];
+    iTexCoords0 = gTexCoords0[0];
+    gl_Position = P * V * (gl_in[0].gl_Position + vec4(position, 0) + vec4(0.02, -0.02, 0.02, 0.0));
+    EmitVertex();
+    
+    iVectorV    = gVectorV[0];
+    iVectorN    = gVectorN[0];
+    iVectorL0   = gVectorL0[0];
+    iVectorL1   = gVectorL1[0];
+    iTexCoords0 = gTexCoords0[0];
+    gl_Position = P * V * (gl_in[0].gl_Position + vec4(position, 0) + vec4(-0.02, -0.02, -0.02, 0.0));
+    EmitVertex();
+    
+    iVectorV    = gVectorV[0];
+    iVectorN    = gVectorN[0];
+    iVectorL0   = gVectorL0[0];
+    iVectorL1   = gVectorL1[0];
+    iTexCoords0 = gTexCoords0[0];
+    gl_Position = P * V * (gl_in[0].gl_Position + vec4(position, 0) +  vec4(-0.02, -0.02, 0.02, 0.0));
+    EmitVertex();
     
     EndPrimitive();
 }
@@ -59,7 +265,7 @@ void main() {
                
         cg = ( gl_in[0].gl_Position.xyz + gl_in[1].gl_Position.xyz + gl_in[2].gl_Position.xyz ) / 3.0;
             
-        int numLayers = 1 << 1;
+        int numLayers = 1 << 0;
 
         float dt = 1.0 / float(numLayers);
         float t = 1.0;
