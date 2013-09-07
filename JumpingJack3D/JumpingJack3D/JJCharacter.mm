@@ -70,7 +70,7 @@ BOOL setToDie = NO;
     self.checkPoint = self.position;
     
     self.score = 0;
-    self.lives = 300;
+    self.lives = 5;
     
     savedScore = 0;
     
@@ -349,14 +349,16 @@ BOOL setToDie = NO;
 - (void) setScore:(int)score
 {
     _score = score;
-    [JJScore changeText:[NSString stringWithFormat:@"Score: %d\nLives:  %d", self.score, self.lives]];
+    [JJHUD changeScore:self.score andLives:self.lives];
 }
 
 - (void) dieWithExplosion:(BOOL)triggered
 {
+    [JJHUD flashMessage:@"         YOU DIED!" for:3.0];
     self.lives--;
     if (self.lives == 0) {
-        [NSApp performSelector:@selector(terminate:) withObject:nil afterDelay:0.0];
+        [JJHUD flashMessage:@"       GAME OVER!" for:2.0];
+        [NSApp performSelector:@selector(terminate:) withObject:nil afterDelay:2.0];
     }
     setToDie = NO;
     
@@ -381,5 +383,13 @@ BOOL setToDie = NO;
     isExploding = NO;
     [self.camera unlock];
     [self portToCheckPoint];
+}
+
+- (void) setCheckPoint:(glm::vec3)checkPoint
+{
+    if (_checkPoint != checkPoint) {
+        _checkPoint = checkPoint;
+        [JJHUD flashMessage:@"NEW CHECKPOINT!" for:3];
+    }
 }
 @end

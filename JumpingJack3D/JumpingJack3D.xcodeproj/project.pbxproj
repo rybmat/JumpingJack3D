@@ -32,7 +32,7 @@
 		10C58E7A17D8F55A00AF58D9 /* star.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 10C58E7917D8F55A00AF58D9 /* star.jpg */; };
 		10C58E8017D8F7BD00AF58D9 /* star.obj in Resources */ = {isa = PBXBuildFile; fileRef = 10C58E7F17D8F7BD00AF58D9 /* star.obj */; };
 		10C58E8317D9005800AF58D9 /* character.gsh in Resources */ = {isa = PBXBuildFile; fileRef = 10C58E8117D8F8EF00AF58D9 /* character.gsh */; };
-		10C6AFD617D5BF8000C87936 /* JJScore.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C6AFD517D5BF7F00C87936 /* JJScore.m */; };
+		10C6AFD617D5BF8000C87936 /* JJHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C6AFD517D5BF7F00C87936 /* JJHUD.m */; };
 		10FE0170179379D3005A218E /* JJAssetManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10FE016F179379D3005A218E /* JJAssetManager.mm */; };
 		10FE017417937A0B005A218E /* JJCamera.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10FE017317937A0B005A218E /* JJCamera.mm */; };
 		10FE017D17937AAA005A218E /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10FE017C17937AAA005A218E /* SenTestingKit.framework */; };
@@ -103,8 +103,8 @@
 		10C58E7917D8F55A00AF58D9 /* star.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = star.jpg; sourceTree = "<group>"; };
 		10C58E7F17D8F7BD00AF58D9 /* star.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = star.obj; sourceTree = "<group>"; };
 		10C58E8117D8F8EF00AF58D9 /* character.gsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = character.gsh; sourceTree = "<group>"; };
-		10C6AFD417D5BF7F00C87936 /* JJScore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJScore.h; sourceTree = "<group>"; };
-		10C6AFD517D5BF7F00C87936 /* JJScore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJScore.m; sourceTree = "<group>"; };
+		10C6AFD417D5BF7F00C87936 /* JJHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJHUD.h; sourceTree = "<group>"; };
+		10C6AFD517D5BF7F00C87936 /* JJHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJHUD.m; sourceTree = "<group>"; };
 		10FE016E179379D3005A218E /* JJAssetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJAssetManager.h; sourceTree = "<group>"; };
 		10FE016F179379D3005A218E /* JJAssetManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = JJAssetManager.mm; sourceTree = "<group>"; };
 		10FE017217937A0B005A218E /* JJCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJCamera.h; sourceTree = "<group>"; };
@@ -212,8 +212,8 @@
 				10BE5C3917BECA4D00F5A07B /* JJMapGenerator.h */,
 				10BE5C3A17BECA4D00F5A07B /* JJMapGenerator.mm */,
 				10C577C617BEF07600007FCE /* JJMapGeneratorPrivate.h */,
-				10C6AFD417D5BF7F00C87936 /* JJScore.h */,
-				10C6AFD517D5BF7F00C87936 /* JJScore.m */,
+				10C6AFD417D5BF7F00C87936 /* JJHUD.h */,
+				10C6AFD517D5BF7F00C87936 /* JJHUD.m */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -613,7 +613,7 @@
 				10BE5C3417BE879200F5A07B /* JJObjectManager.mm in Sources */,
 				10BE5C3B17BECA4D00F5A07B /* JJMapGenerator.mm in Sources */,
 				6154A39D17D32BD500910FBF /* JJFloor.mm in Sources */,
-				10C6AFD617D5BF8000C87936 /* JJScore.m in Sources */,
+				10C6AFD617D5BF8000C87936 /* JJHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -209,5 +209,5 @@ dependencies: \
   /Users/asiron/code/JJ3D/JumpingJack3D/JumpingJack3D/JJAssetManager.h \
   /Users/asiron/code/JJ3D/JumpingJack3D/JumpingJack3D/JJMesh.h \
   /Users/asiron/code/JJ3D/JumpingJack3D/JumpingJack3D/JJCharacter.h \
-  /Users/asiron/code/JJ3D/JumpingJack3D/JumpingJack3D/JJScore.h \
+  /Users/asiron/code/JJ3D/JumpingJack3D/JumpingJack3D/JJHUD.h \
   /Users/asiron/code/JJ3D/JumpingJack3D/JumpingJack3D/JJFloor.h

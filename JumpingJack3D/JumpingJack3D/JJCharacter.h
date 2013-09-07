@@ -7,7 +7,7 @@
 //
 
 #import "JJRenderedObject.h"
-#import "JJScore.h"
+#import "JJHUD.h"
 
 @interface JJCharacter : JJRenderedObject
 
@@ -18,7 +18,7 @@
 @property GLuint tex0;
 @property GLuint bufTexCoords;
 
-@property glm::vec3 checkPoint;
+@property (readonly) glm::vec3 checkPoint;
 
 @property float maxForwardVelocity;
 @property float maxJumpVelocity;
@@ -70,6 +70,7 @@
 - (void) bounceHorizontalZ;
 
 - (void) portToCheckPoint;
+- (void) setCheckPoint:(glm::vec3)checkPoint;
 
 - (void) changeFrameRate:(int)frameRate;
 

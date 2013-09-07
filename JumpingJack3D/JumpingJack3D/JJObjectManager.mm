@@ -62,7 +62,7 @@ glm::vec3 paddingRatios;
                                                                     StepSize:0.07f
                                                                      Texture:[assetManagerRef getTexture:@"star"]
                                                                TextureCoords:[assetManagerRef getUvs:@"star"] ];
-        [star scaleX:5 Y:1 Z:5];
+        [star scaleX:3 Y:1 Z:3];
         [self addObject:star];
     }
     return self;
@@ -113,8 +113,8 @@ glm::vec3 paddingRatios;
                                                          StepSize:0.07f
                                                           Texture:[assetManagerRef getTexture:@"star"]
                                                     TextureCoords:[assetManagerRef getUvs:@"star"] ];
-            [enemy scaleX:0.5 Y:1.0 Z:0.5];
-            [blocks addObject:enemy];
+            [enemy scaleX:3 Y:1.0 Z:3];
+            [enemies addObject:enemy];
 
         }
         cube = [[JJStaticPlatform alloc] initWithShaderProgram: [assetManagerRef getShaderProgram:@"platform"]
@@ -134,7 +134,8 @@ glm::vec3 paddingRatios;
         [blocks addObject:cube];
         num++;
     }
-    characterRef.position = characterRef.checkPoint = glm::vec3(x,y+4,z);
+    characterRef.position = glm::vec3(-10,4,-10);
+    [characterRef setCheckPoint:glm::vec3(-10,0,-10)];
     //characterRef.position = characterRef.checkPoint = glm::vec3(-10,0,-10);
 }
 
@@ -207,6 +208,11 @@ glm::vec3 paddingRatios;
                 [characterRef moveY:difference];
                 [characterRef bounceVertical];
                 [characterRef setScore:block.number];
+                
+                if (block.number % 10 == 0) {
+                    glm::vec3 checkPoint = glm::vec3(block.position.x, block.position.y + minDistance + 2.0f, block.position.z);
+                    [characterRef setCheckPoint: checkPoint];
+                }
                 
             } else if (characterRef.position.y < block.position.y and distance < minDownwardsVector ){
                 float difference = ABS(characterRef.position.y - (block.position.y - minDistance));
