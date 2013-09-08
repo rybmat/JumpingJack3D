@@ -11,7 +11,7 @@
 @implementation JJFloor
 
 
-- (id) initWithShaderProgram: (JJShaderProgram*) shProg Camera: (JJCamera*) cam Vertices: (float*) verts Normals: (float*) norms VertexCount: (int) vCount PositionX: (float) x Y: (float) y Z: (float) z Texture: (GLuint) tex TexCoords: (float*) tCoords {
+- (id) initWithShaderProgram: (JJShaderProgram*) shProg Camera: (JJCamera*) cam Vertices: (float*) verts Normals: (float*) norms VertexCount: (int) vCount PositionX: (float) x Y: (float) y Z: (float) z Texture: (GLuint) tex  Texture2: (GLuint) tex2 TexCoords: (float*) tCoords {
     
     self = [super initWithShaderProgram:shProg
                                  Camera:cam
@@ -23,6 +23,7 @@
                                       Z:z];
     
     _tex0 = tex;
+    _tex1 = tex2;
     _texCoords0 = tCoords;
     
     [self setupVBO];
@@ -88,6 +89,7 @@
 	glUniformMatrix4fv([[self shaderProgram] getUniformLocation:@"V" ],1, false, glm::value_ptr([[self camera] viewMatrix]));
 	glUniformMatrix4fv([[self shaderProgram] getUniformLocation:@"M"],1, false, glm::value_ptr([self constructModelMatrix]));
 	glUniform1i([[self shaderProgram] getUniformLocation:@"textureMap0"], 0);
+    glUniform1i([[self shaderProgram] getUniformLocation:@"textureMap1"], 0);
     glUniform4fv([[self shaderProgram] getUniformLocation:@"lp0"], 1, [JJLight getFirstLight]);
     glUniform4fv([[self shaderProgram] getUniformLocation:@"lp1"], 1, [JJLight getSecondLight]);
     

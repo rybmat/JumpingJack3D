@@ -39,13 +39,14 @@ glm::vec3 paddingRatios;
         blocks = [[NSMutableArray alloc] init];
         baseFloor = [[JJFloor alloc] initWithShaderProgram: [assetManagerRef getShaderProgram:@"floor"]
                                                                Camera: cameraRef
-                                                             Vertices: [assetManagerRef getVertices:@"circle"]
-                                                              Normals: [assetManagerRef getNormals:@"circle"]
-                                                          VertexCount: [assetManagerRef getVertexCount:@"circle"]
+                                                             Vertices: [assetManagerRef getVertices:@"nfloor"]
+                                                              Normals: [assetManagerRef getNormals:@"nfloor"]
+                                                          VertexCount: [assetManagerRef getVertexCount:@"nfloor"]
                                                             PositionX: 0.0f Y: 0.0f Z: 0.0f
-                                                              Texture: [assetManagerRef getTexture: @"circle"]
-                                                            TexCoords: [assetManagerRef getUvs:@"circle"]];
-        [baseFloor scaleX:1000 Y:1 Z:1000];
+                                                              Texture: [assetManagerRef getTexture: @"nfloor"]
+                                                             Texture2: [assetManagerRef getTexture: @"nfloor_spec"]
+                                                            TexCoords: [assetManagerRef getUvs:@"nfloor"]];
+        [baseFloor scaleX:100 Y:1 Z:100];
         enumer = [blocks objectEnumerator];
         paddingRatios = glm::vec3(0.1f, 0.1f, 0.1f);
         gridRatios = glm::vec3(1.7f, 2.5f, 1.7f);
@@ -89,7 +90,7 @@ glm::vec3 paddingRatios;
         
         NSString* type = position[0];
         
-        NSLog(@"%@ %@ %@ %@ -> %@ %@ %@", position[0], position[1], position[2], position[3], position[4], position[5], position[6]);
+        //NSLog(@"%@ %@ %@ %@ -> %@ %@ %@", position[0], position[1], position[2], position[3], position[4], position[5], position[6]);
 
         
         x = [position[1] floatValue] * (gridRatios.x + paddingRatios.x) * 2;

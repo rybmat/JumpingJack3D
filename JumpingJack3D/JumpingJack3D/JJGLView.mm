@@ -67,7 +67,7 @@ double previousTime;
     assetManager = [[JJAssetManager alloc] init];
     [assetManager load];
     
-    camera = [[JJCamera alloc] initWithParameters:1.0f farClipping:1000.0f FoV:90.0f aspectRatio:1.0f cameraRadius:10.0f];
+    camera = [[JJCamera alloc] initWithParameters:1.0f farClipping:100.0f FoV:90.0f aspectRatio:1.0f cameraRadius:10.0f];
     
     character = [[JJCharacter alloc] initWithShaderProgram: [assetManager getShaderProgram:@"character"]
                                                     Camera: camera

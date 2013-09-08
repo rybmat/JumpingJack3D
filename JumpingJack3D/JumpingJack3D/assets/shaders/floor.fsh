@@ -1,6 +1,7 @@
 #version 150
 
 uniform sampler2D textureMap0;
+uniform sampler2D textureMap1;
 
 out vec4 pixelColor;
 
@@ -29,15 +30,15 @@ void main(void) {
     float rv1 = pow(max(0, dot(eyeVectorR1, eyeVectorV)), shininess);
     float rv = max(rv0, rv1);
     
-	vec4 texColor0=texture(textureMap0, iTexCoords0);
-    
-    
+	vec4 texColor0 = texture(textureMap0, iTexCoords0);
+    //vec4 texColor1 = texture(textureMap1, iTexCoords0);
+
 	vec4 La = vec4(0,0,0,1);        //światło otoczenia
 	vec4 Ma = vec4(0,0,0,1);        //materiał dla światła otoczenia
 	vec4 Ld = vec4(1,1,1,1);        //światło rozpraszane
 	vec4 Md = texColor0;            //materiał dla światła rozpraszanego
 	vec4 Ls = vec4(1,1,1,1);        //światło odbijane
-	vec4 Ms = (texColor0 + vec4(1,1,1,1))/2;        //materiał dla światła odbijanego
+	vec4 Ms = vec4(1,1,1,1); //(9*texColor1 + vec4(1,1,1,1))/10;        //materiał dla światła odbijanego
     
 	pixelColor = La * Ma + Ld * Md * nl + Ls * Ms * rv;
 }
