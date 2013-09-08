@@ -62,8 +62,8 @@ vec3 v0, v1, v2;
 vec3 cg;
 
 const float gravity   = 0.00005;
-const float velMul    = 2.5;
-const float voxelSize = 0.04;
+const float velMul    = 2.0;
+const float voxelSize = .04;
 
 
 void makeVertex(vec4 vertex, vec2 color, vec4 position)
@@ -80,7 +80,7 @@ void makeVertex(vec4 vertex, vec2 color, vec4 position)
 void makeCube(float s, float t)
 {
     vec3 v = v0 + s * v1 + t * v2;
-    float velocity = velocityMultiplier[0] * length(v - cg);
+    float velocity = velMul * velocityMultiplier[0] * length(v - cg);
     vec3 np = normalize(cross(v1.xyz,v2.xyz));
     vec3 position = time * np * velocity;
     

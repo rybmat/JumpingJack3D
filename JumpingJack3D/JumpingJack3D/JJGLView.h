@@ -17,6 +17,7 @@
 #import "glm/gtc/matrix_transform.hpp"
 #import "glm/gtc/type_ptr.hpp"
 
+#import "JJFPSCounter.h"
 #import "JJAssetManager.h"
 #import "JJObjectManager.h"
 #import "JJStaticPlatform.h"

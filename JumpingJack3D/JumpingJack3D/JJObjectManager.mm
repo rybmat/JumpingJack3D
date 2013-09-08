@@ -46,7 +46,7 @@ glm::vec3 paddingRatios;
                                                               Texture: [assetManagerRef getTexture: @"nfloor"]
                                                              Texture2: [assetManagerRef getTexture: @"nfloor_spec"]
                                                             TexCoords: [assetManagerRef getUvs:@"nfloor"]];
-        [baseFloor scaleX:100 Y:1 Z:100];
+        [baseFloor scaleX:50 Y:1 Z:50];
         enumer = [blocks objectEnumerator];
         paddingRatios = glm::vec3(0.1f, 0.1f, 0.1f);
         gridRatios = glm::vec3(1.7f, 2.5f, 1.7f);

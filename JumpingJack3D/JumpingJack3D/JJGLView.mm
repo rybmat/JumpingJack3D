@@ -15,9 +15,11 @@
                                             flag = YES; \
                                             break;
 
+
+
 #define ESCAPE 27
-#define SPACE 32
-#define TAB 9
+#define SPACE  32
+#define TAB     9
 
 #import "JJGLView.h"
 #import "assets/cube.h"
@@ -30,19 +32,20 @@ JJAssetManager *assetManager;
 JJObjectManager *objManager;
 JJCamera *camera;
 
+JJFPSCounter* fpsCounter;
+
 JJCharacter* character;
 NSMutableSet* keyPressed;
 
 BOOL mousePressed;
 
-double previousTime;
+
 
 - (id)initWithFrame:(NSRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
         mousePressed = NO;
-        previousTime = CACurrentMediaTime();
     }
     
     return self;
@@ -67,7 +70,9 @@ double previousTime;
     assetManager = [[JJAssetManager alloc] init];
     [assetManager load];
     
-    camera = [[JJCamera alloc] initWithParameters:1.0f farClipping:100.0f FoV:90.0f aspectRatio:1.0f cameraRadius:10.0f];
+    fpsCounter = [[JJFPSCounter alloc] initWithFrameTimesSize:20];
+    
+    camera = [[JJCamera alloc] initWithParameters:1.0f farClipping:1000.0f FoV:90.0f aspectRatio:1.0f cameraRadius:10.0f];
     
     character = [[JJCharacter alloc] initWithShaderProgram: [assetManager getShaderProgram:@"character"]
                                                     Camera: camera
@@ -150,10 +155,9 @@ double previousTime;
 
 - (void)drawRect:(NSRect)dirtyRect
 {
-    double frameTime = CACurrentMediaTime() - previousTime;
-    previousTime = CACurrentMediaTime();
-    [JJHUD updateFPS: 1 / (float)frameTime];
-    
+    [fpsCounter fetchTime];
+    [JJHUD updateFPS: [fpsCounter getCurrentFPS]];
+
     glClearColor(0,0,0,1);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
@@ -194,6 +198,7 @@ double previousTime;
                     _case('x',   [character changeFrameRate:180])
                     _case('c',   [character changeFrameRate:60])
                     _case('t',   [character triggerExplosion])
+                    _case('p',   [character changeFrameRate:[fpsCounter getCurrentFPS]])
                 default:
                     NSLog(@"%u", [keyHit unsignedIntValue]);
                     break;

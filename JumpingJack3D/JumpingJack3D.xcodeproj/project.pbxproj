@@ -18,6 +18,7 @@
 		1080062617DCFC23005897F8 /* nfloor.obj in Resources */ = {isa = PBXBuildFile; fileRef = 1080062517DCFC23005897F8 /* nfloor.obj */; };
 		1080062D17DD0006005897F8 /* nfloor_spec.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1080062B17DD0005005897F8 /* nfloor_spec.jpg */; };
 		1080062E17DD0006005897F8 /* nfloor.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1080062C17DD0005005897F8 /* nfloor.jpg */; };
+		1080063117DD30A6005897F8 /* JJFPSCounter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1080063017DD30A6005897F8 /* JJFPSCounter.m */; };
 		109709F717B6774600B51086 /* metal.tga in Resources */ = {isa = PBXBuildFile; fileRef = 109709F617B6774600B51086 /* metal.tga */; };
 		109709F817B6774600B51086 /* metal.tga in Resources */ = {isa = PBXBuildFile; fileRef = 109709F617B6774600B51086 /* metal.tga */; };
 		10970A0617B6E58A00B51086 /* cube.obj in Resources */ = {isa = PBXBuildFile; fileRef = 10970A0517B6E58A00B51086 /* cube.obj */; };
@@ -89,6 +90,8 @@
 		1080062517DCFC23005897F8 /* nfloor.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = nfloor.obj; sourceTree = "<group>"; };
 		1080062B17DD0005005897F8 /* nfloor_spec.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = nfloor_spec.jpg; sourceTree = "<group>"; };
 		1080062C17DD0005005897F8 /* nfloor.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = nfloor.jpg; sourceTree = "<group>"; };
+		1080062F17DD30A6005897F8 /* JJFPSCounter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJFPSCounter.h; sourceTree = "<group>"; };
+		1080063017DD30A6005897F8 /* JJFPSCounter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJFPSCounter.m; sourceTree = "<group>"; };
 		109709F517B6773200B51086 /* teapot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = teapot.h; sourceTree = "<group>"; };
 		109709F617B6774600B51086 /* metal.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = metal.tga; sourceTree = "<group>"; };
 		10970A0517B6E58A00B51086 /* cube.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cube.obj; sourceTree = "<group>"; };
@@ -214,6 +217,8 @@
 				10BE5C3317BE879200F5A07B /* JJObjectManager.mm */,
 				61D8238C178DE3FB00ABF4E4 /* JJGLView.h */,
 				61D8238D178DE3FB00ABF4E4 /* JJGLView.mm */,
+				1080062F17DD30A6005897F8 /* JJFPSCounter.h */,
+				1080063017DD30A6005897F8 /* JJFPSCounter.m */,
 				61D82381178DE0B700ABF4E4 /* AppDelegate.h */,
 				61D82382178DE0B700ABF4E4 /* AppDelegate.mm */,
 				10BE5C3917BECA4D00F5A07B /* JJMapGenerator.h */,
@@ -626,6 +631,7 @@
 				10BE5C3B17BECA4D00F5A07B /* JJMapGenerator.mm in Sources */,
 				6154A39D17D32BD500910FBF /* JJFloor.mm in Sources */,
 				10C6AFD617D5BF8000C87936 /* JJHUD.m in Sources */,
+				1080063117DD30A6005897F8 /* JJFPSCounter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -71,6 +71,7 @@ dependencies: \
   /Users/asiron/code/JJ3D/JumpingJack3D/JumpingJack3D/glm/gtc/constants.inl \
   /Users/asiron/code/JJ3D/JumpingJack3D/JumpingJack3D/glm/gtc/quaternion.inl \
   /Users/asiron/code/JJ3D/JumpingJack3D/JumpingJack3D/glm/gtc/type_ptr.inl \
+  /Users/asiron/code/JJ3D/JumpingJack3D/JumpingJack3D/JJFPSCounter.h \
   /Users/asiron/code/JJ3D/JumpingJack3D/JumpingJack3D/JJAssetManager.h \
   /Users/asiron/code/JJ3D/JumpingJack3D/JumpingJack3D/JJShaderProgram.h \
   /Users/asiron/code/JJ3D/JumpingJack3D/JumpingJack3D/JJMesh.h \
