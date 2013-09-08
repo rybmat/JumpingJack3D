@@ -134,8 +134,8 @@ glm::vec3 paddingRatios;
         [blocks addObject:cube];
         num++;
     }
-//    [characterRef setCheckPoint:glm::vec3(-10,0,-10)];
-//    characterRef.position = glm::vec3(x,y+4,z);
+//  [characterRef setCheckPoint:glm::vec3(-10,0,-10)];
+//  characterRef.position = glm::vec3(x,y+4,z);
     [characterRef setCheckPoint:glm::vec3(x,y+4,z)];
     characterRef.position = glm::vec3(-10,4,-10);
 
