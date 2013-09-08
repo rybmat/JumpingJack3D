@@ -69,7 +69,7 @@ int randomMap[RANDOM_MAP_SIZE];
 int dynamicPlatformChance = 10; // 1 in 10
 int maxDx = 4;
 int maxDy = 4;
-int maxDz = 0;
+int maxDz = 4;
 
 
 - (id) init
@@ -200,8 +200,8 @@ int maxDz = 0;
 
         int dx, dy, dz;
         dx = 1 + rand() % maxDx;
-        dy = 1 + rand() % maxDy;
-        dz = 0;//1 + rand() % maxDz;
+        dy = 0;//1 + rand() % maxDy;
+        dz = 1 + rand() % maxDz;
         
         return @[@"dynamic", [NSNumber numberWithInt:(dirX      + [aPoint[4] intValue])],
                              [NSNumber numberWithInt:(dirY      + [aPoint[5] intValue])],

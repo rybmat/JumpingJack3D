@@ -84,10 +84,7 @@ glm::vec3 paddingRatios;
 
 - (void) generateWorld
 {
-    float x,y,z,x2,y2,z2;
-    JJDynamicEnemy* enemy;
-    //NSArray* position, *position2;
-    
+    int x,y,z;
     int num = 1;
     
     for (NSArray* position in [mapGenerator getWholeMap]) {
@@ -133,7 +130,7 @@ glm::vec3 paddingRatios;
                                                                                     TextureCoords: [assetManagerRef getUvs:@"cube"]
                                                                                            Number: num];
             [dynamicPlatform scaleX:gridRatios.x Y:gridRatios.y Z:gridRatios.z];
-            //[staticPlatform setVisible:NO];
+            //[dynamicPlatform setVisible:NO];
             [blocks addObject:dynamicPlatform];
             
         } else {
@@ -142,11 +139,11 @@ glm::vec3 paddingRatios;
         
         if (num % 14 == 0 && num!=0) {
             NSArray* position2 = [[mapGenerator getWholeMap] objectAtIndex:num + 5];
-            x2 = [position2[0] floatValue] * (gridRatios.x + paddingRatios.x) * 2;
-            y2 = [position2[1] floatValue] * (gridRatios.y + paddingRatios.y) * 2 + gridRatios.y + 5;
-            z2 = [position2[2] floatValue] * (gridRatios.z + paddingRatios.z) * 2;
+            int x2 = [position2[1] floatValue] * (gridRatios.x + paddingRatios.x) * 2;
+            int y2 = [position2[2] floatValue] * (gridRatios.y + paddingRatios.y) * 2 + gridRatios.y + 5;
+            int z2 = [position2[3] floatValue] * (gridRatios.z + paddingRatios.z) * 2;
             
-            enemy = [[JJDynamicEnemy alloc] initWithShaderProgram: [assetManagerRef getShaderProgram:@"star"]
+            JJDynamicEnemy* enemy = [[JJDynamicEnemy alloc] initWithShaderProgram: [assetManagerRef getShaderProgram:@"star"]
                                                            Camera: cameraRef
                                                          Vertices: [assetManagerRef getVertices:@"star"]
                                                           Normals: [assetManagerRef getNormals:@"star"]
@@ -160,6 +157,7 @@ glm::vec3 paddingRatios;
             [enemies addObject:enemy];
 
         }
+        num++;
     }
 //  [characterRef setCheckPoint:glm::vec3(-10,0,-10)];
 //  characterRef.position = glm::vec3(x,y+4,z);
