@@ -85,54 +85,81 @@ glm::vec3 paddingRatios;
 - (void) generateWorld
 {
     float x,y,z,x2,y2,z2;
-    JJStaticPlatform* cube;
     JJDynamicEnemy* enemy;
-    NSArray* position, *position2;
-    int num = 1;
-    //for (NSArray* position in [mapGenerator getWholeMap]) {
-    for (int i = 0; i<[[mapGenerator getWholeMap] count]; i++){
-        position = [[mapGenerator getWholeMap] objectAtIndex:i];
+    //NSArray* position, *position2;
     
-        x = [position[0] floatValue] * (gridRatios.x + paddingRatios.x) * 2;
-        y = [position[1] floatValue] * (gridRatios.y + paddingRatios.y) * 2 + gridRatios.y;
-        z = [position[2] floatValue] * (gridRatios.z + paddingRatios.z) * 2;
+    int num = 1;
+    
+    for (NSArray* position in [mapGenerator getWholeMap]) {
         
-        if (i % 14 == 0 && i!=0) {
-            position2 = [[mapGenerator getWholeMap] objectAtIndex:i+5];
+        NSString* type = position[0];
+
+        x = [position[1] floatValue] * (gridRatios.x + paddingRatios.x) * 2;
+        y = [position[2] floatValue] * (gridRatios.y + paddingRatios.y) * 2 + gridRatios.y;
+        z = [position[3] floatValue] * (gridRatios.z + paddingRatios.z) * 2;
+        
+        if ([type isEqualToString:@"static"]) {
+            
+            JJStaticPlatform* staticPlatform = [[JJStaticPlatform alloc] initWithShaderProgram: [assetManagerRef getShaderProgram:@"platform"]
+                                                                                        Camera: cameraRef
+                                                                                      Vertices: [assetManagerRef getVertices:@"cube"]
+                                                                                       Normals: [assetManagerRef getNormals:@"cube"]
+                                                                                   VertexCount: [assetManagerRef getVertexCount:@"cube"]
+                                                                                     PositionX: x Y: y Z: z
+                                                                                       Texture: [assetManagerRef getTexture: @"metal"]
+                                                                                      Texture2: [assetManagerRef getTexture: @"metal_spec"]
+                                                                                     TexCoords: [assetManagerRef getUvs:@"cube"]
+                                                                                        Number: num];
+            [staticPlatform scaleX:gridRatios.x Y:gridRatios.y Z:gridRatios.z];
+            //[staticPlatform setVisible:NO];
+            [blocks addObject:staticPlatform];
+            
+            
+        } else if ([type isEqualToString:@"dynamic"]) {
+            
+            int x2 = [position[4] floatValue] * (gridRatios.x + paddingRatios.x) * 2;
+            int y2 = [position[5] floatValue] * (gridRatios.y + paddingRatios.y) * 2 + gridRatios.y;
+            int z2 = [position[6] floatValue] * (gridRatios.z + paddingRatios.z) * 2;
+            
+            JJDynamicPlatform* dynamicPlatform = [[JJDynamicPlatform alloc] initWithShaderProgram: [assetManagerRef
+                                                             getShaderProgram:@"platform"] Camera: cameraRef
+                                                                                         Vertices: [assetManagerRef getVertices:@"cube"]
+                                                                                          Normals: [assetManagerRef getNormals:@"cube"]
+                                                                                      VertexCount: [assetManagerRef getVertexCount:@"cube"]
+                                                                                        PositionX: x Y: y Z: z
+                                                                                       PathPointB: glm::vec4(x2, y2, z2, 1.0f)
+                                                                                         StepSize: 0.07
+                                                                                          Texture: [assetManagerRef getTexture:@"metal"]
+                                                                                    TextureCoords: [assetManagerRef getUvs:@"cube"]
+                                                                                           Number: num];
+            [dynamicPlatform scaleX:gridRatios.x Y:gridRatios.y Z:gridRatios.z];
+            //[staticPlatform setVisible:NO];
+            [blocks addObject:dynamicPlatform];
+            
+        } else {
+            NSLog(@"ObjectManager: Undefined type of platform: %@", type);
+        }
+        
+        if (num % 14 == 0 && num!=0) {
+            NSArray* position2 = [[mapGenerator getWholeMap] objectAtIndex:num + 5];
             x2 = [position2[0] floatValue] * (gridRatios.x + paddingRatios.x) * 2;
             y2 = [position2[1] floatValue] * (gridRatios.y + paddingRatios.y) * 2 + gridRatios.y + 5;
             z2 = [position2[2] floatValue] * (gridRatios.z + paddingRatios.z) * 2;
             
-            enemy = [[JJDynamicEnemy alloc] initWithShaderProgram:[assetManagerRef getShaderProgram:@"star"]
-                                                           Camera:cameraRef
-                                                         Vertices:[assetManagerRef getVertices:@"star"]
-                                                          Normals:[assetManagerRef getNormals:@"star"]
-                                                      VertexCount:[assetManagerRef getVertexCount:@"star"]
-                                                        PositionX: x Y:y + 5 Z:z
-                                                       PathPointB:glm::vec4(x2, y2, z2, 1.0f)
-                                                         StepSize:0.07f
-                                                          Texture:[assetManagerRef getTexture:@"star"]
-                                                    TextureCoords:[assetManagerRef getUvs:@"star"] ];
+            enemy = [[JJDynamicEnemy alloc] initWithShaderProgram: [assetManagerRef getShaderProgram:@"star"]
+                                                           Camera: cameraRef
+                                                         Vertices: [assetManagerRef getVertices:@"star"]
+                                                          Normals: [assetManagerRef getNormals:@"star"]
+                                                      VertexCount: [assetManagerRef getVertexCount:@"star"]
+                                                        PositionX: x Y: y+5 Z: z
+                                                       PathPointB: glm::vec4(x2, y2, z2, 1.0f)
+                                                         StepSize: 0.07f
+                                                          Texture: [assetManagerRef getTexture:@"star"]
+                                                    TextureCoords: [assetManagerRef getUvs:@"star"] ];
             [enemy scaleX:3 Y:1.0 Z:3];
             [enemies addObject:enemy];
 
         }
-        cube = [[JJStaticPlatform alloc] initWithShaderProgram: [assetManagerRef getShaderProgram:@"platform"]
-                                                        Camera: cameraRef
-                                                      Vertices: [assetManagerRef getVertices:@"cube"]
-                                                       Normals: [assetManagerRef getNormals:@"cube"]
-                                                   VertexCount: [assetManagerRef getVertexCount:@"cube"]
-                                                     PositionX: x Y: y Z: z
-                                                       Texture: [assetManagerRef getTexture: @"metal"]
-                                                      Texture2: [assetManagerRef getTexture: @"metal_spec"]
-                                                     TexCoords: [assetManagerRef getUvs:@"cube"]
-                                                        Number: num];
-        //[cube scaleY:.5f];
-        [cube scaleX:gridRatios.x Y:gridRatios.y Z:gridRatios.z];
-        // Debugging purposes
-        //[cube setVisible:NO];
-        [blocks addObject:cube];
-        num++;
     }
 //  [characterRef setCheckPoint:glm::vec3(-10,0,-10)];
 //  characterRef.position = glm::vec3(x,y+4,z);

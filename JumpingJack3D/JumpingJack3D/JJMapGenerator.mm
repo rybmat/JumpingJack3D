@@ -44,10 +44,10 @@ float rightForwardPattern[PROPABILITY_MAP_SIZE]  = { 0.1f, 0.0f, 0.0f, 0.1f, 0.0
 float leftBackwardPattern[PROPABILITY_MAP_SIZE]  = { 0.0f, 0.1f, 0.1f, 0.0f, 0.0f,  0.0f,  0.15f, 0.0f,  0.0f,  0.25f, 0.25f, 0.0f,  0.0f,  0.0f,  0.15f, 0.0f,  0.0f };
 float rightBackwardPattern[PROPABILITY_MAP_SIZE] = { 0.0f, 0.1f, 0.0f, 0.1f, 0.0f,  0.0f,  0.0f,  0.15f, 0.0f,  0.25f, 0.0f,  0.25f, 0.0f,  0.0f,  0.0f,  0.15f, 0.0f };
 
-float leftPattern[PROPABILITY_MAP_SIZE]          = { 0.0f, 0.0f, 0.5f, 0.0f, 0.0f,  0.0f, 0.0f,   0.0f,  0.0f,  0.0f,  0.5f,  0.0f,  0.0f,  0.0f,  0.0f,  0.0f,  0.0f };
-float rightPattern[PROPABILITY_MAP_SIZE]         = { 0.0f, 0.0f, 0.0f, 0.5f, 0.0f,  0.0f, 0.0f,   0.0f,  0.0f,  0.0f,  0.0f,  0.5f,  0.0f,  0.0f,  0.0f,  0.0f,  0.0f };
-float forwardPattern[PROPABILITY_MAP_SIZE]       = { 0.5f, 0.0f, 0.0f, 0.0f, 0.0f,  0.0f, 0.0f,   0.0f,  0.5f,  0.0f,  0.0f,  0.0f,  0.0f,  0.0f,  0.0f,  0.0f,  0.0f };
-float backwardPattern[PROPABILITY_MAP_SIZE]      = { 0.0f, 0.5f, 0.0f, 0.0f, 0.0f,  0.0f, 0.0f,   0.0f,  0.0f,  0.5f,  0.0f,  0.0f,  0.0f,  0.0f,  0.0f,  0.0f,  0.0f };
+float leftPattern[PROPABILITY_MAP_SIZE]          = { 0.0f, 0.0f, 0.5f, 0.0f, 0.0f,  0.0f,  0.0f,  0.0f,  0.0f,  0.0f,  0.5f,  0.0f,  0.0f,  0.0f,  0.0f,  0.0f,  0.0f };
+float rightPattern[PROPABILITY_MAP_SIZE]         = { 0.0f, 0.0f, 0.0f, 0.5f, 0.0f,  0.0f,  0.0f,  0.0f,  0.0f,  0.0f,  0.0f,  0.5f,  0.0f,  0.0f,  0.0f,  0.0f,  0.0f };
+float forwardPattern[PROPABILITY_MAP_SIZE]       = { 0.5f, 0.0f, 0.0f, 0.0f, 0.0f,  0.0f,  0.0f,  0.0f,  0.5f,  0.0f,  0.0f,  0.0f,  0.0f,  0.0f,  0.0f,  0.0f,  0.0f };
+float backwardPattern[PROPABILITY_MAP_SIZE]      = { 0.0f, 0.5f, 0.0f, 0.0f, 0.0f,  0.0f,  0.0f,  0.0f,  0.0f,  0.5f,  0.0f,  0.0f,  0.0f,  0.0f,  0.0f,  0.0f,  0.0f };
 
 float* switchPattern[MAX_PATTERN_SIZE] = {&leftForwardPattern[0],   &leftPattern[0],  &leftBackwardPattern[0], &backwardPattern[0],
                                           &rightBackwardPattern[0], &rightPattern[0], &rightForwardPattern[0], &forwardPattern[0]};
@@ -65,6 +65,12 @@ int directionChangerate = 3;
 int currentPattern = 0;
 
 int randomMap[RANDOM_MAP_SIZE];
+
+int dynamicPlatformChance = 10; // 1 in 10
+int maxDx = 4;
+int maxDy = 4;
+int maxDz = 0;
+
 
 - (id) init
 {
@@ -96,19 +102,22 @@ int randomMap[RANDOM_MAP_SIZE];
 - (void) initMap
 {
     for (int i=0; i<self.previousPointsCapacity; ++i) {
-        self.previousPoints[i] = @[[NSNumber numberWithInt:0],[NSNumber numberWithInt:0],[NSNumber numberWithInt:0]];
+        self.previousPoints[i] = @[@"static", [NSNumber numberWithInt:0],[NSNumber numberWithInt:0],[NSNumber numberWithInt:0],
+                                              [NSNumber numberWithInt:0],[NSNumber numberWithInt:0],[NSNumber numberWithInt:0]];
     }
-    self.previousPoints[0] = @[[NSNumber numberWithInt:(int)self.startingPosition.x],
-                               [NSNumber numberWithInt:(int)self.startingPosition.y],
-                               [NSNumber numberWithInt:(int)self.startingPosition.z]];
+    self.previousPoints[0] = @[@"static", [NSNumber numberWithInt:(int)self.startingPosition.x],
+                                          [NSNumber numberWithInt:(int)self.startingPosition.y],
+                                          [NSNumber numberWithInt:(int)self.startingPosition.z],
+                                          [NSNumber numberWithInt:(int)self.startingPosition.x],
+                                          [NSNumber numberWithInt:(int)self.startingPosition.y],
+                                          [NSNumber numberWithInt:(int)self.startingPosition.z]];
     
     [self.map addObject:self.previousPoints[0]];
     self.previousPointsMarker++;
     NSArray* newPoint;
     for (int i = 1; i < self.mapRefreshSize; ++i) {
         do {
-            newPoint = [self add:[self randomizeDirection] toSecond:self.map[i-1]];
-            
+            newPoint = [self makeNewPlatformFrom:[self randomizeDirection] andPreviousPoint:self.map[i-1]];
         } while ([self checkPossiblePoint:newPoint] == NO);
         
         [self.map addObject:newPoint];
@@ -158,8 +167,8 @@ int randomMap[RANDOM_MAP_SIZE];
 {
     int temp = self.previousPointsMarker-2;
     int compareIndex = (temp < 0) ? ( self.previousPointsCapacity + temp ) : temp;
-    if ([self.previousPoints[compareIndex][0] intValue] == [point[0] intValue] and
-        [self.previousPoints[compareIndex][2] intValue] == [point[2] intValue]) {
+    if ([self.previousPoints[compareIndex][4] intValue] == [point[4] intValue] and
+        [self.previousPoints[compareIndex][6] intValue] == [point[6] intValue]) {
         return NO;
     } else {
         return YES;
@@ -170,9 +179,9 @@ int randomMap[RANDOM_MAP_SIZE];
 {
     if ([firstArray isEqualToArray:secondArray]) {
         return YES;
-    } else if ([firstArray[0] intValue] == [secondArray[0] intValue] and
-               [firstArray[2] intValue] == [secondArray[2] intValue] and
-               abs([firstArray[1] intValue] - [secondArray[1] intValue]) <= 1 )
+    } else if ([firstArray[4] intValue] == [secondArray[4] intValue] and
+               [firstArray[6] intValue] == [secondArray[6] intValue] and
+               abs([firstArray[5] intValue] - [secondArray[5] intValue]) <= 1 )
     {
         return YES;
     } else {
@@ -180,11 +189,35 @@ int randomMap[RANDOM_MAP_SIZE];
     }
 }
 
-- (NSArray*) add:(NSArray*)firstArray toSecond:(NSArray*)secondArray
+- (NSArray*) makeNewPlatformFrom:(NSArray*)direction andPreviousPoint:(NSArray*)aPoint
 {
-    return @[[NSNumber numberWithInt:([firstArray[0] intValue]+[secondArray[0] intValue])],
-             [NSNumber numberWithInt:([firstArray[1] intValue]+[secondArray[1] intValue])],
-             [NSNumber numberWithInt:([firstArray[2] intValue]+[secondArray[2] intValue])]];
+    int dirX, dirY, dirZ;
+    dirX = [direction[0] intValue];
+    dirY = [direction[1] intValue];
+    dirZ = [direction[2] intValue];
+    
+    if (rand() % dynamicPlatformChance == 0) {
+
+        int dx, dy, dz;
+        dx = 1 + rand() % maxDx;
+        dy = 1 + rand() % maxDy;
+        dz = 0;//1 + rand() % maxDz;
+        
+        return @[@"dynamic", [NSNumber numberWithInt:(dirX      + [aPoint[4] intValue])],
+                             [NSNumber numberWithInt:(dirY      + [aPoint[5] intValue])],
+                             [NSNumber numberWithInt:(dirZ      + [aPoint[6] intValue])],
+                             [NSNumber numberWithInt:(dirX * dx + [aPoint[4] intValue])],
+                             [NSNumber numberWithInt:(dirY * dy + [aPoint[5] intValue])],
+                             [NSNumber numberWithInt:(dirZ * dz + [aPoint[6] intValue])]];
+    } else {
+        
+        return @[@"static",  [NSNumber numberWithInt:(dirX + [aPoint[4] intValue])],
+                             [NSNumber numberWithInt:(dirY + [aPoint[5] intValue])],
+                             [NSNumber numberWithInt:(dirZ + [aPoint[6] intValue])],
+                             [NSNumber numberWithInt:(dirX + [aPoint[4] intValue])],
+                             [NSNumber numberWithInt:(dirY + [aPoint[5] intValue])],
+                             [NSNumber numberWithInt:(dirZ + [aPoint[6] intValue])]];
+    }
 }
 
 // Modify

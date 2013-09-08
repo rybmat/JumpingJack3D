@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "JJMapGenerator.h"
 #import "JJStaticPlatform.h"
+#import "JJDynamicPlatform.h"
 #import "JJDynamicEnemy.h"
 #import "JJStaticEnemy.h"
 #import "JJAssetManager.h"
