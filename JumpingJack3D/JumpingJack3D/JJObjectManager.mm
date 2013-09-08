@@ -13,8 +13,6 @@
 NSMutableArray* enemies;
 NSMutableArray* blocks;
 
-//NSMutableArray* map;
-
 JJMapGenerator* mapGenerator;
 JJCharacter* characterRef;
 JJFloor* baseFloor;
@@ -63,7 +61,7 @@ glm::vec3 paddingRatios;
                                                                      Texture:[assetManagerRef getTexture:@"star"]
                                                                TextureCoords:[assetManagerRef getUvs:@"star"] ];
         [star scaleX:3 Y:1 Z:3];
-        [self addObject:star];
+        [self addObject:star];        
     }
     return self;
 }
@@ -84,13 +82,16 @@ glm::vec3 paddingRatios;
 
 - (void) generateWorld
 {
-    int x,y,z;
+    float x,y,z;
     int num = 1;
     
     for (NSArray* position in [mapGenerator getWholeMap]) {
         
         NSString* type = position[0];
+        
+        NSLog(@"%@ %@ %@ %@ -> %@ %@ %@", position[0], position[1], position[2], position[3], position[4], position[5], position[6]);
 
+        
         x = [position[1] floatValue] * (gridRatios.x + paddingRatios.x) * 2;
         y = [position[2] floatValue] * (gridRatios.y + paddingRatios.y) * 2 + gridRatios.y;
         z = [position[3] floatValue] * (gridRatios.z + paddingRatios.z) * 2;
@@ -111,12 +112,11 @@ glm::vec3 paddingRatios;
             //[staticPlatform setVisible:NO];
             [blocks addObject:staticPlatform];
             
-            
         } else if ([type isEqualToString:@"dynamic"]) {
             
-            int x2 = [position[4] floatValue] * (gridRatios.x + paddingRatios.x) * 2;
-            int y2 = [position[5] floatValue] * (gridRatios.y + paddingRatios.y) * 2 + gridRatios.y;
-            int z2 = [position[6] floatValue] * (gridRatios.z + paddingRatios.z) * 2;
+            float x2 = [position[4] floatValue] * (gridRatios.x + paddingRatios.x) * 2;
+            float y2 = [position[5] floatValue] * (gridRatios.y + paddingRatios.y) * 2 + gridRatios.y;
+            float z2 = [position[6] floatValue] * (gridRatios.z + paddingRatios.z) * 2;
             
             JJDynamicPlatform* dynamicPlatform = [[JJDynamicPlatform alloc] initWithShaderProgram: [assetManagerRef
                                                              getShaderProgram:@"platform"] Camera: cameraRef
@@ -125,7 +125,7 @@ glm::vec3 paddingRatios;
                                                                                       VertexCount: [assetManagerRef getVertexCount:@"cube"]
                                                                                         PositionX: x Y: y Z: z
                                                                                        PathPointB: glm::vec4(x2, y2, z2, 1.0f)
-                                                                                         StepSize: 0.07
+                                                                                         StepSize: 0.03
                                                                                           Texture: [assetManagerRef getTexture:@"metal"]
                                                                                     TextureCoords: [assetManagerRef getUvs:@"cube"]
                                                                                            Number: num];
@@ -139,9 +139,9 @@ glm::vec3 paddingRatios;
         
         if (num % 14 == 0 && num!=0) {
             NSArray* position2 = [[mapGenerator getWholeMap] objectAtIndex:num + 5];
-            int x2 = [position2[1] floatValue] * (gridRatios.x + paddingRatios.x) * 2;
-            int y2 = [position2[2] floatValue] * (gridRatios.y + paddingRatios.y) * 2 + gridRatios.y + 5;
-            int z2 = [position2[3] floatValue] * (gridRatios.z + paddingRatios.z) * 2;
+            float x2 = [position2[1] floatValue] * (gridRatios.x + paddingRatios.x) * 2;
+            float y2 = [position2[2] floatValue] * (gridRatios.y + paddingRatios.y) * 2 + gridRatios.y + 5;
+            float z2 = [position2[3] floatValue] * (gridRatios.z + paddingRatios.z) * 2;
             
             JJDynamicEnemy* enemy = [[JJDynamicEnemy alloc] initWithShaderProgram: [assetManagerRef getShaderProgram:@"star"]
                                                            Camera: cameraRef
