@@ -33,6 +33,8 @@
 		10C58E8017D8F7BD00AF58D9 /* star.obj in Resources */ = {isa = PBXBuildFile; fileRef = 10C58E7F17D8F7BD00AF58D9 /* star.obj */; };
 		10C58E8317D9005800AF58D9 /* character.gsh in Resources */ = {isa = PBXBuildFile; fileRef = 10C58E8117D8F8EF00AF58D9 /* character.gsh */; };
 		10C6AFD617D5BF8000C87936 /* JJHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C6AFD517D5BF7F00C87936 /* JJHUD.m */; };
+		10E80D8C17DBEF1400DB7E92 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10E80D8A17DBEE4500DB7E92 /* QuartzCore.framework */; };
+		10E80D9017DC08CC00DB7E92 /* jj3d_icons.icns in Resources */ = {isa = PBXBuildFile; fileRef = 10E80D8F17DC08CC00DB7E92 /* jj3d_icons.icns */; };
 		10FE0170179379D3005A218E /* JJAssetManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10FE016F179379D3005A218E /* JJAssetManager.mm */; };
 		10FE017417937A0B005A218E /* JJCamera.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10FE017317937A0B005A218E /* JJCamera.mm */; };
 		10FE017D17937AAA005A218E /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10FE017C17937AAA005A218E /* SenTestingKit.framework */; };
@@ -105,6 +107,8 @@
 		10C58E8117D8F8EF00AF58D9 /* character.gsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = character.gsh; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.glsl; };
 		10C6AFD417D5BF7F00C87936 /* JJHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJHUD.h; sourceTree = "<group>"; };
 		10C6AFD517D5BF7F00C87936 /* JJHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJHUD.m; sourceTree = "<group>"; };
+		10E80D8A17DBEE4500DB7E92 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		10E80D8F17DC08CC00DB7E92 /* jj3d_icons.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = jj3d_icons.icns; sourceTree = "<group>"; };
 		10FE016E179379D3005A218E /* JJAssetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJAssetManager.h; sourceTree = "<group>"; };
 		10FE016F179379D3005A218E /* JJAssetManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = JJAssetManager.mm; sourceTree = "<group>"; };
 		10FE017217937A0B005A218E /* JJCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJCamera.h; sourceTree = "<group>"; };
@@ -192,6 +196,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10E80D8C17DBEF1400DB7E92 /* QuartzCore.framework in Frameworks */,
 				61D82390178DE6DE00ABF4E4 /* OpenGL.framework in Frameworks */,
 				61D82370178DE0B700ABF4E4 /* Cocoa.framework in Frameworks */,
 			);
@@ -283,6 +288,7 @@
 			isa = PBXGroup;
 			children = (
 				109709F517B6773200B51086 /* teapot.h */,
+				10E80D8F17DC08CC00DB7E92 /* jj3d_icons.icns */,
 				10FE018E17937D83005A218E /* textures */,
 				10FE018D17937D72005A218E /* models */,
 				6130D168178EF36F004F2FA5 /* shaders */,
@@ -377,7 +383,6 @@
 			isa = PBXGroup;
 			children = (
 				10FE01AA1794E01A005A218E /* TODO.txt */,
-				61D8238F178DE6DE00ABF4E4 /* OpenGL.framework */,
 				61D82375178DE0B700ABF4E4 /* JumpingJack3D */,
 				10FE017F17937AAA005A218E /* JJUnitTesting */,
 				61D8236E178DE0B700ABF4E4 /* Frameworks */,
@@ -397,6 +402,8 @@
 		61D8236E178DE0B700ABF4E4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				10E80D8A17DBEE4500DB7E92 /* QuartzCore.framework */,
+				61D8238F178DE6DE00ABF4E4 /* OpenGL.framework */,
 				61D8236F178DE0B700ABF4E4 /* Cocoa.framework */,
 				10FE017C17937AAA005A218E /* SenTestingKit.framework */,
 				61D82371178DE0B700ABF4E4 /* Other Frameworks */,
@@ -555,6 +562,7 @@
 				6154A3A017D32C6A00910FBF /* metal_spec.tga in Resources */,
 				10C58E7A17D8F55A00AF58D9 /* star.jpg in Resources */,
 				10C58E8017D8F7BD00AF58D9 /* star.obj in Resources */,
+				10E80D9017DC08CC00DB7E92 /* jj3d_icons.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

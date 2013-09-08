@@ -24,6 +24,40 @@ out vec4 iVectorL0;
 out vec4 iVectorL1;
 out vec2 iTexCoords0;
 
+/*
+ const float cubeVertices[72] = float[72](
+ 1.0, -1.0,  1.0,
+ 1.0,  1.0,  1.0,
+ -1.0, -1.0,  1.0,
+ -1.0,  1.0,  1.0,
+ 
+ 1.0, -1.0, -1.0,
+ 1.0,  1.0, -1.0,
+ -1.0, -1.0, -1.0,
+ -1.0,  1.0, -1.0,
+ 
+ -1.0, -1.0,  1.0,
+ -1.0,  1.0,  1.0,
+ -1.0, -1.0, -1.0,
+ -1.0,  1.0, -1.0,
+ 
+ 1.0, -1.0,  1.0,
+ 1.0,  1.0,  1.0,
+ 1.0, -1.0, -1.0,
+ 1.0,  1.0, -1.0,
+ 
+ 1.0,  1.0, -1.0,
+ 1.0,  1.0,  1.0,
+ -1.0,  1.0, -1.0,
+ -1.0,  1.0,  1.0,
+ 
+ 1.0, -1.0, -1.0,
+ 1.0, -1.0,  1.0,
+ -1.0, -1.0, -1.0,
+ -1.0, -1.0,  1.0
+ );
+ */
+
 vec3 v0, v1, v2;
 vec3 cg;
 
@@ -31,233 +65,104 @@ const float gravity   = 0.00005;
 const float velMul    = 2.5;
 const float voxelSize = 0.04;
 
-void makeVertex(float s, float t)
+
+void makeVertex(vec4 vertex, vec2 color, vec4 position)
+{
+    iVectorV    = gVectorV[0];
+    iVectorN    = gVectorN[0];
+    iVectorL0   = gVectorL0[0];
+    iVectorL1   = gVectorL1[0];
+    iTexCoords0 = color;
+    gl_Position = P * V * ( position + vertex * voxelSize);
+    EmitVertex();
+}
+
+void makeCube(float s, float t)
 {
     vec3 v = v0 + s * v1 + t * v2;
     float velocity = velocityMultiplier[0] * length(v - cg);
     vec3 np = normalize(cross(v1.xyz,v2.xyz));
     vec3 position = time * np * velocity;
     
-    position.y -= gravity *  time * time;
+    position.y -= gravity * time * time;
     
-//    for (int i=0; i < gl_in.length(); i++) {
-//        vec4 new_pos = (gl_in[i].gl_Position + vec4(position, 0));
-//        if (new_pos.y < 0) {
-//            new_pos.y = 0.1;
-//        }
-//        gl_Position = P * V * new_pos;
-//        iVectorV    = vec4(s,t,0,0);
-//        
-//        EmitVertex();
-//    }
-//    
-//    EndPrimitive();
-
+/*
+    for (int i=0; i < gl_in.length(); i++) {
+        vec4 new_pos = (gl_in[i].gl_Position + vec4(position, 0));
+        if (new_pos.y < 0) {
+            new_pos.y = 0.1;
+        }
+        gl_Position = P * V * new_pos;
+        iVectorV    = vec4(s,t,0,0);
+        
+        EmitVertex();
+    }
+    
+    EndPrimitive();
+*/
+    vec4 new_pos = gl_in[0].gl_Position + vec4(position, 0);
+    
+    if (new_pos.y < voxelSize/2) {
+        new_pos.y = voxelSize/2;
+    }
+    
     vec2 color = vec2(s,t);
     
-    iVectorV    = gVectorV[0];
-    iVectorN    = gVectorN[0];
-    iVectorL0   = gVectorL0[0];
-    iVectorL1   = gVectorL1[0];
-    iTexCoords0 = color;
-    gl_Position = P * V * (gl_in[0].gl_Position + vec4(position, 0) + vec4(voxelSize, -voxelSize, voxelSize, 0.0));
-    EmitVertex();
+/*
+    for (int i=0; i<24; i++) {
+        iVectorV    = gVectorV[0];
+        iVectorN    = gVectorN[0];
+        iVectorL0   = gVectorL0[0];
+        iVectorL1   = gVectorL1[0];
+        iTexCoords0 = color;
+            
+        gl_Position = P * V * (new_pos + vec4(voxelSize * cubeVertices[3*i    ],
+                                              voxelSize * cubeVertices[3*i + 1],
+                                              voxelSize * cubeVertices[3*i + 2],
+                                              0.0));
+        EmitVertex();
+        if (i%4 == 3) {
+            EndPrimitive();
+        }
+    }
+*/
 
-    iVectorV    = gVectorV[0];
-    iVectorN    = gVectorN[0];
-    iVectorL0   = gVectorL0[0];
-    iVectorL1   = gVectorL1[0];
-    iTexCoords0 = color;
-    gl_Position = P * V * (gl_in[0].gl_Position + vec4(position, 0) + vec4(voxelSize, voxelSize, voxelSize, 0.0));
-    EmitVertex();
+    makeVertex(vec4( 1, -1,  1, 0), color, new_pos);
+    makeVertex(vec4( 1,  1,  1, 0), color, new_pos);
+    makeVertex(vec4(-1, -1,  1, 0), color, new_pos);
+    makeVertex(vec4(-1,  1,  1, 0), color, new_pos);
+    EndPrimitive();
+    
+    makeVertex(vec4( 1, -1, -1, 0), color, new_pos);
+    makeVertex(vec4( 1,  1, -1, 0), color, new_pos);
+    makeVertex(vec4(-1, -1, -1, 0), color, new_pos);
+    makeVertex(vec4(-1,  1, -1, 0), color, new_pos);
+    EndPrimitive();
+    
+    makeVertex(vec4(-1, -1,  1, 0), color, new_pos);
+    makeVertex(vec4(-1,  1,  1, 0), color, new_pos);
+    makeVertex(vec4(-1, -1, -1, 0), color, new_pos);
+    makeVertex(vec4(-1,  1, -1, 0), color, new_pos);
+    EndPrimitive();
+    
+    makeVertex(vec4( 1, -1,  1, 0), color, new_pos);
+    makeVertex(vec4( 1,  1,  1, 0), color, new_pos);
+    makeVertex(vec4( 1, -1, -1, 0), color, new_pos);
+    makeVertex(vec4( 1,  1, -1, 0), color, new_pos);
+    EndPrimitive();
+    
+    makeVertex(vec4( 1,  1, -1, 0), color, new_pos);
+    makeVertex(vec4( 1,  1,  1, 0), color, new_pos);
+    makeVertex(vec4(-1,  1, -1, 0), color, new_pos);
+    makeVertex(vec4(-1,  1,  1, 0), color, new_pos);
+    EndPrimitive();
+    
+    makeVertex(vec4( 1, -1, -1, 0), color, new_pos);
+    makeVertex(vec4( 1, -1,  1, 0), color, new_pos);
+    makeVertex(vec4(-1, -1, -1, 0), color, new_pos);
+    makeVertex(vec4(-1, -1,  1, 0), color, new_pos);
+    EndPrimitive();
 
-    iVectorV    = gVectorV[0];
-    iVectorN    = gVectorN[0];
-    iVectorL0   = gVectorL0[0];
-    iVectorL1   = gVectorL1[0];
-    iTexCoords0 = color;
-    gl_Position = P * V * (gl_in[0].gl_Position + vec4(position, 0) + vec4(-voxelSize, -voxelSize, voxelSize, 0.0));
-    EmitVertex();
-
-    iVectorV    = gVectorV[0];
-    iVectorN    = gVectorN[0];
-    iVectorL0   = gVectorL0[0];
-    iVectorL1   = gVectorL1[0];
-    iTexCoords0 = color;
-    gl_Position = P * V * (gl_in[0].gl_Position + vec4(position, 0) +  vec4(-voxelSize, voxelSize, voxelSize, 0.0));
-    EmitVertex();
-    
-    EndPrimitive();
-    
-    iVectorV    = gVectorV[0];
-    iVectorN    = gVectorN[0];
-    iVectorL0   = gVectorL0[0];
-    iVectorL1   = gVectorL1[0];
-    iTexCoords0 = color;
-    gl_Position = P * V * (gl_in[0].gl_Position + vec4(position, 0) + vec4(voxelSize, -voxelSize, -voxelSize, 0.0));
-    EmitVertex();
-    
-    iVectorV    = gVectorV[0];
-    iVectorN    = gVectorN[0];
-    iVectorL0   = gVectorL0[0];
-    iVectorL1   = gVectorL1[0];
-    iTexCoords0 = color;
-    gl_Position = P * V * (gl_in[0].gl_Position + vec4(position, 0) + vec4(voxelSize, voxelSize, -voxelSize, 0.0));
-    EmitVertex();
-
-    iVectorV    = gVectorV[0];
-    iVectorN    = gVectorN[0];
-    iVectorL0   = gVectorL0[0];
-    iVectorL1   = gVectorL1[0];
-    iTexCoords0 = color;
-    gl_Position = P * V * (gl_in[0].gl_Position + vec4(position, 0) + vec4(-voxelSize, -voxelSize, -voxelSize, 0.0));
-    EmitVertex();
-    
-    iVectorV    = gVectorV[0];
-    iVectorN    = gVectorN[0];
-    iVectorL0   = gVectorL0[0];
-    iVectorL1   = gVectorL1[0];
-    iTexCoords0 = color;
-    gl_Position = P * V * (gl_in[0].gl_Position + vec4(position, 0) +  vec4(-voxelSize, voxelSize, -voxelSize, 0.0));
-    EmitVertex();
-    
-    EndPrimitive();
-    
-    iVectorV    = gVectorV[0];
-    iVectorN    = gVectorN[0];
-    iVectorL0   = gVectorL0[0];
-    iVectorL1   = gVectorL1[0];
-    iTexCoords0 = color;
-    gl_Position = P * V * (gl_in[0].gl_Position + vec4(position, 0) + vec4(-voxelSize, -voxelSize, voxelSize, 0.0));
-    EmitVertex();
-    
-    iVectorV    = gVectorV[0];
-    iVectorN    = gVectorN[0];
-    iVectorL0   = gVectorL0[0];
-    iVectorL1   = gVectorL1[0];
-    iTexCoords0 = color;
-    gl_Position = P * V * (gl_in[0].gl_Position + vec4(position, 0) + vec4(-voxelSize, voxelSize, voxelSize, 0.0));
-    EmitVertex();
-    
-    iVectorV    = gVectorV[0];
-    iVectorN    = gVectorN[0];
-    iVectorL0   = gVectorL0[0];
-    iVectorL1   = gVectorL1[0];
-    iTexCoords0 = color;
-    gl_Position = P * V * (gl_in[0].gl_Position + vec4(position, 0) + vec4(-voxelSize, -voxelSize, -voxelSize, 0.0));
-    EmitVertex();
-    
-    iVectorV    = gVectorV[0];
-    iVectorN    = gVectorN[0];
-    iVectorL0   = gVectorL0[0];
-    iVectorL1   = gVectorL1[0];
-    iTexCoords0 = color;
-    gl_Position = P * V * (gl_in[0].gl_Position + vec4(position, 0) +  vec4(-voxelSize, voxelSize, -voxelSize, 0.0));
-    EmitVertex();
-    
-    EndPrimitive();
-    
-    iVectorV    = gVectorV[0];
-    iVectorN    = gVectorN[0];
-    iVectorL0   = gVectorL0[0];
-    iVectorL1   = gVectorL1[0];
-    iTexCoords0 = color;
-    gl_Position = P * V * (gl_in[0].gl_Position + vec4(position, 0) + vec4(voxelSize, -voxelSize, voxelSize, 0.0));
-    EmitVertex();
-    
-    iVectorV    = gVectorV[0];
-    iVectorN    = gVectorN[0];
-    iVectorL0   = gVectorL0[0];
-    iVectorL1   = gVectorL1[0];
-    iTexCoords0 = color;
-    gl_Position = P * V * (gl_in[0].gl_Position + vec4(position, 0) + vec4(voxelSize, voxelSize, voxelSize, 0.0));
-    EmitVertex();
-    
-    iVectorV    = gVectorV[0];
-    iVectorN    = gVectorN[0];
-    iVectorL0   = gVectorL0[0];
-    iVectorL1   = gVectorL1[0];
-    iTexCoords0 = color;
-    gl_Position = P * V * (gl_in[0].gl_Position + vec4(position, 0) + vec4(voxelSize, -voxelSize, -voxelSize, 0.0));
-    EmitVertex();
-    
-    iVectorV    = gVectorV[0];
-    iVectorN    = gVectorN[0];
-    iVectorL0   = gVectorL0[0];
-    iVectorL1   = gVectorL1[0];
-    iTexCoords0 = color;
-    gl_Position = P * V * (gl_in[0].gl_Position + vec4(position, 0) +  vec4(voxelSize, voxelSize, -voxelSize, 0.0));
-    EmitVertex();
-    
-    EndPrimitive();
-    
-    iVectorV    = gVectorV[0];
-    iVectorN    = gVectorN[0];
-    iVectorL0   = gVectorL0[0];
-    iVectorL1   = gVectorL1[0];
-    iTexCoords0 = color;
-    gl_Position = P * V * (gl_in[0].gl_Position + vec4(position, 0) + vec4(voxelSize, voxelSize, -voxelSize, 0.0));
-    EmitVertex();
-    
-    iVectorV    = gVectorV[0];
-    iVectorN    = gVectorN[0];
-    iVectorL0   = gVectorL0[0];
-    iVectorL1   = gVectorL1[0];
-    iTexCoords0 = color;
-    gl_Position = P * V * (gl_in[0].gl_Position + vec4(position, 0) + vec4(voxelSize, voxelSize, voxelSize, 0.0));
-    EmitVertex();
-    
-    iVectorV    = gVectorV[0];
-    iVectorN    = gVectorN[0];
-    iVectorL0   = gVectorL0[0];
-    iVectorL1   = gVectorL1[0];
-    iTexCoords0 = color;
-    gl_Position = P * V * (gl_in[0].gl_Position + vec4(position, 0) + vec4(-voxelSize, voxelSize, -voxelSize, 0.0));
-    EmitVertex();
-    
-    iVectorV    = gVectorV[0];
-    iVectorN    = gVectorN[0];
-    iVectorL0   = gVectorL0[0];
-    iVectorL1   = gVectorL1[0];
-    iTexCoords0 = color;
-    gl_Position = P * V * (gl_in[0].gl_Position + vec4(position, 0) +  vec4(-voxelSize, voxelSize, voxelSize, 0.0));
-    EmitVertex();
-    
-    EndPrimitive();
-    
-    iVectorV    = gVectorV[0];
-    iVectorN    = gVectorN[0];
-    iVectorL0   = gVectorL0[0];
-    iVectorL1   = gVectorL1[0];
-    iTexCoords0 = color;
-    gl_Position = P * V * (gl_in[0].gl_Position + vec4(position, 0) + vec4(voxelSize, -voxelSize, -voxelSize, 0.0));
-    EmitVertex();
-    
-    iVectorV    = gVectorV[0];
-    iVectorN    = gVectorN[0];
-    iVectorL0   = gVectorL0[0];
-    iVectorL1   = gVectorL1[0];
-    iTexCoords0 = color;
-    gl_Position = P * V * (gl_in[0].gl_Position + vec4(position, 0) + vec4(voxelSize, -voxelSize, voxelSize, 0.0));
-    EmitVertex();
-    
-    iVectorV    = gVectorV[0];
-    iVectorN    = gVectorN[0];
-    iVectorL0   = gVectorL0[0];
-    iVectorL1   = gVectorL1[0];
-    iTexCoords0 = color;
-    gl_Position = P * V * (gl_in[0].gl_Position + vec4(position, 0) + vec4(-voxelSize, -voxelSize, -voxelSize, 0.0));
-    EmitVertex();
-    
-    iVectorV    = gVectorV[0];
-    iVectorN    = gVectorN[0];
-    iVectorL0   = gVectorL0[0];
-    iVectorL1   = gVectorL1[0];
-    iTexCoords0 = color;
-    gl_Position = P * V * (gl_in[0].gl_Position + vec4(position, 0) +  vec4(-voxelSize, -voxelSize, voxelSize, 0.0));
-    EmitVertex();
-    
-    EndPrimitive();
 }
 
 void main() {
@@ -283,7 +188,7 @@ void main() {
             float s = 0.0;
            
             for (int is =0 ; is < nums; is++) {
-                makeVertex(s,t);
+                makeCube(s,t);
                 s += ds;
             }
             t -= dt;

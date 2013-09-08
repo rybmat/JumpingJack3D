@@ -12,6 +12,9 @@
 
 static NSTextField* scoreAndLives;
 static NSTextField* centeredMessage;
+static NSTextField* fpsCounter;
+
+static BOOL fpsCounterVisible = YES;
 
 NSRect screenSize;
 
@@ -45,6 +48,16 @@ NSRect screenSize;
         [centeredMessage setTextColor:[NSColor colorWithCalibratedRed:0 green:1 blue:0.8f alpha:1]];
         [centeredMessage setFont:font];
         [self addSubview:centeredMessage positioned:-1 relativeTo:self];
+        
+        fpsCounter  = [[NSTextField alloc] initWithFrame:NSMakeRect(screenSize.size.width - 100, screenSize.size.height - 100, 250, 50)];
+        [fpsCounter setStringValue:@""];
+        [fpsCounter setBezeled:NO];
+        [fpsCounter setDrawsBackground:NO];
+        [fpsCounter setEditable:NO];
+        [fpsCounter setSelectable:NO];
+        [fpsCounter setTextColor:[NSColor colorWithCalibratedRed:1 green:0.0f blue:0.0f alpha:1]];
+        [fpsCounter setFont:font];
+        [self addSubview:fpsCounter positioned:-1 relativeTo:self];
     }
     
     return self;
@@ -72,4 +85,20 @@ NSRect screenSize;
     [NSTimer scheduledTimerWithTimeInterval:seconds target:self selector:@selector(changeMessage:) userInfo:@"" repeats:NO];
 }
 
++ (void) updateFPS:(float) fps
+{
+    if (fpsCounterVisible == YES) {
+        [fpsCounter setStringValue:[NSString stringWithFormat:@"%.1f", fps]];
+    }
+}
+
++ (void) toggleFPSCounter;
+{
+    fpsCounterVisible = !fpsCounterVisible;
+    if (fpsCounterVisible == YES) {
+        [fpsCounter setHidden:NO];
+    } else {
+        [fpsCounter setHidden:YES];
+    }
+}
 @end

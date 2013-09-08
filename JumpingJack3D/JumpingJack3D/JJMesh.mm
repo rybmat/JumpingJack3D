@@ -66,20 +66,20 @@
         // Parsing normals
         else if ([line hasPrefix:@"vn "])
         {
-            NSString* lineTrunc = [line substringFromIndex:2];
+            NSString* lineTrunc = [line substringFromIndex:3];
             NSArray* lineNormals = [lineTrunc componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-            tempNormals[normalsPos  ] = [[lineNormals objectAtIndex:1] floatValue];
-            tempNormals[normalsPos+1] = [[lineNormals objectAtIndex:2] floatValue];
-            tempNormals[normalsPos+2] = [[lineNormals objectAtIndex:3] floatValue];
+            tempNormals[normalsPos  ] = [[lineNormals objectAtIndex:0] floatValue];
+            tempNormals[normalsPos+1] = [[lineNormals objectAtIndex:1] floatValue];
+            tempNormals[normalsPos+2] = [[lineNormals objectAtIndex:2] floatValue];
             normalsPos += 3;
         }
         // Parsing texture coordinates
-        else if ([line hasPrefix:@"vt"])
+        else if ([line hasPrefix:@"vt "])
         {
-            NSString* lineTrunc = [line substringFromIndex:2];
+            NSString* lineTrunc = [line substringFromIndex:3];
             NSArray* lineUVs = [lineTrunc componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-            tempUVs[uvPos  ] = [[lineUVs objectAtIndex:1] floatValue];
-            tempUVs[uvPos+1] = [[lineUVs objectAtIndex:2] floatValue];
+            tempUVs[uvPos  ] = [[lineUVs objectAtIndex:0] floatValue];
+            tempUVs[uvPos+1] = [[lineUVs objectAtIndex:1] floatValue];
             
             uvPos += 2;
         }

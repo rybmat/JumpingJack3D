@@ -8,6 +8,8 @@
 	<string>en</string>
 	<key>CFBundleExecutable</key>
 	<string>JumpingJack3D</string>
+	<key>CFBundleIconFile</key>
+	<string>jj3d_icons.icns</string>
 	<key>CFBundleIdentifier</key>
 	<string>ryba.JumpingJack3D</string>
 	<key>CFBundleInfoDictionaryVersion</key>
@@ -36,6 +38,8 @@
 	<string>0463</string>
 	<key>DTXcodeBuild</key>
 	<string>4H1503</string>
+	<key>LSApplicationCategoryType</key>
+	<string>public.app-category.action-games</string>
 	<key>LSMinimumSystemVersion</key>
 	<string>10.8</string>
 	<key>NSHumanReadableCopyright</key>

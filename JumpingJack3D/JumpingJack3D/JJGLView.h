@@ -8,8 +8,10 @@
 
 #import <Cocoa/Cocoa.h>
 #import <CoreGraphics/CoreGraphics.h>
+#import <QuartzCore/QuartzCore.h>
 #import <Foundation/Foundation.h>
 #import <OpenGL/gl3.h>
+#import <QuartzCore/CABase.h>
 
 #import "glm/glm.hpp"
 #import "glm/gtc/matrix_transform.hpp"

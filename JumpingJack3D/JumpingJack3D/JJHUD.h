@@ -14,4 +14,8 @@
 
 + (void) changeMessage:(NSTimer*)timer;
 + (void) flashMessage:(NSString*)message for:(float)seconds;
+
++ (void) updateFPS:(float) fps;
++ (void) toggleFPSCounter;
+
 @end

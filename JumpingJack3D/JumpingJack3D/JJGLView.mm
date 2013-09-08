@@ -20,8 +20,8 @@
 #define TAB 9
 
 #import "JJGLView.h"
-#import "cube.h"
-#import "teapot.h"
+#import "assets/cube.h"
+#import "assets/teapot.h"
 
 @implementation JJGLView
 
@@ -35,11 +35,14 @@ NSMutableSet* keyPressed;
 
 BOOL mousePressed;
 
+double previousTime;
+
 - (id)initWithFrame:(NSRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
         mousePressed = NO;
+        previousTime = CACurrentMediaTime();
     }
     
     return self;
@@ -130,7 +133,6 @@ BOOL mousePressed;
 
 - (void) timerFired: (id)sender
 {
-    
     [self processKeys];
     [self nextFrame];
     [self display];
@@ -148,6 +150,10 @@ BOOL mousePressed;
 
 - (void)drawRect:(NSRect)dirtyRect
 {
+    double frameTime = CACurrentMediaTime() - previousTime;
+    previousTime = CACurrentMediaTime();
+    [JJHUD updateFPS: 1 / (float)frameTime];
+    
     glClearColor(0,0,0,1);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
@@ -177,6 +183,8 @@ BOOL mousePressed;
                     _case_flag('s',   [character moveBackwards], clickedWorS)
                     _case_flag('a',   [character strafeLeft], clickedAorD)
                     _case_flag('d',   [character strafeRight], clickedAorD)
+                    
+                    _case('u', [JJHUD toggleFPSCounter])
                     
                     _case(SPACE, [character jump])
                     _case('z',   [character dive])
@@ -223,9 +231,6 @@ BOOL mousePressed;
 
 - (void) keyUp:(NSEvent*)theEvent
 {
-    if (9 == [[theEvent characters] characterAtIndex:0]) {
-        [objManager showNewBlock];
-    }
     if (keyPressed == nil) {
         keyPressed = [[NSMutableSet alloc] init];
     }
@@ -235,7 +240,10 @@ BOOL mousePressed;
 
 - (void) keyDown:(NSEvent*)theEvent
 {
-
+    if ([[theEvent characters] characterAtIndex:0] == TAB) {
+        [JJHUD toggleFPSCounter];
+    }
+    
     if (keyPressed == nil) {
         keyPressed = [[NSMutableSet alloc] init];
     }

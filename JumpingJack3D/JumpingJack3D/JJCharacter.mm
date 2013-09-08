@@ -89,6 +89,8 @@ BOOL setToDie = NO;
 	_bufNormals    = [self makeBuffer: [self normals] vCount: [self vertexCount] vSize: sizeof(float)*4];
     _bufTexCoords  = [self makeBuffer: _texCoords0 vCount: [self vertexCount] vSize:sizeof(float) *2];
     _velMultiplier = [self makeBuffer:velMulBuffer vCount: [self vertexCount] vSize:sizeof(float)];
+    
+    free(velMulBuffer);
 }
 
 - (GLuint) makeBuffer: (void*) data vCount: (int) vertexCount vSize: (int) vertexSize {
@@ -219,7 +221,6 @@ BOOL setToDie = NO;
             [self rotateSidewardBy: rotateSign * [self calculateRotationFromMoveVector:moveSidewardVector]];
         }
     }
-    
 }
 
 - (void) moveForwards
@@ -256,19 +257,25 @@ BOOL setToDie = NO;
 
 - (void) rotateRight
 {
-    float angle = - self.angularVelocity * invertedFrameRate;
-    [self rotateYby:angle];
+    if (isExploding == NO) {
+        float angle = - self.angularVelocity * invertedFrameRate;
+        [self rotateYby:angle];
+    }
 }
 
 - (void) rotateLeft
 {
-    float angle = self.angularVelocity * invertedFrameRate;
-    [self rotateYby:angle];
+    if (isExploding == NO) {
+        float angle = self.angularVelocity * invertedFrameRate;
+        [self rotateYby:angle];
+    }
 }
 
 - (void) rotateBy:(float)angle
 {
-    [self rotateYby:angle];
+    if (isExploding == NO) {
+        [self rotateYby:angle];
+    }
 }
 
 - (void) jump 
